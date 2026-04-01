@@ -79,7 +79,7 @@ export default function SocialProofSection() {
 
   const items = [...TESTIMONIALS, ...TESTIMONIALS];
 
-  const animateRef = useRef<() => void>();
+  const animateRef = useRef<() => void>(undefined);
 
   const animate = useCallback(() => {
     const track = trackRef.current;
