@@ -1,17 +1,17 @@
-import { IS_WAITLIST } from '../config'
-import Navbar from './Navbar'
-import WaitlistForm from './WaitlistForm'
+import { IS_WAITLIST } from "../config";
+import Navbar from "./Navbar";
+import WaitlistForm from "./WaitlistForm";
 
 export default function HeroSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative h-[852px] overflow-hidden bg-[#FFFEEC] sm:h-[854px] md:h-[898px] lg:h-[1021px]"
+      className="relative h-[809px] overflow-hidden bg-[#FFFEEC] sm:h-[854px] md:h-[898px] lg:h-[1021px]"
     >
       {/* Orange blur */}
       <div
         className="pointer-events-none absolute bottom-0 left-1/2 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-[#E96D1F] opacity-30 lg:h-[516px] lg:w-[825px]"
-        style={{ filter: 'blur(252px)' }}
+        style={{ filter: "blur(252px)" }}
         aria-hidden="true"
       />
 
@@ -46,18 +46,10 @@ export default function HeroSection() {
           </span>
         </div>
 
-        {/* Hidden SEO H1 — keyword-rich for crawlers */}
+        {/* SEO H1 — visible to crawlers via SSR, visually hidden */}
         <h1 className="sr-only">
-          Automate Your Subscriptions and Bills in Nigeria — Virtual USD Cards and Recurring Bill
-          Pay for Netflix, Spotify, DSTV, Airtime, Data, and Power
+          Automate Your Subscriptions and Bills in Nigeria
         </h1>
-        <p className="sr-only">
-          Subsecute is a recurring payment automation app for Nigerians. Pay for Netflix, Spotify,
-          ChatGPT, and 50+ international subscriptions with dedicated virtual USD cards funded from
-          your Naira wallet. Auto-pay your airtime, data bundles, DSTV, GOtv, and power bills every
-          month. Cancel any subscription in one tap. Share plans with family and friends. The
-          easiest way to manage recurring payments in Nigeria.
-        </p>
 
         {/* Visible creative heading */}
         <div
@@ -91,8 +83,8 @@ export default function HeroSection() {
 
         {/* Subtitle — value prop flows into loss aversion as one thought */}
         <p className="mt-4 max-w-[540px] text-center font-outfit text-sm leading-[1.6em] tracking-wide text-[#6C757D] sm:text-base lg:mt-5 lg:text-lg">
-          Auto-pay your Netflix, DSTV, airtime, data, and power. No more declined cards. No more
-          midnight data runs.
+          Auto-pay your Netflix, DSTV, airtime, data, and power. No more
+          declined cards. No more midnight data runs.
         </p>
 
         {/* CTA — switches based on launch mode */}
@@ -121,5 +113,5 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

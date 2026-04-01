@@ -1,41 +1,42 @@
-'use client'
+"use client";
 
-import { useState, useEffect, useCallback } from 'react'
-import { IS_WAITLIST } from '../config'
+import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
+import { IS_WAITLIST } from "../config";
 
 const NAV_LINKS = [
-  { label: 'About', href: '#about' },
-  { label: 'Features', href: '#features' },
-  { label: 'How it works', href: '#how-it-works' },
-  { label: 'FAQ', href: '#faq' }
-] as const
+  { label: "About", href: "#about" },
+  { label: "Features", href: "#features" },
+  { label: "How it works", href: "#how-it-works" },
+  { label: "FAQ", href: "#faq" },
+] as const;
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   // Lock body scroll when drawer is open
   useEffect(() => {
     if (open) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ''
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = ''
-    }
-  }, [open])
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   // Close on escape key
   useEffect(() => {
-    if (!open) return
+    if (!open) return;
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false)
-    }
-    window.addEventListener('keydown', handleKey)
-    return () => window.removeEventListener('keydown', handleKey)
-  }, [open])
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [open]);
 
-  const close = useCallback(() => setOpen(false), [])
+  const close = useCallback(() => setOpen(false), []);
 
   return (
     <>
@@ -43,9 +44,13 @@ export default function Navbar() {
         aria-label="Main navigation"
         className="relative z-50 mx-auto flex max-w-[1240px] items-center justify-between rounded-xl border border-[#DEE2E6] px-5 py-2.5"
       >
-        <a href="/" aria-label="Subsecute home">
-          <img src="/images/landing/logo.png" alt="Subsecute logo" className="h-8 w-auto" />
-        </a>
+        <Link href="/" aria-label="Subsecute home">
+          <img
+            src="/images/landing/logo.png"
+            alt="Subsecute logo"
+            className="h-8 w-auto"
+          />
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden items-center gap-4 md:flex">
@@ -65,7 +70,7 @@ export default function Navbar() {
             href="#download"
             className="rounded-full bg-[#E96D1F] px-5 py-2 font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90"
           >
-            {IS_WAITLIST ? 'Join Waitlist' : 'Get the App'}
+            {IS_WAITLIST ? "Join Waitlist" : "Get the App"}
           </a>
         </div>
 
@@ -73,26 +78,26 @@ export default function Navbar() {
         <button
           onClick={() => setOpen(!open)}
           className="relative z-50 flex h-8 w-8 flex-col items-center justify-center gap-1.5 md:hidden"
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
           <span
             className="block h-0.5 w-5 bg-[#232323] transition-all duration-200"
             style={{
-              transform: open ? 'rotate(45deg) translateY(4px)' : 'none'
+              transform: open ? "rotate(45deg) translateY(4px)" : "none",
             }}
           />
           <span
             className="block h-0.5 w-5 bg-[#232323] transition-all duration-200"
             style={{
               opacity: open ? 0 : 1,
-              transform: open ? 'scaleX(0)' : 'scaleX(1)'
+              transform: open ? "scaleX(0)" : "scaleX(1)",
             }}
           />
           <span
             className="block h-0.5 w-5 bg-[#232323] transition-all duration-200"
             style={{
-              transform: open ? 'rotate(-45deg) translateY(-4px)' : 'none'
+              transform: open ? "rotate(-45deg) translateY(-4px)" : "none",
             }}
           />
         </button>
@@ -102,7 +107,7 @@ export default function Navbar() {
       {/* Backdrop */}
       <div
         className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-200 md:hidden ${
-          open ? 'opacity-100' : 'pointer-events-none opacity-0'
+          open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={close}
         aria-hidden="true"
@@ -111,7 +116,7 @@ export default function Navbar() {
       {/* Panel — full width on mobile */}
       <div
         className={`fixed inset-0 z-50 flex flex-col bg-white transition-transform duration-200 ease-out md:hidden ${
-          open ? 'translate-x-0' : 'translate-x-full'
+          open ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
         aria-modal="true"
@@ -119,9 +124,13 @@ export default function Navbar() {
       >
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[#F0F0F0] px-6 py-4">
-          <a href="/" onClick={close}>
-            <img src="/images/landing/logo.png" alt="Subsecute" className="h-7 w-auto" />
-          </a>
+          <Link href="/" onClick={close}>
+            <img
+              src="/images/landing/logo.png"
+              alt="Subsecute"
+              className="h-7 w-auto"
+            />
+          </Link>
           <button
             onClick={close}
             aria-label="Close menu"
@@ -176,7 +185,7 @@ export default function Navbar() {
               onClick={close}
               className="flex h-12 w-full items-center justify-center rounded-full bg-[#E96D1F] font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90"
             >
-              {IS_WAITLIST ? 'Join Waitlist' : 'Get the App'}
+              {IS_WAITLIST ? "Join Waitlist" : "Get the App"}
             </a>
           </div>
         </div>
@@ -204,5 +213,5 @@ export default function Navbar() {
         </div>
       </div>
     </>
-  )
+  );
 }

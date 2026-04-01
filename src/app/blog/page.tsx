@@ -1,23 +1,27 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import { getAllPosts } from '@/lib/blog'
+import type { Metadata } from "next";
+import Link from "next/link";
+import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: 'Blog',
+  title: "Blog",
   description:
-    'Guides, tips, and insights about managing subscriptions and bills in Nigeria.',
-  alternates: { canonical: '/blog' }
-}
+    "Guides, tips, and insights about managing subscriptions and bills in Nigeria.",
+  alternates: { canonical: "/blog" },
+};
 
 export default function BlogIndex() {
-  const posts = getAllPosts()
+  const posts = getAllPosts();
 
   return (
     <div className="min-h-screen bg-[#FFFEEC]">
       <nav className="border-b border-[#DEE2E6] bg-white px-4 py-4">
         <div className="mx-auto flex max-w-[800px] items-center justify-between">
           <Link href="/">
-            <img src="/images/landing/logo.png" alt="Subsecute" className="h-8 w-auto" />
+            <img
+              src="/images/landing/logo.png"
+              alt="Subsecute"
+              className="h-8 w-auto"
+            />
           </Link>
           <Link
             href="/"
@@ -48,7 +52,9 @@ export default function BlogIndex() {
               <Link key={post.slug} href={`/blog/${post.slug}`}>
                 <article className="rounded-2xl border border-[#DEE2E6] bg-white p-6 transition-shadow hover:shadow-md">
                   <div className="mb-2 flex items-center gap-3">
-                    <time className="font-outfit text-xs text-[#ADB5BD]">{post.date}</time>
+                    <time className="font-outfit text-xs text-[#ADB5BD]">
+                      {post.date}
+                    </time>
                     {post.tags.map((tag) => (
                       <span
                         key={tag}
@@ -61,7 +67,9 @@ export default function BlogIndex() {
                   <h2 className="mb-1 font-outfit text-xl font-semibold text-[#232323]">
                     {post.title}
                   </h2>
-                  <p className="font-outfit text-sm text-[#6C757D]">{post.description}</p>
+                  <p className="font-outfit text-sm text-[#6C757D]">
+                    {post.description}
+                  </p>
                 </article>
               </Link>
             ))}
@@ -69,5 +77,5 @@ export default function BlogIndex() {
         )}
       </div>
     </div>
-  )
+  );
 }

@@ -1,5 +1,5 @@
-import LandingPage from '@/components/LandingPage'
-import { APP_SCHEMA, ORG_SCHEMA, FAQ_SCHEMA } from '@/lib/structured-data'
+import LandingPage from "@/components/LandingPage";
+import { APP_SCHEMA, ORG_SCHEMA, FAQ_SCHEMA } from "@/lib/structured-data";
 
 export default function Home() {
   return (
@@ -18,5 +18,5 @@ export default function Home() {
       />
       <LandingPage />
     </>
-  )
+  );
 }

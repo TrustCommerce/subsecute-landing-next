@@ -1,54 +1,58 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
 
 interface WaitlistFormProps {
-  variant?: 'dark' | 'light'
+  variant?: "dark" | "light";
 }
 
-const WAITLIST_API = 'https://api.subsecute.com/subsecute-api/v1/waitlist'
+const WAITLIST_API = "https://api.subsecute.com/subsecute-api/v1/waitlist";
 
-export default function WaitlistForm({ variant = 'dark' }: WaitlistFormProps) {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [errorMsg, setErrorMsg] = useState('')
+export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email) return
+    e.preventDefault();
+    if (!email) return;
 
-    setStatus('loading')
-    setErrorMsg('')
+    setStatus("loading");
+    setErrorMsg("");
 
     try {
       const res = await fetch(WAITLIST_API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      })
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
 
       if (res.ok) {
-        setStatus('success')
-        setEmail('')
+        setStatus("success");
+        setEmail("");
       } else {
-        const data = await res.json().catch(() => null)
-        setErrorMsg(data?.message || 'Something went wrong. Please try again.')
-        setStatus('error')
+        const data = await res.json().catch(() => null);
+        setErrorMsg(data?.message || "Something went wrong. Please try again.");
+        setStatus("error");
       }
     } catch {
-      setErrorMsg('Unable to connect. Please check your internet and try again.')
-      setStatus('error')
+      setErrorMsg(
+        "Unable to connect. Please check your internet and try again.",
+      );
+      setStatus("error");
     }
-  }
+  };
 
-  const isDark = variant === 'dark'
+  const isDark = variant === "dark";
 
   const shareText =
-    'I just joined the Subsecute waitlist — it auto-pays your Netflix, DSTV, airtime, data, and power with dedicated virtual cards and payment scehdules. No more declined payments. Join here: https://subsecute.com'
-  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`
-  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`
+    "I just joined the Subsecute waitlist — it auto-pays your Netflix, DSTV, airtime, data, and power with dedicated virtual cards and payment scehdules. No more declined payments. Join here: https://subsecute.com";
+  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+  const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
 
-  if (status === 'success') {
+  if (status === "success") {
     return (
       <div className="flex flex-col items-center gap-4">
         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#58DC00]/20">
@@ -63,12 +67,12 @@ export default function WaitlistForm({ variant = 'dark' }: WaitlistFormProps) {
           </svg>
         </div>
         <p
-          className={`font-outfit text-sm tracking-wide ${isDark ? 'text-white' : 'text-[#232323]'}`}
+          className={`font-outfit text-sm tracking-wide ${isDark ? "text-white" : "text-[#232323]"}`}
         >
           You&apos;re on the list! We&apos;ll notify you when we launch.
         </p>
         <p
-          className={`font-outfit text-xs tracking-wide ${isDark ? 'text-white/60' : 'text-[#6C757D]'}`}
+          className={`font-outfit text-xs tracking-wide ${isDark ? "text-white/60" : "text-[#6C757D]"}`}
         >
           Know someone who&apos;d love this? Share it.
         </p>
@@ -88,7 +92,7 @@ export default function WaitlistForm({ variant = 'dark' }: WaitlistFormProps) {
             href={twitterUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center gap-2 rounded-full px-4 py-2 font-outfit text-xs font-medium tracking-wide transition-opacity hover:opacity-90 ${isDark ? 'bg-white/10 text-white' : 'bg-[#232323] text-white'}`}
+            className={`flex items-center gap-2 rounded-full px-4 py-2 font-outfit text-xs font-medium tracking-wide transition-opacity hover:opacity-90 ${isDark ? "bg-white/10 text-white" : "bg-[#232323] text-white"}`}
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -97,7 +101,7 @@ export default function WaitlistForm({ variant = 'dark' }: WaitlistFormProps) {
           </a>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -111,31 +115,31 @@ export default function WaitlistForm({ variant = 'dark' }: WaitlistFormProps) {
           required
           value={email}
           onChange={(e) => {
-            setEmail(e.target.value)
-            if (status === 'error') setStatus('idle')
+            setEmail(e.target.value);
+            if (status === "error") setStatus("idle");
           }}
           placeholder="Enter your email"
           className={`h-12 w-full min-w-0 rounded-full px-5 text-center font-outfit text-sm outline-none transition-shadow focus:ring-2 focus:ring-[#E96D1F] sm:text-left sm:flex-1 ${
             isDark
-              ? 'bg-white/10 text-white placeholder-white/50 border border-white/20'
-              : 'bg-white text-[#232323] placeholder-[#ADB5BD] border border-[#DEE2E6]'
-          } ${status === 'error' ? 'ring-2 ring-red-500' : ''}`}
+              ? "bg-white/10 text-white placeholder-white/50 border border-white/20"
+              : "bg-white text-[#232323] placeholder-[#ADB5BD] border border-[#DEE2E6]"
+          } ${status === "error" ? "ring-2 ring-red-500" : ""}`}
         />
         <button
           type="submit"
-          disabled={status === 'loading'}
+          disabled={status === "loading"}
           className="h-12 w-full shrink-0 rounded-full bg-[#232323] px-6 font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90 disabled:opacity-60 sm:w-auto sm:px-7"
         >
-          {status === 'loading' ? 'Joining...' : 'Join Waitlist'}
+          {status === "loading" ? "Joining..." : "Join Waitlist"}
         </button>
       </form>
-      {status === 'error' && (
+      {status === "error" && (
         <p
-          className={`font-outfit text-xs tracking-wide ${isDark ? 'text-red-400' : 'text-red-500'}`}
+          className={`font-outfit text-xs tracking-wide ${isDark ? "text-red-400" : "text-red-500"}`}
         >
           {errorMsg}
         </p>
       )}
     </div>
-  )
+  );
 }

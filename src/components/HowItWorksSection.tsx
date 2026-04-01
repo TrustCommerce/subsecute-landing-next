@@ -1,28 +1,29 @@
 const STEPS = [
   {
-    number: '01',
-    title: 'Download & sign up',
-    description: 'Create your account and fund your wallet. Ready in under 60 seconds.'
+    number: "01",
+    title: "Download & sign up",
+    description:
+      "Create your account and fund your wallet. Ready in under 60 seconds.",
   },
   {
-    number: '02',
-    title: 'Add your subscriptions and bills',
+    number: "02",
+    title: "Add your subscriptions and bills",
     description:
-      'Add Netflix, Spotify, or any subscription. Set up recurring airtime, data, power, and cable payments.'
+      "Add Netflix, Spotify, or any subscription. Set up recurring airtime, data, power, and cable payments.",
   },
   {
-    number: '03',
-    title: 'We handle the rest',
+    number: "03",
+    title: "We handle the rest",
     description:
-      'Each subscription gets a virtual USD card. Bills pay on schedule. Everything auto-funds from your wallet.'
+      "Each subscription gets a virtual USD card. Bills pay on schedule. Everything auto-funds from your wallet.",
   },
   {
-    number: '04',
-    title: 'Cancel anything, anytime',
+    number: "04",
+    title: "Cancel anything, anytime",
     description:
-      "Freeze or kill any subscription with one tap. Pause a bill. You're always in control."
-  }
-] as const
+      "Freeze or kill any subscription with one tap. Pause a bill. You're always in control.",
+  },
+] as const;
 
 export default function HowItWorksSection() {
   return (
@@ -46,8 +47,8 @@ export default function HowItWorksSection() {
             </h2>
           </div>
           <p className="font-outfit text-base leading-[1.5em] tracking-wide text-[#232323] lg:max-w-[370px]">
-            Set it up once. Subsecute handles every renewal from there — funding, reminders, the
-            whole thing!
+            Set it up once. Subsecute handles every renewal from there —
+            funding, reminders, the whole thing!
           </p>
         </div>
 
@@ -57,8 +58,10 @@ export default function HowItWorksSection() {
             <article
               key={step.number}
               className={`flex flex-col gap-3 ${
-                index < STEPS.length - 1 ? 'lg:border-r lg:border-[#CED4DA] lg:pr-8' : ''
-              } ${index > 0 ? 'lg:pl-8' : ''}`}
+                index < STEPS.length - 1
+                  ? "lg:border-r lg:border-[#CED4DA] lg:pr-8"
+                  : ""
+              } ${index > 0 ? "lg:pl-8" : ""}`}
             >
               <span className="font-outfit text-base font-semibold tracking-wide text-[#E96D1F]">
                 {step.number}
@@ -74,5 +77,5 @@ export default function HowItWorksSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
