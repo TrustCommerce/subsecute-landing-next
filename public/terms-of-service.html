@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Subsecute</title>
+  <meta name="description" content="Terms of Service for Subsecute, a subscription management platform operated by Trust Commerce." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --text: #232323;
+      --text-muted: #666;
+      --accent: #E96D1F;
+      --bg: #FFFFFF;
+      --border: #E8E8E8;
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Nav */
+    .nav {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 32px;
+    }
+    .nav-back {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .nav-back:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 24px 48px;
+    }
+    .hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .hero p {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 560px;
+    }
+
+    /* Full terms link */
+    .full-terms-link {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 40px;
+    }
+    .full-terms-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 12px 24px;
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .full-terms-link a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    .full-terms-link a svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Section list */
+    .section-list {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+    .section-list h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .section-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-top: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: padding-left 0.15s;
+    }
+    .section-card:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+    .section-card:hover {
+      padding-left: 8px;
+    }
+    .section-card:hover .section-card-title {
+      color: var(--accent);
+    }
+    .section-card-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .section-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 17px;
+      margin-bottom: 4px;
+      transition: color 0.15s;
+    }
+    .section-card-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .section-card-chevron {
+      flex-shrink: 0;
+      margin-left: 16px;
+      color: #CCC;
+      transition: color 0.15s, transform 0.15s;
+    }
+    .section-card:hover .section-card-chevron {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    /* Footer */
+    .footer {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 24px 48px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .footer-meta {
+      margin-bottom: 12px;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-links span { margin: 0 8px; color: #DDD; }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="wrap">
+    <a href="/" class="nav-logo">
+      <img src="/images/landing/logo.png" alt="Subsecute" />
+    </a>
+    <a href="/" class="nav-back">Back to Home</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>Terms of Service</h1>
+  <p>Our Terms of Service outline the rules, guidelines, and agreements for using Subsecute's subscription management platform.</p>
+</div>
+
+<!-- Full Terms Link -->
+<div class="full-terms-link">
+  <a href="/legal/terms/full-terms.html">
+    Read the Full Terms of Service
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+  </a>
+</div>
+
+<!-- Section List -->
+<div class="section-list">
+  <h2>Browse by Section</h2>
+
+  <a href="/legal/terms/account.html" class="section-card">
+    <div class="section-card-content">
+      <div class="section-card-title">Account &amp; Eligibility</div>
+      <div class="section-card-desc">Who can use Subsecute, account creation, and keeping your credentials secure.</div>
+    </div>
+    <svg class="section-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </a>
+
+  <a href="/legal/terms/kyc.html" class="section-card">
+    <div class="section-card-content">
+      <div class="section-card-title">KYC &amp; Identity Verification</div>
+      <div class="section-card-desc">Identity verification requirements, documents needed, and regulatory compliance.</div>
+    </div>
+    <svg class="section-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </a>
+
+  <a href="/legal/terms/wallet.html" class="section-card">
+    <div class="section-card-content">
+      <div class="section-card-title">Wallet &amp; Funding</div>
+      <div class="section-card-desc">How your NGN and USD wallets work, funding methods, limits, and balance responsibilities.</div>
+    </div>
+    <svg class="section-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </a>
+
+  <a href="/legal/terms/virtual-cards.html" class="section-card">
+    <div class="section-card-content">
+      <div class="section-card-title">Virtual Cards</div>
+      <div class="section-card-desc">Card issuance, usage restrictions, transaction failures, and card termination policies.</div>
+    </div>
+    <svg class="section-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </a>
+
+  <a href="/legal/terms/subscriptions.html" class="section-card">
+    <div class="section-card-content">
+      <div class="section-card-title">Subscription Management</div>
+      <div class="section-card-desc">How auto-funding works, renewal failures, cancellation policy, and your responsibilities.</div>
+    </div>
+    <svg class="section-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </a>
+
+  <a href="/legal/terms/bill-payments.html" class="section-card">
+    <div class="section-card-content">
+      <div class="section-card-title">Bill Payments</div>
+      <div class="section-card-desc">Airtime, data, cable TV, and utility bill payment processing and policies.</div>
+    </div>
+    <svg class="section-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </a>
+
+  <a href="/legal/terms/fees.html" class="section-card">
+    <div class="section-card-content">
+      <div class="section-card-title">Fees &amp; Charges</div>
+      <div class="section-card-desc">Processing fees, cancellation fees, currency conversion, and third-party charges.</div>
+    </div>
+    <svg class="section-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </a>
+
+  <a href="/legal/terms/gift-links-plans.html" class="section-card">
+    <div class="section-card-content">
+      <div class="section-card-title">Gift Links &amp; Shared Plans</div>
+      <div class="section-card-desc">Creating gift links, shared subscription plans, and responsibilities for owners and members.</div>
+    </div>
+    <svg class="section-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </a>
+
+  <a href="/legal/terms/liability.html" class="section-card">
+    <div class="section-card-content">
+      <div class="section-card-title">Liability &amp; Disclaimers</div>
+      <div class="section-card-desc">Disclaimers, limitation of liability, indemnification, and intellectual property rights.</div>
+    </div>
+    <svg class="section-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </a>
+
+  <a href="/legal/terms/disputes.html" class="section-card">
+    <div class="section-card-content">
+      <div class="section-card-title">Dispute Resolution</div>
+      <div class="section-card-desc">Informal resolution, mediation, arbitration, governing law, and time limitations.</div>
+    </div>
+    <svg class="section-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </a>
+
+  <a href="/legal/terms/complaints.html" class="section-card">
+    <div class="section-card-content">
+      <div class="section-card-title">Complaints Handling</div>
+      <div class="section-card-desc">How to file a complaint, resolution timeframes, and escalation procedures.</div>
+    </div>
+    <svg class="section-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+  </a>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-meta">Last updated: March 30, 2026</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <span>&middot;</span>
+    <a href="/privacy-policy.html">Privacy Policy</a>
+    <span>&middot;</span>
+    <a href="mailto:hello@subsecute.com">Contact Us</a>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Subsecute</title>
+  <meta name="description" content="Subsecute Privacy Policy. Learn how we collect, use, and protect your personal data." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-dark: #232323;
+      --color-orange: #E96D1F;
+      --color-orange-light: #f5a66a;
+      --color-white: #ffffff;
+      --color-gray-100: #f7f7f7;
+      --color-gray-200: #e5e5e5;
+      --color-gray-400: #a0a0a0;
+      --color-gray-500: #717171;
+      --color-gray-700: #4a4a4a;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      color: var(--color-dark);
+      background-color: var(--color-white);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .nav {
+      border-bottom: 1px solid var(--color-gray-200);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      background: var(--color-white);
+      z-index: 100;
+    }
+    .nav-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo img { height: 28px; }
+    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+    .breadcrumb a { color: var(--color-gray-500); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--color-orange); }
+    .breadcrumb .sep { color: var(--color-gray-400); }
+    .breadcrumb .current { color: var(--color-dark); font-weight: 500; }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .title-block {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--color-gray-200);
+    }
+    .title-block h1 {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--color-dark);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .title-meta {
+      color: var(--color-gray-500);
+      font-size: 15px;
+    }
+    .title-meta strong { color: var(--color-dark); }
+    .section { margin-bottom: 40px; }
+    .section h2 {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-dark);
+      margin-bottom: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--color-gray-200);
+    }
+    .section h2 .num { color: var(--color-orange); margin-right: 6px; }
+    .section h3 {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-dark);
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+    .section p { margin-bottom: 14px; color: var(--color-gray-700); }
+    .section ul, .section ol { margin-bottom: 14px; padding-left: 24px; color: var(--color-gray-700); }
+    .section li { margin-bottom: 8px; }
+    .section li strong { color: var(--color-dark); }
+    .section a { color: var(--color-orange); }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 20px;
+      font-size: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--color-gray-200);
+    }
+    .data-table thead th {
+      background: var(--color-dark);
+      color: var(--color-white);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 14px;
+      text-align: left;
+      padding: 12px 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .data-table tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--color-gray-200);
+      vertical-align: top;
+      color: var(--color-gray-700);
+    }
+    .data-table tbody tr:nth-child(even) td { background: var(--color-gray-100); }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+    .footer {
+      border-top: 1px solid var(--color-gray-200);
+      padding: 32px 24px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .footer-meta { font-size: 13px; color: var(--color-gray-400); margin-bottom: 12px; }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: var(--color-gray-500); text-decoration: none; }
+    .footer-links a:hover { color: var(--color-orange); }
+    @media (max-width: 640px) {
+      .title-block h1 { font-size: 28px; }
+      .section h2 { font-size: 20px; }
+      .data-table { font-size: 13px; }
+      .data-table thead th, .data-table tbody td { padding: 8px 10px; }
+      .container { padding: 32px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="/images/landing/logo.png" alt="Subsecute" />
+    </a>
+    <div class="breadcrumb">
+      <span class="sep">/</span>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <span class="sep">/</span>
+      <span class="current">Full Policy</span>
+    </div>
+  </div>
+</nav>
+
+<!-- Content -->
+<main class="container">
+
+  <!-- Title -->
+  <div class="title-block">
+    <h1>Privacy Policy</h1>
+    <p class="title-meta">
+      <strong>Effective Date:</strong> March 30, 2026 &nbsp;&middot;&nbsp;
+      <strong>Last Updated:</strong> March 30, 2026
+    </p>
+    <p class="title-meta" style="margin-top: 6px;">
+      Subsecute is operated by <strong>Trust Commerce</strong>, a company incorporated under the laws of the Federal Republic of <strong>Nigeria</strong> (RC: [TO BE ADDED]).
+    </p>
+  </div>
+
+  <!-- 1. Introduction -->
+  <div class="section" id="introduction">
+    <h2><span class="num">1.</span> Introduction</h2>
+    <p>
+      Welcome to Subsecute (<a href="https://subsecute.com">subsecute.com</a>). Subsecute is a subscription management platform that allows Nigerian residents to create, fund, and manage their subscriptions using virtual cards funded from Naira and USD wallets.
+    </p>
+    <p>
+      This Privacy Policy explains how Subsecute, operated by Trust Commerce ("we," "us," or "our"), collects, uses, stores, shares, and protects your personal data when you use our mobile application, website, and related services (collectively, the "Service").
+    </p>
+    <p>
+      We are committed to protecting your personal data in accordance with the <strong>Nigeria Data Protection Regulation (NDPR) 2019</strong>, the <strong>Nigeria Data Protection Act 2023</strong>, and all applicable guidelines issued by the <strong>Nigeria Data Protection Commission (NDPC)</strong> and the <strong>Central Bank of Nigeria (CBN)</strong>.
+    </p>
+    <p>
+      By creating an account or using Subsecute, you acknowledge that you have read and understood this Privacy Policy and consent to the collection and processing of your personal data as described herein. If you do not agree, please do not use our Service.
+    </p>
+    <p>
+      Before we collect your BVN and identity documents, we will request your explicit consent through a clear, affirmative action separate from your agreement to these general terms.
+    </p>
+  </div>
+
+  <!-- 2. Definitions -->
+  <div class="section" id="definitions">
+    <h2><span class="num">2.</span> Definitions</h2>
+    <ul>
+      <li><strong>"Personal Data"</strong> means any information that relates to an identified or identifiable individual, including but not limited to name, email address, phone number, BVN, financial data, and identification documents.</li>
+      <li><strong>"Processing"</strong> means any operation performed on personal data, including collection, recording, storage, retrieval, use, disclosure, or deletion.</li>
+      <li><strong>"Data Controller"</strong> means Trust Commerce (operating as Subsecute), which determines the purposes and means of processing your personal data.</li>
+      <li><strong>"Data Processor"</strong> means any third party that processes personal data on behalf of the Data Controller.</li>
+      <li><strong>"NDPR"</strong> means the Nigeria Data Protection Regulation 2019, as amended or supplemented.</li>
+      <li><strong>"CBN"</strong> means the Central Bank of Nigeria.</li>
+      <li><strong>"BVN"</strong> means Bank Verification Number, a unique identification number issued by the CBN to every bank account holder in Nigeria.</li>
+      <li><strong>"KYC"</strong> means Know Your Customer, the process of verifying the identity of users as required by Nigerian financial regulations.</li>
+    </ul>
+  </div>
+
+  <!-- 3. Data We Collect -->
+  <div class="section" id="data-we-collect">
+    <h2><span class="num">3.</span> Data We Collect</h2>
+    <p>We collect and process the following categories of personal data:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width: 25%;">Category</th>
+          <th style="width: 40%;">Specific Data</th>
+          <th style="width: 35%;">Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Account Information</strong></td>
+          <td>Email address, phone number, first name, last name, username, password (stored as a cryptographic hash)</td>
+          <td>Account creation, authentication, and communication</td>
+        </tr>
+        <tr>
+          <td><strong>Identity / KYC Data</strong></td>
+          <td>Date of birth, BVN (Bank Verification Number), government-issued ID documents (front and back images), ID type, ID number, issue date, expiry date</td>
+          <td>Identity verification as required by CBN KYC regulations and anti-money laundering laws</td>
+        </tr>
+        <tr>
+          <td><strong>Address Data</strong></td>
+          <td>Street address, city, state, country, postal code</td>
+          <td>KYC compliance, virtual card issuance, and regulatory requirements</td>
+        </tr>
+        <tr>
+          <td><strong>Financial Data</strong></td>
+          <td>Payment card details (last 4 digits only, card type, expiry date, bank name, BIN), bank account numbers, wallet balances (NGN and USD), full transaction history</td>
+          <td>Payment processing, wallet funding, transaction records, and regulatory reporting</td>
+        </tr>
+        <tr>
+          <td><strong>Subscription Data</strong></td>
+          <td>Merchant name, subscription amount, billing interval, status, next due date</td>
+          <td>Subscription tracking, renewal management, and billing reminders</td>
+        </tr>
+        <tr>
+          <td><strong>Virtual Card Data</strong></td>
+          <td>Virtual card details issued by Sudo Africa (full PAN masked internally; only last 4 digits displayed to you)</td>
+          <td>Virtual card provisioning and subscription payments</td>
+        </tr>
+        <tr>
+          <td><strong>Device Information</strong></td>
+          <td>Device token, device type (iOS, Android, or Web)</td>
+          <td>Push notification delivery and device-specific service optimisation</td>
+        </tr>
+        <tr>
+          <td><strong>Activity &amp; Log Data</strong></td>
+          <td>Recent activity logs, notification delivery logs, external API call logs</td>
+          <td>Service monitoring, debugging, security audits, and fraud prevention</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      <strong>Important note about sensitive data:</strong> Your BVN and government-issued ID documents are classified as sensitive personal data under the NDPR. We collect these only because they are legally required for KYC compliance under CBN regulations. We will never use your BVN or ID documents for any purpose other than identity verification and regulatory compliance.
+    </p>
+  </div>
+
+  <!-- 4. How We Collect Your Data -->
+  <div class="section" id="how-we-collect">
+    <h2><span class="num">4.</span> How We Collect Your Data</h2>
+    <p>We collect personal data through the following methods:</p>
+    <ul>
+      <li><strong>Directly from you</strong> &mdash; when you create an account, complete KYC verification, add a payment method, create a subscription, or contact our support team.</li>
+      <li><strong>Through Google OAuth2</strong> &mdash; if you choose to sign in with Google, we receive your name and email address from your Google account. We do not access your Google contacts, calendar, or any other Google data.</li>
+      <li><strong>Automatically from your device</strong> &mdash; device token and device type are collected when you install the app and enable push notifications.</li>
+      <li><strong>From third-party payment processors</strong> &mdash; Paystack provides us with masked card details (last 4 digits, card type, and bank name) when you add a payment card. We never receive or store your full card number.</li>
+      <li><strong>From Sudo Africa</strong> &mdash; virtual card details are generated by Sudo Africa and relayed to your account. Full card numbers (PANs) are masked in our systems; only the last 4 digits are shown to you.</li>
+      <li><strong>Generated through your use of the Service</strong> &mdash; transaction history, activity logs, and subscription data are created as you use Subsecute.</li>
+    </ul>
+  </div>
+
+  <!-- 5. Why We Process Your Data -->
+  <div class="section" id="purpose">
+    <h2><span class="num">5.</span> Why We Process Your Data</h2>
+    <p>We process your personal data for the following specific purposes:</p>
+
+    <h3>5.1 Service Delivery</h3>
+    <ul>
+      <li>Creating and managing your Subsecute account</li>
+      <li>Issuing virtual cards for your subscriptions</li>
+      <li>Processing wallet funding and subscription payments</li>
+      <li>Processing bill payments (airtime, data, cable TV, electricity)</li>
+      <li>Converting currencies between NGN and USD</li>
+      <li>Sending transaction confirmations and subscription renewal reminders</li>
+    </ul>
+
+    <h3>5.2 Legal and Regulatory Compliance</h3>
+    <ul>
+      <li>Verifying your identity (KYC) as required by CBN regulations</li>
+      <li>Anti-money laundering (AML) and counter-terrorism financing (CTF) compliance</li>
+      <li>Maintaining transaction records as required by Nigerian financial regulations</li>
+      <li>Responding to lawful requests from regulatory authorities</li>
+    </ul>
+
+    <h3>5.3 Security and Fraud Prevention</h3>
+    <ul>
+      <li>Detecting and preventing fraudulent transactions</li>
+      <li>Monitoring for unauthorised access to your account</li>
+      <li>Rate limiting API requests to protect against abuse</li>
+      <li>Maintaining audit trails through activity and API logs</li>
+    </ul>
+
+    <h3>5.4 Communication</h3>
+    <ul>
+      <li>Sending email verification and password reset messages</li>
+      <li>Delivering push notifications for transaction alerts and subscription reminders</li>
+      <li>Notifying you of important changes to our Service or this Privacy Policy</li>
+    </ul>
+
+    <h3>5.5 Service Improvement</h3>
+    <ul>
+      <li>Analysing anonymised and aggregated usage patterns to improve our Service</li>
+      <li>Debugging technical issues using API and activity logs</li>
+    </ul>
+
+    <p>We will <strong>never</strong> sell your personal data to third parties. We will <strong>never</strong> use your data for automated decision-making or profiling that produces legal effects on you without your explicit consent.</p>
+  </div>
+
+  <!-- 6. Legal Basis for Processing -->
+  <div class="section" id="legal-basis">
+    <h2><span class="num">6.</span> Legal Basis for Processing</h2>
+    <p>Under the NDPR, we process your personal data based on the following lawful grounds:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width: 30%;">Legal Basis</th>
+          <th>Applies To</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Your Consent</strong></td>
+          <td>Push notification delivery and email communications (other than those required for service delivery)</td>
+        </tr>
+        <tr>
+          <td><strong>Performance of Contract</strong></td>
+          <td>Account creation, Google OAuth2 login, processing payments, issuing virtual cards, managing subscriptions, delivering the core Service you signed up for</td>
+        </tr>
+        <tr>
+          <td><strong>Legal Obligation</strong></td>
+          <td>KYC/identity verification, BVN collection, maintaining transaction records, AML/CTF compliance, responding to regulatory requests from CBN or other authorities</td>
+        </tr>
+        <tr>
+          <td><strong>Legitimate Interest</strong></td>
+          <td>Fraud prevention, security monitoring, service debugging, and aggregated analytics for service improvement</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Where processing is based on your consent, you have the right to withdraw that consent at any time. Withdrawal of consent does not affect the lawfulness of processing carried out before the withdrawal. Please note that withdrawing consent for certain processing activities may affect our ability to provide you with the Service.</p>
+  </div>
+
+  <!-- 7. Third-Party Service Providers -->
+  <div class="section" id="third-parties">
+    <h2><span class="num">7.</span> Third-Party Service Providers</h2>
+    <p>We share your personal data with the following third-party processors who help us deliver our Service. Each processor is bound by a data processing agreement that requires them to protect your data and use it only for the purposes we specify.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width: 22%;">Provider</th>
+          <th style="width: 25%;">Purpose</th>
+          <th style="width: 23%;">Data Shared</th>
+          <th style="width: 15%;">Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Paystack</strong></td>
+          <td>Payment processing (wallet funding via cards and bank transfers)</td>
+          <td>Payment card details, bank account info, transaction amounts</td>
+          <td>Nigeria</td>
+        </tr>
+        <tr>
+          <td><strong>Sudo Africa</strong></td>
+          <td>Virtual card issuance and management</td>
+          <td>Name, identity data, address, funding amounts</td>
+          <td>Nigeria / Africa</td>
+        </tr>
+        <tr>
+          <td><strong>SafeHaven MFB</strong></td>
+          <td>Bill payments (airtime, data, cable TV, electricity)</td>
+          <td>Phone numbers, account numbers, payment amounts</td>
+          <td>Nigeria</td>
+        </tr>
+        <tr>
+          <td><strong>Keycloak</strong> (self-hosted)</td>
+          <td>User authentication, password management</td>
+          <td>Email, username, hashed password</td>
+          <td>Our servers</td>
+        </tr>
+        <tr>
+          <td><strong>Google</strong></td>
+          <td>OAuth2 login option</td>
+          <td>Email and name (only if you choose Google sign-in)</td>
+          <td>Global (Google Cloud)</td>
+        </tr>
+        <tr>
+          <td><strong>Amazon Web Services (AWS)</strong></td>
+          <td>S3 file storage, SES email delivery, SNS push notifications, CloudFront CDN</td>
+          <td>KYC documents (S3), email addresses (SES), device tokens (SNS)</td>
+          <td>EU-West-1 (Ireland)</td>
+        </tr>
+        <tr>
+          <td><strong>Firebase (FCM)</strong></td>
+          <td>Push notification delivery</td>
+          <td>Device tokens</td>
+          <td>Google Cloud</td>
+        </tr>
+        <tr>
+          <td><strong>MailerSend</strong></td>
+          <td>Transactional email delivery</td>
+          <td>Email address, name</td>
+          <td>EU</td>
+        </tr>
+        <tr>
+          <td><strong>ExchangeRate API</strong></td>
+          <td>Currency conversion rates (NGN/USD)</td>
+          <td>No personal data shared</td>
+          <td>Global</td>
+        </tr>
+        <tr>
+          <td><strong>Logo.dev</strong></td>
+          <td>Merchant logo display</td>
+          <td>No personal data shared</td>
+          <td>Global</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>We do not share your personal data with any third party for marketing purposes. We will only disclose your data to law enforcement or regulatory authorities when legally required to do so.</p>
+  </div>
+
+  <!-- 8. International Data Transfers -->
+  <div class="section" id="international-transfers">
+    <h2><span class="num">8.</span> International Data Transfers</h2>
+    <p>Some of your personal data is transferred to and stored in locations outside Nigeria:</p>
+    <ul>
+      <li><strong>AWS EU-West-1 (Ireland)</strong> &mdash; KYC documents stored in S3, emails sent via SES, push notifications via SNS, and content delivered via CloudFront. The European Union provides an adequate level of data protection under the GDPR.</li>
+      <li><strong>Google Cloud (global)</strong> &mdash; Push notification delivery via Firebase Cloud Messaging and, if you use Google sign-in, authentication via Google OAuth2.</li>
+      <li><strong>MailerSend (EU)</strong> &mdash; Transactional email delivery.</li>
+    </ul>
+    <p>For all international transfers, we ensure that appropriate safeguards are in place as required by the NDPR, including:</p>
+    <ul>
+      <li>Transferring data only to jurisdictions that provide an adequate level of data protection, or</li>
+      <li>Executing standard contractual clauses or binding data processing agreements with the receiving party, and</li>
+      <li>Implementing technical measures such as encryption in transit (TLS) and at rest</li>
+    </ul>
+  </div>
+
+  <!-- 9. Data Retention -->
+  <div class="section" id="data-retention">
+    <h2><span class="num">9.</span> Data Retention</h2>
+    <p>We retain your personal data only for as long as necessary to fulfil the purposes for which it was collected, or as required by law:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width: 35%;">Data Category</th>
+          <th style="width: 30%;">Retention Period</th>
+          <th style="width: 35%;">Reason</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Account Data</strong> (name, email, phone, username)</td>
+          <td>Until you request account deletion</td>
+          <td>Required for ongoing service delivery</td>
+        </tr>
+        <tr>
+          <td><strong>KYC / Identity Documents</strong> (ID images, BVN, date of birth)</td>
+          <td>Minimum 5 years after account closure</td>
+          <td>CBN/NDPR regulatory requirements for financial service providers</td>
+        </tr>
+        <tr>
+          <td><strong>Transaction Records</strong></td>
+          <td>As required by Nigerian financial regulations (minimum 5 years)</td>
+          <td>CBN regulatory compliance, AML/CTF obligations</td>
+        </tr>
+        <tr>
+          <td><strong>API Logs</strong></td>
+          <td>30 days (automatically deleted)</td>
+          <td>Service monitoring and debugging</td>
+        </tr>
+        <tr>
+          <td><strong>Activity &amp; Notification Logs</strong></td>
+          <td>12 months, then anonymised or deleted</td>
+          <td>Security audits and service improvement</td>
+        </tr>
+        <tr>
+          <td><strong>Device Tokens</strong></td>
+          <td>Until you uninstall the app or disable notifications</td>
+          <td>Push notification delivery</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>When data is no longer needed, it is securely deleted or irreversibly anonymised. KYC documents stored in AWS S3 are accessible only via signed URLs that expire after 1 hour, limiting exposure even within our own systems.</p>
+  </div>
+
+  <!-- 10. Data Security -->
+  <div class="section" id="data-security">
+    <h2><span class="num">10.</span> Data Security</h2>
+    <p>We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, alteration, disclosure, or destruction:</p>
+
+    <h3>Technical Measures</h3>
+    <ul>
+      <li><strong>Encryption in transit:</strong> All data transmitted between your device and our servers is encrypted using HTTPS/TLS.</li>
+      <li><strong>Password security:</strong> Passwords are never stored in plain text. They are cryptographically hashed using Keycloak's built-in hashing algorithms.</li>
+      <li><strong>Card number masking:</strong> Full card numbers (PANs) for virtual cards are never displayed. Only the last 4 digits are shown to you. Paystack-linked card details are similarly masked.</li>
+      <li><strong>Signed document URLs:</strong> KYC documents stored in AWS S3 are accessible only through CloudFront signed URLs that expire after 1 hour.</li>
+      <li><strong>JWT authentication:</strong> We use stateless, token-based authentication (JSON Web Tokens), which reduces the risk of session hijacking.</li>
+      <li><strong>Rate limiting:</strong> All API endpoints are rate-limited to prevent brute-force attacks and abuse.</li>
+      <li><strong>Regular monitoring:</strong> We conduct ongoing security monitoring to detect and respond to potential threats.</li>
+    </ul>
+
+    <h3>Organisational Measures</h3>
+    <ul>
+      <li>Access to personal data is restricted to authorised personnel on a need-to-know basis.</li>
+      <li>Third-party processors are contractually required to maintain equivalent security standards.</li>
+      <li>We regularly review and update our security practices.</li>
+    </ul>
+
+    <h3>Encryption at Rest</h3>
+    <p>Personal data stored in our databases is encrypted at rest using industry-standard encryption.</p>
+
+    <h3>Breach Notification</h3>
+    <p>In the event of a personal data breach, we will notify the Nigeria Data Protection Commission within 72 hours and notify affected users without undue delay where the breach is likely to result in a high risk to your rights and freedoms.</p>
+
+    <p>While we take extensive measures to protect your data, no method of electronic transmission or storage is 100% secure. If you become aware of any security breach or unauthorised use of your account, please contact us immediately at <a href="mailto:privacy@subsecute.com">privacy@subsecute.com</a>.</p>
+  </div>
+
+  <!-- 11. Your Rights Under NDPR -->
+  <div class="section" id="your-rights">
+    <h2><span class="num">11.</span> Your Rights Under Nigerian Data Protection Law</h2>
+    <p>As a data subject under the Nigeria Data Protection Regulation, you have the following rights:</p>
+
+    <ul>
+      <li><strong>Right to Access:</strong> You may request a copy of the personal data we hold about you. We will provide this within 30 days of your request.</li>
+      <li><strong>Right to Rectification:</strong> You may request that we correct any inaccurate or incomplete personal data we hold about you.</li>
+      <li><strong>Right to Deletion (Erasure):</strong> You may request that we delete your personal data. Please note that certain data (such as KYC documents and transaction records) must be retained to comply with CBN regulations and cannot be deleted upon request until the mandatory retention period has expired.</li>
+      <li><strong>Right to Data Portability:</strong> You may request that we provide your personal data in a structured, commonly used, and machine-readable format so that you can transfer it to another service provider. Data portability will be provided in CSV or JSON format for data you have directly provided to us.</li>
+      <li><strong>Right to Object:</strong> You may object to the processing of your personal data where we rely on legitimate interest as the legal basis. We will stop processing unless we can demonstrate compelling legitimate grounds that override your interests.</li>
+      <li><strong>Right to Withdraw Consent:</strong> Where processing is based on your consent, you may withdraw it at any time. This will not affect the lawfulness of processing carried out before the withdrawal.</li>
+      <li><strong>Right to Restrict Processing:</strong> You may request that we limit how we process your personal data in certain circumstances, such as while we verify the accuracy of your data or assess an objection you have raised.</li>
+    </ul>
+
+    <h3>How to Exercise Your Rights</h3>
+    <p>To exercise any of these rights, please contact us at:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:privacy@subsecute.com">privacy@subsecute.com</a></li>
+      <li><strong>Subject line:</strong> "Data Subject Request &mdash; [Your Right]"</li>
+    </ul>
+    <p>We will acknowledge your request within 7 days and respond substantively within 30 days. If we need more time due to the complexity of your request, we will notify you and provide a reason for the extension.</p>
+    <p>We may need to verify your identity before processing your request. We will never charge a fee for exercising your rights unless your request is manifestly unfounded or excessive.</p>
+
+    <h3>Account Deletion</h3>
+    <p>You may request full deletion of your account by emailing <a href="mailto:privacy@subsecute.com">privacy@subsecute.com</a>. Upon account deletion:</p>
+    <ul>
+      <li>Your account and login credentials will be permanently deactivated.</li>
+      <li>Your wallet balances must be withdrawn before deletion can proceed.</li>
+      <li>Active subscriptions will be cancelled.</li>
+      <li>KYC documents and transaction records will be retained for the legally required period (minimum 5 years), then permanently deleted.</li>
+      <li>API logs and activity logs will be deleted according to their standard retention schedules.</li>
+    </ul>
+  </div>
+
+  <!-- 12. Children's Privacy -->
+  <div class="section" id="children">
+    <h2><span class="num">12.</span> Children's Privacy</h2>
+    <p>Subsecute is not intended for use by individuals under the age of 18. We do not knowingly collect personal data from children. Our KYC verification process includes date of birth verification to prevent minors from creating accounts.</p>
+    <p>If you believe that a child under 18 has provided us with personal data, please contact us at <a href="mailto:privacy@subsecute.com">privacy@subsecute.com</a> and we will promptly delete the data and close the account.</p>
+  </div>
+
+  <!-- 13. Cookies & Tracking -->
+  <div class="section" id="cookies">
+    <h2><span class="num">13.</span> Cookies &amp; Tracking Technologies</h2>
+    <p>Subsecute does <strong>not</strong> use cookies, web beacons, pixel tags, or any other browser-based tracking technologies.</p>
+    <p>Our authentication system is entirely JWT-based (JSON Web Tokens), which means no cookies are set on your device for authentication purposes. We do not use any third-party analytics or advertising trackers.</p>
+  </div>
+
+  <!-- 14. Notifications -->
+  <div class="section" id="notifications">
+    <h2><span class="num">14.</span> Communications &amp; Notifications</h2>
+    <p>We send you communications through the following channels:</p>
+
+    <h3>Email Notifications</h3>
+    <ul>
+      <li><strong>Email verification</strong> &mdash; sent when you create your account (required)</li>
+      <li><strong>Password reset</strong> &mdash; sent when you request a password reset (required)</li>
+      <li><strong>Subscription renewal reminders</strong> &mdash; sent 3 days before a subscription is due for renewal</li>
+      <li><strong>Transaction confirmations</strong> &mdash; sent after each transaction</li>
+    </ul>
+
+    <h3>Push Notifications</h3>
+    <ul>
+      <li><strong>Transaction alerts</strong> &mdash; real-time notifications for wallet and subscription transactions</li>
+      <li><strong>Subscription reminders</strong> &mdash; reminders for upcoming subscription renewals</li>
+      <li><strong>System updates</strong> &mdash; important updates about the Service</li>
+    </ul>
+
+    <p>You can manage your push notification preferences in your device settings. Transactional emails related to your account security (verification, password reset) cannot be opted out of while your account is active, as they are necessary for the operation of the Service.</p>
+  </div>
+
+  <!-- 15. Fees -->
+  <div class="section" id="fees">
+    <h2><span class="num">15.</span> Transaction Fees</h2>
+    <p>Information about transaction fees is set out in our Terms of Service.</p>
+  </div>
+
+  <!-- 16. Changes -->
+  <div class="section" id="changes">
+    <h2><span class="num">16.</span> Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. When we make changes:</p>
+    <ul>
+      <li>We will update the "Last Updated" date at the top of this page.</li>
+      <li>For material changes, we will notify you by email or through an in-app notification at least <strong>14 days</strong> before the changes take effect, except where a shorter notice period is required to comply with a legal obligation or regulatory directive.</li>
+      <li>If the changes involve new processing of sensitive data or a new purpose for existing data, we will seek your explicit consent before applying those changes.</li>
+    </ul>
+    <p>We encourage you to review this Privacy Policy periodically. Your continued use of Subsecute after the effective date of a revised policy constitutes your acceptance of the changes.</p>
+    <p>This Privacy Policy is governed by the laws of the Federal Republic of Nigeria.</p>
+  </div>
+
+  <!-- 17. Complaints -->
+  <div class="section" id="complaints">
+    <h2><span class="num">17.</span> Complaints &amp; Dispute Resolution</h2>
+    <p>If you believe that your data protection rights have been violated, you have the right to:</p>
+    <ol>
+      <li><strong>Contact us first</strong> &mdash; Please reach out to us at <a href="mailto:privacy@subsecute.com">privacy@subsecute.com</a>. We will investigate your complaint and respond within 30 days.</li>
+      <li><strong>Lodge a complaint with the NDPC</strong> &mdash; If you are not satisfied with our response, you may file a complaint with the Nigeria Data Protection Commission (NDPC), the supervisory authority responsible for enforcing the NDPR.</li>
+    </ol>
+  </div>
+
+  <!-- 18. Contact -->
+  <div class="section" id="contact">
+    <h2><span class="num">18.</span> Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+    <ul>
+      <li><strong>General enquiries:</strong> <a href="mailto:hello@subsecute.com">hello@subsecute.com</a></li>
+      <li><strong>Privacy &amp; data protection:</strong> <a href="mailto:privacy@subsecute.com">privacy@subsecute.com</a></li>
+      <li><strong>Company:</strong> Trust Commerce (operating as Subsecute)</li>
+      <li><strong>Location:</strong> Nigeria</li>
+      <li><strong>Website:</strong> <a href="https://subsecute.com">subsecute.com</a></li>
+      <li><strong>Data Protection Officer:</strong> <a href="mailto:dpo@subsecute.com">dpo@subsecute.com</a></li>
+    </ul>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-meta">Last updated: March 30, 2026</div>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/privacy-policy.html">Privacy Overview</a>
+    <a href="/terms-of-service.html">Terms of Service</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "Subsecute",
+  "short_name": "Subsecute",
+  "description": "Your subscriptions, managed properly. Virtual USD cards for Nigerians.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFEEC",
+  "theme_color": "#E96D1F",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
