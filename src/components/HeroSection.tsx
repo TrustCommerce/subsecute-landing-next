@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative h-[809px] overflow-hidden bg-[#FFFEEC] sm:h-[854px] md:h-[898px] lg:h-[1021px]"
+      className="relative h-[769px] overflow-hidden bg-[#FFFEEC] sm:h-[854px] md:h-[898px] lg:h-[1021px]"
     >
       {/* Orange blur */}
       <div
