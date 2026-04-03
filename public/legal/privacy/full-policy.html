@@ -198,7 +198,7 @@
       By creating an account or using Subsecute, you acknowledge that you have read and understood this Privacy Policy and consent to the collection and processing of your personal data as described herein. If you do not agree, please do not use our Service.
     </p>
     <p>
-      Before we collect your BVN and identity documents, we will request your explicit consent through a clear, affirmative action separate from your agreement to these general terms.
+      Before we collect your BVN, we will request your explicit consent through a clear, affirmative action separate from your agreement to these general terms.
     </p>
   </div>
 
@@ -206,7 +206,7 @@
   <div class="section" id="definitions">
     <h2><span class="num">2.</span> Definitions</h2>
     <ul>
-      <li><strong>"Personal Data"</strong> means any information that relates to an identified or identifiable individual, including but not limited to name, email address, phone number, BVN, financial data, and identification documents.</li>
+      <li><strong>"Personal Data"</strong> means any information that relates to an identified or identifiable individual, including but not limited to name, email address, phone number, BVN, and financial data.</li>
       <li><strong>"Processing"</strong> means any operation performed on personal data, including collection, recording, storage, retrieval, use, disclosure, or deletion.</li>
       <li><strong>"Data Controller"</strong> means Trust Commerce (operating as Subsecute), which determines the purposes and means of processing your personal data.</li>
       <li><strong>"Data Processor"</strong> means any third party that processes personal data on behalf of the Data Controller.</li>
@@ -238,7 +238,7 @@
         </tr>
         <tr>
           <td><strong>Identity / KYC Data</strong></td>
-          <td>Date of birth, BVN (Bank Verification Number), government-issued ID documents (front and back images), ID type, ID number, issue date, expiry date</td>
+          <td>BVN (Bank Verification Number)</td>
           <td>Identity verification as required by CBN KYC regulations and anti-money laundering laws</td>
         </tr>
         <tr>
@@ -257,11 +257,6 @@
           <td>Subscription tracking, renewal management, and billing reminders</td>
         </tr>
         <tr>
-          <td><strong>Virtual Card Data</strong></td>
-          <td>Virtual card details issued by Sudo Africa (full PAN masked internally; only last 4 digits displayed to you)</td>
-          <td>Virtual card provisioning and subscription payments</td>
-        </tr>
-        <tr>
           <td><strong>Device Information</strong></td>
           <td>Device token, device type (iOS, Android, or Web)</td>
           <td>Push notification delivery and device-specific service optimisation</td>
@@ -275,7 +270,7 @@
     </table>
 
     <p>
-      <strong>Important note about sensitive data:</strong> Your BVN and government-issued ID documents are classified as sensitive personal data under the NDPR. We collect these only because they are legally required for KYC compliance under CBN regulations. We will never use your BVN or ID documents for any purpose other than identity verification and regulatory compliance.
+      <strong>Important note about sensitive data:</strong> Your BVN is classified as sensitive personal data under the NDPR. We collect it only because it is legally required for KYC compliance under CBN regulations. We will never use your BVN for any purpose other than identity verification and regulatory compliance.
     </p>
   </div>
 
@@ -304,7 +299,6 @@
       <li>Issuing virtual cards for your subscriptions</li>
       <li>Processing wallet funding and subscription payments</li>
       <li>Processing bill payments (airtime, data, cable TV, electricity)</li>
-      <li>Converting currencies between NGN and USD</li>
       <li>Sending transaction confirmations and subscription renewal reminders</li>
     </ul>
 
@@ -399,7 +393,7 @@
         <tr>
           <td><strong>Sudo Africa</strong></td>
           <td>Virtual card issuance and management</td>
-          <td>Name, identity data, address, funding amounts</td>
+          <td>Name, BVN, funding amounts</td>
           <td>Nigeria / Africa</td>
         </tr>
         <tr>
@@ -423,32 +417,8 @@
         <tr>
           <td><strong>Amazon Web Services (AWS)</strong></td>
           <td>S3 file storage, SES email delivery, SNS push notifications, CloudFront CDN</td>
-          <td>KYC documents (S3), email addresses (SES), device tokens (SNS)</td>
+          <td>Email addresses (SES), device tokens (SNS)</td>
           <td>EU-West-1 (Ireland)</td>
-        </tr>
-        <tr>
-          <td><strong>Firebase (FCM)</strong></td>
-          <td>Push notification delivery</td>
-          <td>Device tokens</td>
-          <td>Google Cloud</td>
-        </tr>
-        <tr>
-          <td><strong>MailerSend</strong></td>
-          <td>Transactional email delivery</td>
-          <td>Email address, name</td>
-          <td>EU</td>
-        </tr>
-        <tr>
-          <td><strong>ExchangeRate API</strong></td>
-          <td>Currency conversion rates (NGN/USD)</td>
-          <td>No personal data shared</td>
-          <td>Global</td>
-        </tr>
-        <tr>
-          <td><strong>Logo.dev</strong></td>
-          <td>Merchant logo display</td>
-          <td>No personal data shared</td>
-          <td>Global</td>
         </tr>
       </tbody>
     </table>
@@ -461,9 +431,8 @@
     <h2><span class="num">8.</span> International Data Transfers</h2>
     <p>Some of your personal data is transferred to and stored in locations outside Nigeria:</p>
     <ul>
-      <li><strong>AWS EU-West-1 (Ireland)</strong> &mdash; KYC documents stored in S3, emails sent via SES, push notifications via SNS, and content delivered via CloudFront. The European Union provides an adequate level of data protection under the GDPR.</li>
-      <li><strong>Google Cloud (global)</strong> &mdash; Push notification delivery via Firebase Cloud Messaging and, if you use Google sign-in, authentication via Google OAuth2.</li>
-      <li><strong>MailerSend (EU)</strong> &mdash; Transactional email delivery.</li>
+      <li><strong>AWS EU-West-1 (Ireland)</strong> &mdash; Emails sent via SES, push notifications via SNS, and content delivered via CloudFront. The European Union provides an adequate level of data protection under the GDPR.</li>
+      <li><strong>Google Cloud (global)</strong> &mdash; If you use Google sign-in, authentication via Google OAuth2.</li>
     </ul>
     <p>For all international transfers, we ensure that appropriate safeguards are in place as required by the NDPR, including:</p>
     <ul>
@@ -493,7 +462,7 @@
           <td>Required for ongoing service delivery</td>
         </tr>
         <tr>
-          <td><strong>KYC / Identity Documents</strong> (ID images, BVN, date of birth)</td>
+          <td><strong>KYC / Identity Data</strong> (BVN)</td>
           <td>Minimum 5 years after account closure</td>
           <td>CBN/NDPR regulatory requirements for financial service providers</td>
         </tr>
@@ -520,7 +489,7 @@
       </tbody>
     </table>
 
-    <p>When data is no longer needed, it is securely deleted or irreversibly anonymised. KYC documents stored in AWS S3 are accessible only via signed URLs that expire after 1 hour, limiting exposure even within our own systems.</p>
+    <p>When data is no longer needed, it is securely deleted or irreversibly anonymised.</p>
   </div>
 
   <!-- 10. Data Security -->
@@ -533,7 +502,7 @@
       <li><strong>Encryption in transit:</strong> All data transmitted between your device and our servers is encrypted using HTTPS/TLS.</li>
       <li><strong>Password security:</strong> Passwords are never stored in plain text. They are cryptographically hashed using Keycloak's built-in hashing algorithms.</li>
       <li><strong>Card number masking:</strong> Full card numbers (PANs) for virtual cards are never displayed. Only the last 4 digits are shown to you. Paystack-linked card details are similarly masked.</li>
-      <li><strong>Signed document URLs:</strong> KYC documents stored in AWS S3 are accessible only through CloudFront signed URLs that expire after 1 hour.</li>
+      <li><strong>Secure data storage:</strong> Sensitive data such as your BVN is stored securely with restricted access controls.</li>
       <li><strong>JWT authentication:</strong> We use stateless, token-based authentication (JSON Web Tokens), which reduces the risk of session hijacking.</li>
       <li><strong>Rate limiting:</strong> All API endpoints are rate-limited to prevent brute-force attacks and abuse.</li>
       <li><strong>Regular monitoring:</strong> We conduct ongoing security monitoring to detect and respond to potential threats.</li>
@@ -552,7 +521,7 @@
     <h3>Breach Notification</h3>
     <p>In the event of a personal data breach, we will notify the Nigeria Data Protection Commission within 72 hours and notify affected users without undue delay where the breach is likely to result in a high risk to your rights and freedoms.</p>
 
-    <p>While we take extensive measures to protect your data, no method of electronic transmission or storage is 100% secure. If you become aware of any security breach or unauthorised use of your account, please contact us immediately at <a href="mailto:privacy@subsecute.com">privacy@subsecute.com</a>.</p>
+    <p>While we take extensive measures to protect your data, no method of electronic transmission or storage is 100% secure. If you become aware of any security breach or unauthorised use of your account, please contact us immediately at <a href="mailto:hello@subsecute.com">hello@subsecute.com</a>.</p>
   </div>
 
   <!-- 11. Your Rights Under NDPR -->
@@ -563,7 +532,7 @@
     <ul>
       <li><strong>Right to Access:</strong> You may request a copy of the personal data we hold about you. We will provide this within 30 days of your request.</li>
       <li><strong>Right to Rectification:</strong> You may request that we correct any inaccurate or incomplete personal data we hold about you.</li>
-      <li><strong>Right to Deletion (Erasure):</strong> You may request that we delete your personal data. Please note that certain data (such as KYC documents and transaction records) must be retained to comply with CBN regulations and cannot be deleted upon request until the mandatory retention period has expired.</li>
+      <li><strong>Right to Deletion (Erasure):</strong> You may request that we delete your personal data. Please note that certain data (such as KYC data and transaction records) must be retained to comply with CBN regulations and cannot be deleted upon request until the mandatory retention period has expired.</li>
       <li><strong>Right to Data Portability:</strong> You may request that we provide your personal data in a structured, commonly used, and machine-readable format so that you can transfer it to another service provider. Data portability will be provided in CSV or JSON format for data you have directly provided to us.</li>
       <li><strong>Right to Object:</strong> You may object to the processing of your personal data where we rely on legitimate interest as the legal basis. We will stop processing unless we can demonstrate compelling legitimate grounds that override your interests.</li>
       <li><strong>Right to Withdraw Consent:</strong> Where processing is based on your consent, you may withdraw it at any time. This will not affect the lawfulness of processing carried out before the withdrawal.</li>
@@ -573,19 +542,18 @@
     <h3>How to Exercise Your Rights</h3>
     <p>To exercise any of these rights, please contact us at:</p>
     <ul>
-      <li><strong>Email:</strong> <a href="mailto:privacy@subsecute.com">privacy@subsecute.com</a></li>
+      <li><strong>Email:</strong> <a href="mailto:hello@subsecute.com">hello@subsecute.com</a></li>
       <li><strong>Subject line:</strong> "Data Subject Request &mdash; [Your Right]"</li>
     </ul>
     <p>We will acknowledge your request within 7 days and respond substantively within 30 days. If we need more time due to the complexity of your request, we will notify you and provide a reason for the extension.</p>
     <p>We may need to verify your identity before processing your request. We will never charge a fee for exercising your rights unless your request is manifestly unfounded or excessive.</p>
 
     <h3>Account Deletion</h3>
-    <p>You may request full deletion of your account by emailing <a href="mailto:privacy@subsecute.com">privacy@subsecute.com</a>. Upon account deletion:</p>
+    <p>You may request full deletion of your account by emailing <a href="mailto:hello@subsecute.com">hello@subsecute.com</a>. Upon account deletion:</p>
     <ul>
       <li>Your account and login credentials will be permanently deactivated.</li>
       <li>Your wallet balances must be withdrawn before deletion can proceed.</li>
       <li>Active subscriptions will be cancelled.</li>
-      <li>KYC documents and transaction records will be retained for the legally required period (minimum 5 years), then permanently deleted.</li>
       <li>API logs and activity logs will be deleted according to their standard retention schedules.</li>
     </ul>
   </div>
@@ -593,15 +561,15 @@
   <!-- 12. Children's Privacy -->
   <div class="section" id="children">
     <h2><span class="num">12.</span> Children's Privacy</h2>
-    <p>Subsecute is not intended for use by individuals under the age of 18. We do not knowingly collect personal data from children. Our KYC verification process includes date of birth verification to prevent minors from creating accounts.</p>
-    <p>If you believe that a child under 18 has provided us with personal data, please contact us at <a href="mailto:privacy@subsecute.com">privacy@subsecute.com</a> and we will promptly delete the data and close the account.</p>
+    <p>Subsecute is not intended for use by individuals under the age of 18. We do not knowingly collect personal data from children.</p>
+    <p>If you believe that a child under 18 has provided us with personal data, please contact us at <a href="mailto:hello@subsecute.com">hello@subsecute.com</a> and we will promptly delete the data and close the account.</p>
   </div>
 
   <!-- 13. Cookies & Tracking -->
   <div class="section" id="cookies">
     <h2><span class="num">13.</span> Cookies &amp; Tracking Technologies</h2>
     <p>Subsecute does <strong>not</strong> use cookies, web beacons, pixel tags, or any other browser-based tracking technologies.</p>
-    <p>Our authentication system is entirely JWT-based (JSON Web Tokens), which means no cookies are set on your device for authentication purposes. We do not use any third-party analytics or advertising trackers.</p>
+    <p>We do not use any third-party analytics or advertising trackers.</p>
   </div>
 
   <!-- 14. Notifications -->
@@ -651,23 +619,14 @@
     <h2><span class="num">17.</span> Complaints &amp; Dispute Resolution</h2>
     <p>If you believe that your data protection rights have been violated, you have the right to:</p>
     <ol>
-      <li><strong>Contact us first</strong> &mdash; Please reach out to us at <a href="mailto:privacy@subsecute.com">privacy@subsecute.com</a>. We will investigate your complaint and respond within 30 days.</li>
-      <li><strong>Lodge a complaint with the NDPC</strong> &mdash; If you are not satisfied with our response, you may file a complaint with the Nigeria Data Protection Commission (NDPC), the supervisory authority responsible for enforcing the NDPR.</li>
+      <li><strong>Contact us first</strong> &mdash; Please reach out to us at <a href="mailto:hello@subsecute.com">hello@subsecute.com</a>. We will investigate your complaint and respond within 30 days.</li>
     </ol>
   </div>
 
   <!-- 18. Contact -->
   <div class="section" id="contact">
     <h2><span class="num">18.</span> Contact Us</h2>
-    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
-    <ul>
-      <li><strong>General enquiries:</strong> <a href="mailto:hello@subsecute.com">hello@subsecute.com</a></li>
-      <li><strong>Privacy &amp; data protection:</strong> <a href="mailto:privacy@subsecute.com">privacy@subsecute.com</a></li>
-      <li><strong>Company:</strong> Trust Commerce (operating as Subsecute)</li>
-      <li><strong>Location:</strong> Nigeria</li>
-      <li><strong>Website:</strong> <a href="https://subsecute.com">subsecute.com</a></li>
-      <li><strong>Data Protection Officer:</strong> <a href="mailto:dpo@subsecute.com">dpo@subsecute.com</a></li>
-    </ul>
+    <p>For any enquiries, contact us at <a href="mailto:hello@subsecute.com">hello@subsecute.com</a></p>
   </div>
 
 </main>
