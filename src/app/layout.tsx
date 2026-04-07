@@ -43,7 +43,20 @@ export const metadata: Metadata = {
     "theme-color": "#E96D1F",
   },
   manifest: "/manifest.json",
-  icons: { icon: "/favicon.svg" },
+  icons: {
+    icon: [
+      {
+        url: "https://res.cloudinary.com/dwambnh2n/image/upload/v1775598688/Subsecute_qubygc.svg",
+        type: "image/svg+xml",
+      },
+      {
+        url: "https://res.cloudinary.com/dwambnh2n/image/upload/v1775598701/Subsecute_Icon_sastth.png",
+        type: "image/png",
+      },
+    ],
+    apple:
+      "https://res.cloudinary.com/dwambnh2n/image/upload/v1775598701/Subsecute_Icon_sastth.png",
+  },
 };
 
 export default function RootLayout({

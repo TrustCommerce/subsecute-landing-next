@@ -32,7 +32,7 @@ export const ORG_SCHEMA = {
   "@type": "Organization",
   name: "Subsecute",
   url: "https://subsecute.com",
-  logo: "https://subsecute.com/images/landing/logo.png",
+  logo: "https://res.cloudinary.com/dwambnh2n/image/upload/v1775598701/Subsecute_Icon_sastth.png",
   description:
     "Automate your bills in Nigeria. Auto-pay airtime, data, DSTV, GOtv, and electricity.",
   foundingLocation: { "@type": "Place", name: "Nigeria" },
@@ -53,7 +53,7 @@ export const FAQ_SCHEMA = {
       name: "What is Subsecute?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Subsecute is a bill payment automation app built for Nigerians. It auto-pays your airtime, data, DSTV, GOtv, electricity, and other recurring bills \u2014 all from one wallet. Set it once, it runs every month.",
+        text: "Subsecute is a recurring payment automation app built for Nigerians. It auto-pays your airtime, data, DSTV, GOtv, electricity, and other recurring bills \u2014 all from one wallet. Set it once, it runs every month.",
       },
     },
     {
@@ -69,7 +69,7 @@ export const FAQ_SCHEMA = {
       name: "How does Subsecute work?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Fund your Subsecute wallet, add the bills you want to automate, set your schedule, and we handle the rest. You get reminders before each charge and can pause or cancel anytime.",
+        text: "Add your payment method and the bills you want to automate, set your schedule, and we handle the rest. You get reminders before each charge and can pause or cancel anytime.",
       },
     },
     {
@@ -77,7 +77,7 @@ export const FAQ_SCHEMA = {
       name: "Can someone abroad manage bills for family in Nigeria?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Create a plan, add family members, and set up their airtime, data, and cable to renew automatically. You see every payment in your dashboard. No more sending money and hoping it gets used right.",
+        text: "Yes. Create a plan, add family members, and set up their airtime, data, and cable to renew automatically. You see every payment in your dashboard. Currently, wallets can be funded via Naira cards and bank transfers. Support for international card funding is coming soon, so for now, users abroad can fund their wallets manually.",
       },
     },
     {
@@ -85,7 +85,7 @@ export const FAQ_SCHEMA = {
       name: "What bills does Subsecute support?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Subsecute supports airtime top-up, data bundles, power/electricity (EKEDC and other discos), and cable TV (DSTV, GOtv, Showmax). More categories are being added.",
+        text: "Subsecute supports airtime top-up, data bundles, power/electricity (EKEDC and other discos), and cable TV (DSTV, GOtv, Showmax). We also plan to add support for international subscriptions like Netflix and Spotify with dedicated virtual USD cards in the future.",
       },
     },
     {

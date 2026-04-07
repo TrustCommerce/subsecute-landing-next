@@ -8,9 +8,19 @@
   "theme_color": "#E96D1F",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "https://res.cloudinary.com/dwambnh2n/image/upload/v1775598688/Subsecute_qubygc.svg",
       "sizes": "any",
       "type": "image/svg+xml"
+    },
+    {
+      "src": "https://res.cloudinary.com/dwambnh2n/image/upload/v1775598701/Subsecute_Icon_sastth.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://res.cloudinary.com/dwambnh2n/image/upload/v1775598701/Subsecute_Icon_sastth.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }

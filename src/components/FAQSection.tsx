@@ -6,7 +6,7 @@ const FAQS = [
   {
     question: "What is Subsecute?",
     answer:
-      "Subsecute is a bill payment automation app built for Nigerians. It auto-pays your airtime, data, DSTV, GOtv, electricity, and other recurring bills \u2014 all from one wallet. Set it once, it runs every month.",
+      "Subsecute is a recurring payment automation app built for Nigerians. It auto-pays your airtime, data, DSTV, GOtv, electricity, and other recurring bills \u2014 all from one wallet. Set it once, it runs every month.",
   },
   {
     question: "Can I auto-pay my airtime, data, and DSTV through Subsecute?",
@@ -16,17 +16,17 @@ const FAQS = [
   {
     question: "How does Subsecute work?",
     answer:
-      "Fund your Subsecute wallet, add the bills you want to automate, set your schedule, and we handle the rest. You get reminders before each charge and can pause or cancel anytime.",
+      "Add your payment method and the bills you want to automate, set your schedule, and we handle the rest. You get reminders before each charge and can pause or cancel anytime.",
   },
   {
     question: "Can someone abroad manage bills for family in Nigeria?",
     answer:
-      "Yes. Create a plan, add family members, and set up their airtime, data, and cable to renew automatically. You see every payment in your dashboard. No more sending money and hoping it gets used right.",
+      "Yes. Create a plan, add family members, and set up their airtime, data, and cable to renew automatically. You see every payment in your dashboard. Currently, wallets can be funded via Naira cards and bank transfers. Support for international card funding is coming soon, so for now, users abroad can fund their wallets manually.",
   },
   {
     question: "What bills does Subsecute support?",
     answer:
-      "Subsecute supports airtime top-up, data bundles, power/electricity (EKEDC and other discos), and cable TV (DSTV, GOtv, Showmax). More categories are being added.",
+      "Subsecute supports airtime top-up, data bundles, power/electricity (EKEDC and other discos), and cable TV (DSTV, GOtv, Showmax). We also plan to add support for international subscriptions like Netflix and Spotify with dedicated virtual USD cards in the future.",
   },
   {
     question: "How is Subsecute different from auto-debit on my bank app?",
