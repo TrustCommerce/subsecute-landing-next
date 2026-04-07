@@ -99,10 +99,10 @@ const BILL_OPTIONS: BillOption[] = [
     ],
   },
   {
-    label: "Netflix",
+    label: "Showmax",
     tiers: [
-      { name: "Standard", amount: 6500 },
-      { name: "Premium", amount: 8500 },
+      { name: "Standard", amount: 2900 },
+      { name: "Mobile", amount: 1450 },
     ],
   },
 ];

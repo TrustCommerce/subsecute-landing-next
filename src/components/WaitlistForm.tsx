@@ -48,7 +48,7 @@ export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
   const isDark = variant === "dark";
 
   const shareText =
-    "I just joined the Subsecute waitlist — it auto-pays your Netflix, DSTV, airtime, data, and power with dedicated virtual cards and payment scehdules. No more declined payments. Join here: https://subsecute.com";
+    "I just joined the Subsecute waitlist — it auto-pays your airtime, data, DSTV, GOtv, and power on schedule. No more forgotten bills. Join here: https://subsecute.com";
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
 

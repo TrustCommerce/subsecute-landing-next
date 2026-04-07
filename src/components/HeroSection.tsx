@@ -26,30 +26,28 @@ export default function HeroSection() {
         <div className="mb-5 flex items-center gap-2 rounded-full border border-[#DEE2E6] bg-white/50 px-3 py-1.5 backdrop-blur-[124px] lg:mb-6">
           <div className="flex items-center -space-x-1.5">
             <img
-              src="/images/landing/provider-1.png"
+              src="https://img.logo.dev/dstv.com?token=pk_dorVGutZSi-4iMholcR1qA&size=64&format=png"
               alt=""
               className="h-5 w-5 rounded-full object-cover ring-2 ring-white"
             />
             <img
-              src="/images/landing/provider-2.png"
+              src="https://img.logo.dev/mtn.ng?token=pk_dorVGutZSi-4iMholcR1qA&size=64&format=png"
               alt=""
               className="h-5 w-5 rounded-full object-cover ring-2 ring-white"
             />
             <img
-              src="/images/landing/provider-3.png"
+              src="https://img.logo.dev/ekedc.com?token=pk_dorVGutZSi-4iMholcR1qA&size=64&format=png"
               alt=""
               className="h-5 w-5 rounded-full object-cover ring-2 ring-white"
             />
           </div>
           <span className="font-outfit text-xs tracking-wide text-[#6C757D] sm:text-sm">
-            50+ Subscription and bill providers
+            Airtime &middot; Data &middot; Cable &middot; Power
           </span>
         </div>
 
         {/* SEO H1 — visible to crawlers via SSR, visually hidden */}
-        <h1 className="sr-only">
-          Automate Your Subscriptions and Bills in Nigeria
-        </h1>
+        <h1 className="sr-only">Automate Your Bills in Nigeria</h1>
 
         {/* Visible creative heading */}
         <div
@@ -83,8 +81,8 @@ export default function HeroSection() {
 
         {/* Subtitle — value prop flows into loss aversion as one thought */}
         <p className="mt-4 max-w-[540px] text-center font-outfit text-sm leading-[1.6em] tracking-wide text-[#6C757D] sm:text-base lg:mt-5 lg:text-lg">
-          Auto-pay your Netflix, DSTV, airtime, data, and power. No more
-          declined cards. No more midnight data runs.
+          Auto-pay your airtime, data, DSTV, GOtv, and power. Set it once — it
+          runs every month. No more midnight data runs.
         </p>
 
         {/* CTA — switches based on launch mode */}

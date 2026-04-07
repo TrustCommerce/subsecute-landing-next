@@ -5,7 +5,7 @@ export const APP_SCHEMA = {
   applicationCategory: "FinanceApplication",
   operatingSystem: "iOS, Android",
   description:
-    "Automate your subscriptions and bills in Nigeria. Virtual USD cards for Netflix, Spotify, ChatGPT. Auto-pay airtime, data, power, DSTV. Cancel anything in one tap.",
+    "Automate your bills in Nigeria. Auto-pay airtime, data, DSTV, GOtv, and electricity \u2014 set it once, forget it. Cancel anything in one tap.",
   url: "https://subsecute.com",
   author: { "@type": "Organization", name: "Subsecute" },
   offers: {
@@ -15,8 +15,8 @@ export const APP_SCHEMA = {
     availability: "https://schema.org/PreOrder",
   },
   featureList: [
-    "Dedicated virtual USD card per subscription",
-    "Auto-funding from Naira wallet",
+    "Scheduled bill payments for airtime, data, power, and cable",
+    "Automatic wallet debit before each bill",
     "Recurring bill payments for airtime, data, power, and cable",
     "Subscription renewal reminders",
     "Spending analytics and tracking",
@@ -34,7 +34,7 @@ export const ORG_SCHEMA = {
   url: "https://subsecute.com",
   logo: "https://subsecute.com/images/landing/logo.png",
   description:
-    "Automate your subscriptions and bills in Nigeria. Virtual USD cards for subscriptions. Auto-pay airtime, data, power, and cable.",
+    "Automate your bills in Nigeria. Auto-pay airtime, data, DSTV, GOtv, and electricity.",
   foundingLocation: { "@type": "Place", name: "Nigeria" },
   areaServed: { "@type": "Country", name: "Nigeria" },
   contactPoint: {
@@ -50,18 +50,10 @@ export const FAQ_SCHEMA = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "How do I pay for Netflix in Nigeria without my card being declined?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Subsecute creates a dedicated virtual USD card for your Netflix subscription, funded automatically from your Naira wallet. Unlike Nigerian bank cards that often get declined, Subsecute cards work reliably across 50+ subscription providers.",
-      },
-    },
-    {
-      "@type": "Question",
       name: "What is Subsecute?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Subsecute is a recurring payment automation app built for Nigerians. It gives you a unique virtual USD card for each subscription (Netflix, Spotify, ChatGPT, Figma, etc.) and auto-pays your bills — airtime, data, power, and cable — all from one wallet.",
+        text: "Subsecute is a bill payment automation app built for Nigerians. It auto-pays your airtime, data, DSTV, GOtv, electricity, and other recurring bills \u2014 all from one wallet. Set it once, it runs every month.",
       },
     },
     {
@@ -74,6 +66,14 @@ export const FAQ_SCHEMA = {
     },
     {
       "@type": "Question",
+      name: "How does Subsecute work?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Fund your Subsecute wallet, add the bills you want to automate, set your schedule, and we handle the rest. You get reminders before each charge and can pause or cancel anytime.",
+      },
+    },
+    {
+      "@type": "Question",
       name: "Can someone abroad manage bills for family in Nigeria?",
       acceptedAnswer: {
         "@type": "Answer",
@@ -82,18 +82,26 @@ export const FAQ_SCHEMA = {
     },
     {
       "@type": "Question",
-      name: "How is Subsecute different from Grey.co or Chipper Cash?",
+      name: "What bills does Subsecute support?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Unlike general-purpose dollar cards, Subsecute is purpose-built for recurring payments. Each subscription gets its own dedicated card, auto-funded before renewal, with reminders and spend tracking. Plus, Subsecute also handles local bill payments — airtime, data, power, and cable — so everything recurring lives in one place.",
+        text: "Subsecute supports airtime top-up, data bundles, power/electricity (EKEDC and other discos), and cable TV (DSTV, GOtv, Showmax). More categories are being added.",
       },
     },
     {
       "@type": "Question",
-      name: "What subscriptions and bills does Subsecute support?",
+      name: "How is Subsecute different from auto-debit on my bank app?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Subsecute works with 50+ providers including Netflix, Spotify, Apple Music, YouTube Premium, ChatGPT Plus, Figma, Canva, Adobe Creative Cloud, Amazon Prime, and more. For bills, you can automate airtime, data, power (prepaid and postpaid), and cable TV (DSTV, GOtv, Showmax).",
+        text: "Bank auto-debits are scattered across different apps and hard to track. Subsecute puts every recurring bill in one dashboard with reminders, spending history, and family plans. One place, full control.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is Subsecute safe?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Subsecute operates in compliance with Nigerian financial regulations through partnerships with CBN-licensed entities. Your funds are held securely and every payment is logged in your dashboard.",
       },
     },
     {
@@ -101,31 +109,23 @@ export const FAQ_SCHEMA = {
       name: "How long does it take to set up Subsecute?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Under 5 minutes. Download the app, sign up, fund your wallet, add your subscriptions and bills, and everything starts running on autopilot.",
+        text: "Under 5 minutes. Download the app, sign up, fund your wallet, add your bills, and everything runs on autopilot.",
       },
     },
     {
       "@type": "Question",
-      name: "How does Subsecute convert Naira to USD for my subscriptions?",
+      name: "Can I use Subsecute for family or team plans?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "When you fund your Subsecute wallet with Naira, the app handles the conversion at competitive rates. Each subscription gets its own USD virtual card that is automatically topped up before your renewal date.",
+        text: "Yes. Create a plan, invite family members, and set up their airtime, data, and cable to renew automatically. All charges flow to the plan owner.",
       },
     },
     {
       "@type": "Question",
-      name: "Is Subsecute safe and licensed?",
+      name: "What happens if my wallet balance is too low?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Subsecute operates in compliance with Nigerian financial regulations through partnerships with CBN-licensed entities. Your funds are held securely, and each virtual card is isolated per subscription so a compromise on one service cannot affect others.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "Can I use Subsecute for family or team subscription plans?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Yes. Subsecute lets you create plans where you invite family members or teammates. Each person picks their subscriptions, and all charges flow back to the plan owner.",
+        text: "Subsecute will notify you before each payment. If your balance is insufficient, the payment is paused \u2014 not skipped. Top up your wallet and it resumes automatically.",
       },
     },
   ],

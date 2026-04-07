@@ -26,73 +26,6 @@ interface Category {
 
 const CATEGORIES: Category[] = [
   {
-    label: "Streaming",
-    items: [
-      {
-        id: "netflix-std",
-        name: "Netflix Standard",
-        price: 6500,
-        domain: "netflix.com",
-      },
-      {
-        id: "netflix-pre",
-        name: "Netflix Premium",
-        price: 8500,
-        domain: "netflix.com",
-      },
-      {
-        id: "showmax",
-        name: "Showmax Entertainment",
-        price: 4500,
-        domain: "showmax.com",
-      },
-      {
-        id: "prime",
-        name: "Amazon Prime Video",
-        price: 2300,
-        domain: "primevideo.com",
-      },
-      {
-        id: "youtube",
-        name: "YouTube Premium",
-        price: 1700,
-        domain: "youtube.com",
-      },
-    ],
-  },
-  {
-    label: "Music",
-    items: [
-      {
-        id: "spotify",
-        name: "Spotify Premium",
-        price: 1600,
-        domain: "spotify.com",
-      },
-      {
-        id: "apple-music",
-        name: "Apple Music",
-        price: 1300,
-        domain: "music.apple.com",
-      },
-    ],
-  },
-  {
-    label: "AI & Productivity",
-    items: [
-      {
-        id: "chatgpt",
-        name: "ChatGPT Plus",
-        price: 33800,
-        domain: "openai.com",
-      },
-      { id: "claude", name: "Claude Pro", price: 32000, domain: "claude.ai" },
-      { id: "figma", name: "Figma", price: 24000, domain: "figma.com" },
-      { id: "canva", name: "Canva Pro", price: 5500, domain: "canva.com" },
-      { id: "notion", name: "Notion", price: 2000, domain: "notion.so" },
-    ],
-  },
-  {
     label: "Cable TV",
     items: [
       {
@@ -130,10 +63,22 @@ const CATEGORIES: Category[] = [
   {
     label: "Bills",
     items: [
-      { id: "mtn-10", name: "MTN Data 10GB", price: 4500, domain: "mtn.ng" },
-      { id: "mtn-20", name: "MTN Data 20GB", price: 7500, domain: "mtn.ng" },
-      { id: "airtime", name: "Airtime (monthly)", price: 5000 },
-      { id: "electricity", name: "Electricity (prepaid)", price: 20000 },
+      { id: "airtime-500", name: "Airtime ₦500", price: 500 },
+      { id: "airtime-1k", name: "Airtime ₦1,000", price: 1000 },
+      { id: "airtime-2k", name: "Airtime ₦2,000", price: 2000 },
+      { id: "airtime-3k", name: "Airtime ₦3,000", price: 3000 },
+      { id: "airtime-5k", name: "Airtime ₦5,000", price: 5000 },
+      { id: "airtime-10k", name: "Airtime ₦10,000", price: 10000 },
+      { id: "data-1.5k", name: "Data ₦1,500", price: 1500, domain: "mtn.ng" },
+      { id: "data-2.5k", name: "Data ₦2,500", price: 2500, domain: "mtn.ng" },
+      { id: "data-4.5k", name: "Data ₦4,500", price: 4500, domain: "mtn.ng" },
+      { id: "data-7.5k", name: "Data ₦7,500", price: 7500, domain: "mtn.ng" },
+      { id: "data-10k", name: "Data ₦10,000", price: 10000, domain: "mtn.ng" },
+      { id: "electricity-5k", name: "Electricity ₦5,000", price: 5000 },
+      { id: "electricity-10k", name: "Electricity ₦10,000", price: 10000 },
+      { id: "electricity-15k", name: "Electricity ₦15,000", price: 15000 },
+      { id: "electricity-20k", name: "Electricity ₦20,000", price: 20000 },
+      { id: "electricity-25k", name: "Electricity ₦25,000", price: 25000 },
     ],
   },
 ];
@@ -409,7 +354,7 @@ export default function CalculatorPage() {
     }
   };
 
-  const shareText = `I spend ${formatNaira(annualTotal)}/year on subscriptions and bills. What's your number? Find out: https://subsecute.com/calculator`;
+  const shareText = `I spend ${formatNaira(annualTotal)}/year on bills. What's your number? Find out: https://subsecute.com/calculator`;
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
 
@@ -441,8 +386,7 @@ export default function CalculatorPage() {
           <span className="text-[#E96D1F]">from your account?</span>
         </h1>
         <p className="mx-auto mt-4 max-w-[500px] font-outfit text-sm leading-relaxed text-[#6C757D] sm:text-base lg:text-lg">
-          Tap every subscription and bill you pay for. The total might surprise
-          you.
+          Tap every bill you pay for. The total might surprise you.
         </p>
       </header>
 

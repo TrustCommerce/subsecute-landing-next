@@ -52,15 +52,15 @@ const ANIMATED_STATS = [
     delay: 0,
   },
   {
-    targets: [15, 30],
-    format: (vals: number[]) => `$${vals[0]}-${vals[1]}`,
-    label: "Average monthly subscription spend per Nigerian user",
+    targets: [30, 80],
+    format: (vals: number[]) => `\u20A6${vals[0]}-${vals[1]}k`,
+    label: "Average monthly bill spend per Nigerian household",
     delay: 200,
   },
   {
-    targets: [50],
+    targets: [5],
     format: (vals: number[]) => `${vals[0]}+`,
-    label: "Supported subscription and bill providers",
+    label: "Bill categories: airtime, data, cable, power, internet",
     delay: 400,
   },
   {
@@ -97,9 +97,9 @@ function AnimatedStat({
 const FEATURES = [
   {
     icon: "/images/landing/about-icon-1.svg",
-    title: "One card per subscription",
+    title: "Schedule any bill",
     description:
-      "Each subscription gets its own virtual USD card. Cancel one without touching the rest.",
+      "Airtime, data, DSTV, GOtv, power — pick the amount, pick the date, done.",
   },
   {
     icon: "/images/landing/about-icon-2.svg",
@@ -109,9 +109,8 @@ const FEATURES = [
   },
   {
     icon: "/images/landing/about-icon-3.svg",
-    title: "Auto-funded before renewal",
-    description:
-      "Your wallet funds each card automatically before the charge hits. No failed payments.",
+    title: "Reminders before every charge",
+    description: "Get notified before each payment. Pause or adjust anytime.",
   },
 ] as const;
 
@@ -137,19 +136,17 @@ export default function AboutSection() {
               id="about-heading"
               className="font-outfit text-3xl leading-[1.2em] text-white sm:text-4xl lg:text-[48px]"
             >
-              One virtual card per subscription. One app for every bill in
-              Nigeria.
+              One app for every bill in Nigeria. Set it, forget it.
             </h2>
             <p className="font-outfit text-lg italic leading-[1.5em] tracking-wide text-white/80 sm:text-xl">
-              The best subscription is one you never think about.
+              The best bill is one you never think about.
             </p>
             <p className="font-outfit text-sm leading-[1.5em] tracking-wide text-[#CED4DA] sm:text-base">
-              Your bank card gets declined on Netflix. Your DSTV expires because
-              you forgot to renew. Your data runs out at midnight. Subsecute
-              fixes all of it — a dedicated USD card for each subscription that
-              auto-funds before renewal, and scheduled payments for airtime,
-              data, power, and cable that just run. Living abroad? Manage your
-              family&apos;s bills from anywhere.
+              Your DSTV expires because you forgot to renew. Your data runs out
+              at midnight. Your power goes while you&apos;re away. Subsecute
+              fixes all of it — scheduled payments for airtime, data, power, and
+              cable that just run. Living abroad? Manage your family&apos;s
+              bills from anywhere.
             </p>
           </div>
 

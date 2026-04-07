@@ -39,9 +39,8 @@ export default function Footer() {
             loading="lazy"
           />
           <p className="font-outfit text-sm leading-[1.5em] tracking-wide text-[#ADB5BD] lg:text-base">
-            Every recurring payment, on autopilot. Virtual USD cards for
-            subscriptions. Automatic bill pay for airtime, data, power, and
-            cable.
+            Every bill, on autopilot. Auto-pay airtime, data, DSTV, GOtv, power,
+            and more.
           </p>
         </div>
 

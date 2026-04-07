@@ -4,25 +4,25 @@ import { useRef, useEffect, useCallback } from "react";
 
 const TESTIMONIALS = [
   {
-    name: "Adaeze K.",
-    initial: "A",
+    name: "Tunde A.",
+    initial: "T",
     color: "bg-[#219653]",
     quote:
-      "I used to lose Netflix every other month declined charges, no warning. With Subsecute, it has not failed once in seven months. I genuinely don't think about it anymore.",
+      "I used to forget my DSTV every month. Now it just renews. I don't even think about it.",
   },
   {
-    name: "Tammy A.",
-    initial: "T",
+    name: "Ada O.",
+    initial: "A",
     color: "bg-[#962135]",
     quote:
-      "I used to lose Netflix every other month declined charges, no warning. With Subsecute, it has not failed once in seven months. I genuinely don't think about it anymore.",
+      "My mum's airtime and data run automatically now. No more midnight calls asking me to recharge.",
   },
   {
-    name: "Callum K.",
+    name: "Chidi E.",
     initial: "C",
     color: "bg-[#252196]",
     quote:
-      "I used to lose Netflix every other month declined charges, no warning. With Subsecute, it has not failed once in seven months. I genuinely don't think about it anymore.",
+      "Power, DSTV, data — everything just pays itself. Subsecute is the app I didn't know I needed.",
   },
 ] as const;
 
