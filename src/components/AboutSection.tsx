@@ -146,7 +146,7 @@ export default function AboutSection() {
             <p className="font-outfit text-sm leading-[1.5em] tracking-wide text-[#CED4DA] sm:text-base">
               Your bank card gets declined on Netflix. Your DSTV expires because
               you forgot to renew. Your data runs out at midnight. Subsecute
-              fixes all of it — a dedicated USD card for each subscription that
+              fixes all of it. A dedicated USD card for each subscription that
               auto-funds before renewal, and scheduled payments for airtime,
               data, power, and cable that just run. Living abroad? Manage your
               family&apos;s bills from anywhere.

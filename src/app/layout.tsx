@@ -45,17 +45,11 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   icons: {
     icon: [
-      {
-        url: "https://res.cloudinary.com/dwambnh2n/image/upload/v1775598688/Subsecute_qubygc.svg",
-        type: "image/svg+xml",
-      },
-      {
-        url: "https://res.cloudinary.com/dwambnh2n/image/upload/v1775598701/Subsecute_Icon_sastth.png",
-        type: "image/png",
-      },
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", type: "image/png", sizes: "512x512" },
     ],
-    apple:
-      "https://res.cloudinary.com/dwambnh2n/image/upload/v1775598701/Subsecute_Icon_sastth.png",
+    apple: "/favicon.png",
   },
 };
 
