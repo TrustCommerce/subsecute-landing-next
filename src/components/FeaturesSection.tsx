@@ -23,14 +23,47 @@ const POSES = [
   { y: (CARD_H + GAP) * 2, scale: 0.88, z: 5, opacity: 0 }, // far below (queued, hidden)
 ] as const;
 
-const ORDERS = [
-  [0, 1, 2, 3],
-  [1, 2, 3, 0],
-  [2, 3, 0, 1],
-  [3, 0, 1, 2],
-] as const;
-
 const SUBS = [
+  {
+    logo: logoUrl("figma.com"),
+    name: "Figma",
+    daysLeft: "5 days left",
+    price: "$10",
+    status: "Active" as const,
+    statusBg: "bg-[rgba(88,220,0,0.2)]",
+    statusColor: "text-[#49B500]",
+    dotColor: "bg-[#58DC00]",
+  },
+  {
+    logo: logoUrl("openai.com"),
+    name: "Chat GPT Plus",
+    daysLeft: "17 days left",
+    price: "$10",
+    status: "Active" as const,
+    statusBg: "bg-[rgba(88,220,0,0.2)]",
+    statusColor: "text-[#49B500]",
+    dotColor: "bg-[#58DC00]",
+  },
+  {
+    logo: logoUrl("netflix.com"),
+    name: "Netflix",
+    daysLeft: "17 days left",
+    price: "$10",
+    status: "Paused" as const,
+    statusBg: "bg-[rgba(239,35,60,0.17)]",
+    statusColor: "text-[#EF233C]",
+    dotColor: "bg-[#EF233C]",
+  },
+  {
+    logo: logoUrl("claude.ai"),
+    name: "Claude Pro",
+    daysLeft: "9 days left",
+    price: "$20",
+    status: "Active" as const,
+    statusBg: "bg-[rgba(88,220,0,0.2)]",
+    statusColor: "text-[#49B500]",
+    dotColor: "bg-[#58DC00]",
+  },
   {
     logo: logoUrl("dstv.com"),
     name: "DSTV Premium",
@@ -73,11 +106,24 @@ const SUBS = [
   },
 ] as const;
 
+const NUM_SUBS = SUBS.length;
+
+interface SubItem {
+  logo: string;
+  name: string;
+  daysLeft: string;
+  price: string;
+  status: "Active" | "Paused";
+  statusBg: string;
+  statusColor: string;
+  dotColor: string;
+}
+
 function SubCard({
   sub,
   pose,
 }: {
-  sub: (typeof SUBS)[number];
+  sub: SubItem;
   pose: (typeof POSES)[number];
 }) {
   return (
@@ -130,17 +176,17 @@ function SubscriptionListUI() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setStep((s) => (s + 1) % 4);
+      setStep((s) => (s + 1) % NUM_SUBS);
     }, HOLD_MS + TRANSITION_MS);
     return () => clearInterval(interval);
   }, []);
 
-  const order = ORDERS[step];
-
   return (
     <div className="relative h-[180px] overflow-hidden rounded-xl border border-[#DEE2E6] bg-[#FFFEEC] p-3 shadow-[inset_0px_2px_10px_rgba(0,0,0,0.1)]">
       {SUBS.map((sub, i) => {
-        const poseIndex = order.indexOf(i as 0 | 1 | 2 | 3);
+        const offset = (i - step + NUM_SUBS) % NUM_SUBS;
+        const poseIndex =
+          offset === 0 ? 1 : offset === 1 ? 2 : offset === NUM_SUBS - 1 ? 0 : 3;
         return <SubCard key={sub.name} sub={sub} pose={POSES[poseIndex]} />;
       })}
     </div>
@@ -191,7 +237,7 @@ function useCountUp(target: number, duration: number, active: boolean) {
 function StatsUI() {
   const ref = React.useRef<HTMLDivElement>(null);
   const inView = useInView(ref);
-  const count = useCountUp(52, 1400, inView);
+  const count = useCountUp(64, 1400, inView);
 
   return (
     <div
@@ -220,11 +266,10 @@ function StatsUI() {
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span className="font-dm-sans text-xl font-semibold text-[#232323]">
-            {"\u20A6"}
-            {count}k/m
+            ${count}/m
           </span>
           <span className="font-dm-sans text-[8px] font-medium text-[#979797]">
-            5 Bills
+            3 Subscriptions
           </span>
         </div>
       </div>
@@ -239,16 +284,16 @@ function RemindersUI() {
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <img
-              src={logoUrl("dstv.com")}
-              alt="DSTV"
+              src={logoUrl("netflix.com")}
+              alt="Netflix"
               className="h-8 w-8 shrink-0 rounded-md object-cover"
             />
             <div className="flex flex-col">
               <span className="font-dm-sans text-sm font-semibold text-[#232323]">
-                DSTV Premium
+                Netflix
               </span>
               <span className="font-dm-sans text-[10px] text-[#6C757D]">
-                {"\u20A6"}44,500 Insufficient wallet balance
+                $18.00 Insufficient funds on sub
               </span>
             </div>
           </div>
@@ -261,7 +306,7 @@ function RemindersUI() {
         </div>
         <div className="rounded-full bg-[#FEF6F2] px-3 py-2 text-center">
           <span className="font-dm-sans text-[10px] font-medium text-[#EF233C]">
-            Bill auto-pays on schedule
+            Sub auto-funds on renewal day
           </span>
         </div>
       </div>
@@ -269,16 +314,16 @@ function RemindersUI() {
       <div className="mx-auto -mt-1 flex w-[90%] items-center justify-between rounded-[11px] bg-white px-3 py-2 shadow-[0px_3px_5px_rgba(0,0,0,0.12)]">
         <div className="flex items-center gap-2">
           <img
-            src={logoUrl("mtn.ng")}
-            alt="MTN Data"
+            src={logoUrl("spotify.com")}
+            alt="Spotify"
             className="h-7 w-7 shrink-0 rounded-md object-cover"
           />
           <div className="flex flex-col">
             <span className="font-dm-sans text-xs font-semibold text-[#232323]">
-              MTN Data
+              Spotify
             </span>
             <span className="font-dm-sans text-[9px] text-[#6C757D]">
-              {"\u20A6"}4,500 Sufficient wallet balance
+              $18.00 Sufficient funds on sub.
             </span>
           </div>
         </div>
@@ -324,13 +369,13 @@ function PlansUI() {
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex w-full flex-col">
       {MEMBERS.map((member, i) => {
         const isActive = i === active;
         return (
           <div
             key={member.name}
-            className={`flex items-center justify-between border-b border-[#CED4DA] py-3 last:border-b-0 ${
+            className={`flex w-full items-center justify-between border-b border-[#CED4DA] px-2 py-3 last:border-b-0 ${
               isActive ? "rounded-lg bg-[#F8F9FA]" : ""
             }`}
             style={{
@@ -476,7 +521,7 @@ export default function FeaturesSection() {
             id="features-heading"
             className="mx-auto mt-2 max-w-[641px] font-neue-power text-3xl font-bold leading-[1.2em] tracking-normal text-[#232323] sm:text-4xl lg:text-[48px]"
           >
-            Every bill, on autopilot.
+            Virtual USD cards and automatic bill pay, in one app.
           </h2>
         </div>
 
@@ -492,8 +537,8 @@ export default function FeaturesSection() {
                   Every payment in one dashboard.
                 </h3>
                 <p className="font-outfit text-sm leading-[1.3em] tracking-wide text-[#6C757D]">
-                  DSTV, GOtv, airtime, data, power — see what&apos;s active,
-                  what&apos;s due, and what you&apos;ve spent.
+                  Netflix, Spotify, DSTV, airtime, power — see what&apos;s
+                  active, what&apos;s due, and what you&apos;ve spent.
                 </p>
               </div>
             </div>
@@ -509,7 +554,7 @@ export default function FeaturesSection() {
                   Full visibility into what you spend
                 </h3>
                 <p className="font-outfit text-sm leading-[1.3em] tracking-wide text-[#6C757D]">
-                  Per-bill breakdowns, trends, and history so nothing ever
+                  Per-sub breakdowns, trends, and history so nothing ever
                   catches you off guard.
                 </p>
               </div>
@@ -527,7 +572,7 @@ export default function FeaturesSection() {
                 </h3>
                 <p className="font-outfit text-sm leading-[1.3em] tracking-wide text-[#6C757D]">
                   Choose how far in advance you get notified; 1 day, 3 days, or
-                  7. Per bill.
+                  7. Per subscription.
                 </p>
               </div>
             </div>
@@ -546,10 +591,11 @@ export default function FeaturesSection() {
                     Create a plan for your team, friends, or family
                   </h3>
                   <p className="font-outfit text-sm leading-[1.5em] tracking-wide text-[#6C757D]">
-                    Build a bill plan with one or more packages and invite
-                    members. Each person picks what they want and activates it
-                    on their end. All charges come back to you, and you stay in
-                    full control of who&apos;s in and what they access.
+                    Build a subscription plan with one or more packages and
+                    invite members. Each person picks what they want and
+                    activates it on their end. All charges come back to you, and
+                    you stay in full control of who&apos;s in and what they
+                    access.
                   </p>
                 </div>
               </div>
@@ -559,7 +605,7 @@ export default function FeaturesSection() {
                 </span>
               </div>
             </div>
-            <div className="flex flex-1 items-center justify-center lg:justify-start">
+            <div className="flex w-full flex-1 items-center justify-center lg:justify-start">
               <PlansUI />
             </div>
           </article>
@@ -569,7 +615,7 @@ export default function FeaturesSection() {
             <div className="flex flex-col gap-4">
               <FeatureTag number="05" tag="GIFTING" light />
               <h3 className="max-w-[324px] font-outfit text-xl font-semibold leading-[1.2em] tracking-wide text-[#F7F8F9] lg:text-2xl">
-                Let anyone fund your bills.
+                Let anyone fund your subscriptions.
               </h3>
               <p className="font-outfit text-sm leading-[1.2em] tracking-wide text-[#ADB5BD]">
                 Share a link. When someone pays, it tops up your wallet

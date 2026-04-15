@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import CalculatorPage from "@/components/CalculatorPage";
 
 export const metadata: Metadata = {
-  title: "How Much Do You Spend on Bills? — Calculator",
+  title: "Naira Leak Calculator — How much are you spending on subscriptions?",
   description:
-    "Calculate your total bill spending in Nigeria. See your annual Naira total for DSTV, GOtv, airtime, data, and electricity.",
+    "Find out how much Naira is leaking from your account on subscriptions and bills every year. Free calculator by Subsecute.",
   alternates: { canonical: "/calculator" },
 };
 

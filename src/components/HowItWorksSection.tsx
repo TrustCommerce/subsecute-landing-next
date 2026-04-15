@@ -7,21 +7,21 @@ const STEPS = [
   },
   {
     number: "02",
-    title: "Add your bills",
+    title: "Add your subscriptions and bills",
     description:
-      "Add your airtime, data, DSTV, GOtv, power, or any recurring bill. Set the amount and schedule.",
+      "Add Netflix, Spotify, or any subscription. Set up recurring airtime, data, power, and cable payments.",
   },
   {
     number: "03",
     title: "We handle the rest",
     description:
-      "Bills pay on schedule, every month. Everything auto-debits from your wallet. No manual work.",
+      "Each subscription gets a virtual USD card. Bills pay on schedule. Everything auto-funds from your wallet.",
   },
   {
     number: "04",
     title: "Cancel anything, anytime",
     description:
-      "Pause or cancel any bill with one tap. Adjust amounts. You're always in control.",
+      "Freeze or kill any subscription with one tap. Pause a bill. You're always in control.",
   },
 ] as const;
 
@@ -43,7 +43,7 @@ export default function HowItWorksSection() {
               id="how-it-works-heading"
               className="font-neue-power text-3xl font-bold leading-[1.2em] tracking-normal text-[#232323] sm:text-4xl lg:text-[48px]"
             >
-              Automate your bills in 5 minutes
+              Automate your subscriptions and bills in 5 minutes
             </h2>
           </div>
           <p className="font-outfit text-base leading-[1.5em] tracking-wide text-[#232323] lg:max-w-[370px]">

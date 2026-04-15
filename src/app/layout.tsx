@@ -3,19 +3,19 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Subsecute — Automate Your Bills in Nigeria",
+    default: "Subsecute — Automate Your Subscriptions and Bills in Nigeria",
     template: "%s | Subsecute",
   },
   description:
-    "Auto-pay airtime, data, DSTV, GOtv, and electricity in Nigeria. Set it once, forget it.",
+    "Automate your subscriptions and bills in Nigeria. Virtual USD cards for Netflix, Spotify, ChatGPT. Auto-pay airtime, data, power, DSTV.",
   keywords:
-    "auto-pay bills Nigeria, automate airtime Nigeria, auto-pay DSTV Nigeria, recurring bill payment Nigeria, auto-pay electricity Nigeria",
+    "automate subscriptions Nigeria, virtual dollar card Nigeria, pay Netflix Nigeria, recurring bill payment Nigeria, auto-pay airtime Nigeria",
   metadataBase: new URL("https://subsecute.com"),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Subsecute — Automate Your Bills in Nigeria",
+    title: "Subsecute — Automate Your Subscriptions and Bills in Nigeria",
     description:
-      "Auto-pay airtime, data, DSTV, GOtv, and electricity in Nigeria. Set it once, forget it.",
+      "Automate your subscriptions and bills in Nigeria. Virtual USD cards for Netflix, Spotify, ChatGPT. Auto-pay airtime, data, power, DSTV.",
     url: "https://subsecute.com",
     siteName: "Subsecute",
     locale: "en_NG",
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Subsecute — Automate Your Bills in Nigeria",
+    title: "Subsecute — Automate Your Subscriptions and Bills in Nigeria",
     description:
-      "Auto-pay airtime, data, DSTV, GOtv, and electricity in Nigeria. Set it once, forget it.",
+      "Automate your subscriptions and bills in Nigeria. Virtual USD cards for Netflix, Spotify, ChatGPT. Auto-pay airtime, data, power, DSTV.",
     images: [
       "https://res.cloudinary.com/dwambnh2n/image/upload/v1774920431/Screenshot_2026-03-31_at_2.26.31_AM_amvubi.png",
     ],

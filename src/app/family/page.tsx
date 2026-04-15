@@ -4,7 +4,7 @@ import FamilyPage from "@/components/FamilyPage";
 export const metadata: Metadata = {
   title: "How Much Does Supporting Your Family Cost?",
   description:
-    "Calculate the real cost of every bill you pay for family back home in Nigeria — DSTV, GOtv, airtime, data, power. See your annual total.",
+    "Calculate the real cost of every subscription and bill you pay for family back home in Nigeria — Netflix, DSTV, GOtv, airtime, data, power. See your annual total.",
   alternates: { canonical: "/family" },
 };
 

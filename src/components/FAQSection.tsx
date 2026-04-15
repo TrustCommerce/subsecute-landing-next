@@ -4,9 +4,15 @@ import { useState } from "react";
 
 const FAQS = [
   {
+    question:
+      "How do I pay for Netflix in Nigeria without my card being declined?",
+    answer:
+      "Subsecute creates a dedicated virtual USD card for your Netflix subscription, funded automatically from your Naira wallet. Unlike Nigerian bank cards that often get declined, Subsecute cards work reliably across 50+ subscription providers.",
+  },
+  {
     question: "What is Subsecute?",
     answer:
-      "Subsecute is a recurring payment automation app built for Nigerians. It auto-pays your airtime, data, DSTV, GOtv, electricity, and other recurring bills \u2014 all from one wallet. Set it once, it runs every month.",
+      "Subsecute is a recurring payment automation app built for Nigerians. It gives you a unique virtual USD card for each subscription (Netflix, Spotify, ChatGPT, Figma, etc.) and auto-pays your bills — airtime, data, power, and cable — all from one wallet.",
   },
   {
     question: "Can I auto-pay my airtime, data, and DSTV through Subsecute?",
@@ -14,44 +20,39 @@ const FAQS = [
       "Yes. Set up recurring payments for airtime, data bundles, power, and cable TV (DSTV, GOtv, Showmax). Pick the amount and schedule, and Subsecute handles it automatically every month.",
   },
   {
-    question: "How does Subsecute work?",
-    answer:
-      "Add your payment method and the bills you want to automate, set your schedule, and we handle the rest. You get reminders before each charge and can pause or cancel anytime.",
-  },
-  {
     question: "Can someone abroad manage bills for family in Nigeria?",
     answer:
-      "Yes. Create a plan, add family members, and set up their airtime, data, and cable to renew automatically. You see every payment in your dashboard. Currently, wallets can be funded via Naira cards and bank transfers. Support for international card funding is coming soon, so for now, users abroad can fund their wallets manually.",
+      "Yes. Create a plan, add family members, and set up their airtime, data, and cable to renew automatically. You see every payment in your dashboard. No more sending money and hoping it gets used right.",
   },
   {
-    question: "What bills does Subsecute support?",
+    question: "How does Subsecute convert Naira to USD for my subscriptions?",
     answer:
-      "Subsecute supports airtime top-up, data bundles, power/electricity (EKEDC and other discos), and cable TV (DSTV, GOtv, Showmax). We also plan to add support for international subscriptions like Netflix and Spotify with dedicated virtual USD cards in the future.",
+      "When you fund your Subsecute wallet with Naira, the app handles the conversion at competitive rates. Each subscription gets its own USD virtual card that is automatically topped up before your renewal date.",
   },
   {
-    question: "How is Subsecute different from auto-debit on my bank app?",
+    question: "Is Subsecute safe and licensed?",
     answer:
-      "Bank auto-debits are scattered across different apps and hard to track. Subsecute puts every recurring bill in one dashboard with reminders, spending history, and family plans. One place, full control.",
+      "Yes. Subsecute operates in compliance with Nigerian financial regulations through partnerships with CBN-licensed entities. Your funds are held securely, and each virtual card is isolated per subscription so a compromise on one service cannot affect others.",
   },
   {
-    question: "Is Subsecute safe?",
+    question: "How is Subsecute different from Grey.co or Chipper Cash?",
     answer:
-      "Yes. Subsecute operates in compliance with Nigerian financial regulations through partnerships with CBN-licensed entities. Your funds are held securely and every payment is logged in your dashboard.",
+      "Unlike general-purpose dollar cards, Subsecute is purpose-built for recurring payments. Each subscription gets its own dedicated card, auto-funded before renewal, with reminders and spend tracking. Plus, Subsecute also handles local bill payments — airtime, data, power, and cable — so everything recurring lives in one place.",
+  },
+  {
+    question: "Can I use Subsecute for family or team subscription plans?",
+    answer:
+      "Yes. Subsecute lets you create plans where you invite family members or teammates. Each person picks their subscriptions, and all charges flow back to the plan owner.",
+  },
+  {
+    question: "What subscriptions and bills does Subsecute support?",
+    answer:
+      "Subsecute works with 50+ providers including Netflix, Spotify, Apple Music, YouTube Premium, ChatGPT Plus, Figma, Canva, Adobe Creative Cloud, Amazon Prime, and more. For bills, you can automate airtime, data, power (prepaid and postpaid), and cable TV (DSTV, GOtv, Showmax).",
   },
   {
     question: "How long does it take to set up Subsecute?",
     answer:
-      "Under 5 minutes. Download the app, sign up, fund your wallet, add your bills, and everything runs on autopilot.",
-  },
-  {
-    question: "Can I use Subsecute for family or team plans?",
-    answer:
-      "Yes. Create a plan, invite family members, and set up their airtime, data, and cable to renew automatically. All charges flow to the plan owner.",
-  },
-  {
-    question: "What happens if my wallet balance is too low?",
-    answer:
-      "Subsecute will notify you before each payment. If your balance is insufficient, the payment is paused \u2014 not skipped. Top up your wallet and it resumes automatically.",
+      "Under 5 minutes. Download the app, sign up, link your debit card, add your subscriptions and bills, and everything starts running on autopilot.",
   },
 ] as const;
 
@@ -116,7 +117,7 @@ export default function FAQSection() {
             id="faq-heading"
             className="mt-2 font-neue-power text-3xl font-bold leading-[1.2em] tracking-normal text-[#232323] sm:text-4xl lg:text-[48px]"
           >
-            Questions about automating your bills in Nigeria
+            Questions about paying for subscriptions in Nigeria
           </h2>
           <p className="mt-4 font-outfit text-sm tracking-wide text-[#6C757D] sm:text-base">
             Everything you need to know about Subsecute

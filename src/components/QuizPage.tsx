@@ -34,12 +34,12 @@ const questions: Question[] = [
   },
   {
     id: 3,
-    text: "Have you ever lost access to a service because you forgot to renew?",
+    text: "Has your bank card ever been declined on an international subscription?",
     options: [
       { label: "Never", points: 15 },
       { label: "Once or twice", points: 8 },
       { label: "It happens regularly", points: 3 },
-      { label: "I've lost access to something important", points: 0 },
+      { label: "I've lost access to a service because of it", points: 0 },
     ],
   },
   {
@@ -99,7 +99,7 @@ const scoreTiers: ScoreTier[] = [
     range: [0, 30],
     label: "Subscription Chaos",
     description:
-      "Your bills are running you, not the other way around. You're losing access to services you forgot to renew, and running out of data at midnight.",
+      "Your subscriptions and bills are running you, not the other way around. You're losing money to declined cards, forgotten renewals, and midnight data runs.",
     color: "#EF4444",
   },
   {
@@ -135,7 +135,7 @@ const fixes: Fix[] = [
   {
     questionId: 3,
     threshold: 8,
-    text: "Subsecute auto-pays your bills on schedule. No more expired services.",
+    text: "Subsecute gives each subscription its own virtual USD card. No more declines.",
   },
   {
     questionId: 4,
