@@ -69,7 +69,7 @@ export default function GiftingSection() {
                 "Share your unique gift link",
                 "They choose which bills to fund",
                 "They pay securely in one checkout",
-                "Funds land in your wallet instantly",
+                "Bills get paid, cards get funded",
               ].map((text, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[rgba(233,109,31,0.15)] font-outfit text-xs font-semibold text-[#E96D1F]">

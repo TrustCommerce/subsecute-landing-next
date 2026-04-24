@@ -4,12 +4,6 @@ import { useState } from "react";
 
 const FAQS = [
   {
-    question:
-      "How do I pay for Netflix in Nigeria without my card being declined?",
-    answer:
-      "Subsecute creates a dedicated virtual USD card for your Netflix subscription, funded automatically from your Naira wallet. Unlike Nigerian bank cards that often get declined, Subsecute cards work reliably across 50+ subscription providers.",
-  },
-  {
     question: "What is Subsecute?",
     answer:
       "Subsecute is a recurring payment automation app built for Nigerians. It gives you a unique virtual USD card for each subscription (Netflix, Spotify, ChatGPT, Figma, etc.) and auto-pays your bills — airtime, data, power, and cable — all from one wallet.",
@@ -53,6 +47,11 @@ const FAQS = [
     question: "How long does it take to set up Subsecute?",
     answer:
       "Under 5 minutes. Download the app, sign up, link your debit card, add your subscriptions and bills, and everything starts running on autopilot.",
+  },
+  {
+    question: "How can I pay for my Claude subscription in Nigeria?",
+    answer:
+      "Subsecute creates a dedicated virtual USD card for your Claude subscription, funded automatically from your Naira wallet. Add Claude as a subscription, and the card auto-funds before each renewal — no declined payments, no manual top-ups.",
   },
 ] as const;
 
@@ -117,7 +116,7 @@ export default function FAQSection() {
             id="faq-heading"
             className="mt-2 font-neue-power text-3xl font-bold leading-[1.2em] tracking-normal text-[#232323] sm:text-4xl lg:text-[48px]"
           >
-            Questions about paying for subscriptions in Nigeria
+            Questions about Subsecute
           </h2>
           <p className="mt-4 font-outfit text-sm tracking-wide text-[#6C757D] sm:text-base">
             Everything you need to know about Subsecute

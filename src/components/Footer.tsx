@@ -39,9 +39,8 @@ export default function Footer() {
             loading="lazy"
           />
           <p className="font-outfit text-sm leading-[1.5em] tracking-wide text-[#ADB5BD] lg:text-base">
-            Every recurring payment, on autopilot. Virtual USD cards for
-            subscriptions. Automatic bill pay for airtime, data, power, and
-            cable.
+            The recurring money app for Nigerians. Pay your bills, your
+            family&apos;s bills, anyone&apos;s bills — from anywhere.
           </p>
         </div>
 

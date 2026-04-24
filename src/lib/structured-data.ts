@@ -50,14 +50,6 @@ export const FAQ_SCHEMA = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "How do I pay for Netflix in Nigeria without my card being declined?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Subsecute creates a dedicated virtual USD card for your Netflix subscription, funded automatically from your Naira wallet. Unlike Nigerian bank cards that often get declined, Subsecute cards work reliably across 50+ subscription providers.",
-      },
-    },
-    {
-      "@type": "Question",
       name: "What is Subsecute?",
       acceptedAnswer: {
         "@type": "Answer",
@@ -126,6 +118,14 @@ export const FAQ_SCHEMA = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "Under 5 minutes. Download the app, sign up, link your debit card, add your subscriptions and bills, and everything starts running on autopilot.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How can I pay for my Claude subscription in Nigeria?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Subsecute creates a dedicated virtual USD card for your Claude subscription, funded automatically from your Naira wallet. Add Claude as a subscription, and the card auto-funds before each renewal — no declined payments, no manual top-ups.",
       },
     },
   ],

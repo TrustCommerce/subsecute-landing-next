@@ -24,14 +24,14 @@ export default function DownloadSection() {
           className="mb-4 text-center font-neue-power text-2xl font-bold leading-[1.15] tracking-normal text-white sm:text-4xl md:text-5xl lg:text-[64px]"
         >
           {IS_WAITLIST
-            ? "Be the first to automate everything"
-            : "Every recurring payment, handled"}
+            ? "Get early access — for you, your family, or both."
+            : "Every recurring payment, handled."}
         </h2>
 
         {/* Subtitle */}
         <p className="mb-10 max-w-[600px] text-center font-outfit text-base leading-[1.5em] tracking-wide text-white/80 sm:text-lg lg:mb-12 lg:text-xl">
           {IS_WAITLIST
-            ? "Join the waitlist. We'll let you know when Subsecute is ready to handle your subscriptions and bills."
+            ? "Join the waitlist. We'll let you know when Subsecute is ready."
             : "Download Subsecute. Add your subscriptions and bills. Watch everything renew on time, automatically."}
         </p>
 

@@ -48,9 +48,7 @@ export default function HeroSection() {
 
         {/* Hidden SEO H1 — keyword-rich for crawlers */}
         <h1 className="sr-only">
-          Automate Your Subscriptions and Bills in Nigeria — Virtual USD Cards
-          and Recurring Bill Pay for Netflix, Spotify, DSTV, Airtime, Data, and
-          Power
+          Subsecute — The Recurring Money App for Nigerians
         </h1>
         <p className="sr-only">
           Subsecute is a recurring payment automation app for Nigerians. Pay for
@@ -68,11 +66,7 @@ export default function HeroSection() {
           className="max-w-[822px] text-center font-neue-power leading-[1.15] tracking-normal text-[#232323]"
         >
           <span className="text-4xl font-bold sm:text-[40px] md:text-[49px] lg:text-[71px]">
-            The recurring money app
-          </span>
-          <br />
-          <span className="text-4xl font-bold sm:text-[40px] md:text-[49px] lg:text-[71px]">
-            for{" "}
+            The recurring money app for{" "}
           </span>
           <span className="relative inline-block text-4xl font-bold text-[#E96D1F] sm:text-[40px] md:text-[49px] lg:text-[71px]">
             Nigerians.
@@ -114,7 +108,7 @@ export default function HeroSection() {
         </div>
 
         {/* Phone mockup */}
-        <div className="relative mx-auto mt-8 w-full max-w-[265px] sm:max-w-[311px] md:max-w-[354px] lg:mt-10 lg:max-w-[398px]">
+        <div className="relative mx-auto mt-12 w-full max-w-[265px] sm:max-w-[311px] md:max-w-[354px] lg:mt-14 lg:max-w-[398px]">
           <div className="relative rounded-[2.5rem] bg-[#1a1a1a] p-2.5 shadow-[0_32px_68px_rgba(17,17,15,0.22)]">
             <img
               src="/images/landing/phone-screen.png"
