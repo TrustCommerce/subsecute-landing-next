@@ -528,7 +528,7 @@ export default function FeaturesSection() {
         {/* Top row — 3 cards */}
         <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {/* Card 1: Manage */}
-          <article className="flex flex-col gap-4 overflow-hidden rounded-3xl border border-[rgba(233,109,31,0.3)] bg-white p-5">
+          <article className="flex flex-col gap-4 overflow-hidden rounded-3xl border border-[rgba(233,109,31,0.3)] bg-white p-5 md:col-span-2 lg:col-span-1">
             <SubscriptionListUI />
             <div className="flex flex-col gap-4">
               <FeatureTag number="01" tag="MANAGE" />
@@ -562,7 +562,7 @@ export default function FeaturesSection() {
           </article>
 
           {/* Card 3: Reminders */}
-          <article className="flex flex-col gap-4 overflow-hidden rounded-3xl border border-[rgba(233,109,31,0.3)] bg-white p-5 md:col-span-2 lg:col-span-1">
+          <article className="flex flex-col gap-4 overflow-hidden rounded-3xl border border-[rgba(233,109,31,0.3)] bg-white p-5">
             <RemindersUI />
             <div className="flex flex-col gap-4">
               <FeatureTag number="03" tag="REMINDERS" />
@@ -576,54 +576,6 @@ export default function FeaturesSection() {
                 </p>
               </div>
             </div>
-          </article>
-        </div>
-
-        {/* Bottom row — 2 cards */}
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          {/* Card 4: Plans */}
-          <article className="flex flex-col gap-4 overflow-hidden rounded-3xl border border-[rgba(233,109,31,0.3)] bg-white p-5 lg:flex-row lg:p-6">
-            <div className="flex flex-1 flex-col justify-between gap-4">
-              <div className="flex flex-col gap-4">
-                <FeatureTag number="04" tag="PLANS" />
-                <div className="flex flex-col gap-2">
-                  <h3 className="font-outfit text-lg font-medium leading-[1.2em] tracking-wide text-black lg:text-xl">
-                    Create a plan for your team, friends, or family
-                  </h3>
-                  <p className="font-outfit text-sm leading-[1.5em] tracking-wide text-[#6C757D]">
-                    Build a subscription plan with one or more packages and
-                    invite members. Each person picks what they want and
-                    activates it on their end. All charges come back to you, and
-                    you stay in full control of who&apos;s in and what they
-                    access.
-                  </p>
-                </div>
-              </div>
-              <div className="self-start rounded-full bg-[rgba(233,109,31,0.15)] px-2.5 py-1">
-                <span className="font-outfit text-xs tracking-wide text-[#E96D1F]">
-                  All charges flow to the plan owner ✓
-                </span>
-              </div>
-            </div>
-            <div className="flex w-full flex-1 items-center justify-center lg:justify-start">
-              <PlansUI />
-            </div>
-          </article>
-
-          {/* Card 5: Funding */}
-          <article className="flex flex-col gap-10 overflow-hidden rounded-3xl border border-[rgba(233,109,31,0.3)] bg-[#202020] p-5 lg:gap-14 lg:p-6">
-            <div className="flex flex-col gap-4">
-              <FeatureTag number="05" tag="GIFTING" light />
-              <h3 className="max-w-[324px] font-outfit text-xl font-semibold leading-[1.2em] tracking-wide text-[#F7F8F9] lg:text-2xl">
-                Let anyone fund your subscriptions.
-              </h3>
-              <p className="font-outfit text-sm leading-[1.2em] tracking-wide text-[#ADB5BD]">
-                Share a link. When someone pays, it tops up your wallet
-                instantly. Perfect for family abroad helping with bills back
-                home.
-              </p>
-            </div>
-            <FundingUI />
           </article>
         </div>
       </div>

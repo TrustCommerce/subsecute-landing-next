@@ -4,6 +4,8 @@ import { IS_WAITLIST } from "../config";
 import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
 import FeaturesSection from "./FeaturesSection";
+import PlansSection from "./PlansSection";
+import GiftingSection from "./GiftingSection";
 import HowItWorksSection from "./HowItWorksSection";
 import DownloadSection from "./DownloadSection";
 import SocialProofSection from "./SocialProofSection";
@@ -16,6 +18,8 @@ export default function LandingPage() {
       <HeroSection />
       <AboutSection />
       <FeaturesSection />
+      <PlansSection />
+      <GiftingSection />
       <HowItWorksSection />
       <DownloadSection />
       {IS_WAITLIST ? <FAQSection /> : <SocialProofSection />}

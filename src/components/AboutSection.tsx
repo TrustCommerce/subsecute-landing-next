@@ -48,25 +48,25 @@ const ANIMATED_STATS = [
   {
     targets: [5],
     format: (vals: number[]) => `${vals[0]} min`,
-    label: "From download to your first automated payment",
+    label: "To set up your first automated payment",
     delay: 0,
-  },
-  {
-    targets: [15, 30],
-    format: (vals: number[]) => `$${vals[0]}-${vals[1]}`,
-    label: "Average monthly subscription spend per Nigerian user",
-    delay: 200,
   },
   {
     targets: [50],
     format: (vals: number[]) => `${vals[0]}+`,
-    label: "Supported subscription and bill providers",
+    label: "Subscription and bill providers supported",
+    delay: 200,
+  },
+  {
+    targets: [1],
+    format: (vals: number[]) => `${vals[0]} tap`,
+    label: "To pause or cancel any payment",
     delay: 400,
   },
   {
-    targets: [0],
-    format: (vals: number[]) => `${vals[0]}`,
-    label: "Failed renewals when auto-funding is on",
+    targets: [3],
+    format: (vals: number[]) => `${vals[0]}+`,
+    label: "Bills you can manage for someone else",
     delay: 600,
   },
 ] as const;
@@ -79,8 +79,7 @@ function AnimatedStat({
   active: boolean;
 }) {
   const val0 = useCountUp(stat.targets[0] ?? 0, 1200, active, stat.delay);
-  const val1 = useCountUp(stat.targets[1] ?? 0, 1200, active, stat.delay + 100);
-  const values = stat.targets.length >= 2 ? [val0, val1] : [val0];
+  const values = [val0];
 
   return (
     <div className="flex flex-col">

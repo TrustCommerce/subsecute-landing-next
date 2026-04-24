@@ -68,11 +68,14 @@ export default function HeroSection() {
           className="max-w-[822px] text-center font-neue-power leading-[1.15] tracking-normal text-[#232323]"
         >
           <span className="text-4xl font-bold sm:text-[40px] md:text-[49px] lg:text-[71px]">
-            Your bills run themselves.
+            The recurring money app
           </span>
           <br />
+          <span className="text-4xl font-bold sm:text-[40px] md:text-[49px] lg:text-[71px]">
+            for{" "}
+          </span>
           <span className="relative inline-block text-4xl font-bold text-[#E96D1F] sm:text-[40px] md:text-[49px] lg:text-[71px]">
-            You run your life.
+            Nigerians.
             <svg
               className="absolute -bottom-1 left-0 w-full sm:-bottom-2"
               viewBox="0 0 400 16"
@@ -93,8 +96,7 @@ export default function HeroSection() {
 
         {/* Subtitle — value prop flows into loss aversion as one thought */}
         <p className="mt-4 max-w-[540px] text-center font-outfit text-sm leading-[1.6em] tracking-wide text-[#6C757D] sm:text-base lg:mt-5 lg:text-lg">
-          Auto-pay your Netflix, DSTV, airtime, data, and power. No more
-          declined cards. No more midnight data runs.
+          Every bill on autopilot — yours, theirs, everyone&apos;s.
         </p>
 
         {/* CTA — switches based on launch mode */}
