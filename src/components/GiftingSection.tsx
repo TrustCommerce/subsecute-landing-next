@@ -14,7 +14,7 @@ export default function GiftingSection() {
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-8px); }
+          50% { transform: translateY(-16px); }
         }
       `}</style>
 
@@ -87,7 +87,7 @@ export default function GiftingSection() {
           <div className="flex w-full justify-center lg:w-[45%]">
             <div
               className="w-full max-w-[350px] rounded-3xl bg-white p-6 shadow-[0px_8px_32px_rgba(0,0,0,0.08)]"
-              style={{ animation: "float 6s ease-in-out infinite" }}
+              style={{ animation: "float 3.5s ease-in-out infinite" }}
             >
               {/* Avatar — DiceBear */}
               <div className="mb-4 flex justify-center">

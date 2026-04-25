@@ -46,7 +46,7 @@ const BADGES = [
     text: "Card funded",
     amount: "$20.00",
     side: "left" as const,
-    top: "64%",
+    top: "52%",
   },
   {
     icon: `https://img.logo.dev/ekedc.com?token=${LOGO_TOKEN}&size=64&format=png`,
@@ -89,41 +89,40 @@ function FloatingBadges() {
         return (
           <div
             key={i}
-            className={`absolute z-0 hidden sm:flex items-center gap-2.5 rounded-2xl bg-white px-4 py-2.5 shadow-[0px_4px_20px_rgba(0,0,0,0.06)] ${isLeft ? "flex-row" : "flex-row-reverse"}`}
+            className={`absolute z-0 flex items-center gap-1.5 rounded-xl bg-white px-2 py-1.5 shadow-[0px_4px_20px_rgba(0,0,0,0.06)] sm:gap-2.5 sm:rounded-2xl sm:px-4 sm:py-2.5 ${isLeft ? "flex-row" : "flex-row-reverse"}`}
             style={{
               top: badge.top,
               ...(isLeft
                 ? {
                     left: 0,
-                    transform: `translateX(-60%) rotate(4deg) scale(${isVisible ? 1 : 0.85})`,
+                    transform: `translateX(-70%) rotate(4deg) scale(${isVisible ? 1 : 0.85})`,
                   }
                 : {
                     right: 0,
-                    transform: `translateX(60%) rotate(-4deg) scale(${isVisible ? 1 : 0.85})`,
+                    transform: `translateX(70%) rotate(-4deg) scale(${isVisible ? 1 : 0.85})`,
                   }),
               opacity: isVisible ? 1 : 0,
               transition:
                 "opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
               pointerEvents: "none",
-              minWidth: "280px",
             }}
             aria-hidden="true"
           >
             <img
               src={badge.icon}
               alt=""
-              className="h-8 w-8 shrink-0 rounded-lg object-cover"
+              className="h-5 w-5 shrink-0 rounded object-cover sm:h-8 sm:w-8 sm:rounded-lg"
             />
             <div className={`flex flex-col ${isLeft ? "" : "items-end"}`}>
-              <span className="font-outfit text-xs font-semibold text-[#232323]">
+              <span className="font-outfit text-[7px] font-semibold text-[#232323] sm:text-xs">
                 {badge.label}
               </span>
-              <span className="font-outfit text-[10px] text-[#6C757D]">
+              <span className="font-outfit text-[6px] text-[#6C757D] sm:text-[10px]">
                 {badge.text}
               </span>
             </div>
             <span
-              className={`whitespace-nowrap font-dm-sans text-xs font-semibold text-[#E96D1F] ${isLeft ? "ml-auto" : "mr-auto"}`}
+              className={`whitespace-nowrap font-dm-sans text-[7px] font-semibold text-[#E96D1F] sm:text-xs ${isLeft ? "ml-auto" : "mr-auto"}`}
             >
               {badge.amount}
             </span>
@@ -138,7 +137,7 @@ export default function HeroSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative h-[769px] overflow-hidden bg-[#FFFEEC] sm:h-[854px] md:h-[898px] lg:h-[1021px]"
+      className="relative h-[780px] overflow-hidden bg-[#FFFEEC] sm:h-[854px] md:h-[898px] lg:h-[1021px]"
     >
       {/* Orange blur */}
       <div
@@ -240,7 +239,7 @@ export default function HeroSection() {
         </div>
 
         {/* Phone mockup with floating notification badges behind */}
-        <div className="relative mx-auto mt-[98px] w-full max-w-[265px] sm:max-w-[311px] md:max-w-[354px] lg:mt-[131px] lg:max-w-[398px]">
+        <div className="relative mx-auto mt-6 w-full max-w-[220px] sm:mt-[98px] sm:max-w-[311px] md:max-w-[354px] lg:mt-[151px] lg:max-w-[398px]">
           <FloatingBadges />
           <div className="relative z-10 rounded-[2.5rem] bg-[#1a1a1a] p-2.5 shadow-[0_32px_68px_rgba(17,17,15,0.22)]">
             <img
