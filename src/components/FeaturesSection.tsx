@@ -461,7 +461,7 @@ function FundingUI() {
           Your gift link:
         </span>
         <span className="font-outfit text-xs font-medium tracking-wide text-white">
-          app.subsecute.com/gift/leslie
+          gift.subsecute.com/leslie
         </span>
       </div>
       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[rgba(233,109,31,0.1)]">
