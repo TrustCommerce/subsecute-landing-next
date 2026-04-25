@@ -1,6 +1,138 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { IS_WAITLIST } from "../config";
 import Navbar from "./Navbar";
 import WaitlistForm from "./WaitlistForm";
+
+const LOGO_TOKEN = "pk_dorVGutZSi-4iMholcR1qA";
+
+const BADGES = [
+  {
+    icon: `https://img.logo.dev/netflix.com?token=${LOGO_TOKEN}&size=64&format=png`,
+    label: "Netflix",
+    text: "Renewal due in 3 days",
+    amount: "$15.49",
+    side: "left" as const,
+    top: "12%",
+  },
+  {
+    icon: `https://img.logo.dev/spotify.com?token=${LOGO_TOKEN}&size=64&format=png`,
+    label: "Spotify",
+    text: "Successfully renewed",
+    amount: "$10.99",
+    side: "left" as const,
+    top: "38%",
+  },
+  {
+    icon: `https://img.logo.dev/dstv.com?token=${LOGO_TOKEN}&size=64&format=png`,
+    label: "DSTV Compact",
+    text: "Auto-paid",
+    amount: "₦19,000",
+    side: "right" as const,
+    top: "15%",
+  },
+  {
+    icon: `https://img.logo.dev/mtn.ng?token=${LOGO_TOKEN}&size=64&format=png`,
+    label: "MTN Airtime",
+    text: "Top-up sent",
+    amount: "₦5,000",
+    side: "right" as const,
+    top: "42%",
+  },
+  {
+    icon: `https://img.logo.dev/claude.ai?token=${LOGO_TOKEN}&size=64&format=png`,
+    label: "Claude Pro",
+    text: "Card funded",
+    amount: "$20.00",
+    side: "left" as const,
+    top: "64%",
+  },
+  {
+    icon: `https://img.logo.dev/ekedc.com?token=${LOGO_TOKEN}&size=64&format=png`,
+    label: "EKEDC Power",
+    text: "Token purchased",
+    amount: "₦20,000",
+    side: "right" as const,
+    top: "68%",
+  },
+] as const;
+
+function FloatingBadges() {
+  const [visibleIndices, setVisibleIndices] = useState<number[]>([0, 2]);
+
+  useEffect(() => {
+    let step = 0;
+    const patterns = [
+      [0, 2],
+      [1, 3],
+      [0, 4],
+      [2, 5],
+      [1, 4],
+      [3, 5],
+    ];
+
+    const interval = setInterval(() => {
+      step = (step + 1) % patterns.length;
+      setVisibleIndices(patterns[step]);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <>
+      {BADGES.map((badge, i) => {
+        const isVisible = visibleIndices.includes(i);
+        const isLeft = badge.side === "left";
+
+        return (
+          <div
+            key={i}
+            className={`absolute z-0 hidden sm:flex items-center gap-2.5 rounded-2xl bg-white px-4 py-2.5 shadow-[0px_4px_20px_rgba(0,0,0,0.06)] ${isLeft ? "flex-row" : "flex-row-reverse"}`}
+            style={{
+              top: badge.top,
+              ...(isLeft
+                ? {
+                    left: 0,
+                    transform: `translateX(-60%) rotate(4deg) scale(${isVisible ? 1 : 0.85})`,
+                  }
+                : {
+                    right: 0,
+                    transform: `translateX(60%) rotate(-4deg) scale(${isVisible ? 1 : 0.85})`,
+                  }),
+              opacity: isVisible ? 1 : 0,
+              transition:
+                "opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
+              pointerEvents: "none",
+              minWidth: "280px",
+            }}
+            aria-hidden="true"
+          >
+            <img
+              src={badge.icon}
+              alt=""
+              className="h-8 w-8 shrink-0 rounded-lg object-cover"
+            />
+            <div className={`flex flex-col ${isLeft ? "" : "items-end"}`}>
+              <span className="font-outfit text-xs font-semibold text-[#232323]">
+                {badge.label}
+              </span>
+              <span className="font-outfit text-[10px] text-[#6C757D]">
+                {badge.text}
+              </span>
+            </div>
+            <span
+              className={`whitespace-nowrap font-dm-sans text-xs font-semibold text-[#E96D1F] ${isLeft ? "ml-auto" : "mr-auto"}`}
+            >
+              {badge.amount}
+            </span>
+          </div>
+        );
+      })}
+    </>
+  );
+}
 
 export default function HeroSection() {
   return (
@@ -107,9 +239,10 @@ export default function HeroSection() {
           )}
         </div>
 
-        {/* Phone mockup */}
-        <div className="relative mx-auto mt-12 w-full max-w-[265px] sm:max-w-[311px] md:max-w-[354px] lg:mt-14 lg:max-w-[398px]">
-          <div className="relative rounded-[2.5rem] bg-[#1a1a1a] p-2.5 shadow-[0_32px_68px_rgba(17,17,15,0.22)]">
+        {/* Phone mockup with floating notification badges behind */}
+        <div className="relative mx-auto mt-[98px] w-full max-w-[265px] sm:max-w-[311px] md:max-w-[354px] lg:mt-[131px] lg:max-w-[398px]">
+          <FloatingBadges />
+          <div className="relative z-10 rounded-[2.5rem] bg-[#1a1a1a] p-2.5 shadow-[0_32px_68px_rgba(17,17,15,0.22)]">
             <img
               src="/images/landing/phone-screen.png"
               alt="Subsecute app showing wallet balance of ₦150,187.87, active subscriptions, and monthly spend"
