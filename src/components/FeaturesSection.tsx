@@ -537,7 +537,7 @@ export default function FeaturesSection() {
                   Every payment in one dashboard.
                 </h3>
                 <p className="font-outfit text-sm leading-[1.3em] tracking-wide text-[#6C757D]">
-                  Netflix, Spotify, DSTV, airtime, power — see what&apos;s
+                  Netflix, Spotify, DSTV, airtime, power, see what&apos;s
                   active, what&apos;s due, and what you&apos;ve spent.
                 </p>
               </div>

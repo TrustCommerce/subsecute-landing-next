@@ -36,8 +36,7 @@ export default function GiftingSection() {
             <p className="font-outfit text-sm leading-[1.6em] tracking-wide text-[#6C757D] sm:text-base">
               Share your gift link with family, friends, or anyone. They pick
               which bills to help with, choose how many months, and pay
-              securely. The money goes straight to your Subsecute wallet — no
-              bank transfers, no WhatsApp coordination.
+              securely. The bills are auto paid and cards prefunded.
             </p>
 
             {/* Gift link bar */}

@@ -47,8 +47,8 @@ export default function HowItWorksSection() {
             </h2>
           </div>
           <p className="font-outfit text-base leading-[1.5em] tracking-wide text-[#232323] lg:max-w-[370px]">
-            Set it up once. Subsecute handles every renewal from there —
-            funding, reminders, the whole thing!
+            Set it up once. Subsecute handles every renewal from there: funding,
+            reminders, the whole thing!
           </p>
         </div>
 

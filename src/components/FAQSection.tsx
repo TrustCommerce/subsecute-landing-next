@@ -6,7 +6,7 @@ const FAQS = [
   {
     question: "What is Subsecute?",
     answer:
-      "Subsecute is a recurring payment automation app built for Nigerians. It gives you a unique virtual USD card for each subscription (Netflix, Spotify, ChatGPT, Figma, etc.) and auto-pays your bills — airtime, data, power, and cable — all from one wallet.",
+      "Subsecute is a recurring payment automation app built for Nigerians. It gives you a unique virtual USD card for each subscription (Netflix, Spotify, ChatGPT, Figma, etc.) and auto-pays your bills including airtime, data, power, and cable, all from one wallet.",
   },
   {
     question: "Can I auto-pay my airtime, data, and DSTV through Subsecute?",

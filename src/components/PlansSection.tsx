@@ -119,9 +119,9 @@ function PlansUI() {
 }
 
 const BENEFITS = [
-  "Add anyone — family, friends, or your team",
+  "Add anyone including family, friends, or your team",
   "Set their bills and schedules from your account",
-  "Track every naira across all members",
+  "Track every bill spend across members",
 ];
 
 function CheckIcon() {
@@ -169,7 +169,7 @@ export default function PlansSection() {
 
           <p className="font-outfit text-sm leading-[1.6em] tracking-wide text-[#6C757D] sm:text-base">
             Add family members or teammates to a plan. Set up their airtime,
-            data, DSTV, and power. Everything renews automatically — you see
+            data, DSTV, and power. Everything renews automatically. You see
             every payment, they just enjoy the service.
           </p>
 
