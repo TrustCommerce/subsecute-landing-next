@@ -521,7 +521,7 @@ export default function FeaturesSection() {
             id="features-heading"
             className="mx-auto mt-2 max-w-[641px] font-neue-power text-3xl font-bold leading-[1.2em] tracking-normal text-[#232323] sm:text-4xl lg:text-[48px]"
           >
-            Virtual USD cards and automatic bill pay, in one app.
+            Virtual USD cards auto prefunded and automatic bill pay, in one app.
           </h2>
         </div>
 
