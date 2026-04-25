@@ -47,7 +47,7 @@ export default function GiftingSection() {
                   Your gift link:
                 </span>
                 <span className="font-outfit text-sm font-medium tracking-wide text-[#232323]">
-                  app.subsecute.com/gift/adaeze
+                  app.subsecute.com/gift/leslie
                 </span>
               </div>
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#E96D1F] shadow-[0px_2px_8px_rgba(233,109,31,0.3)]">

@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 
 const MEMBERS = [
   {
-    name: "Kola Adeyemi",
-    initial: "K",
+    name: "Chinazor Otu",
+    initial: "C",
     bg: "bg-[#A63CD3]",
     activeBg: "bg-[#A63CD3]/10",
   },
@@ -16,8 +16,8 @@ const MEMBERS = [
     activeBg: "bg-[#E79438]/10",
   },
   {
-    name: "Alex Morgan",
-    initial: "A",
+    name: "Kenechukwu Varis",
+    initial: "K",
     bg: "bg-[#277E3E]",
     activeBg: "bg-[#277E3E]/10",
   },

@@ -351,8 +351,8 @@ const MEMBERS = [
     activeBg: "bg-[#E79438]/10",
   },
   {
-    name: "Alex Morgan",
-    initial: "A",
+    name: "Kenechukwu Varis",
+    initial: "K",
     bg: "bg-[#277E3E]",
     activeBg: "bg-[#277E3E]/10",
   },
@@ -461,7 +461,7 @@ function FundingUI() {
           Your gift link:
         </span>
         <span className="font-outfit text-xs font-medium tracking-wide text-white">
-          app.subsecute.com/gift/adaeze
+          app.subsecute.com/gift/leslie
         </span>
       </div>
       <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[rgba(233,109,31,0.1)]">
