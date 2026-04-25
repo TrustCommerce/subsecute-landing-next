@@ -339,8 +339,8 @@ function RemindersUI() {
 
 const MEMBERS = [
   {
-    name: "Kola Adeyemi",
-    initial: "K",
+    name: "Chinazor Otu",
+    initial: "C",
     bg: "bg-[#A63CD3]",
     activeBg: "bg-[#A63CD3]/10",
   },
