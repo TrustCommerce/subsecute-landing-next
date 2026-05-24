@@ -76,28 +76,10 @@ const CATEGORIES: Category[] = [
         domain: "kick.com",
       },
       {
-        id: "crunchyroll",
-        name: "Crunchyroll Fan",
-        price: 3500,
-        domain: "crunchyroll.com",
-      },
-      {
         id: "apple-tv",
         name: "Apple TV+",
         price: 4500,
         domain: "tv.apple.com",
-      },
-      {
-        id: "dazn",
-        name: "DAZN",
-        price: 32000,
-        domain: "dazn.com",
-      },
-      {
-        id: "nba",
-        name: "NBA League Pass",
-        price: 24000,
-        domain: "nba.com",
       },
     ],
   },
@@ -144,10 +126,16 @@ const CATEGORIES: Category[] = [
         domain: "microsoft.com",
       },
       {
-        id: "ms365-family",
-        name: "Microsoft 365 Family",
+        id: "capcut",
+        name: "CapCut Pro",
+        price: 13000,
+        domain: "capcut.com",
+      },
+      {
+        id: "midjourney",
+        name: "Midjourney Basic",
         price: 16000,
-        domain: "microsoft.com",
+        domain: "midjourney.com",
       },
     ],
   },
@@ -171,18 +159,6 @@ const CATEGORIES: Category[] = [
         name: "Google One 100GB",
         price: 300,
         domain: "one.google.com",
-      },
-      {
-        id: "google-one-2tb",
-        name: "Google One 2TB",
-        price: 4500,
-        domain: "one.google.com",
-      },
-      {
-        id: "dropbox-plus",
-        name: "Dropbox Plus",
-        price: 19000,
-        domain: "dropbox.com",
       },
     ],
   },
@@ -530,23 +506,34 @@ function ElectricityTile({
     <div
       className={`flex flex-col gap-3 rounded-xl border px-3 py-3 transition-all duration-150 sm:px-4 ${
         selected
-          ? "border-[#E96D1F] bg-[#E96D1F]/5"
+          ? "border-[#E96D1F] bg-[#E96D1F]/5 scale-[1.02] shadow-sm"
           : "border-[#DEE2E6] bg-white"
       }`}
     >
-      <div className="flex items-center gap-3">
+      <button
+        type="button"
+        onClick={onToggle}
+        disabled={!canToggle}
+        className="flex items-center gap-3 text-left disabled:cursor-not-allowed"
+      >
         <InitialIcon name="Electricity" />
         <div className="min-w-0 flex-1">
           <p className="truncate font-outfit text-sm font-medium text-[#232323]">
             Electricity (prepaid)
           </p>
           <p className="font-outfit text-xs text-[#6C757D]">
-            {canToggle ? `${formatNaira(effectiveAmount)}/mo` : "Choose amount"}
+            {canToggle
+              ? `${formatNaira(effectiveAmount)}/mo`
+              : "Pick an amount below"}
           </p>
         </div>
         <div
           className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 transition-colors ${
-            selected ? "border-[#E96D1F] bg-[#E96D1F]" : "border-[#DEE2E6]"
+            selected
+              ? "border-[#E96D1F] bg-[#E96D1F]"
+              : canToggle
+                ? "border-[#DEE2E6]"
+                : "border-[#DEE2E6] opacity-40"
           }`}
         >
           {selected && (
@@ -561,7 +548,7 @@ function ElectricityTile({
             </svg>
           )}
         </div>
-      </div>
+      </button>
 
       <select
         value={amount}
@@ -586,19 +573,6 @@ function ElectricityTile({
           className="h-9 w-full rounded-lg border border-[#DEE2E6] bg-white px-3 font-outfit text-sm text-[#232323] placeholder-[#ADB5BD] outline-none focus:border-[#E96D1F] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
         />
       )}
-
-      <button
-        type="button"
-        onClick={onToggle}
-        disabled={!canToggle}
-        className={`h-9 w-full rounded-lg font-outfit text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:bg-[#DEE2E6] disabled:text-[#6C757D] ${
-          selected
-            ? "bg-[#E96D1F] text-white"
-            : "bg-[#232323] text-white hover:bg-[#E96D1F]"
-        }`}
-      >
-        {selected ? "Remove" : "Add electricity"}
-      </button>
     </div>
   );
 }
