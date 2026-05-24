@@ -315,7 +315,15 @@ function AddMembersStep({
               {RELATIONSHIPS.map((r) => (
                 <button
                   key={r}
-                  onClick={() => setRel(r)}
+                  onClick={() => {
+                    setRel(r);
+                    if (r !== "Other") {
+                      const nameIsPreset =
+                        name === "" ||
+                        (RELATIONSHIPS as readonly string[]).includes(name);
+                      if (nameIsPreset) setName(r);
+                    }
+                  }}
                   className={`rounded-full border px-3.5 py-1.5 font-outfit text-xs font-medium tracking-wide transition-colors ${
                     rel === r
                       ? "border-[#E96D1F] bg-[#E96D1F]/10 text-[#E96D1F]"

@@ -897,14 +897,14 @@ export default function CalculatorPage() {
                     </svg>
                   </div>
                   <p className="font-outfit text-sm tracking-wide text-[#232323]">
-                    You&apos;re on the list. Subsecute will plug every leak.
+                    You&apos;re on the list. Subsecute will monitor every leak.
                   </p>
                 </div>
               ) : (
                 <>
                   <p className="font-outfit text-base font-medium text-[#232323] sm:text-lg">
                     {formatNaira(annualTotal)}/year leaks from your account.
-                    Subsecute plugs every leak.
+                    Subsecute monitors every leak.
                   </p>
                   <p className="mt-2 font-outfit text-xs text-[#6C757D]">
                     Join the waitlist and we&apos;ll let you know when it&apos;s
