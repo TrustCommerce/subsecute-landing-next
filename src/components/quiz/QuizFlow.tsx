@@ -13,12 +13,12 @@ interface Question {
 const questions: Question[] = [
   {
     id: 1,
-    text: "How many subscriptions and recurring bills do you pay for?",
+    text: "Do you know exactly how many subscriptions you have?",
     options: [
-      { label: "1-2", points: 15 },
-      { label: "3-5", points: 10 },
-      { label: "6-10", points: 5 },
-      { label: "More than 10", points: 2 },
+      { label: "Yes, I could list every one", points: 15 },
+      { label: "I know roughly", points: 10 },
+      { label: "I'd undercount", points: 3 },
+      { label: "I have no idea", points: 0 },
     ],
   },
   {
@@ -66,9 +66,9 @@ const questions: Question[] = [
     text: "Do you share subscription costs with anyone?",
     options: [
       { label: "Yes and it's well organized", points: 15 },
-      { label: "I pay for other people (and don't expect it back)", points: 5 },
-      { label: "Yes but it's chaotic", points: 5 },
+      { label: "I pay for other people (and don't expect it back)", points: 12 },
       { label: "No", points: 10 },
+      { label: "Yes but it's chaotic", points: 5 },
       { label: "I've given up trying to collect money from people", points: 0 },
     ],
   },
@@ -76,12 +76,12 @@ const questions: Question[] = [
     id: 7,
     text: "Could you cancel any subscription right now in under 60 seconds?",
     options: [
-      { label: "Yes, easily", points: 10 },
+      { label: "Yes, easily", points: 15 },
       {
         label: "Probably, but I'd have to find the card details first",
-        points: 5,
+        points: 8,
       },
-      { label: "I'd have to log into multiple apps and websites", points: 2 },
+      { label: "I'd have to log into multiple apps and websites", points: 3 },
       { label: "I honestly don't know how", points: 0 },
     ],
   },
@@ -133,6 +133,16 @@ interface Fix {
 
 const fixes: Fix[] = [
   {
+    questionId: 1,
+    threshold: 10,
+    text: "See every subscription you have in one dashboard. Spot the ones you forgot you were paying for.",
+  },
+  {
+    questionId: 2,
+    threshold: 8,
+    text: "Get a monthly summary of every charge. Know exactly where your money goes.",
+  },
+  {
     questionId: 3,
     threshold: 8,
     text: "Subsecute auto-funds each subscription's USD card before renewal. The money is there before the merchant asks for it.",
@@ -145,12 +155,17 @@ const fixes: Fix[] = [
   {
     questionId: 5,
     threshold: 8,
-    text: "Your DSTV renews automatically. No more expired subscriptions.",
+    text: "Auto-pay your cable, power, and other Nigerian bills. Schedule it once, never miss a renewal.",
   },
   {
     questionId: 6,
-    threshold: 10,
-    text: "Share plans with family. Everyone gets access, you keep control.",
+    threshold: 6,
+    text: "Share plans with friends and family. Everyone gets access, you keep control.",
+  },
+  {
+    questionId: 6,
+    threshold: 13,
+    text: "Gift entire subscriptions to family. From anywhere in the world, on autopilot.",
   },
   {
     questionId: 7,
@@ -171,6 +186,7 @@ export default function QuizFlow() {
     "idle",
   );
   const [errorMsg, setErrorMsg] = useState("");
+  const [joinedWaitlist, setJoinedWaitlist] = useState(false);
   const [displayScore, setDisplayScore] = useState(0);
   const scoreRef = useRef(0);
 
@@ -184,14 +200,23 @@ export default function QuizFlow() {
   };
 
   const getRelevantFixes = () => {
-    const relevant = fixes
-      .filter((f) => {
-        const answerIdx = f.questionId - 1;
-        if (answerIdx >= answers.length) return false;
-        return answers[answerIdx] < f.threshold;
-      })
-      .slice(0, 3);
-    return relevant;
+    // For each questionId, keep only the fix with the lowest threshold that
+    // still triggers — that's the closest match to the user's actual answer.
+    // Avoids duplicate fixes per question (e.g., Q6 has two thresholds).
+    const byQuestion = new Map<number, Fix>();
+
+    fixes.forEach((f) => {
+      const answerIdx = f.questionId - 1;
+      if (answerIdx >= answers.length) return;
+      if (answers[answerIdx] >= f.threshold) return;
+
+      const existing = byQuestion.get(f.questionId);
+      if (!existing || f.threshold < existing.threshold) {
+        byQuestion.set(f.questionId, f);
+      }
+    });
+
+    return Array.from(byQuestion.values()).slice(0, 3);
   };
 
   const handleAnswer = (points: number) => {
@@ -258,6 +283,7 @@ export default function QuizFlow() {
       });
 
       if (res.ok) {
+        setJoinedWaitlist(true);
         setDisplayScore(0);
         setStage("result");
       } else {
@@ -275,7 +301,14 @@ export default function QuizFlow() {
 
   const tier = getTier(totalScore);
   const shareUrl = `https://www.subsecute.com/quiz?utm_source=share&utm_medium=social&utm_campaign=score_${totalScore}`;
-  const shareText = `Apparently I'm a ${tier.label} 💀 Scored ${totalScore}/100 on the subscription chaos test. What's yours? ${shareUrl}`;
+  // Tier-specific framing — Sensei flexes, Defaulter self-deprecates
+  const shareCopy: Record<string, string> = {
+    "DSTV Defaulter": `Apparently I'm a DSTV Defaulter 💀 Scored ${totalScore}/100. What's yours?`,
+    "Midnight Refresher": `I'm a certified Midnight Refresher 😩 Scored ${totalScore}/100. What's yours?`,
+    "Renewal Watcher": `I'm a Renewal Watcher, scored ${totalScore}/100 👀 Think you can beat me?`,
+    "Subscription Sensei": `I'm a Subscription Sensei 🥋 Scored ${totalScore}/100. Beat that.`,
+  };
+  const shareText = `${shareCopy[tier.label] ?? `Scored ${totalScore}/100 on the subscription chaos test. What's yours?`} ${shareUrl}`;
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
 
@@ -362,8 +395,7 @@ export default function QuizFlow() {
               Your score is ready!
             </h2>
             <p className="mb-8 font-outfit text-sm text-[#6C757D] sm:text-base">
-              Enter your email to join the waitlist, or view your score without
-              email.
+              Join the waitlist to get your score and early access.
             </p>
             <form
               onSubmit={handleEmailSubmit}
@@ -398,9 +430,9 @@ export default function QuizFlow() {
                 setDisplayScore(0);
                 setStage("result");
               }}
-              className="mt-3 font-outfit text-sm font-medium text-[#6C757D] underline-offset-4 transition-colors hover:text-[#232323] hover:underline"
+              className="mt-6 font-outfit text-xs tracking-wide text-[#ADB5BD] underline-offset-4 transition-colors hover:text-[#6C757D] hover:underline"
             >
-              View score without email
+              Skip and view score
             </button>
             {emailStatus === "error" && (
               <p className="mt-2 font-outfit text-xs text-red-500">
@@ -524,6 +556,30 @@ export default function QuizFlow() {
                 </a>
               </div>
             </div>
+
+            {/* Waitlist CTA — only show for users who skipped the email gate.
+                This is the conversion moment after they've seen their fixes. */}
+            {!joinedWaitlist && (
+              <div className="mt-10 flex w-full flex-col items-center gap-3 rounded-2xl border border-[#E96D1F]/20 bg-[#E96D1F]/[0.04] p-5 text-center">
+                <p className="font-outfit text-sm font-semibold text-[#232323]">
+                  Subsecute fixes all of this.
+                </p>
+                <p className="font-outfit text-xs text-[#6C757D]">
+                  Join the waitlist for early access.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setEmailStatus("idle");
+                    setErrorMsg("");
+                    setStage("email");
+                  }}
+                  className="mt-1 h-11 rounded-full bg-[#E96D1F] px-7 font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90"
+                >
+                  Join the waitlist
+                </button>
+              </div>
+            )}
 
             <div className="mt-10 flex w-full flex-col gap-3">
               <p className="font-outfit text-xs text-[#6C757D]">
