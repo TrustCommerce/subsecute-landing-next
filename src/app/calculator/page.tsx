@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import CalculatorPage from "@/components/CalculatorPage";
 import { DEFAULT_SHARE_IMAGE, SITE_URL } from "@/config";
 
@@ -28,5 +29,9 @@ export const metadata: Metadata = {
 };
 
 export default function Calculator() {
-  return <CalculatorPage />;
+  return (
+    <Suspense fallback={null}>
+      <CalculatorPage />
+    </Suspense>
+  );
 }

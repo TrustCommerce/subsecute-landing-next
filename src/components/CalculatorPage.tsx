@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { LOGO_DEV_TOKEN, WAITLIST_API } from "@/config";
 
 function logoUrl(domain: string) {
@@ -86,6 +87,18 @@ const CATEGORIES: Category[] = [
         price: 4500,
         domain: "tv.apple.com",
       },
+      {
+        id: "dazn",
+        name: "DAZN",
+        price: 32000,
+        domain: "dazn.com",
+      },
+      {
+        id: "nba",
+        name: "NBA League Pass",
+        price: 24000,
+        domain: "nba.com",
+      },
     ],
   },
   {
@@ -118,6 +131,82 @@ const CATEGORIES: Category[] = [
       { id: "figma", name: "Figma", price: 24000, domain: "figma.com" },
       { id: "canva", name: "Canva Pro", price: 5500, domain: "canva.com" },
       { id: "notion", name: "Notion", price: 2000, domain: "notion.so" },
+      {
+        id: "adobe-cc",
+        name: "Adobe Creative Cloud",
+        price: 96000,
+        domain: "adobe.com",
+      },
+      {
+        id: "ms365-personal",
+        name: "Microsoft 365 Personal",
+        price: 11200,
+        domain: "microsoft.com",
+      },
+      {
+        id: "ms365-family",
+        name: "Microsoft 365 Family",
+        price: 16000,
+        domain: "microsoft.com",
+      },
+    ],
+  },
+  {
+    label: "Cloud Storage",
+    items: [
+      {
+        id: "icloud-50",
+        name: "iCloud+ 50GB",
+        price: 450,
+        domain: "icloud.com",
+      },
+      {
+        id: "icloud-200",
+        name: "iCloud+ 200GB",
+        price: 1500,
+        domain: "icloud.com",
+      },
+      {
+        id: "google-one-100",
+        name: "Google One 100GB",
+        price: 300,
+        domain: "one.google.com",
+      },
+      {
+        id: "google-one-2tb",
+        name: "Google One 2TB",
+        price: 4500,
+        domain: "one.google.com",
+      },
+      {
+        id: "dropbox-plus",
+        name: "Dropbox Plus",
+        price: 19000,
+        domain: "dropbox.com",
+      },
+    ],
+  },
+  {
+    label: "VPN",
+    items: [
+      {
+        id: "nordvpn",
+        name: "NordVPN",
+        price: 5000,
+        domain: "nordvpn.com",
+      },
+      {
+        id: "surfshark",
+        name: "Surfshark",
+        price: 3500,
+        domain: "surfshark.com",
+      },
+      {
+        id: "expressvpn",
+        name: "ExpressVPN",
+        price: 13000,
+        domain: "expressvpn.com",
+      },
     ],
   },
   {
@@ -163,32 +252,50 @@ const CATEGORIES: Category[] = [
       {
         id: "airtel-10",
         name: "Airtel Data 10GB",
-        price: 4500,
-        domain: "airtel.com.ng",
-      },
-      {
-        id: "airtel-20",
-        name: "Airtel Data 20GB",
-        price: 7500,
-        domain: "airtel.com.ng",
-      },
-      {
-        id: "glo-10",
-        name: "Glo Data 10GB",
         price: 4000,
+        domain: "airtel.com.ng",
+      },
+      {
+        id: "airtel-25",
+        name: "Airtel Data 25GB",
+        price: 8000,
+        domain: "airtel.com.ng",
+      },
+      {
+        id: "glo-14",
+        name: "Glo Data 14GB",
+        price: 5000,
         domain: "gloworld.com",
       },
       {
-        id: "glo-20",
-        name: "Glo Data 20GB",
-        price: 7000,
+        id: "glo-25",
+        name: "Glo Data 25GB",
+        price: 8000,
         domain: "gloworld.com",
       },
       {
-        id: "9mobile-10",
-        name: "9mobile Data 10GB",
-        price: 4500,
+        id: "9mobile-11",
+        name: "9mobile Data 11GB",
+        price: 5000,
         domain: "9mobile.com.ng",
+      },
+      {
+        id: "starlink",
+        name: "Starlink Residential",
+        price: 57000,
+        domain: "starlink.com",
+      },
+      {
+        id: "spectranet",
+        name: "Spectranet (mid plan)",
+        price: 25000,
+        domain: "spectranet.com.ng",
+      },
+      {
+        id: "fibreone",
+        name: "FibreOne (MTN)",
+        price: 25000,
+        domain: "mtn.ng",
       },
       { id: "airtime", name: "Airtime (monthly)", price: 5000 },
       {
@@ -509,6 +616,14 @@ export default function CalculatorPage() {
   const [errorMsg, setErrorMsg] = useState("");
   const resultRef = useRef<HTMLDivElement>(null);
 
+  const searchParams = useSearchParams();
+  const leakedParam = searchParams?.get("leaked");
+  const incomingLeak = (() => {
+    if (!leakedParam) return null;
+    const n = Number(leakedParam);
+    return Number.isFinite(n) && n > 0 ? n : null;
+  })();
+
   // Calculate monthly total
   const monthlyTotal = (() => {
     let sum = 0;
@@ -600,7 +715,8 @@ export default function CalculatorPage() {
     }
   };
 
-  const shareText = `I spend ${formatNaira(annualTotal)}/year on subscriptions and bills. What's your number? Find out: https://subsecute.com/calculator`;
+  const shareUrl = `https://subsecute.com/calculator?leaked=${annualTotal}`;
+  const shareText = `I'm leaking ${formatNaira(annualTotal)}/year on subscriptions and bills 😭 What's your number? ${shareUrl}`;
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
 
@@ -625,6 +741,28 @@ export default function CalculatorPage() {
         </div>
       </nav>
 
+      {/* Incoming-leak banner */}
+      {incomingLeak !== null && (
+        <div className="mx-auto mt-6 max-w-[720px] px-4">
+          <div className="flex items-center gap-3 rounded-2xl border border-[#E96D1F]/30 bg-[#E96D1F]/10 px-5 py-4">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#E96D1F] text-lg">
+              💸
+            </div>
+            <div className="min-w-0 flex-1">
+              <p className="font-outfit text-xs tracking-wide text-[#6C757D]">
+                A friend shared their leak:
+              </p>
+              <p className="truncate font-neue-power text-base font-bold text-[#232323] sm:text-lg">
+                {formatNaira(incomingLeak)}/year
+              </p>
+            </div>
+            <p className="hidden font-outfit text-xs text-[#6C757D] sm:block">
+              Find yours ↓
+            </p>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <header className="mx-auto max-w-[720px] px-4 pt-10 text-center lg:pt-16">
         <h1 className="font-neue-power text-3xl font-bold leading-tight text-[#232323] sm:text-4xl lg:text-5xl">
@@ -632,8 +770,8 @@ export default function CalculatorPage() {
           <span className="text-[#E96D1F]">from your account?</span>
         </h1>
         <p className="mx-auto mt-4 max-w-[500px] font-outfit text-sm leading-relaxed text-[#6C757D] sm:text-base lg:text-lg">
-          Tap every subscription and bill you pay for. Prices are editable
-          estimates, so use custom amounts where your actual bill is different.
+          Tap every subscription and bill you pay for. Prices are estimates —
+          use the Custom tile if yours is different.
         </p>
       </header>
 
@@ -696,14 +834,78 @@ export default function CalculatorPage() {
             <p className="mt-1 font-outfit text-base text-[#6C757D]">
               per year
             </p>
+            <p className="mt-2 font-outfit text-sm text-[#6C757D]">
+              ({formatNaira(monthlyTotal)}/month)
+            </p>
             <p className="mt-6 rounded-full border border-[#E96D1F]/20 bg-[#E96D1F]/5 px-6 py-2.5 font-outfit text-sm font-medium text-[#E96D1F] sm:text-base">
               {getComparison(annualTotal)}
             </p>
 
-            {/* CTA */}
-            <div className="mt-12 w-full max-w-[480px] rounded-2xl border border-[#DEE2E6] bg-white p-6 text-center sm:p-8">
+            {/* Share — visible immediately, no gate */}
+            <div className="mt-10 flex w-full max-w-[480px] flex-col items-center gap-3">
+              <p className="font-outfit text-sm font-medium tracking-wide text-[#232323]">
+                Share your number. See whose is worse.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                  WhatsApp
+                </a>
+                <a
+                  href={twitterUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 rounded-full bg-[#232323] px-5 py-2.5 font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90"
+                >
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                  X / Twitter
+                </a>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (typeof navigator !== "undefined" && navigator.clipboard) {
+                      navigator.clipboard.writeText(shareUrl);
+                    }
+                  }}
+                  className="flex items-center gap-2 rounded-full border border-[#DEE2E6] bg-white px-5 py-2.5 font-outfit text-sm font-medium tracking-wide text-[#232323] transition-colors hover:border-[#E96D1F]"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  Copy link
+                </button>
+              </div>
+            </div>
+
+            {/* Waitlist CTA */}
+            <div className="mt-10 w-full max-w-[480px] rounded-2xl border border-[#DEE2E6] bg-white p-6 text-center sm:p-8">
               {formStatus === "success" ? (
-                <div className="flex flex-col items-center gap-4">
+                <div className="flex flex-col items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#58DC00]/20">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                       <path
@@ -716,52 +918,18 @@ export default function CalculatorPage() {
                     </svg>
                   </div>
                   <p className="font-outfit text-sm tracking-wide text-[#232323]">
-                    You&apos;re on the list! We&apos;ll send your breakdown
-                    soon.
+                    You&apos;re on the list. Subsecute will plug every leak.
                   </p>
-                  <p className="font-outfit text-xs tracking-wide text-[#6C757D]">
-                    Share your number with friends.
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 font-outfit text-xs font-medium tracking-wide text-white transition-opacity hover:opacity-90"
-                    >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                      </svg>
-                      WhatsApp
-                    </a>
-                    <a
-                      href={twitterUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 rounded-full bg-[#232323] px-4 py-2 font-outfit text-xs font-medium tracking-wide text-white transition-opacity hover:opacity-90"
-                    >
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                      </svg>
-                      Twitter
-                    </a>
-                  </div>
                 </div>
               ) : (
                 <>
                   <p className="font-outfit text-base font-medium text-[#232323] sm:text-lg">
-                    Want to know when Subsecute can handle recurring payments
-                    like this?
+                    {formatNaira(annualTotal)}/year leaks from your account.
+                    Subsecute plugs every leak.
+                  </p>
+                  <p className="mt-2 font-outfit text-xs text-[#6C757D]">
+                    Join the waitlist and we&apos;ll let you know when it&apos;s
+                    live.
                   </p>
                   <form
                     onSubmit={handleSubmit}
@@ -783,11 +951,9 @@ export default function CalculatorPage() {
                     <button
                       type="submit"
                       disabled={formStatus === "loading"}
-                      className="h-12 w-full shrink-0 rounded-full bg-[#232323] px-6 font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90 disabled:opacity-60 sm:w-auto sm:px-7"
+                      className="h-12 w-full shrink-0 rounded-full bg-[#E96D1F] px-6 font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90 disabled:opacity-60 sm:w-auto sm:px-7"
                     >
-                      {formStatus === "loading"
-                        ? "Sending..."
-                        : "Send My Report"}
+                      {formStatus === "loading" ? "Sending..." : "Join waitlist"}
                     </button>
                   </form>
                   {formStatus === "error" && (
@@ -800,27 +966,35 @@ export default function CalculatorPage() {
             </div>
           </div>
         )}
+
+        {/* Prices updated footer */}
+        <p className="mt-16 text-center font-outfit text-xs tracking-wide text-[#ADB5BD]">
+          Prices updated May 2026. Use custom amounts if your bill differs.
+        </p>
       </section>
 
       {/* Sticky bottom bar */}
       {!showResult && (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#DEE2E6] bg-white/95 backdrop-blur-md">
-          <div className="mx-auto flex max-w-[960px] items-center justify-between px-4 py-3 sm:py-4">
-            <div>
-              <p className="font-outfit text-xs text-[#6C757D] sm:text-sm">
-                Monthly total
+          <div className="mx-auto flex max-w-[960px] items-center justify-between gap-3 px-4 py-3 sm:py-4">
+            <div className="min-w-0">
+              <p className="font-outfit text-[10px] uppercase tracking-widest text-[#6C757D] sm:text-xs">
+                Per year
               </p>
-              <p className="font-neue-power text-xl font-bold text-[#232323] sm:text-2xl">
-                {formatNaira(animatedMonthly)}
+              <p className="truncate font-neue-power text-2xl font-bold leading-none text-[#E96D1F] sm:text-3xl">
+                {formatNaira(animatedMonthly * 12)}
+              </p>
+              <p className="mt-1 font-outfit text-xs text-[#6C757D]">
+                {formatNaira(animatedMonthly)}/mo
               </p>
             </div>
             {hasAnySelection && (
               <button
                 type="button"
                 onClick={handleSeeAnnual}
-                className="rounded-full bg-[#E96D1F] px-5 py-2.5 font-outfit text-sm font-medium tracking-wide text-white transition-all hover:opacity-90 sm:px-7 sm:py-3 sm:text-base"
+                className="shrink-0 rounded-full bg-[#E96D1F] px-5 py-2.5 font-outfit text-sm font-medium tracking-wide text-white transition-all hover:opacity-90 sm:px-7 sm:py-3 sm:text-base"
               >
-                See my annual total
+                See breakdown
               </button>
             )}
           </div>
