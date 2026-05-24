@@ -33,12 +33,12 @@ const questions: Question[] = [
   },
   {
     id: 3,
-    text: "Has your bank card ever been declined on an international subscription?",
+    text: "How do you handle paying for Netflix, ChatGPT, and other dollar subscriptions?",
     options: [
-      { label: "Never", points: 15 },
-      { label: "Once or twice", points: 8 },
-      { label: "It happens regularly", points: 3 },
-      { label: "I've lost access to a service because of it", points: 0 },
+      { label: "Auto-funded. I never think about it.", points: 15 },
+      { label: "Manually, but I've got a system.", points: 10 },
+      { label: "Manually, and I scramble every renewal day.", points: 4 },
+      { label: "I find out it didn't work when I get logged out.", points: 0 },
     ],
   },
   {
@@ -135,7 +135,7 @@ const fixes: Fix[] = [
   {
     questionId: 3,
     threshold: 8,
-    text: "Subsecute gives each subscription its own virtual USD card. No more declines.",
+    text: "Subsecute auto-funds each subscription's USD card before renewal. The money is there before the merchant asks for it.",
   },
   {
     questionId: 4,

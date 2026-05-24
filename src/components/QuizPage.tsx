@@ -52,8 +52,7 @@ export default function QuizPage() {
               What&apos;s your subscription score?
             </h1>
             <p className="mb-10 max-w-md font-outfit text-base text-[#6C757D] sm:text-lg">
-              7 questions. 60 seconds. Find out if you&apos;re in control — or
-              in chaos.
+              7 questions. 60 seconds. Are you in control, or in chaos?
             </p>
             <button
               onClick={() => setStarted(true)}
