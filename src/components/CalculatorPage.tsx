@@ -593,7 +593,19 @@ export default function CalculatorPage() {
     "idle" | "loading" | "success" | "error"
   >("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(
+    new Set(),
+  );
   const resultRef = useRef<HTMLDivElement>(null);
+
+  const toggleSection = useCallback((label: string) => {
+    setExpandedSections((prev) => {
+      const next = new Set(prev);
+      if (next.has(label)) next.delete(label);
+      else next.add(label);
+      return next;
+    });
+  }, []);
 
   const searchParams = useSearchParams();
   const leakedParam = searchParams?.get("leaked");
@@ -756,50 +768,188 @@ export default function CalculatorPage() {
 
       {/* Grid */}
       <section className="mx-auto max-w-[960px] px-4 pb-40 pt-8 lg:pt-12">
-        {CATEGORIES.map((cat) => (
-          <div key={cat.label} className="mb-8">
-            <h2 className="mb-3 font-neue-power text-sm font-bold uppercase tracking-widest text-[#6C757D]">
-              {cat.label}
-            </h2>
-            <div className="grid grid-cols-1 items-start gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {cat.items.map((item) => (
-                <Tile
-                  key={item.id}
-                  item={item}
-                  selected={selectedIds.has(item.id)}
-                  onToggle={() => toggleItem(item.id)}
-                />
-              ))}
-              {cat.label === "Utilities" && (
-                <ElectricityTile
-                  amount={electricityAmount}
-                  customAmount={electricityCustomAmount}
-                  selected={electricitySelected}
-                  onAmountChange={handleElectricityAmountChange}
-                  onCustomAmountChange={handleElectricityCustomAmountChange}
-                  onToggle={toggleElectricity}
-                />
-              )}
-            </div>
-          </div>
-        ))}
+        {CATEGORIES.map((cat) => {
+          const expanded = expandedSections.has(cat.label);
+          const isUtilities = cat.label === "Utilities";
+          const selectedItems = cat.items.filter((i) => selectedIds.has(i.id));
+          const electricityValue =
+            electricityAmount === "custom"
+              ? Number(electricityCustomAmount)
+              : Number(electricityAmount);
+          const utilitiesElecTotal =
+            isUtilities && electricitySelected && electricityValue > 0
+              ? electricityValue
+              : 0;
+          const sectionSelectedCount =
+            selectedItems.length + (utilitiesElecTotal > 0 ? 1 : 0);
+          const sectionMonthly =
+            selectedItems.reduce((sum, i) => sum + i.price, 0) +
+            utilitiesElecTotal;
+          const sectionTotalCount =
+            cat.items.length + (isUtilities ? 1 : 0);
 
-        {/* Custom */}
-        <div className="mb-8">
-          <h2 className="mb-3 font-neue-power text-sm font-bold uppercase tracking-widest text-[#6C757D]">
-            Other
-          </h2>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            <CustomTile
-              customName={customName}
-              customAmount={customAmount}
-              onNameChange={setCustomName}
-              onAmountChange={setCustomAmount}
-              selected={customSelected}
-              onToggle={toggleCustom}
-            />
-          </div>
-        </div>
+          return (
+            <section
+              key={cat.label}
+              className="mb-3 overflow-hidden rounded-2xl border border-[#DEE2E6] bg-white sm:mb-8 sm:rounded-none sm:border-0 sm:bg-transparent"
+            >
+              {/* Mobile-only accordion header */}
+              <button
+                type="button"
+                onClick={() => toggleSection(cat.label)}
+                aria-expanded={expanded}
+                className={`flex w-full items-center justify-between px-4 py-4 text-left transition-colors sm:hidden ${
+                  sectionSelectedCount > 0 ? "bg-[#FFF8F0]" : ""
+                }`}
+              >
+                <div className="flex min-w-0 items-baseline gap-2.5">
+                  <h2 className="font-neue-power text-xs font-bold uppercase tracking-widest text-[#232323]">
+                    {cat.label}
+                  </h2>
+                  {sectionSelectedCount > 0 ? (
+                    <span className="truncate font-outfit text-xs font-medium text-[#E96D1F]">
+                      {sectionSelectedCount} · {formatNaira(sectionMonthly)}/mo
+                    </span>
+                  ) : (
+                    <span className="font-outfit text-xs text-[#ADB5BD]">
+                      {sectionTotalCount} items
+                    </span>
+                  )}
+                </div>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  className={`shrink-0 text-[#6C757D] transition-transform duration-200 ${
+                    expanded ? "rotate-180" : ""
+                  }`}
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 5L7 9L11 5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+
+              {/* Desktop header */}
+              <h2 className="mb-3 hidden font-neue-power text-sm font-bold uppercase tracking-widest text-[#6C757D] sm:block">
+                {cat.label}
+              </h2>
+
+              {/* Collapsible body — animates on mobile, always visible on desktop */}
+              <div
+                className={`grid transition-[grid-template-rows] duration-300 ease-out sm:!grid-rows-[1fr] ${
+                  expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div className="grid grid-cols-1 items-start gap-3 px-4 pb-4 pt-1 sm:grid-cols-2 sm:px-0 sm:pb-0 sm:pt-0 lg:grid-cols-3">
+                    {cat.items.map((item) => (
+                      <Tile
+                        key={item.id}
+                        item={item}
+                        selected={selectedIds.has(item.id)}
+                        onToggle={() => toggleItem(item.id)}
+                      />
+                    ))}
+                    {isUtilities && (
+                      <ElectricityTile
+                        amount={electricityAmount}
+                        customAmount={electricityCustomAmount}
+                        selected={electricitySelected}
+                        onAmountChange={handleElectricityAmountChange}
+                        onCustomAmountChange={handleElectricityCustomAmountChange}
+                        onToggle={toggleElectricity}
+                      />
+                    )}
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        })}
+
+        {/* Custom (Other) section — same accordion treatment */}
+        {(() => {
+          const expanded = expandedSections.has("Other");
+          const customActive =
+            customSelected && Number(customAmount) > 0
+              ? Number(customAmount)
+              : 0;
+          return (
+            <section className="mb-3 overflow-hidden rounded-2xl border border-[#DEE2E6] bg-white sm:mb-8 sm:rounded-none sm:border-0 sm:bg-transparent">
+              <button
+                type="button"
+                onClick={() => toggleSection("Other")}
+                aria-expanded={expanded}
+                className={`flex w-full items-center justify-between px-4 py-4 text-left transition-colors sm:hidden ${
+                  customActive > 0 ? "bg-[#FFF8F0]" : ""
+                }`}
+              >
+                <div className="flex min-w-0 items-baseline gap-2.5">
+                  <h2 className="font-neue-power text-xs font-bold uppercase tracking-widest text-[#232323]">
+                    Other
+                  </h2>
+                  {customActive > 0 ? (
+                    <span className="truncate font-outfit text-xs font-medium text-[#E96D1F]">
+                      1 · {formatNaira(customActive)}/mo
+                    </span>
+                  ) : (
+                    <span className="font-outfit text-xs text-[#ADB5BD]">
+                      Add anything else
+                    </span>
+                  )}
+                </div>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  className={`shrink-0 text-[#6C757D] transition-transform duration-200 ${
+                    expanded ? "rotate-180" : ""
+                  }`}
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 5L7 9L11 5"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+
+              <h2 className="mb-3 hidden font-neue-power text-sm font-bold uppercase tracking-widest text-[#6C757D] sm:block">
+                Other
+              </h2>
+
+              <div
+                className={`grid transition-[grid-template-rows] duration-300 ease-out sm:!grid-rows-[1fr] ${
+                  expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div className="grid grid-cols-1 items-start gap-3 px-4 pb-4 pt-1 sm:grid-cols-2 sm:px-0 sm:pb-0 sm:pt-0 lg:grid-cols-3">
+                    <CustomTile
+                      customName={customName}
+                      customAmount={customAmount}
+                      onNameChange={setCustomName}
+                      onAmountChange={setCustomAmount}
+                      selected={customSelected}
+                      onToggle={toggleCustom}
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+          );
+        })()}
 
         {/* Result section */}
         {showResult && (
