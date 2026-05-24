@@ -145,7 +145,7 @@ export default function AboutSection() {
             <p className="font-outfit text-sm leading-[1.5em] tracking-wide text-[#CED4DA] sm:text-base">
               
 
-Your DSTV expires because you forgot to renew. Your data runs out at midnight. Subsecute fixes all of it, and then some. Every dollar subscription gets its own USD card that auto-funds before renewal. Every Nigerian bill, airtime, data, power, cable, runs on a schedule. See exactly where your money goes each month, by app and by category. Share a plan with your flatmates and stop chasing them for ₦1,500. Gift Mum a year of Showmax from anywhere in the world. And cancel anything, in one tap, the moment you change your mind.
+Your DSTV expires because you forgot to renew. Your data runs out at midnight. Subsecute fixes all of it, and then some. Every dollar subscription gets its own USD card that auto-funds before renewal. Every Nigerian bill, airtime, data, power, cable, runs on a schedule. See exactly where your money goes each month, by app and by category. Create and add Mum to a plan to fund her power monthly. Gift your friend a couple months of Netflix. And cancel anything, in one tap, the moment you change your mind.
             </p>
           </div>
 
