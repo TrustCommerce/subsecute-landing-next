@@ -221,7 +221,7 @@ export default function HeroSection() {
 
         {/* Subtitle — value prop flows into loss aversion as one thought */}
         <p className="mt-4 max-w-[540px] text-center font-outfit text-sm leading-[1.6em] tracking-wide text-[#6C757D] sm:text-base lg:mt-5 lg:text-lg">
-          Every bill on autopilot — yours, theirs, everyone&apos;s.
+          Subsecute runs every subscription you have. Funds them. Tracks them. Shares them. Gifts them. Cancels them. So you don&apos;t have to.
         </p>
 
         {/* CTA — switches based on launch mode */}
