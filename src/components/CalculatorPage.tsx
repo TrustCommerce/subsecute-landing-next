@@ -684,11 +684,32 @@ export default function CalculatorPage() {
     if (!email) return;
     setFormStatus("loading");
     setErrorMsg("");
+
+    const electricityValue =
+      electricityAmount === "custom"
+        ? Number(electricityCustomAmount)
+        : Number(electricityAmount);
+    const metadata = {
+      source: "calculator",
+      monthlyTotal,
+      annualTotal,
+      selectedIds: Array.from(selectedIds),
+      customBill:
+        customSelected && customName.trim() && Number(customAmount) > 0
+          ? { name: customName.trim(), amount: Number(customAmount) }
+          : null,
+      electricity:
+        electricitySelected && electricityValue > 0
+          ? { amount: electricityValue }
+          : null,
+      incomingLeak,
+    };
+
     try {
       const res = await fetch(WAITLIST_API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, metadata }),
       });
       if (res.ok) {
         setFormStatus("success");

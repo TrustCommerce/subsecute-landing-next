@@ -39,18 +39,18 @@ const BILL_OPTIONS: BillOption[] = [
   {
     label: "Data",
     tiers: [
-      { name: "10GB", amount: 4500 },
-      { name: "20GB", amount: 7500 },
-      { name: "Heavy", amount: 10000 },
+      { name: "~₦5,000", amount: 5000 },
+      { name: "~₦10,000", amount: 10000 },
+      { name: ">₦15,000", amount: 15000 },
     ],
   },
   {
     label: "Electricity",
     tiers: [
-      { name: "Light", amount: 10000 },
-      { name: "Standard", amount: 15000 },
-      { name: "Heavy", amount: 20000 },
-      { name: "Very heavy", amount: 25000 },
+      { name: "~₦10,000", amount: 10000 },
+      { name: "~₦15,000", amount: 15000 },
+      { name: "~₦20,000", amount: 20000 },
+      { name: ">₦25,000", amount: 25000 },
     ],
   },
   {
@@ -61,17 +61,9 @@ const BILL_OPTIONS: BillOption[] = [
     ],
   },
   {
-    label: "Showmax",
-    tiers: [
-      { name: "Entertainment", amount: 4500 },
-      { name: "Premier League", amount: 6500 },
-    ],
-  },
-  {
     label: "Internet",
     tiers: [
       { name: "Spectranet", amount: 25000 },
-      { name: "FibreOne", amount: 25000 },
       { name: "Starlink", amount: 57000 },
     ],
   },

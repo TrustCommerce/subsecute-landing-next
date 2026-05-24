@@ -49,11 +49,26 @@ export default function ResultsStep({
     setStatus("loading");
     setErrorMsg("");
 
+    const metadata = {
+      source: "family",
+      totalMonthly,
+      totalAnnual,
+      members: memberTotals.map((m) => ({
+        relationship: m.member.relationship,
+        monthly: m.monthly,
+        bills: Object.keys(m.bills.bills),
+        custom: m.bills.custom.map((c) => ({
+          name: c.name,
+          amount: c.amount,
+        })),
+      })),
+    };
+
     try {
       const res = await fetch(WAITLIST_API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, metadata }),
       });
       if (res.ok) {
         setStatus("success");
@@ -248,7 +263,7 @@ export default function ResultsStep({
               </p>
               <p className="mt-2 text-center font-outfit text-xs text-[#6C757D]">
                 {totalMonthly > 0
-                  ? `Subsecute auto-pays every bill you just listed, from your account abroad, on autopilot.`
+                  ? `Subsecute auto-pays every bill you just listed, from your account, on autopilot.`
                   : `Subsecute automates recurring bill payments for your family in Nigeria.`}
               </p>
               <form

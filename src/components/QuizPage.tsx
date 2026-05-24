@@ -243,11 +243,19 @@ export default function QuizPage() {
     setEmailStatus("loading");
     setErrorMsg("");
 
+    const tier = getTier(totalScore);
+    const metadata = {
+      source: "quiz",
+      totalScore,
+      tier: tier.label,
+      answers,
+    };
+
     try {
       const res = await fetch(WAITLIST_API, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, metadata }),
       });
 
       if (res.ok) {
