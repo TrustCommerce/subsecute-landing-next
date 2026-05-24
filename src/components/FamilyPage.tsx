@@ -13,13 +13,18 @@ type Relationship =
   | "Dad"
   | "Brother"
   | "Sister"
-  | "Partner"
+  | "Wife"
+  | "Husband"
+  | "Paddy mi"
+  | "Babe"
   | "Grandma"
   | "Grandpa"
   | "Aunt"
   | "Uncle"
+  | "Niece"
+  | "Nephew"
   | "In-law"
-  | "Child"
+  | "Kid"
   | "Other";
 
 interface FamilyMember {
@@ -65,13 +70,18 @@ const RELATIONSHIPS: Relationship[] = [
   "Dad",
   "Brother",
   "Sister",
-  "Partner",
+  "Wife",
+  "Husband",
+  "Paddy mi",
+  "Babe",
   "Grandma",
   "Grandpa",
   "Aunt",
   "Uncle",
+  "Niece",
+  "Nephew",
   "In-law",
-  "Child",
+  "Kid",
   "Other",
 ];
 
@@ -248,7 +258,6 @@ function AddMembersStep({
   onBack: () => void;
 }) {
   const addMember = (rel: Relationship) => {
-    if (members.length >= 6) return;
     const existing = members.filter(
       (m) => m.name === rel || m.name.startsWith(rel + " "),
     ).length;
@@ -262,8 +271,6 @@ function AddMembersStep({
   const removeMember = (id: string) => {
     setMembers(members.filter((m) => m.id !== id));
   };
-
-  const atMax = members.length >= 6;
 
   return (
     <div className="flex min-h-screen flex-col bg-[#FFFEEC]">
@@ -282,7 +289,7 @@ function AddMembersStep({
           Who do you support?
         </h2>
         <p className="mt-1 font-outfit text-sm text-[#6C757D]">
-          Tap a relationship to add them. Up to 6 people.
+          Tap a relationship to add them.
         </p>
 
         {/* Current members */}
@@ -319,27 +326,19 @@ function AddMembersStep({
         )}
 
         {/* Relationship chips */}
-        {!atMax && (
-          <div className="mt-5 rounded-xl border border-dashed border-[#D1D5DB] bg-white/60 p-4">
-            <div className="flex flex-wrap gap-2">
-              {RELATIONSHIPS.map((r) => (
-                <button
-                  key={r}
-                  onClick={() => addMember(r)}
-                  className="rounded-full border border-[#E5E7EB] bg-white px-3.5 py-1.5 font-outfit text-xs font-medium tracking-wide text-[#232323] transition-colors hover:border-[#E96D1F] hover:text-[#E96D1F]"
-                >
-                  + {r}
-                </button>
-              ))}
-            </div>
+        <div className="mt-5 rounded-xl border border-dashed border-[#D1D5DB] bg-white/60 p-4">
+          <div className="flex flex-wrap gap-2">
+            {RELATIONSHIPS.map((r) => (
+              <button
+                key={r}
+                onClick={() => addMember(r)}
+                className="rounded-full border border-[#E5E7EB] bg-white px-3.5 py-1.5 font-outfit text-xs font-medium tracking-wide text-[#232323] transition-colors hover:border-[#E96D1F] hover:text-[#E96D1F]"
+              >
+                + {r}
+              </button>
+            ))}
           </div>
-        )}
-
-        {atMax && (
-          <p className="mt-5 rounded-xl border border-[#E5E7EB] bg-white p-4 text-center font-outfit text-xs text-[#6C757D]">
-            That&apos;s the max of 6. Remove someone above to add another.
-          </p>
-        )}
+        </div>
 
         {/* Navigation */}
         <div className="mt-auto flex items-center gap-3 pt-8">
