@@ -142,7 +142,7 @@ export default function HeroSection() {
       {/* Orange blur */}
       <div
         className="pointer-events-none absolute bottom-0 left-1/2 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-[#E96D1F] opacity-30 lg:h-[516px] lg:w-[825px]"
-        style={{ filter: "blur(252px)" }}
+        style={{ filter: "blur(80px)" }}
         aria-hidden="true"
       />
 

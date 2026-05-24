@@ -1,22 +1,31 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { IS_WAITLIST } from "../config";
 import HeroSection from "./HeroSection";
-import AboutSection from "./AboutSection";
-import FeaturesSection from "./FeaturesSection";
-import PlansSection from "./PlansSection";
-import GiftingSection from "./GiftingSection";
-import HowItWorksSection from "./HowItWorksSection";
-import DownloadSection from "./DownloadSection";
-import SocialProofSection from "./SocialProofSection";
-import FAQSection from "./FAQSection";
-import Footer from "./Footer";
+
+// Below-fold sections code-split into their own chunks. Default ssr: true
+// preserves HTML in the initial response for SEO, while deferring the
+// hydration JS so the hero paints/becomes interactive faster on mobile.
+const AboutSection = dynamic(() => import("./AboutSection"));
+const ProductScreensSection = dynamic(
+  () => import("./ProductScreensSection"),
+);
+const FeaturesSection = dynamic(() => import("./FeaturesSection"));
+const PlansSection = dynamic(() => import("./PlansSection"));
+const GiftingSection = dynamic(() => import("./GiftingSection"));
+const HowItWorksSection = dynamic(() => import("./HowItWorksSection"));
+const DownloadSection = dynamic(() => import("./DownloadSection"));
+const SocialProofSection = dynamic(() => import("./SocialProofSection"));
+const FAQSection = dynamic(() => import("./FAQSection"));
+const Footer = dynamic(() => import("./Footer"));
 
 export default function LandingPage() {
   return (
     <main className="font-neue-power">
       <HeroSection />
       <AboutSection />
+      <ProductScreensSection />
       <FeaturesSection />
       <PlansSection />
       <GiftingSection />
