@@ -2,8 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-
-const WAITLIST_API = "https://api.subsecute.com/subsecute-api/v1/waitlist";
+import { WAITLIST_API } from "@/config";
 
 interface Question {
   id: number;
@@ -398,7 +397,8 @@ export default function QuizPage() {
               Your score is ready!
             </h2>
             <p className="mb-8 font-outfit text-sm text-[#6C757D] sm:text-base">
-              Enter your email to see your score and how to fix it.
+              Enter your email to join the waitlist, or view your score without
+              email.
             </p>
             <form
               onSubmit={handleEmailSubmit}
@@ -425,6 +425,18 @@ export default function QuizPage() {
                 {emailStatus === "loading" ? "Submitting..." : "See My Score"}
               </button>
             </form>
+            <button
+              type="button"
+              onClick={() => {
+                setEmailStatus("idle");
+                setErrorMsg("");
+                setDisplayScore(0);
+                setStage("result");
+              }}
+              className="mt-3 font-outfit text-sm font-medium text-[#6C757D] underline-offset-4 transition-colors hover:text-[#232323] hover:underline"
+            >
+              View score without email
+            </button>
             {emailStatus === "error" && (
               <p className="mt-2 font-outfit text-xs text-red-500">
                 {errorMsg}

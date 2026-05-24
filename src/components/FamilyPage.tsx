@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { EXCHANGE_RATE_ESTIMATE, WAITLIST_API } from "@/config";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -107,19 +108,18 @@ const BILL_OPTIONS: BillOption[] = [
   },
 ];
 
-const EXCHANGE_RATE = 1550;
-const WAITLIST_API = "https://api.subsecute.com/subsecute-api/v1/waitlist";
-
 function formatNaira(amount: number): string {
   return "₦" + amount.toLocaleString("en-NG");
 }
 
 function formatUSD(naira: number): string {
-  return "$" + Math.round(naira / EXCHANGE_RATE).toLocaleString("en-US");
+  return (
+    "$" + Math.round(naira / EXCHANGE_RATE_ESTIMATE).toLocaleString("en-US")
+  );
 }
 
 function nairaToUSD(naira: number): number {
-  return Math.round(naira / EXCHANGE_RATE);
+  return Math.round(naira / EXCHANGE_RATE_ESTIMATE);
 }
 
 /* ------------------------------------------------------------------ */
@@ -803,8 +803,8 @@ function ResultsStep({
           ) : (
             <>
               <p className="text-center font-outfit text-sm font-medium text-[#232323]">
-                Save this family payment plan and get notified when Subsecute
-                can automate all of it.
+                Join the waitlist and get notified when Subsecute can automate
+                family bills like this.
               </p>
               <form
                 onSubmit={handleSubmit}
@@ -828,7 +828,7 @@ function ResultsStep({
                   disabled={status === "loading"}
                   className="h-11 shrink-0 rounded-full bg-[#E96D1F] px-6 font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90 disabled:opacity-60"
                 >
-                  {status === "loading" ? "Saving..." : "Save My Plan"}
+                  {status === "loading" ? "Joining..." : "Join Waitlist"}
                 </button>
               </form>
               {status === "error" && (

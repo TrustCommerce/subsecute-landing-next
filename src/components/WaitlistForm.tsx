@@ -1,12 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { WAITLIST_API } from "@/config";
 
 interface WaitlistFormProps {
   variant?: "dark" | "light";
 }
-
-const WAITLIST_API = "https://api.subsecute.com/subsecute-api/v1/waitlist";
 
 export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
   const [email, setEmail] = useState("");

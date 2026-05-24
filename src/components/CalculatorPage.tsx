@@ -2,14 +2,10 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-
-// ─── Constants ──────────────────────────────────────────────────────────────
-
-const LOGO_TOKEN = "pk_dorVGutZSi-4iMholcR1qA";
-const WAITLIST_API = "https://api.subsecute.com/subsecute-api/v1/waitlist";
+import { LOGO_DEV_TOKEN, WAITLIST_API } from "@/config";
 
 function logoUrl(domain: string) {
-  return `https://img.logo.dev/${domain}?token=${LOGO_TOKEN}&size=64&format=png`;
+  return `https://img.logo.dev/${domain}?token=${LOGO_DEV_TOKEN}&size=64&format=png`;
 }
 
 interface Subscription {
@@ -23,6 +19,14 @@ interface Category {
   label: string;
   items: Subscription[];
 }
+
+const ELECTRICITY_PRESETS = Array.from({ length: 10 }, (_, index) => {
+  const amount = (index + 1) * 10_000;
+  return {
+    label: formatNaira(amount),
+    value: String(amount),
+  };
+});
 
 const CATEGORIES: Category[] = [
   {
@@ -57,6 +61,30 @@ const CATEGORIES: Category[] = [
         name: "YouTube Premium",
         price: 1700,
         domain: "youtube.com",
+      },
+      {
+        id: "twitch-sub",
+        name: "Twitch Subscription",
+        price: 8000,
+        domain: "twitch.tv",
+      },
+      {
+        id: "kick-sub",
+        name: "Kick Subscription",
+        price: 8000,
+        domain: "kick.com",
+      },
+      {
+        id: "crunchyroll",
+        name: "Crunchyroll Fan",
+        price: 3500,
+        domain: "crunchyroll.com",
+      },
+      {
+        id: "apple-tv",
+        name: "Apple TV+",
+        price: 4500,
+        domain: "tv.apple.com",
       },
     ],
   },
@@ -132,8 +160,49 @@ const CATEGORIES: Category[] = [
     items: [
       { id: "mtn-10", name: "MTN Data 10GB", price: 4500, domain: "mtn.ng" },
       { id: "mtn-20", name: "MTN Data 20GB", price: 7500, domain: "mtn.ng" },
+      {
+        id: "airtel-10",
+        name: "Airtel Data 10GB",
+        price: 4500,
+        domain: "airtel.com.ng",
+      },
+      {
+        id: "airtel-20",
+        name: "Airtel Data 20GB",
+        price: 7500,
+        domain: "airtel.com.ng",
+      },
+      {
+        id: "glo-10",
+        name: "Glo Data 10GB",
+        price: 4000,
+        domain: "gloworld.com",
+      },
+      {
+        id: "glo-20",
+        name: "Glo Data 20GB",
+        price: 7000,
+        domain: "gloworld.com",
+      },
+      {
+        id: "9mobile-10",
+        name: "9mobile Data 10GB",
+        price: 4500,
+        domain: "9mobile.com.ng",
+      },
       { id: "airtime", name: "Airtime (monthly)", price: 5000 },
-      { id: "electricity", name: "Electricity (prepaid)", price: 20000 },
+      {
+        id: "airtel-airtime",
+        name: "Airtel Airtime (monthly)",
+        price: 5000,
+        domain: "airtel.com.ng",
+      },
+      {
+        id: "glo-airtime",
+        name: "Glo Airtime (monthly)",
+        price: 5000,
+        domain: "gloworld.com",
+      },
     ],
   },
 ];
@@ -325,6 +394,103 @@ function CustomTile({
   );
 }
 
+// ─── Electricity tile ───────────────────────────────────────────────────────
+
+function ElectricityTile({
+  amount,
+  customAmount,
+  selected,
+  onAmountChange,
+  onCustomAmountChange,
+  onToggle,
+}: {
+  amount: string;
+  customAmount: string;
+  selected: boolean;
+  onAmountChange: (v: string) => void;
+  onCustomAmountChange: (v: string) => void;
+  onToggle: () => void;
+}) {
+  const effectiveAmount = amount === "custom" ? Number(customAmount) : Number(amount);
+  const canToggle = effectiveAmount > 0;
+
+  return (
+    <div
+      className={`flex flex-col gap-3 rounded-xl border px-3 py-3 transition-all duration-150 sm:px-4 ${
+        selected
+          ? "border-[#E96D1F] bg-[#E96D1F]/5"
+          : "border-[#DEE2E6] bg-white"
+      }`}
+    >
+      <div className="flex items-center gap-3">
+        <InitialIcon name="Electricity" />
+        <div className="min-w-0 flex-1">
+          <p className="truncate font-outfit text-sm font-medium text-[#232323]">
+            Electricity (prepaid)
+          </p>
+          <p className="font-outfit text-xs text-[#6C757D]">
+            {canToggle ? `${formatNaira(effectiveAmount)}/mo` : "Choose amount"}
+          </p>
+        </div>
+        <div
+          className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 transition-colors ${
+            selected ? "border-[#E96D1F] bg-[#E96D1F]" : "border-[#DEE2E6]"
+          }`}
+        >
+          {selected && (
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <path
+                d="M2 5L4.5 7.5L8 3"
+                stroke="white"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
+        </div>
+      </div>
+
+      <select
+        value={amount}
+        onChange={(e) => onAmountChange(e.target.value)}
+        className="h-9 w-full rounded-lg border border-[#DEE2E6] bg-white px-3 font-outfit text-sm text-[#232323] outline-none focus:border-[#E96D1F]"
+      >
+        {ELECTRICITY_PRESETS.map((preset) => (
+          <option key={preset.value} value={preset.value}>
+            {preset.label}/mo
+          </option>
+        ))}
+        <option value="custom">Custom amount</option>
+      </select>
+
+      {amount === "custom" && (
+        <input
+          type="number"
+          inputMode="numeric"
+          placeholder="Monthly electricity amount (NGN)"
+          value={customAmount}
+          onChange={(e) => onCustomAmountChange(e.target.value)}
+          className="h-9 w-full rounded-lg border border-[#DEE2E6] bg-white px-3 font-outfit text-sm text-[#232323] placeholder-[#ADB5BD] outline-none focus:border-[#E96D1F] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+        />
+      )}
+
+      <button
+        type="button"
+        onClick={onToggle}
+        disabled={!canToggle}
+        className={`h-9 w-full rounded-lg font-outfit text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:bg-[#DEE2E6] disabled:text-[#6C757D] ${
+          selected
+            ? "bg-[#E96D1F] text-white"
+            : "bg-[#232323] text-white hover:bg-[#E96D1F]"
+        }`}
+      >
+        {selected ? "Remove" : "Add electricity"}
+      </button>
+    </div>
+  );
+}
+
 // ─── Main page component ────────────────────────────────────────────────────
 
 export default function CalculatorPage() {
@@ -333,6 +499,9 @@ export default function CalculatorPage() {
   const [customName, setCustomName] = useState("");
   const [customAmount, setCustomAmount] = useState("");
   const [customSelected, setCustomSelected] = useState(false);
+  const [electricityAmount, setElectricityAmount] = useState("10000");
+  const [electricityCustomAmount, setElectricityCustomAmount] = useState("");
+  const [electricitySelected, setElectricitySelected] = useState(false);
   const [email, setEmail] = useState("");
   const [formStatus, setFormStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -351,11 +520,18 @@ export default function CalculatorPage() {
     if (customSelected && Number(customAmount) > 0) {
       sum += Number(customAmount);
     }
+    if (electricitySelected) {
+      const electricityValue =
+        electricityAmount === "custom"
+          ? Number(electricityCustomAmount)
+          : Number(electricityAmount);
+      if (electricityValue > 0) sum += electricityValue;
+    }
     return sum;
   })();
 
   const annualTotal = monthlyTotal * 12;
-  const selectedCount = selectedIds.size + (customSelected ? 1 : 0);
+  const hasAnySelection = monthlyTotal > 0;
 
   const animatedMonthly = useCountUp(monthlyTotal, 400);
   const animatedAnnual = useCountUp(showResult ? annualTotal : 0, 1200);
@@ -372,6 +548,21 @@ export default function CalculatorPage() {
 
   const toggleCustom = useCallback(() => {
     setCustomSelected((prev) => !prev);
+    setShowResult(false);
+  }, []);
+
+  const toggleElectricity = useCallback(() => {
+    setElectricitySelected((prev) => !prev);
+    setShowResult(false);
+  }, []);
+
+  const handleElectricityAmountChange = useCallback((value: string) => {
+    setElectricityAmount(value);
+    setShowResult(false);
+  }, []);
+
+  const handleElectricityCustomAmountChange = useCallback((value: string) => {
+    setElectricityCustomAmount(value);
     setShowResult(false);
   }, []);
 
@@ -441,8 +632,8 @@ export default function CalculatorPage() {
           <span className="text-[#E96D1F]">from your account?</span>
         </h1>
         <p className="mx-auto mt-4 max-w-[500px] font-outfit text-sm leading-relaxed text-[#6C757D] sm:text-base lg:text-lg">
-          Tap every subscription and bill you pay for. The total might surprise
-          you.
+          Tap every subscription and bill you pay for. Prices are editable
+          estimates, so use custom amounts where your actual bill is different.
         </p>
       </header>
 
@@ -462,6 +653,16 @@ export default function CalculatorPage() {
                   onToggle={() => toggleItem(item.id)}
                 />
               ))}
+              {cat.label === "Bills" && (
+                <ElectricityTile
+                  amount={electricityAmount}
+                  customAmount={electricityCustomAmount}
+                  selected={electricitySelected}
+                  onAmountChange={handleElectricityAmountChange}
+                  onCustomAmountChange={handleElectricityCustomAmountChange}
+                  onToggle={toggleElectricity}
+                />
+              )}
             </div>
           </div>
         ))}
@@ -559,8 +760,8 @@ export default function CalculatorPage() {
               ) : (
                 <>
                   <p className="font-outfit text-base font-medium text-[#232323] sm:text-lg">
-                    Want the full breakdown and how Subsecute can handle all of
-                    this?
+                    Want to know when Subsecute can handle recurring payments
+                    like this?
                   </p>
                   <form
                     onSubmit={handleSubmit}
@@ -613,7 +814,7 @@ export default function CalculatorPage() {
                 {formatNaira(animatedMonthly)}
               </p>
             </div>
-            {selectedCount >= 2 && (
+            {hasAnySelection && (
               <button
                 type="button"
                 onClick={handleSeeAnnual}
