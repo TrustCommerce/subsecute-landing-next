@@ -8,9 +8,6 @@ import HeroSection from "./HeroSection";
 // preserves HTML in the initial response for SEO, while deferring the
 // hydration JS so the hero paints/becomes interactive faster on mobile.
 const AboutSection = dynamic(() => import("./AboutSection"));
-const ProductScreensSection = dynamic(
-  () => import("./ProductScreensSection"),
-);
 const FeaturesSection = dynamic(() => import("./FeaturesSection"));
 const PlansSection = dynamic(() => import("./PlansSection"));
 const GiftingSection = dynamic(() => import("./GiftingSection"));
@@ -25,7 +22,6 @@ export default function LandingPage() {
     <main className="font-neue-power">
       <HeroSection />
       <AboutSection />
-      <ProductScreensSection />
       <FeaturesSection />
       <PlansSection />
       <GiftingSection />
