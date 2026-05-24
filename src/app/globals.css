@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-outfit: "Outfit", sans-serif;
-  --font-dm-sans: "DM Sans", sans-serif;
-  --font-neue-power: "Space Grotesk", "Syne", sans-serif;
+  --font-outfit: var(--font-outfit-loaded), sans-serif;
+  --font-dm-sans: var(--font-dm-sans-loaded), sans-serif;
+  --font-neue-power: var(--font-space-grotesk-loaded), var(--font-syne-loaded), sans-serif;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -17,6 +17,6 @@
 }
 
 body {
-  font-family: "Outfit", sans-serif;
+  font-family: var(--font-outfit);
   -webkit-font-smoothing: antialiased;
 }

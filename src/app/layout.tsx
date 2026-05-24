@@ -1,5 +1,34 @@
 import type { Metadata } from "next";
+import { Outfit, DM_Sans, Space_Grotesk, Syne } from "next/font/google";
 import "./globals.css";
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-outfit-loaded",
+  display: "swap",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-dm-sans-loaded",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-space-grotesk-loaded",
+  display: "swap",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["400", "700", "800"],
+  variable: "--font-syne-loaded",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -59,19 +88,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-NG">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@400;700;800&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html
+      lang="en-NG"
+      className={`${outfit.variable} ${dmSans.variable} ${spaceGrotesk.variable} ${syne.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
