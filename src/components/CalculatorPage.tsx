@@ -279,6 +279,24 @@ const CATEGORIES: Category[] = [
         price: 5000,
         domain: "9mobile.com.ng",
       },
+      { id: "airtime", name: "Airtime (monthly)", price: 5000 },
+      {
+        id: "airtel-airtime",
+        name: "Airtel Airtime (monthly)",
+        price: 5000,
+        domain: "airtel.com.ng",
+      },
+      {
+        id: "glo-airtime",
+        name: "Glo Airtime (monthly)",
+        price: 5000,
+        domain: "gloworld.com",
+      },
+    ],
+  },
+  {
+    label: "Utilities",
+    items: [
       {
         id: "starlink",
         name: "Starlink Residential",
@@ -296,19 +314,6 @@ const CATEGORIES: Category[] = [
         name: "FibreOne (MTN)",
         price: 25000,
         domain: "mtn.ng",
-      },
-      { id: "airtime", name: "Airtime (monthly)", price: 5000 },
-      {
-        id: "airtel-airtime",
-        name: "Airtel Airtime (monthly)",
-        price: 5000,
-        domain: "airtel.com.ng",
-      },
-      {
-        id: "glo-airtime",
-        name: "Glo Airtime (monthly)",
-        price: 5000,
-        domain: "gloworld.com",
       },
     ],
   },
@@ -715,7 +720,7 @@ export default function CalculatorPage() {
     }
   };
 
-  const shareUrl = `https://subsecute.com/calculator?leaked=${annualTotal}`;
+  const shareUrl = `https://www.subsecute.com/calculator?leaked=${annualTotal}`;
   const shareText = `I'm leaking ${formatNaira(annualTotal)}/year on subscriptions and bills 😭 What's your number? ${shareUrl}`;
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
@@ -770,8 +775,8 @@ export default function CalculatorPage() {
           <span className="text-[#E96D1F]">from your account?</span>
         </h1>
         <p className="mx-auto mt-4 max-w-[500px] font-outfit text-sm leading-relaxed text-[#6C757D] sm:text-base lg:text-lg">
-          Tap every subscription and bill you pay for. Prices are estimates —
-          use the Custom tile if yours is different.
+          Tap every subscription and bill you pay for. Prices are estimates.
+          Use the Custom tile for anything different.
         </p>
       </header>
 
@@ -782,7 +787,7 @@ export default function CalculatorPage() {
             <h2 className="mb-3 font-neue-power text-sm font-bold uppercase tracking-widest text-[#6C757D]">
               {cat.label}
             </h2>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 items-start gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {cat.items.map((item) => (
                 <Tile
                   key={item.id}
@@ -791,7 +796,7 @@ export default function CalculatorPage() {
                   onToggle={() => toggleItem(item.id)}
                 />
               ))}
-              {cat.label === "Bills" && (
+              {cat.label === "Utilities" && (
                 <ElectricityTile
                   amount={electricityAmount}
                   customAmount={electricityCustomAmount}
