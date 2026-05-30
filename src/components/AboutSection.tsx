@@ -11,7 +11,7 @@ function useInView(ref: React.RefObject<HTMLElement | null>) {
       ([entry]) => {
         if (entry.isIntersecting) setInView(true);
       },
-      { threshold: 0.4 },
+      { threshold: 0.3 },
     );
     observer.observe(ref.current);
     return () => observer.disconnect();
@@ -43,31 +43,32 @@ function useCountUp(
   return value;
 }
 
-// Each stat has its own animation config
+// Each stat counts up from its target, unless `display` overrides with a word.
 const ANIMATED_STATS = [
   {
-    targets: [5],
-    format: (vals: number[]) => `${vals[0]} min`,
-    label: "To set up your first automated payment",
+    target: 5,
+    format: (v: number) => `${v} min`,
+    label: "To set up your first payment",
     delay: 0,
   },
   {
-    targets: [50],
-    format: (vals: number[]) => `${vals[0]}+`,
-    label: "Subscription and bill providers supported",
-    delay: 200,
+    target: 50,
+    format: (v: number) => `${v}+`,
+    label: "Providers supported",
+    delay: 150,
   },
   {
-    targets: [1],
-    format: (vals: number[]) => `${vals[0]} tap`,
-    label: "To pause or cancel any payment",
-    delay: 400,
+    target: 1,
+    format: (v: number) => `${v} tap`,
+    label: "To cancel anything",
+    delay: 300,
   },
   {
-    targets: [3],
-    format: (vals: number[]) => `${vals[0]}+`,
-    label: "Bills you can manage for someone else",
-    delay: 600,
+    target: 0,
+    display: "Anyone",
+    format: () => "Anyone",
+    label: "You can pay for, not just yourself",
+    delay: 450,
   },
 ] as const;
 
@@ -78,15 +79,15 @@ function AnimatedStat({
   stat: (typeof ANIMATED_STATS)[number];
   active: boolean;
 }) {
-  const val0 = useCountUp(stat.targets[0] ?? 0, 1200, active, stat.delay);
-  const values = [val0];
+  const counted = useCountUp(stat.target, 1200, active, stat.delay);
+  const display = "display" in stat ? stat.display : stat.format(counted);
 
   return (
-    <div className="flex flex-col">
-      <span className="font-neue-power text-3xl font-bold leading-[1.2em] tracking-tight text-[#E96D1F] sm:text-4xl lg:text-[48px]">
-        {stat.format(values)}
+    <div className="flex flex-col gap-1">
+      <span className="font-neue-power text-2xl font-bold leading-none tracking-tight text-[#E96D1F] sm:text-[28px]">
+        {display}
       </span>
-      <span className="font-outfit text-xs leading-[1.5em] tracking-wide text-[#6C757D]">
+      <span className="font-outfit text-xs leading-[1.4em] tracking-wide text-[#868E96]">
         {stat.label}
       </span>
     </div>
@@ -104,13 +105,13 @@ const FEATURES = [
     icon: "/images/landing/about-icon-2.svg",
     title: "Auto-pay your bills",
     description:
-      "Airtime, data, power, cable — set it once, it renews every month.",
+      "Airtime, data, power, cable. Set it once, it renews every month.",
   },
   {
     icon: "/images/landing/about-icon-3.svg",
     title: "Auto-funded before renewal",
     description:
-      "Your wallet funds each card automatically before the charge hits. No failed payments.",
+      "Your wallet funds each card before the charge hits. No failed payments.",
   },
 ] as const;
 
@@ -122,29 +123,38 @@ export default function AboutSection() {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="bg-[#141414] py-20 lg:py-24"
+      className="relative overflow-hidden bg-[#141414] py-20 lg:py-28"
     >
-      <div className="mx-auto flex max-w-[1240px] flex-col gap-14 px-4 lg:flex-row lg:gap-12 lg:px-0">
-        {/* Left column */}
-        <div className="flex flex-col gap-10 lg:max-w-[612px] lg:gap-12">
-          {/* Text */}
-          <div className="flex flex-col gap-4">
-            <span className="font-outfit text-sm font-medium leading-[1.2em] tracking-wide text-[#E96D1F]">
+      {/* Ambient orange glow for depth */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-24 right-[-10%] h-[520px] w-[520px] rounded-full bg-[#E96D1F] opacity-[0.13]"
+        style={{ filter: "blur(130px)" }}
+      />
+
+      <div className="relative mx-auto flex max-w-[1240px] flex-col gap-14 px-4 lg:flex-row lg:items-center lg:gap-16 lg:px-6">
+        {/* Left column — message + stats */}
+        <div className="flex flex-col gap-8 lg:max-w-[580px] lg:flex-1">
+          <div className="flex flex-col gap-5">
+            <span className="font-outfit text-sm font-medium leading-none tracking-[0.08em] text-[#E96D1F]">
               WHAT IS SUBSECUTE?
             </span>
             <h2
               id="about-heading"
-              className="font-outfit text-3xl leading-[1.2em] text-white sm:text-4xl lg:text-[48px]"
+              className="font-neue-power text-3xl font-bold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[44px]"
             >
-              One virtual card per subscription. One app for every bill in
-              Nigeria. One unified dashboard for every recurring payment
+              One card per subscription. One app for every bill in Nigeria.{" "}
+              <span className="text-[#E96D1F]">One dashboard for all of it.</span>
             </h2>
-            <p className="font-outfit text-lg italic leading-[1.5em] tracking-wide text-white/80 sm:text-xl">
+            <p className="font-outfit text-lg italic leading-[1.5em] tracking-wide text-white/70 sm:text-xl">
               The best subscription is one you never think about.
             </p>
-            <p className="font-outfit text-sm leading-[1.5em] tracking-wide text-[#CED4DA] sm:text-base">
-              
-Everything recurring, in one place. See what&apos;s due, get reminded before it charges, and know where your money goes each month. Fund Mum&apos;s power, gift a friend some Netflix, cancel anything in one tap            </p>
+            <p className="max-w-[520px] font-outfit text-sm leading-[1.7em] tracking-wide text-[#ADB5BD] sm:text-base">
+              Everything recurring, in one place. See what&apos;s due, get
+              reminded before it charges, and know exactly where your money goes
+              each month. Fund Mum&apos;s power, gift a friend some Netflix, or
+              cancel anything in one tap.
+            </p>
           </div>
 
           {/* Feature cards */}
@@ -152,68 +162,79 @@ Everything recurring, in one place. See what&apos;s due, get reminded before it 
             {FEATURES.map((feature) => (
               <div
                 key={feature.title}
-                className="flex items-center gap-3 rounded-xl border border-[rgba(233,109,31,0.1)] bg-[#202020] p-3"
+                className="flex items-center gap-3 rounded-xl border border-[rgba(233,109,31,0.12)] bg-[#1C1C1C] p-3 transition-colors hover:border-[rgba(233,109,31,0.3)]"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[rgba(233,109,31,0.1)]">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[rgba(233,109,31,0.1)]">
                   <img
                     src={feature.icon}
                     alt=""
                     aria-hidden="true"
                     loading="lazy"
-                    className="h-8 w-8"
+                    className="h-7 w-7"
                   />
                 </div>
-                <div className="flex flex-col gap-1">
-                  <h3 className="font-outfit text-sm font-medium leading-[1.5em] tracking-wide text-white sm:text-base">
+                <div className="flex flex-col gap-0.5">
+                  <h3 className="font-outfit text-sm font-medium leading-[1.4em] tracking-wide text-white sm:text-base">
                     {feature.title}
                   </h3>
-                  <p className="font-outfit text-xs leading-[1.5em] tracking-wide text-[#6C757D] sm:text-sm">
+                  <p className="font-outfit text-xs leading-[1.45em] tracking-wide text-[#6C757D] sm:text-[13px]">
                     {feature.description}
                   </p>
                 </div>
               </div>
             ))}
           </div>
-        </div>
 
-        {/* Right column — Stats + Testimonial */}
-        <div
-          ref={statsRef}
-          className="flex flex-1 flex-col gap-6 rounded-3xl bg-[#1D1D1D] p-6 sm:p-8 lg:gap-8 lg:p-10"
-        >
-          {/* Stats grid */}
-          <div className="border-b border-[#2F2F2F] pb-8">
-            <div className="grid grid-cols-2 gap-x-4 gap-y-8">
-              {ANIMATED_STATS.map((stat) => (
-                <AnimatedStat
-                  key={stat.label}
-                  stat={stat}
-                  active={statsInView}
-                />
-              ))}
-            </div>
+          {/* Stats strip */}
+          <div
+            ref={statsRef}
+            className="grid grid-cols-2 gap-x-6 gap-y-6 border-t border-[#2A2A2A] pt-8 sm:grid-cols-4"
+          >
+            {ANIMATED_STATS.map((stat) => (
+              <AnimatedStat key={stat.label} stat={stat} active={statsInView} />
+            ))}
           </div>
 
-          {/* Testimonial — only in live mode */}
+          {/* Testimonial — live mode only */}
           {!IS_WAITLIST && (
-            <div className="flex flex-col gap-3">
-              <blockquote className="font-outfit text-sm leading-[1.5em] tracking-wide text-white">
+            <div className="flex flex-col gap-3 rounded-2xl bg-[#1C1C1C] p-5">
+              <blockquote className="font-outfit text-sm leading-[1.6em] tracking-wide text-white/90">
                 &ldquo;I haven&apos;t thought about my subscriptions since I
                 switched to Subsecute. It just works, every single month.&rdquo;
               </blockquote>
-              <div className="flex items-center gap-2 py-1">
+              <div className="flex items-center gap-2">
                 <img
                   src="/images/landing/testimonial-avatar.png"
                   alt=""
                   loading="lazy"
                   className="h-6 w-6 rounded-full object-cover"
                 />
-                <cite className="font-outfit text-xs not-italic leading-[1.5em] tracking-wide text-[#6C757D]">
+                <cite className="font-outfit text-xs not-italic leading-none tracking-wide text-[#6C757D]">
                   Adaeze K.
                 </cite>
               </div>
             </div>
           )}
+        </div>
+
+        {/* Right column — product shot (Expenses view) */}
+        <div className="relative flex justify-center lg:flex-1">
+          {/* Glow behind the device */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#E96D1F] opacity-20"
+            style={{ filter: "blur(90px)" }}
+          />
+          <div className="relative w-full max-w-[300px] sm:max-w-[320px]">
+            <div className="relative rounded-[2.5rem] bg-[#0F0F0F] p-2.5 shadow-[0_32px_70px_rgba(0,0,0,0.5)] ring-1 ring-white/5">
+              <img
+                src="/images/landing/about-product.png?v=2"
+                alt="Subsecute Expenses screen showing a yearly spend of ₦115,239 across 38 items, broken down by app and category"
+                loading="lazy"
+                className="w-full rounded-[2rem]"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
