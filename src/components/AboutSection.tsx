@@ -137,7 +137,7 @@ export default function AboutSection() {
               className="font-outfit text-3xl leading-[1.2em] text-white sm:text-4xl lg:text-[48px]"
             >
               One virtual card per subscription. One app for every bill in
-              Nigeria.
+              Nigeria. One unified dashboard for every recurring payment
             </h2>
             <p className="font-outfit text-lg italic leading-[1.5em] tracking-wide text-white/80 sm:text-xl">
               The best subscription is one you never think about.
@@ -145,7 +145,8 @@ export default function AboutSection() {
             <p className="font-outfit text-sm leading-[1.5em] tracking-wide text-[#CED4DA] sm:text-base">
               
 
-Your DSTV expires because you forgot to renew. Your data runs out at midnight. Subsecute fixes all of it, and then some. Every dollar subscription gets its own USD card that auto-funds before renewal. Every Nigerian bill, airtime, data, power, cable, runs on a schedule. See exactly where your money goes each month, by app and by category. Create and add Mum to a plan to fund her power monthly. Gift your friend a couple months of Netflix. And cancel anything, in one tap, the moment you change your mind.
+See every subscription and bill in one place. What&apos;s active, what&apos;s due, and where your money goes each month, by app and category. Get reminded before anything charges, 7 days out or 1.
+Then Subsecute handles the rest. Dollar subscriptions like ChatGPT, Claude, and Figma each get a USD card that funds itself before renewal, so nothing lapses mid-project. Nigerian bills run on a schedule you set once: airtime, data, power, cable. Fund Mum&apos;s power. Gift a friend a few months of Netflix. Cancel anything, anytime, in one tap.
             </p>
           </div>
 
