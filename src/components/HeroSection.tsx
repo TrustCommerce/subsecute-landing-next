@@ -14,7 +14,7 @@ const BADGES = [
     text: "Renewal due in 3 days",
     amount: "$15.49",
     side: "left" as const,
-    top: "12%",
+    top: "4%",
   },
   {
     icon: `https://img.logo.dev/spotify.com?token=${LOGO_TOKEN}&size=64&format=png`,
@@ -22,7 +22,7 @@ const BADGES = [
     text: "Successfully renewed",
     amount: "$10.99",
     side: "left" as const,
-    top: "38%",
+    top: "18%",
   },
   {
     icon: `https://img.logo.dev/dstv.com?token=${LOGO_TOKEN}&size=64&format=png`,
@@ -30,7 +30,7 @@ const BADGES = [
     text: "Auto-paid",
     amount: "₦19,000",
     side: "right" as const,
-    top: "15%",
+    top: "6%",
   },
   {
     icon: `https://img.logo.dev/mtn.ng?token=${LOGO_TOKEN}&size=64&format=png`,
@@ -38,7 +38,7 @@ const BADGES = [
     text: "Top-up sent",
     amount: "₦5,000",
     side: "right" as const,
-    top: "42%",
+    top: "20%",
   },
   {
     icon: `https://img.logo.dev/claude.ai?token=${LOGO_TOKEN}&size=64&format=png`,
@@ -46,7 +46,7 @@ const BADGES = [
     text: "Card funded",
     amount: "$20.00",
     side: "left" as const,
-    top: "52%",
+    top: "30%",
   },
   {
     icon: `https://img.logo.dev/ekedc.com?token=${LOGO_TOKEN}&size=64&format=png`,
@@ -54,7 +54,7 @@ const BADGES = [
     text: "Token purchased",
     amount: "₦20,000",
     side: "right" as const,
-    top: "68%",
+    top: "32%",
   },
 ] as const;
 
@@ -137,7 +137,7 @@ export default function HeroSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative h-[780px] overflow-hidden bg-[#FFFEEC] sm:h-[854px] md:h-[898px] lg:h-[1021px]"
+      className="relative h-[860px] overflow-hidden bg-[#FFFEEC] sm:h-[1010px] md:h-[1090px] lg:h-[1240px]"
     >
       {/* Orange blur */}
       <div
@@ -239,12 +239,12 @@ export default function HeroSection() {
         </div>
 
         {/* Phone mockup with floating notification badges behind */}
-        <div className="relative mx-auto mt-6 w-full max-w-[220px] sm:mt-[98px] sm:max-w-[311px] md:max-w-[354px] lg:mt-[151px] lg:max-w-[398px]">
+        <div className="relative mx-auto mt-6 w-full max-w-[220px] sm:mt-[70px] sm:max-w-[311px] md:max-w-[354px] lg:mt-[100px] lg:max-w-[398px]">
           <FloatingBadges />
           <div className="relative z-10 rounded-[2.5rem] bg-[#1a1a1a] p-2.5 shadow-[0_32px_68px_rgba(17,17,15,0.22)]">
             <img
               src="/images/landing/phone-screen.png"
-              alt="Subsecute app showing wallet balance of ₦150,187.87, active subscriptions, and monthly spend"
+              alt="Subsecute app home screen showing wallet balance, active subscriptions, monthly spend, and upcoming renewals"
               className="w-full rounded-[2rem]"
             />
           </div>

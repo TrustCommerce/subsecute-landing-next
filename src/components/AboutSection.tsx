@@ -144,10 +144,7 @@ export default function AboutSection() {
             </p>
             <p className="font-outfit text-sm leading-[1.5em] tracking-wide text-[#CED4DA] sm:text-base">
               
-
-See every subscription and bill in one place. What&apos;s active, what&apos;s due, and where your money goes each month, by app and category. Get reminded before anything charges, 7 days out or 1.
-Then Subsecute handles the rest. Dollar subscriptions like ChatGPT, Claude, and Figma each get a USD card that funds itself before renewal, so nothing lapses mid-project. Nigerian bills run on a schedule you set once: airtime, data, power, cable. Fund Mum&apos;s power. Gift a friend a few months of Netflix. Cancel anything, anytime, in one tap.
-            </p>
+Everything recurring, in one place. See what&apos;s due, get reminded before it charges, and know where your money goes each month. Fund Mum&apos;s power, gift a friend some Netflix, cancel anything in one tap            </p>
           </div>
 
           {/* Feature cards */}
