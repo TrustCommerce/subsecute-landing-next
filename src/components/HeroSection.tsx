@@ -243,7 +243,7 @@ export default function HeroSection() {
           <FloatingBadges />
           <div className="relative z-10 rounded-[2.5rem] bg-[#1a1a1a] p-2.5 shadow-[0_32px_68px_rgba(17,17,15,0.22)]">
             <img
-              src="/images/landing/phone-screen.png"
+              src="/images/landing/phone-screen.png?v=2"
               alt="Subsecute app home screen showing wallet balance, active subscriptions, monthly spend, and upcoming renewals"
               className="w-full rounded-[2rem]"
             />
