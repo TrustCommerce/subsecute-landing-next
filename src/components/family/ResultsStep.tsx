@@ -95,7 +95,7 @@ export default function ResultsStep({
       <div className="mx-auto flex w-full max-w-[560px] flex-1 flex-col px-4 pb-8 pt-6">
         <Link href="/" aria-label="Subsecute home" className="mb-6 self-start">
           <img
-            src="/images/landing/logo.png"
+            src="/images/landing/logo.svg"
             alt="Subsecute logo"
             className="h-7 w-auto"
           />

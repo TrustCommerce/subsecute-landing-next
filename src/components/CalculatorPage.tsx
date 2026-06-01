@@ -739,7 +739,7 @@ export default function CalculatorPage() {
         <div className="relative z-50 mx-auto flex max-w-[1240px] items-center justify-between rounded-xl border border-[#DEE2E6] px-5 py-2.5">
           <Link href="/" aria-label="Subsecute home">
             <img
-              src="/images/landing/logo.png"
+              src="/images/landing/logo.svg"
               alt="Subsecute logo"
               className="h-8 w-auto"
             />

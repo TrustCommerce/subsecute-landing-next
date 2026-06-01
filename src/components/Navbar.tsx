@@ -46,7 +46,7 @@ export default function Navbar() {
       >
         <Link href="/" aria-label="Subsecute home">
           <img
-            src="/images/landing/logo.png"
+            src="/images/landing/logo.svg"
             alt="Subsecute logo"
             className="h-8 w-auto"
           />
@@ -126,7 +126,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between border-b border-[#F0F0F0] px-6 py-4">
           <Link href="/" onClick={close}>
             <img
-              src="/images/landing/logo.png"
+              src="/images/landing/logo.svg"
               alt="Subsecute"
               className="h-7 w-auto"
             />

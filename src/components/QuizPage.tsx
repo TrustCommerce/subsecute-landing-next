@@ -33,7 +33,7 @@ export default function QuizPage() {
       <nav className="flex items-center justify-between px-4 pt-5 lg:px-[100px]">
         <Link href="/">
           <img
-            src="/images/landing/logo.png"
+            src="/images/landing/logo.svg"
             alt="Subsecute"
             className="h-7 lg:h-8"
           />
@@ -44,7 +44,7 @@ export default function QuizPage() {
         <div className="flex min-h-[calc(100vh-80px)] flex-col items-center justify-center px-4">
           <div className="flex flex-col items-center text-center">
             <img
-              src="/images/landing/logo.png"
+              src="/images/landing/logo.svg"
               alt="Subsecute"
               className="mb-8 h-10 lg:h-12"
             />

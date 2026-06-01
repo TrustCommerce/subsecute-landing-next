@@ -42,7 +42,7 @@ export default async function BlogPost({ params }: Props) {
         <div className="mx-auto flex max-w-[800px] items-center justify-between">
           <Link href="/">
             <img
-              src="/images/landing/logo.png"
+              src="/images/landing/logo.svg"
               alt="Subsecute"
               className="h-8 w-auto"
             />
