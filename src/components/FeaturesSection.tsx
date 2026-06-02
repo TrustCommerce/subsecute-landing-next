@@ -104,6 +104,26 @@ const SUBS = [
     statusColor: "text-[#49B500]",
     dotColor: "bg-[#58DC00]",
   },
+  {
+    logo: logoUrl("twitch.tv"),
+    name: "Twitch Turbo",
+    daysLeft: "12 days left",
+    price: "$11",
+    status: "Active" as const,
+    statusBg: "bg-[rgba(88,220,0,0.2)]",
+    statusColor: "text-[#49B500]",
+    dotColor: "bg-[#58DC00]",
+  },
+  {
+    logo: logoUrl("kick.com"),
+    name: "Kick",
+    daysLeft: "8 days left",
+    price: "$5",
+    status: "Active" as const,
+    statusBg: "bg-[rgba(88,220,0,0.2)]",
+    statusColor: "text-[#49B500]",
+    dotColor: "bg-[#58DC00]",
+  },
 ] as const;
 
 const NUM_SUBS = SUBS.length;
