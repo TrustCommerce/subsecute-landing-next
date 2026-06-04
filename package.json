@@ -31,3 +31,55 @@
     "typescript": "^5"
   }
 }
+
+
+
+{
+  "data": {
+    "_id": "69f05be92c89170024ceecbd",
+    "vat": 0,
+    "fees": 0,
+    "type": "Inwards",
+    "amount": 10,
+    "status": "Completed",
+    "narration": "Wallet funding from charge",
+    "sessionId": "090286260428070408289773784211",
+    "stampDuty": 0,
+    "isReversed": false,
+    "responseCode": "00",
+    "responseMessage": "Approved or completed successfully",
+    "debitAccountName": "TRUST COMMERCE RESOURCES LTD / OPERATIONAL",
+    "paymentReference": "subsecute_op2wlt_00fbf77d_1777359848584",
+    "creditAccountName": "TRUST COMMERCE RESOURCES LTD / WALLET",
+    "externalReference": null,
+    "reversalReference": null,
+    "debitAccountNumber": "0102221787",
+    "creditAccountNumber": "0109723266"
+  },
+  "type": "transfer"
+}
+
+ {
+  "data": {
+    "_id": "69ddbb93ea7add0024b7dab7",
+    "vat": 0,
+    "fees": 10,
+    "type": null,
+    "amount": 2160,
+    "status": "Completed",
+    "narration": "MOBILE TRF TO SHM  TrustCommerceRe Checkout",
+    "sessionId": "000014260414045914262875167915",
+    "stampDuty": 0,
+    "isReversed": false,
+    "responseCode": "00",
+    "responseMessage": "Approved or completed successfully",
+    "debitAccountName": "OSEREME LESLEY OKODUWA",
+    "paymentReference": "000014260414045901298152567898",
+    "creditAccountName": "TrustCommerceRe Checkout",
+    "externalReference": "subsecute_fndwlt_2ab0da3f_1776139114966",
+    "reversalReference": "",
+    "debitAccountNumber": "0787655547",
+    "creditAccountNumber": "6022710473"
+  },
+  "type": "virtualAccount.transfer"
+}
