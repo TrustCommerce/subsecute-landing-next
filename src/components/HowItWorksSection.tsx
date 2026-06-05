@@ -3,7 +3,7 @@ const STEPS = [
     number: "01",
     title: "Download & sign up",
     description:
-      "Create your account and fund your wallet. Ready in under 60 seconds.",
+      "Create your account and fund your wallet. Ready in under 5 minutes.",
   },
   {
     number: "02",

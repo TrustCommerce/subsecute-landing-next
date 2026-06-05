@@ -16,7 +16,7 @@ const FAQS = [
   {
     question: "Can someone abroad manage bills for family in Nigeria?",
     answer:
-      "Yes. Create a plan, add family members, and set up their airtime, data, and cable to renew automatically. You see every payment in your dashboard. No more sending money and hoping it gets used right.",
+      "Yes. Create a plan, add family members, Fund your wallet and let them set up their airtime, data, and cable to renew automatically. You see every payment in your dashboard. No more sending money and hoping it gets used right.",
   },
   {
     question: "How does Subsecute convert Naira to USD for my subscriptions?",
