@@ -99,32 +99,31 @@ const scoreTiers: ScoreTier[] = [
     range: [0, 30],
     label: "DSTV Defaulter",
     description:
-      "You've been cut off mid-match. Your bank card has declined more than once. Your subs are running you, not the other way around.",
+      "Your cards decline more than they should and you've definitely missed a renewal you cared about. You're not in control of your subs. They're in control of you.",
     color: "#EF4444",
   },
   {
     range: [31, 60],
     label: "Midnight Refresher",
     description:
-      "You're surviving, not thriving. You buy airtime at 11:58pm. You've forgotten one DSTV renewal too many. Your system lives in your head, and your head forgets.",
+      "You buy airtime at 11:58pm. You've let a DSTV renewal lapse and only noticed when the screen went dark. Your whole tracking system is just you trying to remember, and you forget.",
     color: "#EAB308",
   },
   {
     range: [61, 85],
     label: "Renewal Watcher",
     description:
-      "You're mostly on top of it. A few sneaky charges still slip through, and you couldn't cancel a sub in 60 seconds, but you're winning more than losing.",
+      "You handle your subs pretty well. A charge sneaks past now and then, and no, you couldn't cancel something in under a minute if you tried. But you lose way less money than most people.",
     color: "#22C55E",
   },
   {
     range: [86, 100],
     label: "Subscription Sensei",
     description:
-      "You're the friend everyone calls before they renew anything. Subsecute exists to make this effortless even for people like you.",
+      "You're the person friends message before they sign up for anything. You already know what you're paying and when. Subsecute is just here to save you the mental effort.",
     color: "#3B82F6",
   },
 ];
-
 interface Fix {
   questionId: number;
   threshold: number;
