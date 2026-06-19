@@ -113,14 +113,15 @@ export default function EarlyAccessPage() {
           and pays them automatically. Be first in line when we open the doors.
         </p>
 
-        {/* Countdown — points at the form and makes acting now matter */}
-        <div className="mt-8" style={rise(240)}>
-          <CountdownTimer targetDate={LAUNCH_DATE} label="Launching in" />
+        {/* The single action — kept high so the field is above the fold on
+            mobile, where most of the IG traffic lands */}
+        <div className="mt-8 flex w-full justify-center" style={rise(240)}>
+          <WaitlistForm variant="light" cta="Get Early Access" />
         </div>
 
-        {/* The single action */}
-        <div className="mt-7 flex w-full justify-center" style={rise(300)}>
-          <WaitlistForm variant="light" cta="Get Early Access" />
+        {/* Countdown — sits right under the form, reinforcing the urgency to act */}
+        <div className="mt-8" style={rise(300)}>
+          <CountdownTimer targetDate={LAUNCH_DATE} label="Launching in" />
         </div>
 
         {/* Why act before the timer runs out */}

@@ -91,7 +91,7 @@ export default function CountdownTimer({
             <span className="font-neue-power text-2xl font-bold tabular-nums text-[#232323] sm:text-[34px]">
               {values ? pad(values[unit.key]) : "--"}
             </span>
-            <span className="mt-0.5 font-outfit text-[9px] uppercase tracking-[0.12em] text-[#6C757D] sm:text-[11px]">
+            <span className="mt-0.5 font-outfit text-[10px] uppercase tracking-[0.12em] text-[#6C757D] sm:text-[11px]">
               {unit.label}
             </span>
           </div>
