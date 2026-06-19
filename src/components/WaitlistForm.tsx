@@ -1,7 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { WAITLIST_API } from "@/config";
+import { WAITLIST_API, X_PIXEL_ID, X_SIGNUP_EVENT_ID } from "@/config";
+
+// X Ads adds twq() to window once the base pixel loads.
+declare global {
+  interface Window {
+    twq?: (command: string, eventId: string, params?: object) => void;
+  }
+}
 
 interface WaitlistFormProps {
   variant?: "dark" | "light";
@@ -25,6 +32,19 @@ export default function WaitlistForm({
     }
   }, [status]);
 
+  // Report the signup to X Ads so the campaign can measure (and later optimize
+  // toward) the event that actually matters. Passing the email lets X hash and
+  // match it for far better attribution than a cookie alone. No-ops if the
+  // pixel isn't configured or hasn't finished loading.
+  const reportSignup = (signupEmail: string) => {
+    if (X_PIXEL_ID && X_SIGNUP_EVENT_ID && typeof window !== "undefined") {
+      window.twq?.("event", `tw-${X_PIXEL_ID}-${X_SIGNUP_EVENT_ID}`, {
+        email_address: signupEmail,
+        status: "completed",
+      });
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
@@ -40,6 +60,7 @@ export default function WaitlistForm({
       });
 
       if (res.ok) {
+        reportSignup(email);
         setStatus("success");
         setEmail("");
       } else {

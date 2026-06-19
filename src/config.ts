@@ -15,6 +15,13 @@ export const WAITLIST_API =
   "https://api.subsecute.com/subsecute-api/v1/waitlist";
 export const LOGO_DEV_TOKEN =
   process.env.NEXT_PUBLIC_LOGO_DEV_TOKEN ?? "pk_dorVGutZSi-4iMholcR1qA";
+// X (Twitter) Ads pixel. X_PIXEL_ID is the website-tag id from Ads Manager →
+// Tools → Conversion tracking (looks like "o1abc"). X_SIGNUP_EVENT_ID is the id
+// of the "Sign up / Lead" event you create there. The base tag only loads when
+// the pixel id is set, so dev/preview builds stay clean.
+export const X_PIXEL_ID = process.env.NEXT_PUBLIC_X_PIXEL_ID ?? "rd4kz";
+export const X_SIGNUP_EVENT_ID =
+  process.env.NEXT_PUBLIC_X_SIGNUP_EVENT_ID ?? "rd4lq";
 export const EXCHANGE_RATE_ESTIMATE = 1550;
 export const DEFAULT_SHARE_IMAGE =
   "https://res.cloudinary.com/dwambnh2n/image/upload/v1774920431/Screenshot_2026-03-31_at_2.26.31_AM_amvubi.png";

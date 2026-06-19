@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, DM_Sans, Space_Grotesk, Syne } from "next/font/google";
 import "./globals.css";
+import XPixel from "@/components/XPixel";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -92,7 +93,10 @@ export default function RootLayout({
       lang="en-NG"
       className={`${outfit.variable} ${dmSans.variable} ${spaceGrotesk.variable} ${syne.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <XPixel />
+      </body>
     </html>
   );
 }
