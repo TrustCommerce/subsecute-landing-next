@@ -70,7 +70,7 @@ export default function Navbar() {
             href="#download"
             className="rounded-full bg-[#E96D1F] px-5 py-2 font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90"
           >
-            {IS_WAITLIST ? "Join Waitlist" : "Get the App"}
+            {IS_WAITLIST ? "Get Early Access" : "Get the App"}
           </a>
         </div>
 
@@ -185,7 +185,7 @@ export default function Navbar() {
               onClick={close}
               className="flex h-12 w-full items-center justify-center rounded-full bg-[#E96D1F] font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90"
             >
-              {IS_WAITLIST ? "Join Waitlist" : "Get the App"}
+              {IS_WAITLIST ? "Get Early Access" : "Get the App"}
             </a>
           </div>
         </div>

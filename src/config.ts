@@ -1,5 +1,15 @@
 export const IS_WAITLIST = process.env.NEXT_PUBLIC_LAUNCH_MODE === "waitlist";
 export const SITE_URL = "https://subsecute.com";
+// Social proof on the early-access page. Set NEXT_PUBLIC_WAITLIST_COUNT to your
+// real signup count to show "N+ Nigerians already on the list". Left at 0 it
+// shows a reassurance line instead — never a fabricated number.
+export const WAITLIST_COUNT = Number(process.env.NEXT_PUBLIC_WAITLIST_COUNT ?? 0);
+// Real, fixed launch target for the early-access countdown (ISO 8601, WAT).
+// Keep this honest — if it passes without launch the timer shows a graceful
+// "launching now" state, but a date you actually hit builds far more trust.
+// Default: ~3 weeks out, 9am Lagos time.
+export const LAUNCH_DATE =
+  process.env.NEXT_PUBLIC_LAUNCH_DATE ?? "2026-07-10T09:00:00+01:00";
 export const WAITLIST_API =
   process.env.NEXT_PUBLIC_WAITLIST_API ??
   "https://api.subsecute.com/subsecute-api/v1/waitlist";

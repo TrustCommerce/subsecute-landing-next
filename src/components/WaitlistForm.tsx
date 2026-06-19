@@ -1,18 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { WAITLIST_API } from "@/config";
 
 interface WaitlistFormProps {
   variant?: "dark" | "light";
+  cta?: string;
 }
 
-export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
+export default function WaitlistForm({
+  variant = "dark",
+  cta = "Get Early Access",
+}: WaitlistFormProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
   const [errorMsg, setErrorMsg] = useState("");
+
+  // Celebrate the conversion — also primes the moment people share.
+  useEffect(() => {
+    if (status === "success") {
+      import("@/lib/confetti").then((m) => m.burstConfetti());
+    }
+  }, [status]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,7 +58,7 @@ export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
   const isDark = variant === "dark";
 
   const shareText =
-    "I just joined the Subsecute waitlist — it auto-pays your Netflix, DSTV, airtime, data, and power with dedicated virtual cards and payment schedules. No more declined payments. Join here: https://subsecute.com";
+    "I just got early access to Subsecute — it auto-pays your Netflix, DSTV, airtime, data, and power with dedicated virtual cards and payment schedules. No more declined payments. Get in here: https://subsecute.com/early-access";
   const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
   const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
 
@@ -68,7 +79,8 @@ export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
         <p
           className={`font-outfit text-sm tracking-wide ${isDark ? "text-white" : "text-[#232323]"}`}
         >
-          You&apos;re on the list! We&apos;ll notify you when we launch.
+          You&apos;re in! You&apos;ll be among the first to get access when we
+          launch.
         </p>
         <p
           className={`font-outfit text-xs tracking-wide ${isDark ? "text-white/60" : "text-[#6C757D]"}`}
@@ -129,7 +141,7 @@ export default function WaitlistForm({ variant = "dark" }: WaitlistFormProps) {
           disabled={status === "loading"}
           className="h-12 w-full shrink-0 rounded-full bg-[#232323] px-6 font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90 disabled:opacity-60 sm:w-auto sm:px-7"
         >
-          {status === "loading" ? "Joining..." : "Join Waitlist"}
+          {status === "loading" ? "Securing your spot..." : cta}
         </button>
       </form>
       {status === "error" && (
