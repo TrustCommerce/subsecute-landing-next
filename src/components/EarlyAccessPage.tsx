@@ -130,8 +130,7 @@ export default function EarlyAccessPage() {
           style={rise(340)}
         >
           Join before launch to{" "}
-          <span className="font-medium text-[#232323]">skip the line</span> and
-          lock in founding-member perks.
+          <span className="font-medium text-[#232323]">skip the line</span>.
         </p>
 
         {/* Social proof — real count when set, honest reassurance otherwise */}
