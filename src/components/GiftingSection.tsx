@@ -46,7 +46,7 @@ export default function GiftingSection() {
                   Your gift link:
                 </span>
                 <span className="font-outfit text-sm font-medium tracking-wide text-[#232323]">
-                  gift.subsecute.com/leslie
+                  gift.subsecute.com/amara
                 </span>
               </div>
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#E96D1F] shadow-[0px_2px_8px_rgba(233,109,31,0.3)]">
@@ -92,8 +92,8 @@ export default function GiftingSection() {
               <div className="mb-4 flex justify-center">
                 <div className="relative h-16 w-16">
                   <img
-                    src="https://api.dicebear.com/9.x/adventurer/svg?seed=Leslie&backgroundColor=b6e3f4"
-                    alt="Leslie's avatar"
+                    src="https://api.dicebear.com/9.x/adventurer/svg?seed=Amara&backgroundColor=b6e3f4"
+                    alt="Amara's avatar"
                     className="h-16 w-16 rounded-full bg-[#E8F4FE]"
                   />
                   <div className="absolute bottom-0 right-0 flex h-5 w-5 items-center justify-center rounded-full bg-[#E96D1F]">
@@ -116,7 +116,7 @@ export default function GiftingSection() {
                   Fund{" "}
                 </span>
                 <span className="font-neue-power text-xl font-bold text-[#E96D1F]">
-                  @leslie&apos;s
+                  @amara&apos;s
                 </span>
                 <br />
                 <span className="font-neue-power text-xl font-bold text-[#232323]">
@@ -164,7 +164,7 @@ export default function GiftingSection() {
                   />
                   <div className="min-w-0 flex-1">
                     <p className="truncate font-outfit text-sm font-semibold text-[#232323]">
-                      Leslie&apos;s Claude s...
+                      Amara&apos;s Claude s...
                     </p>
                     <span className="inline-block rounded-full bg-[rgba(233,109,31,0.1)] px-2 py-0.5 font-outfit text-[10px] text-[#E96D1F]">
                       Subscription

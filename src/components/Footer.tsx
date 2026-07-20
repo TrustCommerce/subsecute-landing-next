@@ -85,6 +85,7 @@ const FOOTER_LINKS = [
     links: [
       { label: "About us", href: "#about" },
       { label: "FAQ", href: "#faq" },
+      { label: "Support", href: "/support" },
     ],
   },
   {
@@ -169,7 +170,8 @@ export default function Footer() {
       {/* Copyright */}
       <div className="mx-auto mt-10 max-w-[1240px] border-t border-[#2F2F2F] px-4 pt-6 lg:px-0">
         <p className="font-outfit text-xs tracking-wide text-[#6C757D]">
-          © {new Date().getFullYear()} Subsecute. All rights reserved.
+          © {new Date().getFullYear()} Subsecute. A product of TrustCommerce
+          Resources Ltd (RC 7131175).
         </p>
       </div>
     </footer>
