@@ -80,9 +80,9 @@
     <h3>Technical Measures</h3>
     <ul>
       <li><strong>Encryption in transit:</strong> All data transmitted between your device and our servers is encrypted using HTTPS/TLS.</li>
-      <li><strong>Password security:</strong> Passwords are never stored in plain text. They are cryptographically hashed using Keycloak's built-in hashing algorithms.</li>
+      <li><strong>Password security:</strong> Passwords are never stored in plain text. They are cryptographically hashed using industry-standard, one-way hashing algorithms.</li>
       <li><strong>No storage of full card data:</strong> We never store the full card number (PAN) or CVV for your virtual cards &mdash; these remain solely with our PCI-DSS-compliant card issuer, Payscribe. We keep only a masked number (last 4 digits), which is all that is ever displayed to you. Card details you link through Paystack are similarly never stored in full.</li>
-      <li><strong>Signed document URLs:</strong> KYC documents stored in AWS S3 are accessible only through CloudFront signed URLs that expire after 1 hour.</li>
+      <li><strong>Signed document URLs:</strong> KYC documents are stored privately and accessible only through short-lived, signed URLs.</li>
       <li><strong>JWT authentication:</strong> We use stateless, token-based authentication (JSON Web Tokens), which reduces the risk of session hijacking.</li>
       <li><strong>Rate limiting:</strong> All API endpoints are rate-limited to prevent brute-force attacks and abuse.</li>
       <li><strong>Regular monitoring:</strong> We conduct ongoing security monitoring to detect and respond to potential threats.</li>
