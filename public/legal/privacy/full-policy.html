@@ -258,7 +258,7 @@
         </tr>
         <tr>
           <td><strong>Virtual Card Data</strong></td>
-          <td>Masked card number (last 4 digits only), expiry, card brand, balance, and status. We never store the full card number (PAN) or CVV &mdash; these are held only by our card issuer, Payscribe.</td>
+          <td>Masked card number (last 4 digits only), expiry, card brand, balance, and status. We never store the full card number (PAN) or CVV. These are held only by our card issuer, Payscribe.</td>
           <td>Virtual card provisioning and subscription payments</td>
         </tr>
         <tr>
@@ -507,7 +507,7 @@
     <ul>
       <li><strong>Encryption in transit:</strong> All data transmitted between your device and our servers is encrypted using HTTPS/TLS.</li>
       <li><strong>Password security:</strong> Passwords are never stored in plain text. They are cryptographically hashed using industry-standard, one-way hashing algorithms.</li>
-      <li><strong>No storage of full card data:</strong> We never store the full card number (PAN) or CVV for your virtual cards &mdash; these remain solely with our PCI-DSS-compliant card issuer, Payscribe. We keep only a masked number (last 4 digits), which is all that is ever displayed to you. Card details you link through Paystack are similarly never stored in full.</li>
+      <li><strong>No storage of full card data:</strong> We never store the full card number (PAN) or CVV for your virtual cards. These remain solely with our PCI-DSS-compliant card issuer, Payscribe. We keep only a masked number (last 4 digits), which is all that is ever displayed to you. Card details you link through Paystack are similarly never stored in full.</li>
       <li><strong>Signed document URLs:</strong> KYC documents are stored privately and accessible only through short-lived, signed URLs.</li>
       <li><strong>JWT authentication:</strong> We use stateless, token-based authentication (JSON Web Tokens), which reduces the risk of session hijacking.</li>
       <li><strong>Rate limiting:</strong> All API endpoints are rate-limited to prevent brute-force attacks and abuse.</li>
@@ -522,7 +522,7 @@
     </ul>
 
     <h3>Encryption at Rest</h3>
-    <p>Personal data stored in our databases is encrypted at rest using industry-standard encryption. Highly sensitive identifiers &mdash; including your BVN and other identity numbers &mdash; receive an additional layer of field-level (application-layer) encryption, so they are stored in encrypted form and are never held in plain text.</p>
+    <p>Personal data stored in our databases is encrypted at rest using industry-standard encryption. Highly sensitive identifiers, including your BVN and other identity numbers, receive an additional layer of field-level (application-layer) encryption, so they are stored in encrypted form and are never held in plain text.</p>
 
     <h3>Breach Notification</h3>
     <p>In the event of a personal data breach, we will notify the Nigeria Data Protection Commission within 72 hours and notify affected users without undue delay where the breach is likely to result in a high risk to your rights and freedoms.</p>
