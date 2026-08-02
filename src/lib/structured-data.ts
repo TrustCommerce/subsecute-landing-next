@@ -27,6 +27,47 @@ export const APP_SCHEMA = {
   countriesSupported: "NG",
 };
 
+export const WEBSITE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Subsecute",
+  url: "https://subsecute.com",
+  publisher: { "@type": "Organization", name: "Subsecute" },
+};
+
+export function blogPostingSchema(post: {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  author: string;
+  image?: string;
+}) {
+  const url = `https://subsecute.com/blog/${post.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    datePublished: post.date,
+    dateModified: post.date,
+    ...(post.image
+      ? { image: [`https://subsecute.com${post.image}`] }
+      : {}),
+    author: { "@type": "Organization", name: post.author || "Subsecute" },
+    publisher: {
+      "@type": "Organization",
+      name: "Subsecute",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://res.cloudinary.com/dwambnh2n/image/upload/v1775598701/Subsecute_Icon_sastth.png",
+      },
+    },
+  };
+}
+
 export const ORG_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Organization",

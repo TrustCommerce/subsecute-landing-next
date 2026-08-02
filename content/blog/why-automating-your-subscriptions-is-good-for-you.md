@@ -3,6 +3,7 @@ title: Why Automating Your Subscriptions Is Good for You
 description: Most people are paying for more subscriptions than they can name. Here is why letting an app handle your renewals saves you money and stress.
 date: "2026-08-02"
 author: The Subsecute Team
+image: /images/blog/subscriptions-controlling-you.png
 tags:
   - Subscriptions
   - Money

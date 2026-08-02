@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
+import { blogPostingSchema } from "@/lib/structured-data";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -17,15 +18,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPostBySlug(slug);
   if (!post) return {};
 
+  const ogImage = post.image || undefined;
+
   return {
     title: post.title,
     description: post.description,
+    authors: [{ name: post.author }],
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title: post.title,
       description: post.description,
+      url: `/blog/${slug}`,
       type: "article",
       publishedTime: post.date,
+      ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      ...(ogImage ? { images: [ogImage] } : {}),
     },
   };
 }
@@ -38,6 +50,12 @@ export default async function BlogPost({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-[#FFFEEC]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogPostingSchema(post)),
+        }}
+      />
       <nav className="border-b border-[#DEE2E6] bg-white px-4 py-4">
         <div className="mx-auto flex max-w-[800px] items-center justify-between">
           <Link href="/">

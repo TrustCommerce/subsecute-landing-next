@@ -13,6 +13,7 @@ export interface BlogPost {
   date: string;
   author: string;
   tags: string[];
+  image: string;
   content: string;
 }
 
@@ -34,6 +35,7 @@ export function getAllPosts(): Omit<BlogPost, "content">[] {
       date: data.date || "",
       author: data.author || "Subsecute Team",
       tags: data.tags || [],
+      image: data.image || "",
     };
   });
 
@@ -58,6 +60,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     date: data.date || "",
     author: data.author || "Subsecute Team",
     tags: data.tags || [],
+    image: data.image || "",
     content,
   };
 }
