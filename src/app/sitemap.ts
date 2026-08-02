@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/config";
 import { getAllPosts } from "@/lib/blog";
 
+// Refresh hourly so a post enters the sitemap on its publish date.
+export const revalidate = 3600;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 

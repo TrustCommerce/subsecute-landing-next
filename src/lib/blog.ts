@@ -6,6 +6,16 @@ import html from "remark-html";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
+// A post is published once its date (YYYY-MM-DD) has arrived. Future-dated
+// posts stay hidden from listings, the sitemap, and direct URLs until then —
+// this is what turns a batch of committed drafts into one-post-a-day. Pages
+// revalidate on a schedule (see `revalidate` in the blog routes), so a post
+// goes live on its date with no redeploy needed.
+function isPublished(date: string): boolean {
+  const today = new Date().toISOString().slice(0, 10);
+  return date <= today;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -39,7 +49,9 @@ export function getAllPosts(): Omit<BlogPost, "content">[] {
     };
   });
 
-  return posts.sort((a, b) => (a.date > b.date ? -1 : 1));
+  return posts
+    .filter((post) => isPublished(post.date))
+    .sort((a, b) => (a.date > b.date ? -1 : 1));
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
@@ -49,6 +61,9 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
 
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content: rawContent } = matter(fileContent);
+
+  // Hard-gate future-dated posts: even a direct URL 404s until the date.
+  if (data.date && !isPublished(String(data.date))) return null;
 
   const processed = await remark().use(html).process(rawContent);
   const content = processed.toString();
