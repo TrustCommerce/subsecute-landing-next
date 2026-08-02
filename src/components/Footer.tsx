@@ -84,6 +84,7 @@ const FOOTER_LINKS = [
     heading: "COMPANY",
     links: [
       { label: "About us", href: "#about" },
+      { label: "Blog", href: "/blog" },
       { label: "FAQ", href: "#faq" },
       { label: "Support", href: "/support" },
     ],
