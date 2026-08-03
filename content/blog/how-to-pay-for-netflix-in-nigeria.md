@@ -36,7 +36,7 @@ There is no annual plan in Nigeria. Everything is billed monthly, on the same da
 
 ## Setting it up
 
-1. Go to netflix.com/ng on a browser. The app works too, but the browser is easier if you are switching plans.
+1. Go to [netflix.com/ng](https://www.netflix.com/ng) on a browser. The app works too, but the browser is easier if you are switching plans.
 2. Sign in or create an account.
 3. Pick your plan.
 4. Choose Credit or Debit Card.
