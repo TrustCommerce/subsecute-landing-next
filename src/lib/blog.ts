@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
+import remarkGfm from "remark-gfm";
 import html from "remark-html";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
@@ -65,7 +66,10 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   // Hard-gate future-dated posts: even a direct URL 404s until the date.
   if (data.date && !isPublished(String(data.date))) return null;
 
-  const processed = await remark().use(html).process(rawContent);
+  const processed = await remark()
+    .use(remarkGfm)
+    .use(html)
+    .process(rawContent);
   const content = processed.toString();
 
   return {
