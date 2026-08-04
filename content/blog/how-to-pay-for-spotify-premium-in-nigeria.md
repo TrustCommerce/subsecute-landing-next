@@ -42,8 +42,10 @@ One person pays. Everyone else says they will send their share. Two of them do. 
 
 ## What to do about it
 
-Either you keep chasing people, or the plan collects for itself.
+Stop chasing people for their share. Gift it instead.
 
-In Subsecute a subscription can be funded by more than one person. Everyone's share comes in before the renewal date, and you can see who has paid and who has not without sending a single message. If someone drops out, you know before the bill is due, not after.
+Subsecute gives you a gift link. Set up the subscription, create the link, and send it to whoever. They can cover a month, or a few months, straight from the link, without needing your card or an account of their own. Someone wants to handle your Spotify for your birthday? They open the link and do it. You want to sort a family member's music without asking anyone for anything? Send them the link.
+
+The money moves as a gift, on purpose, instead of a debt you are quietly carrying every month.
 
 Set. Automate. Relax.
