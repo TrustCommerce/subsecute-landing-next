@@ -28,7 +28,7 @@ There is no annual plan in Nigeria. Everything is billed monthly, on the same da
 
 ## The payment methods that work
 
-**Naira debit card.** Verve, Visa or Mastercard from your bank. Since Netflix bills in naira this normally works. Two things have to be on: online or e-commerce transactions, and international transactions. Both are toggles in your bank app. Most people who think their card is broken just have one of them off.
+**Naira debit card.** Verve, Visa or Mastercard from your bank. Netflix bills in naira, so a working naira card is usually enough. The catch is that Netflix is still a foreign merchant, so the charge can be blocked if your bank has international transactions switched off or capped. Many banks restricted this between 2022 and 2023 and only eased it in 2025, so if your card is being declined, that is the first thing to check.
 
 **Virtual card.** Works the same way. Useful if you want the subscription separated from your main account.
 
@@ -51,7 +51,7 @@ The first charge usually works. It is month three that catches people.
 
 Common reasons:
 
-- Your international transaction toggle got reset after a card replacement or app update
+- Your card's international transactions got switched off, or the charge ran into your bank's limit
 - Your bank lowered its monthly international limit
 - Your card expired and Netflix kept trying the old one
 - The account simply did not have enough in it that morning

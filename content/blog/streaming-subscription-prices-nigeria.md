@@ -17,12 +17,14 @@ Here is what they each cost so you can see the total.
 
 ## The prices
 
+These are current as of 2026. Streaming services raise prices often, so treat the figures as a snapshot, not a promise.
+
 | Service | Cheapest plan | Top plan | Bills in |
 |---|---|---|---|
 | Netflix | ₦2,500 (Mobile) | ₦8,500 (Premium) | Naira |
-| Showmax | Confirm current | Confirm current | Naira |
-| Prime Video | Confirm current | Confirm current | Confirm |
-| YouTube Premium | Confirm current | Confirm current | Naira |
+| Showmax | ₦2,000 (Mobile) | ₦4,500 (Full) | Naira |
+| Prime Video | ₦800 (MTN Mobile Edition) | ₦2,300 (standard) | Naira |
+| YouTube Premium | ₦1,700 (Individual) | ₦2,800 (Family) | Naira |
 
 ## What you are actually paying for
 

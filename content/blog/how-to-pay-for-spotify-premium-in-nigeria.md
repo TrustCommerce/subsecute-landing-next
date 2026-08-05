@@ -26,13 +26,13 @@ Look at Family for a second. ₦2,500 for six people is about ₦417 each. If yo
 
 ## How to pay
 
-1. Open spotify.com/ng/premium in a browser. Use the browser, not the iOS app, since in-app pricing can differ.
+1. Open [spotify.com/ng/premium](https://www.spotify.com/ng/premium/) in a browser. Use the browser, not the iOS app, since in-app pricing can differ.
 2. Log in.
 3. Pick your plan.
 4. Choose Credit or Debit Card.
 5. Enter your card and your real billing address.
 
-Before you start, open your bank app and check that online transactions and international transactions are both on. That is the most common reason a first attempt fails.
+Before you start, know that Spotify prices in naira but is still a foreign merchant, so a naira card can be declined if your bank has international transactions switched off or capped. That is the usual reason a first attempt fails. Banks restricted this between 2022 and 2023 and eased it in 2025.
 
 ## The family plan problem
 
