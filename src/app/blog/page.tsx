@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
 
-// Re-check the publish gate hourly so scheduled posts appear on their date
-// without a redeploy.
-export const revalidate = 3600;
+// Re-check the publish gate every 5 min so a scheduled post reaches the edge
+// cache shortly after its date, without a redeploy or a hard refresh.
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Blog",

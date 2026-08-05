@@ -7,8 +7,9 @@ import ShareArticle from "@/components/ShareArticle";
 import { SITE_URL } from "@/config";
 
 // Future-dated posts aren't prebuilt (see generateStaticParams). They render
-// on demand and revalidate hourly, so each goes live on its date on its own.
-export const revalidate = 3600;
+// on demand and revalidate every 5 min, so each goes live on its date on its
+// own, and edits reach the edge cache quickly.
+export const revalidate = 300;
 
 interface Props {
   params: Promise<{ slug: string }>;
