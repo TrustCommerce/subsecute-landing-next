@@ -31,7 +31,7 @@ Using ChatGPT Plus as the example:
 3. Enter your card details.
 4. Use a billing address that matches your card.
 
-Before you start, open your bank app and confirm two toggles are on: online or e-commerce transactions, and international transactions. A foreign charge needs the international one.
+Before you start, make sure your naira card works for international payments. Many Nigerian banks switched off international transactions on naira cards during the 2022 to 2023 forex squeeze and only turned them back on in 2025, usually with a quarterly dollar limit. If a foreign charge keeps failing, confirm with your bank that international transactions are on, and check what your limit is.
 
 ## The same problem hits Claude, Twitch and the rest
 
@@ -57,9 +57,9 @@ Midjourney, Cursor, GitHub Copilot, Notion and Figma mostly bill in dollars too.
 
 Because the charge is foreign:
 
-- Your bank's monthly international limit has to cover the amount at whatever the rate is that day, and some banks have suspended international transactions on naira cards entirely
+- Your card's international spending limit has to cover the amount at that day's rate, and some banks only switched these transactions back on in 2025
 - If the naira moves, a charge that fit last month might not fit this month
-- International transactions have to be enabled on your card
+- International transactions have to be enabled on your card in the first place
 - Any conversion fee is on top, so budget slightly above the sticker price
 
 Nobody warns you when a charge fails. You usually find out after the fact, when the subscription simply stops working.
