@@ -13,7 +13,7 @@ tags:
 
 Quick test. Without checking your bank app, name every subscription you are paying for.
 
-Netflix. Spotify. YouTube Premium. Maybe DSTV or GOtv. Showmax. A cloud storage plan you bought when your phone was full. Canva Pro from one design job. Some AI tool you were "just testing".
+Netflix. Spotify. YouTube Premium. Maybe DSTV or GOtv. Prime Video. A cloud storage plan you bought when your phone was full. Canva Pro from one design job. Some AI tool you were "just testing".
 
 Most people can name four or five. Most people are paying for about eight.
 

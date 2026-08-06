@@ -1,5 +1,5 @@
 ---
-title: What Netflix, Showmax, Prime Video and YouTube Premium Cost in Naira
+title: What Netflix, Prime Video and YouTube Premium Cost in Naira
 description: A straight comparison of what the main streaming services cost per month in Nigeria, and which one gives you the most for your money.
 date: "2026-08-06"
 author: The Subsecute Team
@@ -22,15 +22,14 @@ These are current as of 2026. Streaming services raise prices often, so treat th
 | Service | Cheapest plan | Top plan | Bills in |
 |---|---|---|---|
 | Netflix | ₦2,500 (Mobile) | ₦8,500 (Premium) | Naira |
-| Showmax | ₦2,000 (Mobile) | ₦4,500 (Full) | Naira |
 | Prime Video | ₦800 (MTN Mobile Edition) | ₦2,300 (standard) | Naira |
 | YouTube Premium | ₦1,700 (Individual) | ₦2,800 (Family) | Naira |
 
 ## What you are actually paying for
 
-**Netflix** has the deepest library and the strongest originals. It is also the most expensive of the four at the top end, and the price has gone up several times in the last two years.
+**Netflix** has the deepest library and the strongest originals. It is also the most expensive of the three at the top end, and the price has gone up several times in the last two years.
 
-**Showmax** is stronger on local content and sport, and it is priced for the Nigerian market rather than converted into it. If you watch more Nigerian and African content than American, it is better value.
+**Showmax** has closed. MultiChoice shut it down on 30 April 2026 after Warner Bros. Discovery ended its licensing deal, and its shows and live sport moved to DStv Stream. If you subscribed for Nigerian and African content or the football, that is where it lives now.
 
 **Prime Video** tends to come attached to other things, which makes it feel cheap until you look at what you are actually watching on it.
 
