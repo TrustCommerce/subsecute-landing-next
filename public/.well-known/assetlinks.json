@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.get_login_creds"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.subsecute",
+      "sha256_cert_fingerprints": [
+        "31:2C:09:10:E8:67:FD:0B:AA:71:68:79:EE:EC:0B:86:F9:2A:13:62:48:77:1D:26:C0:0C:7F:17:1E:A9:D7:60"
+      ]
+    }
+  }
+]

@@ -13,6 +13,18 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
+# Apple reads this file to tie saved passwords to the iOS app. It has no file
+# extension, so the JSON content type must be set by hand or Apple rejects it.
+[[headers]]
+  for = "/.well-known/apple-app-site-association"
+  [headers.values]
+    Content-Type = "application/json"
+
+[[headers]]
+  for = "/.well-known/assetlinks.json"
+  [headers.values]
+    Content-Type = "application/json"
+
 [[headers]]
   for = "/_next/static/*"
   [headers.values]
