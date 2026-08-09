@@ -94,6 +94,7 @@ const FOOTER_LINKS = [
     links: [
       { label: "Privacy policy", href: "/privacy-policy.html" },
       { label: "Terms of service", href: "/terms-of-service.html" },
+      { label: "Delete account", href: "/delete-account" },
     ],
   },
 ] as const;

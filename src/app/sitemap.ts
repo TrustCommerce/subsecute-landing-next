@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/quiz`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${SITE_URL}/early-access`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${SITE_URL}/support`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
+    { url: `${SITE_URL}/delete-account`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${SITE_URL}/privacy-policy.html`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${SITE_URL}/terms-of-service.html`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
