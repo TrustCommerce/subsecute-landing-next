@@ -10,13 +10,7 @@ const HELP_TOPICS = [
 export default function SupportPage() {
   return (
     <>
-      <main className="relative flex min-h-screen flex-col items-center bg-[#FFFEEC] px-4 pb-24 pt-14 sm:pt-20">
-        <div
-          className="pointer-events-none fixed bottom-0 left-1/2 h-[300px] w-[500px] -translate-x-1/2 rounded-full bg-[#E96D1F] opacity-20"
-          style={{ filter: "blur(60px)" }}
-          aria-hidden="true"
-        />
-
+      <main className="relative flex min-h-screen flex-col items-center bg-paper px-4 pb-24 pt-14 sm:pt-20">
         <div className="relative z-10 flex w-full max-w-[640px] flex-col items-center text-center">
           <Link href="/" aria-label="Subsecute home">
             <img

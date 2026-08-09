@@ -15,11 +15,43 @@
   --font-size-3xl: 1.8125rem;
   --font-size-4xl: 2rem;
   --font-size-5xl: 2.5rem;
+
+  /* ── Design tokens ───────────────────────────────────────────────
+     One palette, used everywhere. Depth comes from hairline borders,
+     not drop shadows, and orange is ink — never light. */
+
+  /* Surfaces */
+  --color-paper: #fdfbf3; /* page background, warm off-white */
+  --color-surface: #ffffff; /* cards sitting on paper */
+  --color-sunk: #f6f3e8; /* recessed wells inside cards */
+  --color-night: #141414; /* dark section background */
+  --color-night-2: #1c1c1c; /* cards inside dark sections */
+
+  /* Ink */
+  --color-ink: #16150f; /* headings, primary text */
+  --color-ink-2: #57534a; /* body copy */
+  --color-ink-3: #8a8578; /* captions, meta */
+  --color-ink-inverse: #faf8f0; /* text on dark */
+
+  /* Lines — the primary depth cue */
+  --color-line: #e6e1d5; /* hairline on light */
+  --color-line-strong: #d6d0be; /* emphasised hairline */
+  --color-line-night: #2a2a26; /* hairline on dark */
+
+  /* Accent */
+  --color-accent: #e96d1f; /* fills, CTAs */
+  --color-accent-ink: #c2560f; /* accent as text on light — AA contrast */
+  --color-accent-wash: #fbf0e6; /* flat tint, replaces gradients */
+
+  /* The single elevation token. Used for the phone, and nothing else. */
+  --shadow-plinth: 0 24px 60px -24px rgb(22 21 15 / 0.28);
 }
 
 body {
   font-family: var(--font-outfit);
   -webkit-font-smoothing: antialiased;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
 }
 
 @keyframes fade-up {
@@ -31,23 +63,6 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Slow-breathing background glow for the early-access page */
-@keyframes aurora-drift {
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(0) scale(1);
-    opacity: 0.22;
-  }
-  50% {
-    transform: translateX(-50%) translateY(-26px) scale(1.12);
-    opacity: 0.32;
-  }
-}
-
-.aurora {
-  animation: aurora-drift 14s ease-in-out infinite;
 }
 
 /* Infinite logo marquee — track holds two copies, so -50% loops seamlessly */
@@ -66,7 +81,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .aurora,
   .marquee-track {
     animation: none;
   }

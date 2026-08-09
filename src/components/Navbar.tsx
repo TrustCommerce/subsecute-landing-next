@@ -43,7 +43,7 @@ export default function Navbar() {
     <>
       <nav
         aria-label="Main navigation"
-        className="relative z-50 mx-auto flex max-w-[1240px] items-center justify-between rounded-xl border border-[#DEE2E6] px-5 py-2.5"
+        className="relative z-50 mx-auto flex max-w-[1240px] items-center justify-between rounded-full border border-line bg-surface px-5 py-2.5"
       >
         <Link href="/" aria-label="Subsecute home">
           <img
@@ -60,7 +60,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="px-3 py-2 font-outfit text-sm tracking-wide text-[#232323] transition-colors hover:text-[#E96D1F]"
+                  className="px-3 py-2 font-outfit text-sm text-ink-2 transition-colors hover:text-accent-ink"
                 >
                   {link.label}
                 </a>
@@ -69,7 +69,7 @@ export default function Navbar() {
           </ul>
           <a
             href="#download"
-            className="rounded-full bg-[#E96D1F] px-5 py-2 font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90"
+            className="rounded-full bg-ink px-5 py-2 font-outfit text-sm font-medium text-paper transition-colors hover:bg-accent"
           >
             {IS_WAITLIST ? "Get Early Access" : "Get the App"}
           </a>
@@ -83,20 +83,20 @@ export default function Navbar() {
           aria-expanded={open}
         >
           <span
-            className="block h-0.5 w-5 bg-[#232323] transition-all duration-200"
+            className="block h-0.5 w-5 bg-ink transition-all duration-200"
             style={{
               transform: open ? "rotate(45deg) translateY(4px)" : "none",
             }}
           />
           <span
-            className="block h-0.5 w-5 bg-[#232323] transition-all duration-200"
+            className="block h-0.5 w-5 bg-ink transition-all duration-200"
             style={{
               opacity: open ? 0 : 1,
               transform: open ? "scaleX(0)" : "scaleX(1)",
             }}
           />
           <span
-            className="block h-0.5 w-5 bg-[#232323] transition-all duration-200"
+            className="block h-0.5 w-5 bg-ink transition-all duration-200"
             style={{
               transform: open ? "rotate(-45deg) translateY(-4px)" : "none",
             }}
@@ -107,7 +107,7 @@ export default function Navbar() {
       {/* Mobile drawer */}
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-200 md:hidden ${
+        className={`fixed inset-0 z-40 bg-ink/40 transition-opacity duration-200 md:hidden ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={close}
@@ -116,7 +116,7 @@ export default function Navbar() {
 
       {/* Panel — full width on mobile */}
       <div
-        className={`fixed inset-0 z-50 flex flex-col bg-white transition-transform duration-200 ease-out md:hidden ${
+        className={`fixed inset-0 z-50 flex flex-col bg-paper transition-transform duration-200 ease-out md:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"

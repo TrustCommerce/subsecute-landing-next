@@ -151,23 +151,23 @@ export default function PlansSection() {
     <section
       id="plans"
       aria-labelledby="plans-heading"
-      className="bg-white py-20 lg:py-24"
+      className="border-y border-line bg-surface py-20 lg:py-28"
     >
       <div className="mx-auto flex max-w-[1240px] flex-col gap-10 px-4 lg:flex-row lg:items-center lg:gap-12 lg:px-0">
         {/* Left Column */}
         <div className="flex flex-col gap-6 lg:w-1/2">
-          <span className="font-outfit text-sm font-medium tracking-wide text-[#E96D1F]">
+          <span className="font-outfit text-[11px] font-medium uppercase tracking-[0.18em] text-accent-ink">
             FOR FAMILY &amp; TEAMS
           </span>
 
           <h2
             id="plans-heading"
-            className="font-neue-power text-3xl font-bold leading-[1.2em] tracking-normal text-[#232323] lg:text-[48px]"
+            className="font-neue-power text-[2rem] font-bold leading-[1.05] tracking-[-0.03em] text-ink lg:text-[52px]"
           >
             Pay bills for the people you care about.
           </h2>
 
-          <p className="font-outfit text-sm leading-[1.6em] tracking-wide text-[#6C757D] sm:text-base">
+          <p className="font-outfit text-sm leading-[1.65] text-ink-2 sm:text-base">
             Add family members or teammates to a plan. Set up their airtime,
             data, DSTV, and power. Everything renews automatically. You see
             every payment, they just enjoy the service.
@@ -177,7 +177,7 @@ export default function PlansSection() {
             {BENEFITS.map((text) => (
               <li key={text} className="flex flex-row items-center gap-3">
                 <CheckIcon />
-                <span className="font-outfit text-sm text-[#495057]">
+                <span className="font-outfit text-sm text-ink-2">
                   {text}
                 </span>
               </li>
@@ -187,14 +187,14 @@ export default function PlansSection() {
 
         {/* Right Column */}
         <div className="lg:w-1/2">
-          <div className="rounded-2xl border border-[#DEE2E6] bg-[#F8F9FA] p-6 shadow-[0px_4px_24px_rgba(0,0,0,0.06)]">
+          <div className="rounded-2xl border border-line bg-sunk p-6">
             <PlansUI />
 
             <div
-              className="mt-4 self-start rounded-full bg-[rgba(233,109,31,0.15)] px-3 py-1.5"
+              className="mt-4 self-start rounded-full border border-line bg-accent-wash px-3 py-1.5"
               style={{ width: "fit-content" }}
             >
-              <span className="font-outfit text-xs tracking-wide text-[#E96D1F]">
+              <span className="font-outfit text-xs text-accent-ink">
                 All charges flow to the plan owner ✓
               </span>
             </div>

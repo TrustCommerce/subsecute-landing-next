@@ -37,19 +37,7 @@ export default function EarlyAccessPage() {
   const hasCount = WAITLIST_COUNT > 0;
 
   return (
-    <main className="relative flex min-h-screen flex-col overflow-hidden bg-[#FFFEEC] font-neue-power">
-      {/* Aurora — the hero's orange glow, now slowly breathing */}
-      <div
-        className="aurora pointer-events-none absolute bottom-[-120px] left-1/2 h-[420px] w-[720px] rounded-full bg-[#E96D1F]"
-        style={{ filter: "blur(90px)" }}
-        aria-hidden="true"
-      />
-      <div
-        className="aurora pointer-events-none absolute left-1/2 top-[-160px] h-[360px] w-[560px] rounded-full bg-[#FFC93C]"
-        style={{ filter: "blur(110px)", animationDelay: "-7s" }}
-        aria-hidden="true"
-      />
-
+    <main className="relative flex min-h-screen flex-col overflow-hidden bg-paper font-neue-power">
       {/* Logo only — no nav links, so the form is the single path forward */}
       <header className="relative z-10 flex justify-center px-4 pt-6 sm:pt-8">
         <Link href="/" aria-label="Subsecute home">
@@ -65,7 +53,7 @@ export default function EarlyAccessPage() {
       <section className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 py-10 text-center sm:py-14">
         {/* Announcement pill */}
         <div
-          className="mb-6 flex items-center gap-2 rounded-full border border-[#DEE2E6] bg-white/60 px-3 py-1.5 backdrop-blur-md"
+          className="mb-6 flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5"
           style={rise(0)}
         >
           <span className="relative flex h-2 w-2">
@@ -143,17 +131,17 @@ export default function EarlyAccessPage() {
             <img
               src="/images/landing/provider-1.png"
               alt=""
-              className="h-6 w-6 rounded-full object-cover ring-2 ring-[#FFFEEC]"
+              className="h-6 w-6 rounded-full object-cover ring-2 ring-paper"
             />
             <img
               src="/images/landing/provider-2.png"
               alt=""
-              className="h-6 w-6 rounded-full object-cover ring-2 ring-[#FFFEEC]"
+              className="h-6 w-6 rounded-full object-cover ring-2 ring-paper"
             />
             <img
               src="/images/landing/provider-3.png"
               alt=""
-              className="h-6 w-6 rounded-full object-cover ring-2 ring-[#FFFEEC]"
+              className="h-6 w-6 rounded-full object-cover ring-2 ring-paper"
             />
           </div>
           <span className="font-outfit text-xs tracking-wide text-[#6C757D] sm:text-sm">
@@ -185,7 +173,7 @@ export default function EarlyAccessPage() {
               {[...SUPPORTED, ...SUPPORTED].map((service, i) => (
                 <div
                   key={`${service.domain}-${i}`}
-                  className="flex shrink-0 items-center gap-2 rounded-full border border-[#EDE8D0] bg-white/70 px-3 py-1.5"
+                  className="flex shrink-0 items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5"
                   aria-hidden={i >= SUPPORTED.length}
                 >
                   <img

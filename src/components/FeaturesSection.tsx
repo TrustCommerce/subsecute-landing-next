@@ -148,7 +148,7 @@ function SubCard({
 }) {
   return (
     <div
-      className="absolute inset-x-0 flex items-center justify-between rounded-xl bg-white px-3 py-2 shadow-[0px_2px_8px_rgba(0,0,0,0.1)]"
+      className="absolute inset-x-0 flex items-center justify-between rounded-xl border border-line bg-surface px-3 py-2"
       style={{
         top: "50%",
         transform: `translateY(calc(-50% + ${pose.y}px)) scale(${pose.scale})`,
@@ -202,7 +202,7 @@ function SubscriptionListUI() {
   }, []);
 
   return (
-    <div className="relative h-[180px] overflow-hidden rounded-xl border border-[#DEE2E6] bg-[#FFFEEC] p-3 shadow-[inset_0px_2px_10px_rgba(0,0,0,0.1)]">
+    <div className="relative h-[180px] overflow-hidden rounded-xl border border-line bg-sunk p-3">
       {SUBS.map((sub, i) => {
         const offset = (i - step + NUM_SUBS) % NUM_SUBS;
         const poseIndex =
@@ -262,7 +262,7 @@ function StatsUI() {
   return (
     <div
       ref={ref}
-      className="flex items-center justify-center rounded-3xl bg-white p-6 shadow-[0px_1px_6px_rgba(0,0,0,0.12)]"
+      className="flex items-center justify-center rounded-2xl border border-line bg-surface p-6"
     >
       <div className="relative h-[140px] w-[140px]">
         <svg viewBox="0 0 147 147" className="h-full w-full -rotate-90">
@@ -300,7 +300,7 @@ function StatsUI() {
 function RemindersUI() {
   return (
     <div className="flex flex-col items-center">
-      <div className="flex w-full flex-col gap-2 rounded-xl bg-white px-3 py-2 shadow-[0px_8px_5px_rgba(0,0,0,0.1)]">
+      <div className="flex w-full flex-col gap-2 rounded-xl border border-line bg-surface px-3 py-2">
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <img
@@ -331,7 +331,7 @@ function RemindersUI() {
         </div>
       </div>
 
-      <div className="mx-auto -mt-1 flex w-[90%] items-center justify-between rounded-[11px] bg-white px-3 py-2 shadow-[0px_3px_5px_rgba(0,0,0,0.12)]">
+      <div className="mx-auto -mt-1 flex w-[90%] items-center justify-between rounded-[11px] border border-line bg-surface px-3 py-2">
         <div className="flex items-center gap-2">
           <img
             src={logoUrl("spotify.com")}
@@ -367,16 +367,16 @@ function FeatureTag({ number, tag, light }: FeatureTagProps) {
   return (
     <div className="flex items-center gap-1.5">
       <span
-        className={`font-outfit text-xs tracking-wide ${
-          light ? "text-[#F3F5F6]" : "text-[#6C757D]"
+        className={`font-outfit text-[11px] uppercase tracking-[0.14em] ${
+          light ? "text-[#F3F5F6]" : "text-ink-3"
         }`}
       >
         {number}
       </span>
-      <div className="h-[2px] w-7 bg-[#E96D1F]" />
+      <div className="h-px w-7 bg-accent" />
       <span
-        className={`font-outfit text-xs tracking-wide ${
-          light ? "text-[#ADB5BD]" : "text-[#6C757D]"
+        className={`font-outfit text-[11px] uppercase tracking-[0.14em] ${
+          light ? "text-[#ADB5BD]" : "text-ink-3"
         }`}
       >
         {tag}
@@ -390,17 +390,17 @@ export default function FeaturesSection() {
     <section
       id="features"
       aria-labelledby="features-heading"
-      className="bg-[#FFFEEC] py-14 lg:py-20"
+      className="bg-paper py-20 lg:py-28"
     >
       <div className="mx-auto max-w-[1240px] px-4 lg:px-0">
         {/* Header */}
         <div className="mb-10 text-center lg:mb-14">
-          <span className="font-outfit text-sm font-medium tracking-wide text-[#E96D1F]">
+          <span className="font-outfit text-[11px] font-medium uppercase tracking-[0.18em] text-accent-ink">
             WHAT YOU GET
           </span>
           <h2
             id="features-heading"
-            className="mx-auto mt-2 max-w-[641px] font-neue-power text-3xl font-bold leading-[1.2em] tracking-normal text-[#232323] sm:text-4xl lg:text-[48px]"
+            className="mx-auto mt-4 max-w-[20ch] font-neue-power text-[2rem] font-bold leading-[1.05] tracking-[-0.03em] text-ink sm:text-4xl lg:text-[52px]"
           >
             Virtual USD cards auto prefunded and automatic bill pay, in one app.
           </h2>
@@ -409,15 +409,15 @@ export default function FeaturesSection() {
         {/* Top row — 3 cards */}
         <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {/* Card 1: Manage */}
-          <article className="flex flex-col gap-4 overflow-hidden rounded-3xl border border-[rgba(233,109,31,0.3)] bg-white p-5 md:col-span-2 lg:col-span-1">
+          <article className="flex flex-col gap-6 overflow-hidden rounded-2xl border border-line bg-surface p-6 md:col-span-2 lg:col-span-1">
             <SubscriptionListUI />
             <div className="flex flex-col gap-4">
               <FeatureTag number="01" tag="MANAGE" />
               <div className="flex flex-col gap-1">
-                <h3 className="font-outfit text-lg font-medium leading-[1.2em] tracking-wide text-black lg:text-xl">
+                <h3 className="font-outfit text-lg font-semibold leading-[1.25] tracking-tight text-ink lg:text-xl">
                   Every payment in one dashboard.
                 </h3>
-                <p className="font-outfit text-sm leading-[1.3em] tracking-wide text-[#6C757D]">
+                <p className="font-outfit text-sm leading-[1.55] text-ink-2">
                   Netflix, Spotify, DSTV, airtime, power, see what&apos;s
                   active, what&apos;s due, and what you&apos;ve spent.
                 </p>
@@ -426,15 +426,15 @@ export default function FeaturesSection() {
           </article>
 
           {/* Card 2: Stats */}
-          <article className="flex flex-col justify-between gap-4 overflow-hidden rounded-3xl border border-[rgba(233,109,31,0.3)] bg-gradient-to-br from-[rgba(233,109,31,0.1)] to-transparent p-5">
+          <article className="flex flex-col justify-between gap-6 overflow-hidden rounded-2xl border border-line bg-accent-wash p-6">
             <StatsUI />
             <div className="flex flex-col gap-4">
               <FeatureTag number="02" tag="STATS" />
               <div className="flex flex-col gap-1">
-                <h3 className="font-outfit text-lg font-medium leading-[1.2em] tracking-wide text-black lg:text-xl">
+                <h3 className="font-outfit text-lg font-semibold leading-[1.25] tracking-tight text-ink lg:text-xl">
                   Full visibility into what you spend
                 </h3>
-                <p className="font-outfit text-sm leading-[1.3em] tracking-wide text-[#6C757D]">
+                <p className="font-outfit text-sm leading-[1.55] text-ink-2">
                   Per-sub breakdowns, trends, and history so nothing ever
                   catches you off guard.
                 </p>
@@ -443,15 +443,15 @@ export default function FeaturesSection() {
           </article>
 
           {/* Card 3: Reminders */}
-          <article className="flex flex-col gap-4 overflow-hidden rounded-3xl border border-[rgba(233,109,31,0.3)] bg-white p-5">
+          <article className="flex flex-col gap-6 overflow-hidden rounded-2xl border border-line bg-surface p-6">
             <RemindersUI />
             <div className="flex flex-col gap-4">
               <FeatureTag number="03" tag="REMINDERS" />
               <div className="flex flex-col gap-1">
-                <h3 className="font-outfit text-lg font-medium leading-[1.2em] tracking-wide text-black lg:text-xl">
+                <h3 className="font-outfit text-lg font-semibold leading-[1.25] tracking-tight text-ink lg:text-xl">
                   Custom reminders.
                 </h3>
-                <p className="font-outfit text-sm leading-[1.3em] tracking-wide text-[#6C757D]">
+                <p className="font-outfit text-sm leading-[1.55] text-ink-2">
                   Choose how far in advance you get notified; 1 day, 3 days, or
                   7. Per subscription.
                 </p>

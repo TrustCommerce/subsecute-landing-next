@@ -127,7 +127,7 @@ export default function SocialProofSection() {
   return (
     <section
       aria-labelledby="social-proof-heading"
-      className="bg-[#FFFEEC] py-16 lg:py-20"
+      className="bg-paper py-16 lg:py-20"
     >
       <div className="mx-auto max-w-[1240px] px-4 lg:px-0">
         {/* Header */}

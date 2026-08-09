@@ -30,23 +30,23 @@ export default function HowItWorksSection() {
     <section
       id="how-it-works"
       aria-labelledby="how-it-works-heading"
-      className="bg-white py-16 lg:py-24"
+      className="border-y border-line bg-surface py-20 lg:py-28"
     >
       <div className="mx-auto max-w-[1240px] px-4 lg:px-0">
         {/* Header */}
         <div className="mb-12 flex flex-col gap-6 lg:mb-20 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex flex-col gap-4 lg:max-w-[461px]">
-            <span className="font-outfit text-sm font-medium tracking-wide text-[#E96D1F]">
+            <span className="font-outfit text-[11px] font-medium uppercase tracking-[0.18em] text-accent-ink">
               HOW IT WORKS
             </span>
             <h2
               id="how-it-works-heading"
-              className="font-neue-power text-3xl font-bold leading-[1.2em] tracking-normal text-[#232323] sm:text-4xl lg:text-[48px]"
+              className="font-neue-power text-[2rem] font-bold leading-[1.05] tracking-[-0.03em] text-ink sm:text-4xl lg:text-[52px]"
             >
               Automate your subscriptions and bills in 5 minutes
             </h2>
           </div>
-          <p className="font-outfit text-base leading-[1.5em] tracking-wide text-[#232323] lg:max-w-[370px]">
+          <p className="font-outfit text-base leading-[1.6] text-ink-2 lg:max-w-[370px]">
             Set it up once. Subsecute handles every renewal from there: funding,
             reminders, the whole thing!
           </p>
@@ -59,17 +59,17 @@ export default function HowItWorksSection() {
               key={step.number}
               className={`flex flex-col gap-3 ${
                 index < STEPS.length - 1
-                  ? "lg:border-r lg:border-[#CED4DA] lg:pr-8"
+                  ? "lg:border-r lg:border-line lg:pr-8"
                   : ""
               } ${index > 0 ? "lg:pl-8" : ""}`}
             >
-              <span className="font-outfit text-base font-semibold tracking-wide text-[#E96D1F]">
+              <span className="font-neue-power text-base font-bold tracking-wide text-accent-ink">
                 {step.number}
               </span>
-              <h3 className="font-outfit text-lg font-semibold leading-[1.2em] tracking-wide text-[#232323] lg:text-xl">
+              <h3 className="font-outfit text-lg font-semibold leading-[1.25] tracking-tight text-ink lg:text-xl">
                 {step.title}
               </h3>
-              <p className="font-outfit text-sm leading-[1.5em] tracking-wide text-[#6C757D]">
+              <p className="font-outfit text-sm leading-[1.6] text-ink-2">
                 {step.description}
               </p>
             </article>

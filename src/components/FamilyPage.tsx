@@ -14,7 +14,7 @@ import {
 
 function StepLoader() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#FFFEEC]">
+    <div className="flex min-h-screen items-center justify-center bg-paper">
       <div
         className="h-8 w-8 animate-spin rounded-full border-2 border-[#E96D1F]/30 border-t-[#E96D1F]"
         aria-label="Loading"
@@ -38,13 +38,7 @@ const ResultsStep = dynamic(() => import("./family/ResultsStep"), {
 
 function LandingScreen({ onStart }: { onStart: () => void }) {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-[#FFFEEC] px-4">
-      <div
-        className="pointer-events-none fixed bottom-0 left-1/2 h-[300px] w-[500px] -translate-x-1/2 rounded-full bg-[#E96D1F] opacity-20"
-        style={{ filter: "blur(60px)" }}
-        aria-hidden="true"
-      />
-
+    <div className="flex min-h-screen flex-col items-center justify-center bg-paper px-4">
       <div className="relative z-10 flex flex-col items-center text-center">
         <Link href="/" aria-label="Subsecute home">
           <img
@@ -105,7 +99,7 @@ function AddMembersStep({
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#FFFEEC]">
+    <div className="flex min-h-screen flex-col bg-paper">
       <div className="mx-auto flex w-full max-w-[560px] flex-1 flex-col px-4 pb-8 pt-6">
         <Link href="/" aria-label="Subsecute home" className="mb-6 self-start">
           <img

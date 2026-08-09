@@ -29,7 +29,7 @@ export default function QuizPage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#FFFEEC] font-neue-power">
+    <div className="relative min-h-screen bg-paper font-neue-power">
       <nav className="flex items-center justify-between px-4 pt-5 lg:px-[100px]">
         <Link href="/">
           <img

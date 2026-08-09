@@ -102,7 +102,7 @@ export default function Footer() {
   return (
     <footer
       aria-label="Site footer"
-      className="bg-[#202020] py-14 lg:py-[72px]"
+      className="bg-night py-16 lg:py-[80px]"
     >
       <div className="mx-auto flex max-w-[1240px] flex-col gap-10 px-4 lg:flex-row lg:items-start lg:justify-between lg:gap-[90px] lg:px-0">
         {/* Left column */}
@@ -129,7 +129,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#2F2F2F] text-[#ADB5BD] transition-colors hover:border-[#E96D1F] hover:text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-line-night text-[#ADB5BD] transition-colors hover:border-accent hover:text-white"
                 >
                   {s.icon}
                 </a>
@@ -145,7 +145,7 @@ export default function Footer() {
         >
           {FOOTER_LINKS.map((column) => (
             <div key={column.heading} className="flex flex-col gap-1.5">
-              <h3 className="pb-2 font-outfit text-xs font-medium tracking-wide text-white lg:text-sm">
+              <h3 className="pb-2 font-outfit text-[11px] font-medium uppercase tracking-[0.16em] text-white lg:text-xs">
                 {column.heading}
               </h3>
               <ul role="list">
@@ -169,7 +169,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="mx-auto mt-10 max-w-[1240px] border-t border-[#2F2F2F] px-4 pt-6 lg:px-0">
+      <div className="mx-auto mt-12 max-w-[1240px] border-t border-line-night px-4 pt-6 lg:px-0">
         <p className="font-outfit text-xs tracking-wide text-[#6C757D]">
           © {new Date().getFullYear()} Subsecute. A product of TrustCommerce
           Resources Ltd (RC 7131175).

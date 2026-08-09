@@ -1,252 +1,118 @@
-"use client";
-
-import { useState, useEffect } from "react";
 import { IS_WAITLIST } from "../config";
 import Navbar from "./Navbar";
 import WaitlistForm from "./WaitlistForm";
 
 const LOGO_TOKEN = "pk_dorVGutZSi-4iMholcR1qA";
 
-const BADGES = [
-  {
-    icon: `https://img.logo.dev/netflix.com?token=${LOGO_TOKEN}&size=64&format=png`,
-    label: "Netflix",
-    text: "Renewal due in 3 days",
-    amount: "$15.49",
-    side: "left" as const,
-    top: "4%",
-  },
-  {
-    icon: `https://img.logo.dev/spotify.com?token=${LOGO_TOKEN}&size=64&format=png`,
-    label: "Spotify",
-    text: "Successfully renewed",
-    amount: "$10.99",
-    side: "left" as const,
-    top: "18%",
-  },
-  {
-    icon: `https://img.logo.dev/dstv.com?token=${LOGO_TOKEN}&size=64&format=png`,
-    label: "DSTV Compact",
-    text: "Auto-paid",
-    amount: "₦19,000",
-    side: "right" as const,
-    top: "6%",
-  },
-  {
-    icon: `https://img.logo.dev/mtn.ng?token=${LOGO_TOKEN}&size=64&format=png`,
-    label: "MTN Airtime",
-    text: "Top-up sent",
-    amount: "₦5,000",
-    side: "right" as const,
-    top: "20%",
-  },
-  {
-    icon: `https://img.logo.dev/claude.ai?token=${LOGO_TOKEN}&size=64&format=png`,
-    label: "Claude Pro",
-    text: "Card funded",
-    amount: "$20.00",
-    side: "left" as const,
-    top: "30%",
-  },
-  {
-    icon: `https://img.logo.dev/ekedc.com?token=${LOGO_TOKEN}&size=64&format=png`,
-    label: "EKEDC Power",
-    text: "Token purchased",
-    amount: "₦20,000",
-    side: "right" as const,
-    top: "32%",
-  },
-] as const;
-
-function FloatingBadges() {
-  const [visibleIndices, setVisibleIndices] = useState<number[]>([0, 2]);
-
-  useEffect(() => {
-    let step = 0;
-    const patterns = [
-      [0, 2],
-      [1, 3],
-      [0, 4],
-      [2, 5],
-      [1, 4],
-      [3, 5],
-    ];
-
-    const interval = setInterval(() => {
-      step = (step + 1) % patterns.length;
-      setVisibleIndices(patterns[step]);
-    }, 2500);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <>
-      {BADGES.map((badge, i) => {
-        const isVisible = visibleIndices.includes(i);
-        const isLeft = badge.side === "left";
-
-        return (
-          <div
-            key={i}
-            className={`absolute z-0 flex items-center gap-1.5 rounded-xl bg-white px-2 py-1.5 shadow-[0px_4px_20px_rgba(0,0,0,0.06)] sm:gap-2.5 sm:rounded-2xl sm:px-4 sm:py-2.5 ${isLeft ? "flex-row" : "flex-row-reverse"}`}
-            style={{
-              top: badge.top,
-              ...(isLeft
-                ? {
-                    left: 0,
-                    transform: `translateX(-70%) rotate(4deg) scale(${isVisible ? 1 : 0.85})`,
-                  }
-                : {
-                    right: 0,
-                    transform: `translateX(70%) rotate(-4deg) scale(${isVisible ? 1 : 0.85})`,
-                  }),
-              opacity: isVisible ? 1 : 0,
-              transition:
-                "opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)",
-              pointerEvents: "none",
-            }}
-            aria-hidden="true"
-          >
-            <img
-              src={badge.icon}
-              alt=""
-              className="h-5 w-5 shrink-0 rounded object-cover sm:h-8 sm:w-8 sm:rounded-lg"
-            />
-            <div className={`flex flex-col ${isLeft ? "" : "items-end"}`}>
-              <span className="font-outfit text-[7px] font-semibold text-[#232323] sm:text-xs">
-                {badge.label}
-              </span>
-              <span className="font-outfit text-[6px] text-[#6C757D] sm:text-[10px]">
-                {badge.text}
-              </span>
-            </div>
-            <span
-              className={`whitespace-nowrap font-dm-sans text-[7px] font-semibold text-[#E96D1F] sm:text-xs ${isLeft ? "ml-auto" : "mr-auto"}`}
-            >
-              {badge.amount}
-            </span>
-          </div>
-        );
-      })}
-    </>
-  );
+function logoUrl(domain: string) {
+  return `https://img.logo.dev/${domain}?token=${LOGO_TOKEN}&size=64&format=png`;
 }
+
+// Real providers, shown as a quiet ticker. This replaces the old floating
+// notification badges — actual logos are evidence, invented alerts are not.
+const PROVIDERS = [
+  { domain: "netflix.com", label: "Netflix" },
+  { domain: "spotify.com", label: "Spotify" },
+  { domain: "dstv.com", label: "DSTV" },
+  { domain: "openai.com", label: "ChatGPT" },
+  { domain: "mtn.ng", label: "MTN" },
+  { domain: "gotvafrica.com", label: "GOtv" },
+  { domain: "claude.ai", label: "Claude" },
+  { domain: "youtube.com", label: "YouTube" },
+  { domain: "ekedc.com", label: "EKEDC" },
+  { domain: "airtel.com.ng", label: "Airtel" },
+  { domain: "figma.com", label: "Figma" },
+  { domain: "primevideo.com", label: "Prime Video" },
+] as const;
 
 export default function HeroSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative h-[860px] overflow-hidden bg-[#FFFEEC] sm:h-[1010px] md:h-[1090px] lg:h-[1240px]"
+      className="relative overflow-hidden bg-paper"
     >
-      {/* Orange blur */}
-      <div
-        className="pointer-events-none absolute bottom-0 left-1/2 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-[#E96D1F] opacity-30 lg:h-[516px] lg:w-[825px]"
-        style={{ filter: "blur(80px)" }}
-        aria-hidden="true"
-      />
-
       {/* Navbar */}
       <div className="px-4 pt-5 lg:px-[100px]">
         <Navbar />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex flex-col items-center px-4 pt-8 lg:pt-16">
-        {/* Provider pill */}
-        <div className="mb-5 flex items-center gap-2 rounded-full border border-[#DEE2E6] bg-white/50 px-3 py-1.5 backdrop-blur-[124px] lg:mb-6">
-          <div className="flex items-center -space-x-1.5">
-            <img
-              src="/images/landing/provider-1.png"
-              alt=""
-              className="h-5 w-5 rounded-full object-cover ring-2 ring-white"
-            />
-            <img
-              src="/images/landing/provider-2.png"
-              alt=""
-              className="h-5 w-5 rounded-full object-cover ring-2 ring-white"
-            />
-            <img
-              src="/images/landing/provider-3.png"
-              alt=""
-              className="h-5 w-5 rounded-full object-cover ring-2 ring-white"
-            />
-          </div>
-          <span className="font-outfit text-xs tracking-wide text-[#6C757D] sm:text-sm">
-            50+ Subscription and bill providers
-          </span>
-        </div>
+      <div className="mx-auto flex max-w-[1240px] flex-col items-center px-4 pt-14 lg:pt-20">
+        {/* Eyebrow — flat type, no glass pill */}
+        <span className="font-outfit text-[11px] font-medium uppercase tracking-[0.18em] text-ink-3">
+          50+ subscriptions &amp; bills
+        </span>
 
-        {/* Hidden SEO H1 — keyword-rich for crawlers */}
-        <h1 className="sr-only">
-          Subsecute — The Recurring Money App for Nigerians
-        </h1>
-        <p className="sr-only">
-          Subsecute is a recurring payment automation app for Nigerians. Pay for
-          Netflix, Spotify, ChatGPT, and 50+ international subscriptions with
-          dedicated virtual USD cards funded from your Naira wallet. Auto-pay
-          your airtime, data bundles, DSTV, GOtv, and power bills every month.
-          Cancel any subscription in one tap. Share plans with family and
-          friends. The easiest way to manage recurring payments in Nigeria.
-        </p>
-
-        {/* Visible creative heading */}
-        <div
-          aria-hidden="true"
+        {/* The visible headline is the real h1 — no hidden keyword block */}
+        <h1
           id="hero-heading"
-          className="max-w-[822px] text-center font-neue-power leading-[1.15] tracking-normal text-[#232323]"
+          className="mt-5 max-w-[15ch] text-center font-neue-power text-[2.75rem] font-bold leading-[0.98] tracking-[-0.035em] text-ink sm:text-6xl md:text-7xl lg:max-w-[16ch] lg:text-[5.5rem]"
         >
-          <span className="text-4xl font-bold sm:text-[40px] md:text-[49px] lg:text-[71px]">
-            The recurring money app for{" "}
-          </span>
-          <span className="relative inline-block text-4xl font-bold text-[#E96D1F] sm:text-[40px] md:text-[49px] lg:text-[71px]">
-            Nigerians.
-            <svg
-              className="absolute -bottom-1 left-0 w-full sm:-bottom-2"
-              viewBox="0 0 400 16"
-              fill="none"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M2 10C20 5,40 14,60 9C80 4,100 14,120 9C140 4,160 14,180 9C200 4,220 14,240 9C260 4,280 14,300 9C320 4,340 14,360 9C380 4,395 10,398 9"
-                stroke="#E96D1F"
-                strokeWidth="3"
-                strokeLinecap="round"
-                fill="none"
-              />
-            </svg>
-          </span>
-        </div>
+          The recurring money app for{" "}
+          <span className="text-accent-ink">Nigerians.</span>
+        </h1>
 
-        {/* Subtitle — value prop flows into loss aversion as one thought */}
-        <p className="mt-4 max-w-[540px] text-center font-outfit text-sm leading-[1.6em] tracking-wide text-[#6C757D] sm:text-base lg:mt-5 lg:text-lg">
-          Subsecute runs every subscription you have. Funds them. Tracks them. Shares them. Gifts them. Cancels them. So you don&apos;t have to.
+        <p className="mt-6 max-w-[46ch] text-center font-outfit text-base leading-[1.6] text-ink-2 lg:text-lg">
+          Subsecute runs every subscription you have. Funds them. Tracks them.
+          Shares them. Gifts them. Cancels them. So you don&apos;t have to.
         </p>
 
         {/* CTA — switches based on launch mode */}
-        <div className="mt-6">
+        <div className="mt-9">
           {IS_WAITLIST ? (
             <WaitlistForm variant="light" />
           ) : (
             <a
               href="#download"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-[#232323] px-7 font-outfit text-base font-medium tracking-wide text-white transition-opacity hover:opacity-90 lg:h-[52px] lg:px-8"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-ink px-8 font-outfit text-base font-medium text-paper transition-colors hover:bg-accent lg:h-[52px]"
             >
               Get Started
             </a>
           )}
         </div>
 
-        {/* Phone mockup with floating notification badges behind */}
-        <div className="relative mx-auto mt-6 w-full max-w-[220px] sm:mt-[70px] sm:max-w-[311px] md:max-w-[354px] lg:mt-[100px] lg:max-w-[398px]">
-          <FloatingBadges />
-          <div className="relative z-10 rounded-[2.5rem] bg-[#1a1a1a] p-2.5 shadow-[0_32px_68px_rgba(17,17,15,0.22)]">
+        {/* Product shot — one real screen on a hairline plinth */}
+        <div className="mt-16 w-full max-w-[268px] sm:max-w-[300px] lg:mt-20 lg:max-w-[340px]">
+          <div className="rounded-[2rem] border border-line bg-surface p-2 shadow-plinth">
             <img
               src="/images/landing/phone-screen.png?v=2"
               alt="Subsecute app home screen showing wallet balance, active subscriptions, monthly spend, and upcoming renewals"
-              className="w-full rounded-[2rem]"
+              className="w-full rounded-[1.6rem]"
             />
+          </div>
+        </div>
+      </div>
+
+      {/* Provider ticker — sits on a rule, closing the section */}
+      <div className="mt-16 border-y border-line bg-surface py-4 lg:mt-20">
+        <div
+          className="overflow-hidden"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          }}
+        >
+          <div className="marquee-track flex gap-8">
+            {/* Two copies so the -50% scroll loops with no visible seam */}
+            {[...PROVIDERS, ...PROVIDERS].map((provider, i) => (
+              <div
+                key={`${provider.domain}-${i}`}
+                className="flex shrink-0 items-center gap-2"
+                aria-hidden={i >= PROVIDERS.length}
+              >
+                <img
+                  src={logoUrl(provider.domain)}
+                  alt=""
+                  loading="lazy"
+                  className="h-5 w-5 rounded object-contain"
+                />
+                <span className="whitespace-nowrap font-outfit text-sm text-ink-3">
+                  {provider.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

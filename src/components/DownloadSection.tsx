@@ -6,12 +6,12 @@ export default function DownloadSection() {
     <section
       id="download"
       aria-labelledby="download-heading"
-      className="bg-[#E96D1F] py-16 lg:py-24"
+      className="bg-accent py-20 lg:py-28"
     >
       <div className="mx-auto flex max-w-[863px] flex-col items-center px-4">
         {/* Platform pill */}
-        <div className="mb-8 inline-flex items-center rounded-full border border-white/30 bg-[rgba(255,255,255,0.25)] px-4 py-2 backdrop-blur-lg lg:mb-10">
-          <span className="font-outfit text-sm font-medium tracking-wide text-white">
+        <div className="mb-8 inline-flex items-center lg:mb-10">
+          <span className="font-outfit text-[11px] font-medium uppercase tracking-[0.18em] text-white/80">
             {IS_WAITLIST
               ? "Coming soon to iOS & Android"
               : "Available on iOS & Android"}
@@ -21,7 +21,7 @@ export default function DownloadSection() {
         {/* Heading */}
         <h2
           id="download-heading"
-          className="mb-4 text-center font-neue-power text-2xl font-bold leading-[1.15] tracking-normal text-white sm:text-4xl md:text-5xl lg:text-[64px]"
+          className="mb-5 max-w-[18ch] text-center font-neue-power text-[2.25rem] font-bold leading-[1.0] tracking-[-0.035em] text-white sm:text-5xl md:text-6xl lg:text-[72px]"
         >
           {IS_WAITLIST
             ? "Get early access — for you, your family, or both."
@@ -29,7 +29,7 @@ export default function DownloadSection() {
         </h2>
 
         {/* Subtitle */}
-        <p className="mb-10 max-w-[600px] text-center font-outfit text-base leading-[1.5em] tracking-wide text-white/80 sm:text-lg lg:mb-12 lg:text-xl">
+        <p className="mb-10 max-w-[52ch] text-center font-outfit text-base leading-[1.6] text-white/85 sm:text-lg lg:mb-12 lg:text-xl">
           {IS_WAITLIST
             ? "Join the waitlist. We'll let you know when Subsecute is ready."
             : "Download Subsecute. Add your subscriptions and bills. Watch everything renew on time, automatically."}
@@ -63,7 +63,7 @@ export default function DownloadSection() {
             <a
               href="#"
               aria-label="Get it on Google Play"
-              className="flex items-center gap-2 rounded-full bg-[rgba(255,255,255,0.2)] px-6 py-3.5 transition-opacity hover:opacity-90"
+              className="flex items-center gap-2 rounded-full border border-white/35 px-6 py-3.5 transition-opacity hover:opacity-90"
             >
               <img
                 src="/images/landing/playstore-icon.svg"

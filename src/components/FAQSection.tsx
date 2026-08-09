@@ -11,7 +11,7 @@ const FAQS = [
   {
     question: "Can I auto-pay my airtime, data, and DSTV through Subsecute?",
     answer:
-      "Yes. Set up recurring payments for airtime, data bundles, power, and cable TV (DSTV, GOtv, Showmax). Pick the amount and schedule, and Subsecute handles it automatically every month.",
+      "Yes. Set up recurring payments for airtime, data bundles, power, and cable TV (DSTV, GOtv). Pick the amount and schedule, and Subsecute handles it automatically every month.",
   },
   {
     question: "Can someone abroad manage bills for family in Nigeria?",
@@ -41,7 +41,7 @@ const FAQS = [
   {
     question: "What subscriptions and bills does Subsecute support?",
     answer:
-      "Subsecute works with 50+ providers including Netflix, Spotify, Apple Music, YouTube Premium, ChatGPT Plus, Figma, Canva, Adobe Creative Cloud, Amazon Prime, and more. For bills, you can automate airtime, data, power (prepaid and postpaid), and cable TV (DSTV, GOtv, Showmax).",
+      "Subsecute works with 50+ providers including Netflix, Spotify, Apple Music, YouTube Premium, ChatGPT Plus, Figma, Canva, Adobe Creative Cloud, Amazon Prime, and more. For bills, you can automate airtime, data, power (prepaid and postpaid), and cable TV (DSTV, GOtv).",
   },
   {
     question: "How long does it take to set up Subsecute?",
@@ -59,17 +59,17 @@ function FAQItem({ faq }: { faq: (typeof FAQS)[number] }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b border-[#DEE2E6] last:border-b-0">
+    <div className="border-b border-line last:border-b-0">
       <button
         onClick={() => setOpen(!open)}
         className="flex w-full items-center justify-between py-5 text-left"
         aria-expanded={open}
       >
-        <span className="pr-4 font-outfit text-base font-medium tracking-wide text-[#232323] sm:text-lg">
+        <span className="pr-4 font-outfit text-base font-medium text-ink sm:text-lg">
           {faq.question}
         </span>
         <span
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#DEE2E6] transition-transform duration-200"
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line transition-transform duration-200"
           style={{ transform: open ? "rotate(45deg)" : "rotate(0deg)" }}
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -90,7 +90,7 @@ function FAQItem({ faq }: { faq: (typeof FAQS)[number] }) {
         }}
       >
         <div className="overflow-hidden">
-          <p className="pb-5 font-outfit text-sm leading-[1.6em] tracking-wide text-[#6C757D] sm:text-base">
+          <p className="pb-5 font-outfit text-sm leading-[1.65] text-ink-2 sm:text-base">
             {faq.answer}
           </p>
         </div>
@@ -104,27 +104,27 @@ export default function FAQSection() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="bg-[#FFFEEC] py-16 lg:py-20"
+      className="bg-paper py-20 lg:py-28"
     >
       <div className="mx-auto max-w-[800px] px-4">
         {/* Header */}
         <div className="mb-10 text-center lg:mb-14">
-          <span className="font-outfit text-sm font-medium tracking-wide text-[#E96D1F]">
+          <span className="font-outfit text-[11px] font-medium uppercase tracking-[0.18em] text-accent-ink">
             FAQ
           </span>
           <h2
             id="faq-heading"
-            className="mt-2 font-neue-power text-3xl font-bold leading-[1.2em] tracking-normal text-[#232323] sm:text-4xl lg:text-[48px]"
+            className="mt-4 font-neue-power text-[2rem] font-bold leading-[1.05] tracking-[-0.03em] text-ink sm:text-4xl lg:text-[52px]"
           >
             Questions about Subsecute
           </h2>
-          <p className="mt-4 font-outfit text-sm tracking-wide text-[#6C757D] sm:text-base">
+          <p className="mt-4 font-outfit text-sm text-ink-2 sm:text-base">
             Everything you need to know about Subsecute
           </p>
         </div>
 
         {/* FAQ items */}
-        <div className="rounded-2xl border border-[#DEE2E6] bg-white px-6">
+        <div className="rounded-2xl border border-line bg-surface px-6">
           {FAQS.map((faq) => (
             <FAQItem key={faq.question} faq={faq} />
           ))}

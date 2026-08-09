@@ -84,7 +84,7 @@ function AnimatedStat({
 
   return (
     <div className="flex flex-col gap-1">
-      <span className="font-neue-power text-2xl font-bold leading-none tracking-tight text-[#E96D1F] sm:text-[28px]">
+      <span className="font-neue-power text-2xl font-bold leading-none tracking-tight text-accent sm:text-[28px]">
         {display}
       </span>
       <span className="font-outfit text-xs leading-[1.4em] tracking-wide text-[#868E96]">
@@ -123,33 +123,26 @@ export default function AboutSection() {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="relative overflow-hidden bg-[#141414] py-20 lg:py-28"
+      className="relative overflow-hidden bg-night py-20 lg:py-28"
     >
-      {/* Ambient orange glow for depth */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-24 right-[-10%] h-[520px] w-[520px] rounded-full bg-[#E96D1F] opacity-[0.13]"
-        style={{ filter: "blur(130px)" }}
-      />
-
       <div className="relative mx-auto flex max-w-[1240px] flex-col gap-14 px-4 lg:flex-row lg:items-center lg:gap-16 lg:px-6">
         {/* Left column — message + stats */}
         <div className="flex flex-col gap-8 lg:max-w-[580px] lg:flex-1">
           <div className="flex flex-col gap-5">
-            <span className="font-outfit text-sm font-medium leading-none tracking-[0.08em] text-[#E96D1F]">
+            <span className="font-outfit text-sm font-medium leading-none tracking-[0.18em] uppercase text-accent">
               WHAT IS SUBSECUTE?
             </span>
             <h2
               id="about-heading"
-              className="font-neue-power text-3xl font-bold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[44px]"
+              className="font-neue-power text-[2rem] font-bold leading-[1.05] tracking-[-0.03em] text-ink-inverse sm:text-4xl lg:text-[48px]"
             >
               One card per subscription. One app for every bill in Nigeria.{" "}
-              <span className="text-[#E96D1F]">One dashboard for all of it.</span>
+              <span className="text-accent">One dashboard for all of it.</span>
             </h2>
-            <p className="font-outfit text-lg italic leading-[1.5em] tracking-wide text-white/70 sm:text-xl">
+            <p className="border-l-2 border-accent pl-4 font-outfit text-lg leading-[1.5em] text-ink-inverse/70 sm:text-xl">
               The best subscription is one you never think about.
             </p>
-            <p className="max-w-[520px] font-outfit text-sm leading-[1.7em] tracking-wide text-[#ADB5BD] sm:text-base">
+            <p className="max-w-[520px] font-outfit text-sm leading-[1.7em] text-[#ADB5BD] sm:text-base">
               Everything recurring, in one place. See what&apos;s due, get
               reminded before it charges, and know exactly where your money goes
               each month. Fund Mum&apos;s power, gift a friend some Netflix, or
@@ -162,9 +155,9 @@ export default function AboutSection() {
             {FEATURES.map((feature) => (
               <div
                 key={feature.title}
-                className="flex items-center gap-3 rounded-xl border border-[rgba(233,109,31,0.12)] bg-[#1C1C1C] p-3 transition-colors hover:border-[rgba(233,109,31,0.3)]"
+                className="flex items-center gap-3 rounded-xl border border-line-night bg-night-2 p-3 transition-colors hover:border-accent"
               >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[rgba(233,109,31,0.1)]">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line-night bg-night">
                   <img
                     src={feature.icon}
                     alt=""
@@ -188,7 +181,7 @@ export default function AboutSection() {
           {/* Stats strip */}
           <div
             ref={statsRef}
-            className="grid grid-cols-2 gap-x-6 gap-y-6 border-t border-[#2A2A2A] pt-8 sm:grid-cols-4"
+            className="grid grid-cols-2 gap-x-6 gap-y-6 border-t border-line-night pt-8 sm:grid-cols-4"
           >
             {ANIMATED_STATS.map((stat) => (
               <AnimatedStat key={stat.label} stat={stat} active={statsInView} />
@@ -197,7 +190,7 @@ export default function AboutSection() {
 
           {/* Testimonial — live mode only */}
           {!IS_WAITLIST && (
-            <div className="flex flex-col gap-3 rounded-2xl bg-[#1C1C1C] p-5">
+            <div className="flex flex-col gap-3 rounded-2xl border border-line-night bg-night-2 p-5">
               <blockquote className="font-outfit text-sm leading-[1.6em] tracking-wide text-white/90">
                 &ldquo;I haven&apos;t thought about my subscriptions since I
                 switched to Subsecute. It just works, every single month.&rdquo;
@@ -219,19 +212,13 @@ export default function AboutSection() {
 
         {/* Right column — product shot (Expenses view) */}
         <div className="relative flex justify-center lg:flex-1">
-          {/* Glow behind the device */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#E96D1F] opacity-20"
-            style={{ filter: "blur(90px)" }}
-          />
           <div className="relative w-full max-w-[300px] sm:max-w-[320px]">
-            <div className="relative rounded-[2.5rem] bg-[#0F0F0F] p-2.5 shadow-[0_32px_70px_rgba(0,0,0,0.5)] ring-1 ring-white/5">
+            <div className="relative rounded-[2rem] border border-line-night bg-night-2 p-2">
               <img
                 src="/images/landing/about-product.png?v=2"
                 alt="Subsecute Expenses screen showing a yearly spend of ₦115,239 across 38 items, broken down by app and category"
                 loading="lazy"
-                className="w-full rounded-[2rem]"
+                className="w-full rounded-[1.6rem]"
               />
             </div>
           </div>

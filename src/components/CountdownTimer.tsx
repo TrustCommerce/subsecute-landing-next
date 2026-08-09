@@ -86,7 +86,7 @@ export default function CountdownTimer({
         {UNITS.map((unit) => (
           <div
             key={unit.key}
-            className="flex min-w-[58px] flex-col items-center rounded-2xl border border-white/70 bg-white/55 px-2.5 py-2.5 shadow-[0_6px_24px_rgba(233,109,31,0.08)] backdrop-blur-md sm:min-w-[72px] sm:px-4 sm:py-3"
+            className="flex min-w-[58px] flex-col items-center rounded-xl border border-line bg-surface px-2.5 py-2.5 sm:min-w-[72px] sm:px-4 sm:py-3"
           >
             <span className="font-neue-power text-2xl font-bold tabular-nums text-[#232323] sm:text-[34px]">
               {values ? pad(values[unit.key]) : "--"}

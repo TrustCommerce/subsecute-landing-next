@@ -9,31 +9,24 @@ export default function GiftingSection() {
     <section
       id="gifting"
       aria-labelledby="gifting-heading"
-      className="bg-[#FFF8F0] py-20 lg:py-24"
+      className="bg-paper py-20 lg:py-28"
     >
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-16px); }
-        }
-      `}</style>
-
       <div className="mx-auto max-w-[1240px] px-4 lg:px-0">
         <div className="flex flex-col items-center gap-12 lg:flex-row-reverse lg:gap-16">
           {/* ── Right Column: Text ── */}
           <div className="flex w-full flex-col gap-6 lg:w-[55%]">
-            <span className="font-outfit text-sm font-medium tracking-wide text-[#E96D1F]">
+            <span className="font-outfit text-[11px] font-medium uppercase tracking-[0.18em] text-accent-ink">
               GIFTING
             </span>
 
             <h2
               id="gifting-heading"
-              className="font-neue-power text-3xl font-bold leading-[1.2em] tracking-normal text-[#232323] lg:text-[48px]"
+              className="font-neue-power text-[2rem] font-bold leading-[1.05] tracking-[-0.03em] text-ink lg:text-[52px]"
             >
               Let anyone fund your bills.
             </h2>
 
-            <p className="font-outfit text-sm leading-[1.6em] tracking-wide text-[#6C757D] sm:text-base">
+            <p className="font-outfit text-sm leading-[1.65] text-ink-2 sm:text-base">
               Share your gift link with family, friends, or anyone. They pick
               which bills to help with, choose how many months, and pay
               securely. The bills are auto paid and cards prefunded.
@@ -41,15 +34,15 @@ export default function GiftingSection() {
 
             {/* Gift link bar */}
             <div className="flex items-center gap-3">
-              <div className="flex flex-1 flex-col gap-1 rounded-xl border border-[#DEE2E6] bg-white px-4 py-3">
-                <span className="font-outfit text-[10px] tracking-wider text-[#ADB5BD]">
+              <div className="flex flex-1 flex-col gap-1 rounded-xl border border-line bg-surface px-4 py-3">
+                <span className="font-outfit text-[10px] uppercase tracking-[0.14em] text-ink-3">
                   Your gift link:
                 </span>
-                <span className="font-outfit text-sm font-medium tracking-wide text-[#232323]">
+                <span className="font-outfit text-sm font-medium text-ink">
                   gift.subsecute.com/amara
                 </span>
               </div>
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#E96D1F] shadow-[0px_2px_8px_rgba(233,109,31,0.3)]">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path
                     d="M4 16L16 4M16 4H6M16 4V14"
@@ -71,10 +64,10 @@ export default function GiftingSection() {
                 "Bills get paid, cards get funded",
               ].map((text, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[rgba(233,109,31,0.15)] font-outfit text-xs font-semibold text-[#E96D1F]">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-line bg-accent-wash font-outfit text-xs font-semibold text-accent-ink">
                     {i + 1}
                   </span>
-                  <span className="font-outfit text-sm text-[#495057]">
+                  <span className="font-outfit text-sm text-ink-2">
                     {text}
                   </span>
                 </div>
@@ -85,8 +78,7 @@ export default function GiftingSection() {
           {/* ── Left Column: Gift Card Mockup ── */}
           <div className="flex w-full justify-center lg:w-[45%]">
             <div
-              className="w-full max-w-[350px] rounded-3xl bg-white p-6 shadow-[0px_8px_32px_rgba(0,0,0,0.08)]"
-              style={{ animation: "float 3.5s ease-in-out infinite" }}
+              className="w-full max-w-[350px] rounded-2xl border border-line bg-surface p-6"
             >
               {/* Avatar — DiceBear */}
               <div className="mb-4 flex justify-center">
@@ -156,7 +148,7 @@ export default function GiftingSection() {
               {/* Fundable items */}
               <div className="mb-4 flex flex-col gap-3">
                 {/* Card 1: Claude */}
-                <div className="flex items-center gap-3 rounded-2xl bg-[#F8F9FA] p-4 shadow-[0px_1px_4px_rgba(0,0,0,0.04)]">
+                <div className="flex items-center gap-3 rounded-2xl border border-line bg-sunk p-4">
                   <img
                     src={`https://img.logo.dev/claude.ai?token=${LOGO_TOKEN}&size=64&format=png`}
                     alt="Claude"
@@ -179,7 +171,7 @@ export default function GiftingSection() {
                 </div>
 
                 {/* Card 2: MTN */}
-                <div className="flex items-center gap-3 rounded-2xl bg-[#F8F9FA] p-4 shadow-[0px_1px_4px_rgba(0,0,0,0.04)]">
+                <div className="flex items-center gap-3 rounded-2xl border border-line bg-sunk p-4">
                   <img
                     src={`https://img.logo.dev/mtn.ng?token=${LOGO_TOKEN}&size=64&format=png`}
                     alt="MTN"
