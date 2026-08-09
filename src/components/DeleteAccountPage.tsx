@@ -116,8 +116,9 @@ export default function DeleteAccountPage() {
             <Section heading="What we must keep, and why">
               <p className="font-outfit leading-[1.7] text-ink-2">
                 Nigerian financial regulations require us to retain records of
-                completed transactions and identity verification for five years
-                after an account closes. These records are kept only to meet
+                completed transactions and identity verification for a set
+                period after an account closes. These records are kept only to
+                meet
                 those obligations, are not used to contact you, and are deleted
                 once the retention period ends.
               </p>
