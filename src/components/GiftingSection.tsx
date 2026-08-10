@@ -78,7 +78,7 @@ export default function GiftingSection() {
           {/* ── Left Column: Gift Card Mockup ── */}
           <div className="flex w-full justify-center lg:w-[45%]">
             <div
-              className="w-full max-w-[350px] rounded-2xl border border-line bg-surface p-6"
+              className="float-card w-full max-w-[350px] rounded-2xl border border-line bg-surface p-6"
             >
               {/* Avatar — DiceBear */}
               <div className="mb-4 flex justify-center">

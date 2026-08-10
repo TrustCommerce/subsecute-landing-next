@@ -65,6 +65,22 @@ body {
   }
 }
 
+/* Gentle drift for the gifting card — the one bit of ambient motion we keep */
+@keyframes float-drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.float-card {
+  animation: float-drift 4s ease-in-out infinite;
+  will-change: transform;
+}
+
 /* Infinite logo marquee — track holds two copies, so -50% loops seamlessly */
 @keyframes marquee-scroll {
   from {
@@ -81,7 +97,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
+  .marquee-track,
+  .float-card {
     animation: none;
   }
 }
