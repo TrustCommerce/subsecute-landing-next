@@ -155,7 +155,7 @@ export default function DeleteAccountPage() {
             <Section heading="Delete some of your data, and keep your account">
               <p className="font-outfit leading-[1.7] text-ink-2">
                 You do not have to close your account to remove things. In the
-                app you can delete a payment method, a saved bank account, a
+                app you can delete a saved card, a saved bank account, a
                 subscription, a bill schedule, or your profile photo. Each one
                 is removed as soon as you confirm it.
               </p>
