@@ -94,8 +94,8 @@ export default function DeleteAccountPage() {
                 <span className="font-medium text-ink">
                   &ldquo;Delete my account&rdquo;
                 </span>
-                . We will confirm your identity and delete the account within 30
-                days.
+                . We will confirm your identity and delete the account promptly,
+                and no later than 30 days.
               </p>
             </Section>
 
@@ -113,14 +113,16 @@ export default function DeleteAccountPage() {
               </ul>
             </Section>
 
-            <Section heading="What we must keep, and why">
+            <Section heading="What we keep, and why">
               <p className="font-outfit leading-[1.7] text-ink-2">
-                Nigerian financial regulations require us to retain records of
-                completed transactions and identity verification for a set
-                period after an account closes. These records are kept only to
-                meet
-                those obligations, are not used to contact you, and are deleted
-                once the retention period ends.
+                When you delete your account, we immediately remove your
+                personal information — your identity verification, saved cards,
+                addresses, and contact details. We keep records of your
+                completed transactions and subscriptions, but only in a form
+                that is no longer linked to your name. Nigerian financial
+                regulations require transaction records to be retained for a set
+                period. These anonymised records cannot be used to identify or
+                contact you.
               </p>
             </Section>
 
