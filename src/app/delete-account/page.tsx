@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import DeleteAccountPage from "@/components/DeleteAccountPage";
 import { SITE_URL } from "@/config";
 
-const title = "Delete your account";
+const title = "Delete your account or data";
 const description =
-  "How to delete your Subsecute account and the personal data held with it — from inside the app, or by email if you no longer have the app installed.";
+  "How to delete your Subsecute account, or remove individual pieces of your data without closing it — from inside the app, or by email if you no longer have the app installed.";
 
 export const metadata: Metadata = {
   title,

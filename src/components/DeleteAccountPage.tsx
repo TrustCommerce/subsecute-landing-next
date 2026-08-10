@@ -55,11 +55,11 @@ export default function DeleteAccountPage() {
           </Link>
 
           <h1 className="font-neue-power text-[2.25rem] font-bold leading-[1.05] tracking-[-0.03em] text-ink sm:text-5xl">
-            Delete your Subsecute account
+            Delete your Subsecute account or data
           </h1>
           <p className="mt-5 font-outfit text-lg leading-[1.6] text-ink-2">
-            You can delete your Subsecute account and the personal data held
-            with it at any time.
+            You can delete your Subsecute account, or remove individual pieces
+            of your data without closing your account, at any time.
           </p>
 
           <div className="mt-12 flex flex-col gap-8">
@@ -126,9 +126,11 @@ export default function DeleteAccountPage() {
                 for marketing, and are deleted once the retention period ends.
               </p>
               <p className="mt-4 font-outfit leading-[1.7] text-ink-2">
-                Your transaction and subscription records are stored in a form
-                that is no longer linked to your name, so they cannot be used to
-                identify you. The licensed partners who verified your identity
+                Your transaction and subscription records are no longer linked
+                to your name, email address or phone number — those are erased.
+                They remain connected to the identity records we are legally
+                required to keep, and are deleted together once the retention
+                period ends. The licensed partners who verified your identity
                 also keep their own copy of your identity records, under the
                 regulations that apply to them, and we cannot delete those on
                 your behalf.
@@ -142,6 +144,28 @@ export default function DeleteAccountPage() {
                 holds money or has a subscription running, so the app will ask
                 you to clear both before it lets you continue. We do not restore
                 deleted accounts, so treat it as final.
+              </p>
+            </Section>
+
+            <Section heading="Delete some of your data, and keep your account">
+              <p className="font-outfit leading-[1.7] text-ink-2">
+                You do not have to close your account to remove things. In the
+                app you can delete a saved card, a saved bank account, a
+                subscription, a bill schedule, or your profile photo. Each one
+                is removed as soon as you confirm it.
+              </p>
+              <p className="mt-4 font-outfit leading-[1.7] text-ink-2">
+                For anything else, email{" "}
+                <a
+                  href="mailto:hello@subsecute.com?subject=Delete%20my%20data"
+                  className="font-medium text-accent-ink underline decoration-accent/40 underline-offset-2 transition-colors hover:decoration-accent"
+                >
+                  hello@subsecute.com
+                </a>{" "}
+                from the address on your account and tell us what you would like
+                deleted. We will confirm your identity and respond within 30
+                days. The records described above, which we are legally required
+                to keep, are the only thing we cannot remove on request.
               </p>
             </Section>
           </div>
