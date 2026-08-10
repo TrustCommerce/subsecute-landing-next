@@ -97,7 +97,11 @@ export default function DeleteAccountPage() {
               </p>
             </Section>
 
-            <Section heading="What is deleted">
+            <Section heading="What we delete immediately">
+              <p className="mb-5 font-outfit leading-[1.7] text-ink-2">
+                We delete your saved cards, addresses, phone number and device
+                data as soon as your account is deleted. In full, that is:
+              </p>
               <ul role="list" className="flex flex-col gap-2.5">
                 {DELETED.map((item) => (
                   <li
