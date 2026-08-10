@@ -115,25 +115,30 @@ export default function DeleteAccountPage() {
               </ul>
             </Section>
 
-            <Section heading="What we keep, and why">
+            <Section heading="What the law requires us to keep">
               <p className="font-outfit leading-[1.7] text-ink-2">
-                We keep your identity verification records, including your BVN,
-                and records of your completed transactions and subscriptions.
-                Nigerian anti-money-laundering law, and our agreements with the
-                licensed providers we work through, require these to be held for
-                at least five years after your account closes. They are kept
-                only to meet that obligation, are never used to contact you or
-                for marketing, and are deleted once the retention period ends.
+                Every licensed financial service in Nigeria has to keep a record
+                of who its customers were and what money moved. We are not
+                allowed to delete that, and neither is anyone else in the
+                industry.
               </p>
               <p className="mt-4 font-outfit leading-[1.7] text-ink-2">
-                Your transaction and subscription records are no longer linked
-                to your name, email address or phone number — those are erased.
-                They remain connected to the identity records we are legally
-                required to keep, and are deleted together once the retention
-                period ends. The licensed partners who verified your identity
-                also keep their own copy of your identity records, under the
-                regulations that apply to them, and we cannot delete those on
-                your behalf.
+                So one closed file stays behind: your identity verification,
+                including your BVN, and your completed transactions and
+                subscriptions. Nothing in it is used for anything. It is never
+                used to contact you and never used for marketing, and nobody
+                goes through it. It exists only to satisfy that legal
+                requirement, and it is deleted once the retention period ends —
+                at least five years, which is what anti-money-laundering law and
+                our agreements with our licensed providers require.
+              </p>
+              <p className="mt-4 font-outfit leading-[1.7] text-ink-2">
+                Your name, email address and phone number are erased, so your
+                transaction and subscription records are no longer linked to
+                them. They do stay connected to the identity records we have to
+                keep, and are deleted together with them. The licensed partners
+                who verified your identity keep their own copy under the rules
+                that apply to them, and we cannot delete those on your behalf.
               </p>
             </Section>
 
