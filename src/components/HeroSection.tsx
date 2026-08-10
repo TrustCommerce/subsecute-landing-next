@@ -75,8 +75,8 @@ export default function HeroSection() {
         <div className="mt-16 w-full max-w-[268px] sm:max-w-[300px] lg:mt-20 lg:max-w-[340px]">
           <div className="rounded-[2rem] border border-line bg-surface p-2 shadow-plinth">
             <img
-              src="/images/landing/phone-screen.png?v=2"
-              alt="Subsecute app home screen showing wallet balance, active subscriptions, monthly spend, and upcoming renewals"
+              src="/images/landing/phone-screen.png?v=3"
+              alt="Subsecute app home screen showing a naira wallet balance, four active subscriptions, average monthly spend, a gift link banner, and two renewals needing attention"
               className="w-full rounded-[1.6rem]"
             />
           </div>
