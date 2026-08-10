@@ -9,7 +9,7 @@ export const WAITLIST_COUNT = Number(process.env.NEXT_PUBLIC_WAITLIST_COUNT ?? 0
 // "launching now" state, but a date you actually hit builds far more trust.
 // Default: ~3 weeks out, 9am Lagos time.
 export const LAUNCH_DATE =
-  process.env.NEXT_PUBLIC_LAUNCH_DATE ?? "2026-08-14T09:00:00+01:00";
+  process.env.NEXT_PUBLIC_LAUNCH_DATE ?? "2026-08-21T09:00:00+01:00";
 export const WAITLIST_API =
   process.env.NEXT_PUBLIC_WAITLIST_API ??
   "https://api.subsecute.com/subsecute-api/v1/waitlist";
