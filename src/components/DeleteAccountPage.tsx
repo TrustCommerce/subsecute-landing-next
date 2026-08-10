@@ -132,6 +132,30 @@ export default function DeleteAccountPage() {
                 regulations that apply to them, and we cannot delete those on
                 your behalf.
               </p>
+              <p className="mt-4 font-outfit leading-[1.7] text-ink-2">
+                Holding data this way is separately governed by the Nigeria Data
+                Protection Act 2023 and the{" "}
+                <a
+                  href="https://ndpc.gov.ng/wp-content/uploads/2025/07/NDP-ACT-GAID-2025-MARCH-20TH.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-accent-ink underline decoration-accent/40 underline-offset-2 transition-colors hover:decoration-accent"
+                >
+                  General Application and Implementation Directive
+                </a>{" "}
+                issued by the{" "}
+                <a
+                  href="https://ndpc.gov.ng/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-accent-ink underline decoration-accent/40 underline-offset-2 transition-colors hover:decoration-accent"
+                >
+                  Nigeria Data Protection Commission
+                </a>
+                . They require us to publish how long we keep data, to keep it
+                no longer than the law allows, and to destroy or irreversibly
+                de-identify anything we no longer need.
+              </p>
             </Section>
 
             <Section heading="Before you delete">
