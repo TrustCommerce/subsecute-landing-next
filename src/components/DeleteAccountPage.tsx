@@ -124,6 +124,12 @@ export default function DeleteAccountPage() {
                 period. These anonymised records cannot be used to identify or
                 contact you.
               </p>
+              <p className="mt-4 font-outfit leading-[1.7] text-ink-2">
+                The licensed partners who verified your identity keep their own
+                copy of those records, as the regulations that apply to them
+                require. Those are held under their retention rules, not ours,
+                and we cannot delete them on your behalf.
+              </p>
             </Section>
 
             <Section heading="Before you delete">
