@@ -119,10 +119,11 @@ export default function DeleteAccountPage() {
               <p className="font-outfit leading-[1.7] text-ink-2">
                 We keep your identity verification records, including your BVN,
                 and records of your completed transactions and subscriptions.
-                Nigerian financial regulations require these to be held for at
-                least five years after an account closes, after which we delete
-                them permanently. They are kept only to meet that obligation and
-                are never used to contact you.
+                Nigerian anti-money-laundering law, and our agreements with the
+                licensed providers we work through, require these to be held for
+                at least five years after your account closes. They are kept
+                only to meet that obligation, are never used to contact you or
+                for marketing, and are deleted once the retention period ends.
               </p>
               <p className="mt-4 font-outfit leading-[1.7] text-ink-2">
                 Your transaction and subscription records are stored in a form
