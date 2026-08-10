@@ -117,18 +117,12 @@ export default function DeleteAccountPage() {
 
             <Section heading="What the law requires us to keep">
               <p className="font-outfit leading-[1.7] text-ink-2">
-                Every licensed financial service in Nigeria has to keep a record
-                of who its customers were and what money moved. We are not
-                allowed to delete that, and neither is anyone else in the
-                industry.
-              </p>
-              <p className="mt-4 font-outfit leading-[1.7] text-ink-2">
-                So one closed file stays behind: your identity verification,
+                One closed file stays behind: your identity verification,
                 including your BVN, and your completed transactions and
                 subscriptions. Nothing in it is used for anything. It is never
                 used to contact you and never used for marketing, and nobody
-                goes through it. It exists only to satisfy that legal
-                requirement, and it is deleted once the retention period ends —
+                goes through it. It exists only because the law requires it, and
+                it is deleted once the retention period ends —
                 at least five years, which is what anti-money-laundering law and
                 our agreements with our licensed providers require.
               </p>
