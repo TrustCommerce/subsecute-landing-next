@@ -11,9 +11,7 @@ const APP_STEPS = [
 const DELETED = [
   "Your name, email address, phone number and home address",
   "Your profile photo",
-  "Your identity verification records",
   "Your saved cards and bank accounts",
-  "Your subscriptions, bill schedules and plans",
   "Your device and notification settings",
 ] as const;
 
@@ -115,20 +113,20 @@ export default function DeleteAccountPage() {
 
             <Section heading="What we keep, and why">
               <p className="font-outfit leading-[1.7] text-ink-2">
-                When you delete your account, we immediately remove your
-                personal information — your identity verification, saved cards,
-                addresses, and contact details. We keep records of your
-                completed transactions and subscriptions, but only in a form
-                that is no longer linked to your name. Nigerian financial
-                regulations require transaction records to be retained for a set
-                period. These anonymised records cannot be used to identify or
-                contact you.
+                We keep your identity verification records, including your BVN,
+                and records of your completed transactions and subscriptions.
+                Nigerian financial regulations require these to be held for at
+                least five years after an account closes, after which we delete
+                them permanently. They are kept only to meet that obligation and
+                are never used to contact you.
               </p>
               <p className="mt-4 font-outfit leading-[1.7] text-ink-2">
-                The licensed partners who verified your identity keep their own
-                copy of those records, as the regulations that apply to them
-                require. Those are held under their retention rules, not ours,
-                and we cannot delete them on your behalf.
+                Your transaction and subscription records are stored in a form
+                that is no longer linked to your name, so they cannot be used to
+                identify you. The licensed partners who verified your identity
+                also keep their own copy of your identity records, under the
+                regulations that apply to them, and we cannot delete those on
+                your behalf.
               </p>
             </Section>
 
@@ -137,8 +135,8 @@ export default function DeleteAccountPage() {
                 Withdraw any remaining wallet balance and cancel active
                 subscriptions first. An account cannot be deleted while it still
                 holds money or has a subscription running, so the app will ask
-                you to clear both before it lets you continue. Once the account
-                is deleted it cannot be restored.
+                you to clear both before it lets you continue. We do not restore
+                deleted accounts, so treat it as final.
               </p>
             </Section>
           </div>
