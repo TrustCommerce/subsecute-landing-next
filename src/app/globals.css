@@ -27,6 +27,17 @@
   --color-night: #141414; /* dark section background */
   --color-night-2: #1c1c1c; /* cards inside dark sections */
 
+  /* Taupe - the About section. Hue 27 against the brand orange's 23, but at
+     18% saturation, so the orange reads as accent rather than competing.
+     Dark enough that every on-colour clears AA with room to spare. */
+  --color-taupe: #483c32; /* section background */
+  --color-taupe-2: #5e5044; /* cards, lifted off the background */
+  --color-taupe-line: #6b5c4e; /* hairline */
+  --color-on-taupe: #faf8f0; /* headings - 10.0:1 */
+  --color-on-taupe-2: #ece2d8; /* body - 8.4:1 */
+  --color-on-taupe-3: #d3c6b9; /* captions - 6.4:1 */
+  --color-accent-on-taupe: #ffab6b; /* small accent text - 5.7:1 */
+
   /* Ink */
   --color-ink: #16150f; /* headings, primary text */
   --color-ink-2: #57534a; /* body copy */
