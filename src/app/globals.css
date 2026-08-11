@@ -27,6 +27,16 @@
   --color-night: #141414; /* dark section background */
   --color-night-2: #1c1c1c; /* cards inside dark sections */
 
+  /* Cognac — the About section. Mid-tone, so it needs its own text ramp:
+     the greys used on near-black drop to 1.6–2.4:1 here and fail outright. */
+  --color-cognac: #834333; /* section background */
+  --color-cognac-2: #8f5140; /* cards sitting on it */
+  --color-cognac-line: #9c5f4c; /* hairline */
+  --color-on-cognac: #faf8f0; /* headings — 7.0:1 */
+  --color-on-cognac-2: #f0ded6; /* body — 5.7:1 */
+  --color-on-cognac-3: #e8d2c9; /* captions — 5.2:1 */
+  --color-accent-on-cognac: #ffc08a; /* accent — 4.7:1, orange itself is 2.4:1 */
+
   /* Ink */
   --color-ink: #16150f; /* headings, primary text */
   --color-ink-2: #57534a; /* body copy */
