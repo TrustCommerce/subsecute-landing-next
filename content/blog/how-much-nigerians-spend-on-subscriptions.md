@@ -52,5 +52,3 @@ Do this once and you will not need to do it again for a while:
 Most people cut something within an hour of seeing it.
 
 After that, the job is keeping the number visible so it never creeps back up quietly. That is the part Subsecute handles.
-
-Set. Automate. Relax.

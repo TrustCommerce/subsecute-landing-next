@@ -94,7 +94,7 @@ export const FAQ_SCHEMA = {
       name: "What is Subsecute?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Subsecute is a recurring payment automation app built for Nigerians. It gives you a unique virtual USD card for each subscription (Netflix, Spotify, ChatGPT, Figma, etc.) and auto-pays your bills including airtime, data, power, and cable, all from one wallet.",
+        text: "Subsecute is a recurring payment automation app built for Nigerians. It gives you a unique virtual USD card for each subscription (Netflix, Spotify, ChatGPT, Figma, etc.) and auto-pays your bills including airtime, data, power, and cable, all from one app.",
       },
     },
     {
@@ -118,7 +118,7 @@ export const FAQ_SCHEMA = {
       name: "How does Subsecute convert Naira to USD for my subscriptions?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "When you fund your Subsecute wallet with Naira, the app handles the conversion at competitive rates. Each subscription gets its own USD virtual card that is automatically topped up before your renewal date.",
+        text: "Before each renewal, Subsecute charges your saved card or direct debit in Naira and handles the conversion at competitive rates. That subscription's own USD virtual card is topped up ahead of the renewal date, so the money is there before the merchant asks for it.",
       },
     },
     {
@@ -166,7 +166,7 @@ export const FAQ_SCHEMA = {
       name: "How can I pay for my Claude subscription in Nigeria?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Subsecute creates a dedicated virtual USD card for your Claude subscription, funded automatically from your Naira wallet. Add Claude as a subscription, and the card auto-funds before each renewal — no declined payments, no manual top-ups.",
+        text: "Subsecute creates a dedicated virtual USD card for your Claude subscription and funds it from your saved card or direct debit before each renewal. Add Claude as a subscription and it runs itself — no manual transfers, no charge landing on your naira card at the worst moment.",
       },
     },
   ],

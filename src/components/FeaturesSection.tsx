@@ -326,7 +326,7 @@ function RemindersUI() {
         </div>
         <div className="rounded-full bg-[#FEF6F2] px-3 py-2 text-center">
           <span className="font-dm-sans text-[10px] font-medium text-[#EF233C]">
-            Sub auto-funds on renewal day
+            Sub auto-funds before it renews
           </span>
         </div>
       </div>

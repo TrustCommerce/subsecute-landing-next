@@ -62,6 +62,4 @@ Netflix retries for a few days, then suspends the account. You find out when you
 
 The fix is boring. Make sure the money is there before the date, and get told before it goes out.
 
-That is what Subsecute does. You keep a naira balance in the app, your Netflix renewal comes out of that balance, and you get a reminder first so nothing surprises you. If you want to stop, you stop before the debit instead of arguing about a refund afterwards.
-
-Set. Automate. Relax.
+That is what Subsecute does. Your Netflix subscription gets its own card, we charge your saved card or direct debit ahead of the renewal date to fund it, and you get a reminder first so nothing surprises you. If you want to stop, you stop before the debit instead of arguing about a refund afterwards.

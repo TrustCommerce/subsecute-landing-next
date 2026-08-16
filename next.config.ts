@@ -10,6 +10,17 @@ const nextConfig: NextConfig = {
     "/blog/**": ["content/blog/**/*"],
     "/sitemap.xml": ["content/blog/**/*"],
   },
+  async redirects() {
+    return [
+      {
+        // Renamed: the old slug claimed we ask you to fund a balance before a
+        // renewal. We charge your saved payment method instead.
+        source: "/blog/why-we-ask-you-to-fund-before-a-renewal",
+        destination: "/blog/how-subsecute-pays-a-renewal",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

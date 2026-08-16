@@ -3,7 +3,7 @@ const STEPS = [
     number: "01",
     title: "Download & sign up",
     description:
-      "Create your account and fund your wallet. Ready in under 5 minutes.",
+      "Create your account and add a card or direct debit. Ready in under 5 minutes.",
   },
   {
     number: "02",
@@ -15,7 +15,7 @@ const STEPS = [
     number: "03",
     title: "We handle the rest",
     description:
-      "Each subscription gets a virtual USD card. Bills pay on schedule. Everything auto-funds from your wallet.",
+      "Each subscription gets a virtual USD card, funded from your payment method before it renews. Bills pay on schedule.",
   },
   {
     number: "04",

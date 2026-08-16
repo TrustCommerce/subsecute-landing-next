@@ -40,5 +40,3 @@ The honest answer is that you probably want a monthly transfer for general suppo
 Splitting them makes both easier. The recurring bills stop being something anyone thinks about. The money you send is genuinely free for whatever comes up, instead of being partly spoken for before it arrives.
 
 Subsecute handles the recurring half. The bills that repeat get paid on schedule, with a reminder before each one, so the transfers you send can be for everything else.
-
-Set. Automate. Relax.

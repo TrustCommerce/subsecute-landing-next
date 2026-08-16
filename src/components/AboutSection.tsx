@@ -111,7 +111,7 @@ const FEATURES = [
     icon: "/images/landing/about-icon-3.svg",
     title: "Auto-funded before renewal",
     description:
-      "Your wallet funds each card before the charge hits. No failed payments.",
+      "We charge your saved card or direct debit ahead of the date, so the money is on the card before the merchant asks.",
   },
 ] as const;
 

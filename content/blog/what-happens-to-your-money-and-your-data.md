@@ -15,9 +15,9 @@ Our privacy policy and terms are published in full and you can read them. This p
 
 ## Your money
 
-Your balance is held with our licensed banking partner, not in a drawer somewhere. We use regulated partners for banking, card issuing and collections, and every movement is recorded against your account.
+Any balance you hold with us sits with our licensed banking partner, not in a drawer somewhere. We use regulated partners for banking, card issuing and collections, and every movement is recorded against your account.
 
-Money leaves your balance for one reason: a subscription or bill you set up. You get a reminder before each one. Nothing goes out that you did not set up.
+We charge the payment method you saved for one reason: a subscription or bill you set up, shortly before it is due. You get a reminder before each one. Nothing goes out that you did not set up.
 
 Fees are shown at the point of the transaction, before you confirm.
 
@@ -40,5 +40,3 @@ For anything about your account, email support@subsecute.com. For anything about
 ## The full documents
 
 The complete Privacy Policy and Terms of Service are on the site. If something in this post and something in those documents ever appear to disagree, the documents are the ones that count. Tell us and we will fix the mismatch.
-
-Set. Automate. Relax.

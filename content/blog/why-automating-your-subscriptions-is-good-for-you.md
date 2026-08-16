@@ -45,7 +45,7 @@ So you are running about a dozen recurring payments using your memory and your b
 
 **No renewal happens quietly.** You get told before money moves. Reminder comes in, you confirm or you cancel. You do not have to remember the date, but you still make the call.
 
-**Renewal day stops depending on your card.** Naira cards and foreign services have a rough relationship. Declines, sudden limits, banks changing rules. If your money is already sitting in your wallet before the renewal date, your card is not being tested at the exact moment the subscription is due. And if a top-up fails, you have days to fix it instead of finding out after the fact.
+**Renewal day stops depending on a foreign merchant reaching your card.** Naira cards and foreign services have a rough relationship. Declines, sudden limits, banks changing rules. Subsecute charges your saved payment method ahead of the renewal date and puts the money on that subscription's own card, so your bank is not being asked for a dollar charge at the exact moment the subscription is due. And if that charge does not go through, you hear about it with days to spare instead of finding out after the fact.
 
 **Shared plans collect themselves.** If you pay for the family Netflix, you already know "I will send you my share" is a promise, not a payment. When the split is set up, everyone's part comes in before the bill is due. You stop being the group accountant.
 
@@ -80,11 +80,9 @@ Subsecute is not a wallet app, or a savings app, or a payment app with subscript
 - Every renewal date, amount and status is tracked, because that is the whole point of the app
 - You get a reminder before each debit and nothing goes out until you say so
 - Shared plans are a normal feature, not something you work around
-- Your money is ready before the renewal, so renewal day is not riding on a card going through
+- The money is on the card before the renewal, so renewal day is not riding on a foreign charge going through
 - Cancelling is one tap. No retention screens.
 
 Building for one job means we can actually make that job work.
 
 Subsecute runs every subscription you have. Funds them, tracks them, shares them, gifts them, cancels them.
-
-**Set. Automate. Relax.**

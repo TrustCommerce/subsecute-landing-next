@@ -19,7 +19,7 @@ There is a reason for it. More features means more reasons to open the app. But 
 
 If subscriptions are one feature among fifteen, nobody is asking the questions that only matter to subscriptions.
 
-Is the renewal date stored, or just the payment? Does the app know a plan is shared, or does it only see one person paying? Does it warn you before a charge, or tell you after? Can you see everything you are subscribed to in one view, or do you have to remember what to search for?
+Is the renewal date stored, or just the payment? Does it warn you before a charge, or tell you after? Can you see everything you are subscribed to in one view, or do you have to remember what to search for?
 
 An app that also does savings and investing will get to those eventually. Probably.
 
@@ -27,16 +27,13 @@ An app that also does savings and investing will get to those eventually. Probab
 
 - Every subscription's date, amount and status is tracked, because that is the product, not a side effect of a payment going through
 - Reminders come before the debit and you confirm, so nothing moves without you
-- A subscription can be funded by several people, because shared plans are how a lot of Nigerians actually subscribe
-- Money is ready ahead of the renewal date instead of depending on a charge clearing at the exact moment it is due
+- The money is on the card ahead of the renewal date instead of depending on a charge clearing at the exact moment it is due
 - Cancelling is one tap, with no retention screen
 
 None of this is technically hard. It just requires the subscription to be the main object in the system rather than a label on a transaction.
 
 ## What you give up
 
-Being honest about it: Subsecute is not where you save, invest, or send money to a friend. If you want one app for everything, this is not that app, and we are not going to pretend otherwise by adding a savings tab.
+Being honest about it: Subsecute is not where you save, invest, or send money to a friend.
 
 You keep your bank for banking. You use this for the recurring stuff that your bank was never going to organise for you.
-
-Set. Automate. Relax.

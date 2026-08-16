@@ -56,5 +56,3 @@ Do not save it for later. Later is how you got here.
 The audit works once. Two months later, three new things have quietly started and you are back to guessing.
 
 The point of an app like Subsecute is that this list stays visible. Every subscription, every amount, every date, in one place, so the next forgotten charge does not get twelve months to run.
-
-Set. Automate. Relax.

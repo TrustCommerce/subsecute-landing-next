@@ -10,7 +10,7 @@ tags:
   - USD Cards
 ---
 
-![Every subscription in one dashboard, each funded from a naira wallet](/images/blog/every-subscription-one-dashboard.jpg)
+![Every subscription in one dashboard, each on its own card](/images/blog/every-subscription-one-dashboard.jpg)
 
 Netflix and Spotify bill in naira in Nigeria. ChatGPT Plus does not. Neither does Claude, Midjourney, or most of the tools you pay a foreign company for.
 
@@ -68,6 +68,4 @@ Nobody warns you when a charge fails. You usually find out after the fact, when 
 
 Keep a buffer. Whatever the charge costs today, plan for a bit more, because the rate will not wait for you.
 
-Better still, stop holding the dates in your head. Subsecute tracks each renewal, reminds you before it lands, and pays from a naira balance you topped up when it suited you. Whether it is ChatGPT, Claude or something else, you are not gambling on whether the charge clears on the exact day it is due.
-
-Set. Automate. Relax.
+Better still, stop holding the dates in your head. Subsecute tracks each renewal, reminds you before it lands, and charges your saved card or direct debit ahead of the date so the money is on the card before OpenAI asks for it. Whether it is ChatGPT, Claude or something else, you are not gambling on whether the charge clears on the exact day it is due.

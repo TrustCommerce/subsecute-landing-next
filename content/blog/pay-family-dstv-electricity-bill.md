@@ -46,5 +46,3 @@ Doing this by hand every month works. It is just twelve small errands a year, pl
 Set it up once in Subsecute instead. The bill details are saved, the payment runs on schedule, and you get a reminder before each one so you can skip a month if you need to. If it is a prepaid meter, the token goes where it needs to go without you copying anything.
 
 The point is not that it saves five minutes. It is that you stop carrying the date in your head.
-
-Set. Automate. Relax.
