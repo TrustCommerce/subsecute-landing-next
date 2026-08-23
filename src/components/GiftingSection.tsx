@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import ParallaxField from "./ParallaxField";
 
 const LOGO_TOKEN = "pk_dorVGutZSi-4iMholcR1qA";
 
@@ -9,9 +10,12 @@ export default function GiftingSection() {
     <section
       id="gifting"
       aria-labelledby="gifting-heading"
-      className="bg-paper py-20 lg:py-28"
+      className="relative overflow-hidden bg-paper py-20 lg:py-28"
     >
-      <div className="mx-auto max-w-[1240px] px-4 lg:px-0">
+      {/* Hand-drawn gift, heart, link, arrow. The one part of the product
+          that is somebody doing you a favour. */}
+      <ParallaxField variant="doodles" depth={72} />
+      <div className="relative mx-auto max-w-[1240px] px-4 lg:px-0">
         <div className="flex flex-col items-center gap-12 lg:flex-row-reverse lg:gap-16">
           {/* ── Right Column: Text ── */}
           <div className="flex w-full flex-col gap-6 lg:w-[55%]">
@@ -67,9 +71,7 @@ export default function GiftingSection() {
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-line bg-accent-wash font-outfit text-xs font-semibold text-accent-ink">
                     {i + 1}
                   </span>
-                  <span className="font-outfit text-sm text-ink-2">
-                    {text}
-                  </span>
+                  <span className="font-outfit text-sm text-ink-2">{text}</span>
                 </div>
               ))}
             </div>
@@ -77,9 +79,7 @@ export default function GiftingSection() {
 
           {/* ── Left Column: Gift Card Mockup ── */}
           <div className="flex w-full justify-center lg:w-[45%]">
-            <div
-              className="float-card w-full max-w-[350px] rounded-2xl border border-line bg-surface p-6"
-            >
+            <div className="float-card w-full max-w-[350px] rounded-2xl border border-line bg-surface p-6">
               {/* Avatar — DiceBear */}
               <div className="mb-4 flex justify-center">
                 <div className="relative h-16 w-16">

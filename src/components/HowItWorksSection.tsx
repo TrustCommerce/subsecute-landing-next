@@ -1,3 +1,5 @@
+import ParallaxField from "./ParallaxField";
+
 const STEPS = [
   {
     number: "01",
@@ -30,9 +32,13 @@ export default function HowItWorksSection() {
     <section
       id="how-it-works"
       aria-labelledby="how-it-works-heading"
-      className="border-y border-line bg-surface py-20 lg:py-28"
+      className="relative overflow-hidden border-y border-line bg-surface py-20 lg:py-28"
     >
-      <div className="mx-auto max-w-[1240px] px-4 lg:px-0">
+      {/* A schedule drawn as a dashed route with waypoints, because this
+          section is four steps in order rather than a set of facts. */}
+      <ParallaxField variant="route" interactive={false} />
+
+      <div className="relative mx-auto max-w-[1240px] px-4 lg:px-0">
         {/* Header */}
         <div className="mb-12 flex flex-col gap-6 lg:mb-20 lg:flex-row lg:items-end lg:justify-between">
           <div className="flex flex-col gap-4 lg:max-w-[461px]">

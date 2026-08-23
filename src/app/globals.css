@@ -4,7 +4,8 @@
 @theme inline {
   --font-outfit: var(--font-outfit-loaded), sans-serif;
   --font-dm-sans: var(--font-dm-sans-loaded), sans-serif;
-  --font-neue-power: var(--font-space-grotesk-loaded), var(--font-syne-loaded), sans-serif;
+  --font-neue-power:
+    var(--font-space-grotesk-loaded), var(--font-syne-loaded), sans-serif;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -37,6 +38,21 @@
   --color-on-taupe-2: #ece2d8; /* body - 8.4:1 */
   --color-on-taupe-3: #d3c6b9; /* captions - 6.4:1 */
   --color-accent-on-taupe: #ffab6b; /* small accent text - 5.7:1 */
+
+  /* Carbon - the About section. A cool blue-cast near-black rather than a
+     neutral one: orange sits at hue 23, so pushing the ground toward its
+     complement is what makes the accent vibrate instead of sit flat. Deep
+     enough to read as black, never #000, which has no depth to give.
+
+     It also earns something taupe could not: the pure brand #E96D1F clears
+     AA as body text here (6.2:1), so the accent needs no tint. */
+  --color-carbon: #0b0d12; /* section ground */
+  --color-carbon-2: #14171e; /* cards, lifted off the ground */
+  --color-carbon-line: #22262f; /* hairline */
+  --color-on-carbon: #f5f3ef; /* headings - 17.4:1 */
+  --color-on-carbon-2: #a8aebb; /* body - 8.8:1 */
+  --color-on-carbon-3: #7b818e; /* captions - 5.0:1 */
+  --color-accent-on-carbon: #e96d1f; /* the brand orange itself - 6.2:1 */
 
   /* Ink */
   --color-ink: #16150f; /* headings, primary text */
@@ -107,9 +123,414 @@ body {
   width: max-content;
 }
 
+/* ── WhatsApp mockup ──────────────────────────────────────────────────
+   The thread plays once when the phone scrolls into view. Every message
+   is in the DOM from the start and only opacity/transform animate, so
+   nothing reflows and there is no layout shift.
+
+   Hiding happens only under .wa-armed, which JS adds on mount, so with
+   scripting off the whole conversation is simply visible. */
+
+.wa-armed .wa-msg,
+.wa-armed .wa-tick-read {
+  opacity: 0;
+}
+
+.wa-play .wa-msg {
+  animation: wa-pop 0.42s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* Blue ticks land a beat after the message, the way a read receipt does. */
+.wa-play .wa-tick-read {
+  animation: wa-fade 0.3s ease-out both;
+  animation-delay: calc(var(--delay, 0ms) + 900ms);
+}
+
+@keyframes wa-pop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes wa-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* The header subtitle swaps between "online" and "typing…" while the
+   conversation runs. Two stacked spans, cross-faded. */
+.wa-play .wa-status-online {
+  animation: wa-status-online 7s ease-in-out both;
+}
+
+.wa-play .wa-status-typing {
+  animation: wa-status-typing 7s ease-in-out both;
+}
+
+@keyframes wa-status-online {
+  0%,
+  12% {
+    opacity: 1;
+  }
+  16%,
+  34% {
+    opacity: 0;
+  }
+  38%,
+  52% {
+    opacity: 1;
+  }
+  56%,
+  74% {
+    opacity: 0;
+  }
+  78%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes wa-status-typing {
+  0%,
+  12% {
+    opacity: 0;
+  }
+  16%,
+  34% {
+    opacity: 1;
+  }
+  38%,
+  52% {
+    opacity: 0;
+  }
+  56%,
+  74% {
+    opacity: 1;
+  }
+  78%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* A message the reader triggered: animates the moment it is inserted, so
+   it needs no scheduling. */
+.wa-live {
+  animation: wa-pop 0.34s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+}
+
+/* Typing dots. */
+.wa-dot {
+  animation: wa-dot 1.25s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 160ms);
+}
+
+@keyframes wa-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+/* The chat scrolls; the scrollbar would break the illusion. */
+.wa-scroll {
+  scrollbar-width: none;
+}
+
+.wa-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Section textures ─────────────────────────────────────────────────
+   Both patterns say something about the product rather than decorating.
+
+   `recur-grid` is the recurrence pattern: a quiet field of small marks
+   where every fourth one, in both directions, is a larger accent ring.
+   That is the product in one image. Most days nothing happens, then the
+   same thing comes round again.
+
+   `ledger-grid` is graph paper, because a month of dated obligations is
+   what the app actually holds.
+
+   The tile is 64px and the layer drifts exactly one tile over 48s, so
+   the loop is seamless. Transform-only, so it stays on the compositor.
+   The mask fades it out at every edge, which is what stops a pattern
+   competing with the type sitting on it. */
+.parallax-field {
+  --px: 0px;
+  --py: 0px;
+}
+
+/* Three planes, each moving a different distance under the pointer. That
+   difference is the whole illusion: parallax is depth. Shared mask so no
+   plane has a hard edge against the type. */
+.plane-far,
+.plane-mid,
+.plane-near {
+  -webkit-mask-image: radial-gradient(
+    ellipse 76% 66% at 50% 45%,
+    #000 22%,
+    transparent 80%
+  );
+  mask-image: radial-gradient(
+    ellipse 76% 66% at 50% 45%,
+    #000 22%,
+    transparent 80%
+  );
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.plane-far {
+  transform: translate3d(
+    calc(var(--px, 0px) * 0.16),
+    calc(var(--py, 0px) * 0.16),
+    0
+  );
+}
+
+.plane-mid {
+  transform: translate3d(
+    calc(var(--px, 0px) * 0.48),
+    calc(var(--py, 0px) * 0.48),
+    0
+  );
+}
+
+.plane-near {
+  transform: translate3d(var(--px, 0px), var(--py, 0px), 0);
+}
+
+/* ── Recurrence, behind the About section ──────────────────────────── */
+
+.recur-dots {
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(250, 248, 240, 0.1) 1.3px,
+    transparent 1.4px
+  );
+  background-size: 34px 34px;
+}
+
+.recur-mid {
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(250, 248, 240, 0.14) 1.9px,
+    transparent 2px
+  );
+  background-size: 68px 68px;
+}
+
+.recur-rings {
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(233, 109, 31, 0.5) 3px,
+    transparent 3.1px
+  );
+  background-size: 136px 136px;
+}
+
+/* ── Ledger paper, behind the WhatsApp section ─────────────────────── */
+
+.ledger-fine {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(250, 248, 240, 0.05) 0 1px,
+      transparent 1px 32px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(250, 248, 240, 0.05) 0 1px,
+      transparent 1px 32px
+    );
+}
+
+.ledger-mid {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(250, 248, 240, 0.07) 0 1px,
+      transparent 1px 128px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(250, 248, 240, 0.07) 0 1px,
+      transparent 1px 128px
+    );
+}
+
+/* ── Expenses screen ──────────────────────────────────────────────────
+   The ring draws itself once, arc by arc, and the rows land under it.
+   Only stroke-dasharray and opacity/transform change, so nothing
+   reflows. Server HTML renders drawn; data-drawn="false" is set on the
+   client, so it is complete with scripting off. */
+[data-drawn="false"] .ring-arc {
+  stroke-dasharray: 0 9999;
+}
+
+[data-drawn="true"] .ring-arc {
+  stroke-dasharray: var(--dash);
+  transition: stroke-dasharray 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+
+[data-drawn="false"] .row-in {
+  opacity: 0;
+}
+
+[data-drawn="true"] .row-in {
+  animation: rise-row 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(900ms + var(--i, 0) * 70ms);
+}
+
+@keyframes rise-row {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Caret blink in the message field. */
+.wa-caret {
+  animation: wa-caret 1.1s steps(1, end) infinite;
+}
+
+@keyframes wa-caret {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
   .float-card {
     animation: none;
   }
+
+  /* The conversation still reads top to bottom, it just does not move. */
+  .wa-armed .wa-msg,
+  .wa-armed .wa-tick-read,
+  .wa-play .wa-msg,
+  .wa-play .wa-tick-read {
+    opacity: 1;
+    animation: none;
+  }
+
+  .wa-play .wa-status-online {
+    opacity: 1;
+    animation: none;
+  }
+
+  .wa-play .wa-status-typing,
+  .wa-caret {
+    animation: none;
+  }
+
+  .wa-live {
+    animation: none;
+  }
+
+  .wa-dot {
+    opacity: 0.6;
+    animation: none;
+  }
+
+  .plane-far,
+  .plane-mid,
+  .plane-near {
+    transform: none;
+    transition: none;
+  }
+
+  [data-drawn] .ring-arc {
+    stroke-dasharray: var(--dash);
+    transition: none;
+  }
+
+  [data-drawn] .row-in {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PATTERN LIBRARY
+
+   Five languages, one per section, each saying something about the
+   section it sits behind. They are deliberately different KINDS of mark,
+   not one motif restyled: dots, grid, blocks, doodles, dashes. Every one
+   is masked at the edges and rides the parallax planes.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Home screen, behind the download band ────────────────────────────
+   App-icon blocks in a phone grid. The section asks you to put this on
+   your phone, so the texture is a home screen. Two densities so the
+   planes read as depth. */
+
+.pixel-far {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104' height='104' viewBox='0 0 104 104'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.16'%3E%3Crect x='14' y='14' width='20' height='20' rx='6'/%3E%3Crect x='58' y='14' width='20' height='20' rx='6'/%3E%3Crect x='14' y='58' width='20' height='20' rx='6'/%3E%3Crect x='58' y='58' width='20' height='20' rx='6'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 104px 104px;
+}
+
+.pixel-near {
+  /* One filled tile per block of nine: the app that is actually yours. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='312' height='312' viewBox='0 0 312 312'%3E%3Crect x='146' y='146' width='20' height='20' rx='6' fill='%23ffffff' fill-opacity='0.22'/%3E%3C/svg%3E");
+  background-size: 312px 312px;
+}
+
+/* ── Doodles, behind the gifting section ──────────────────────────────
+   Hand-drawn gift, heart, link and arrow. A warm, human mark for the one
+   part of the product that is somebody doing you a favour. Ink rather
+   than white, because this section sits on paper. */
+
+.doodle-far {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' viewBox='0 0 260 260'%3E%3Cg fill='none' stroke='%2316150f' stroke-opacity='0.045' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M40 60c0-5 7-7 9-2 2-5 9-3 9 2 0 6-9 11-9 11s-9-5-9-11z'/%3E%3Cpath d='M168 54a7 7 0 0 1 0-10l6-6a7 7 0 0 1 10 10l-2 2M184 54a7 7 0 0 1 0 10l-6 6a7 7 0 0 1-10-10l2-2'/%3E%3Cpath d='M40 186h22M55 179l7 7-7 7'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 260px 260px;
+}
+
+.doodle-near {
+  /* One gift in accent, sparse: the one that actually landed. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cg fill='none' stroke='%23e96d1f' stroke-opacity='0.16' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='197' y='200' width='26' height='19' rx='3'/%3E%3Cpath d='M197 206.5h26M210 200v19M210 200c-3.7-5.5-10.2-2.8-7.4 0zM210 200c3.7-5.5 10.2-2.8 7.4 0z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 420px 420px;
+}
+
+/* ── Dashed route, behind how it works ────────────────────────────────
+   A schedule drawn as a dashed line with waypoints. The section is four
+   steps in order, so the texture is a route rather than a field. */
+
+.route-far {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='176' height='88' viewBox='0 0 176 88'%3E%3Cpath d='M0 44h176' fill='none' stroke='%2316150f' stroke-opacity='0.06' stroke-width='1.5' stroke-dasharray='7 11' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 176px 88px;
+}
+
+.route-near {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='176' height='176' viewBox='0 0 176 176'%3E%3Cg stroke='%23e96d1f' stroke-opacity='0.22' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M88 79v18'/%3E%3C/g%3E%3Ccircle cx='88' cy='88' r='3.4' fill='none' stroke='%23e96d1f' stroke-opacity='0.24' stroke-width='1.6'/%3E%3C/svg%3E");
+  background-size: 176px 176px;
 }

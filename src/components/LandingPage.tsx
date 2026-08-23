@@ -12,6 +12,7 @@ const FeaturesSection = dynamic(() => import("./FeaturesSection"));
 const PlansSection = dynamic(() => import("./PlansSection"));
 const GiftingSection = dynamic(() => import("./GiftingSection"));
 const HowItWorksSection = dynamic(() => import("./HowItWorksSection"));
+const WhatsAppSection = dynamic(() => import("./WhatsAppSection"));
 const DownloadSection = dynamic(() => import("./DownloadSection"));
 const SocialProofSection = dynamic(() => import("./SocialProofSection"));
 const FAQSection = dynamic(() => import("./FAQSection"));
@@ -26,6 +27,7 @@ export default function LandingPage() {
       <PlansSection />
       <GiftingSection />
       <HowItWorksSection />
+      <WhatsAppSection />
       <DownloadSection />
       {IS_WAITLIST ? <FAQSection /> : <SocialProofSection />}
       <Footer />

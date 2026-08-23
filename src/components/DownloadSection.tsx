@@ -1,14 +1,17 @@
 import { IS_WAITLIST } from "../config";
 import WaitlistForm from "./WaitlistForm";
+import ParallaxField from "./ParallaxField";
 
 export default function DownloadSection() {
   return (
     <section
       id="download"
       aria-labelledby="download-heading"
-      className="bg-accent py-20 lg:py-28"
+      className="relative overflow-hidden bg-accent py-20 lg:py-28"
     >
-      <div className="mx-auto flex max-w-[863px] flex-col items-center px-4">
+      {/* A home screen, because that is what the section is asking for. */}
+      <ParallaxField variant="pixels" interactive={false} />
+      <div className="relative mx-auto flex max-w-[863px] flex-col items-center px-4">
         {/* Platform pill */}
         <div className="mb-8 inline-flex items-center lg:mb-10">
           <span className="font-outfit text-[11px] font-medium uppercase tracking-[0.18em] text-white/80">
