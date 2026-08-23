@@ -66,7 +66,10 @@ const questions: Question[] = [
     text: "Do you share subscription costs with anyone?",
     options: [
       { label: "Yes and it's well organized", points: 15 },
-      { label: "I pay for other people (and don't expect it back)", points: 12 },
+      {
+        label: "I pay for other people (and don't expect it back)",
+        points: 12,
+      },
       { label: "No", points: 10 },
       { label: "Yes but it's chaotic", points: 5 },
       { label: "I've given up trying to collect money from people", points: 0 },

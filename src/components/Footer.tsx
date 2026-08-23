@@ -101,10 +101,7 @@ const FOOTER_LINKS = [
 
 export default function Footer() {
   return (
-    <footer
-      aria-label="Site footer"
-      className="bg-night py-16 lg:py-[80px]"
-    >
+    <footer aria-label="Site footer" className="bg-night py-16 lg:py-[80px]">
       <div className="mx-auto flex max-w-[1240px] flex-col gap-10 px-4 lg:flex-row lg:items-start lg:justify-between lg:gap-[90px] lg:px-0">
         {/* Left column */}
         <div className="flex max-w-[420px] flex-col gap-6">

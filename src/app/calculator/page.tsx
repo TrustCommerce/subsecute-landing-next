@@ -3,7 +3,8 @@ import { Suspense } from "react";
 import CalculatorPage from "@/components/CalculatorPage";
 import { DEFAULT_SHARE_IMAGE, SITE_URL } from "@/config";
 
-const title = "Naira Leak Calculator — How much are you spending on subscriptions?";
+const title =
+  "Naira Leak Calculator — How much are you spending on subscriptions?";
 const description =
   "Find out how much Naira is leaking from your account on subscriptions and bills every year. Free calculator by Subsecute.";
 const url = `${SITE_URL}/calculator`;

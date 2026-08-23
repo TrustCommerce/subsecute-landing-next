@@ -124,7 +124,8 @@ export default function ResultsStep({
                 onClick={onBack}
                 className="font-medium text-[#E96D1F] underline-offset-2 hover:underline"
               >
-                Add bills for {peopleMissingBills.map((p) => p.member.name).join(", ")}
+                Add bills for{" "}
+                {peopleMissingBills.map((p) => p.member.name).join(", ")}
               </button>
             </p>
           )}

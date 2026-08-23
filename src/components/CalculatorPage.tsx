@@ -499,7 +499,8 @@ function ElectricityTile({
   onCustomAmountChange: (v: string) => void;
   onToggle: () => void;
 }) {
-  const effectiveAmount = amount === "custom" ? Number(customAmount) : Number(amount);
+  const effectiveAmount =
+    amount === "custom" ? Number(customAmount) : Number(amount);
   const canToggle = effectiveAmount > 0;
 
   return (
@@ -782,8 +783,8 @@ export default function CalculatorPage() {
           <span className="text-[#E96D1F]">from your account?</span>
         </h1>
         <p className="mx-auto mt-4 max-w-[500px] font-outfit text-sm leading-relaxed text-[#6C757D] sm:text-base lg:text-lg">
-          Tap every subscription and bill you pay for. Prices are estimates.
-          Use the Custom tile for anything different.
+          Tap every subscription and bill you pay for. Prices are estimates. Use
+          the Custom tile for anything different.
         </p>
       </header>
 
@@ -806,8 +807,7 @@ export default function CalculatorPage() {
           const sectionMonthly =
             selectedItems.reduce((sum, i) => sum + i.price, 0) +
             utilitiesElecTotal;
-          const sectionTotalCount =
-            cat.items.length + (isUtilities ? 1 : 0);
+          const sectionTotalCount = cat.items.length + (isUtilities ? 1 : 0);
 
           return (
             <section
@@ -884,7 +884,9 @@ export default function CalculatorPage() {
                         customAmount={electricityCustomAmount}
                         selected={electricitySelected}
                         onAmountChange={handleElectricityAmountChange}
-                        onCustomAmountChange={handleElectricityCustomAmountChange}
+                        onCustomAmountChange={
+                          handleElectricityCustomAmountChange
+                        }
                         onToggle={toggleElectricity}
                       />
                     )}
@@ -1032,7 +1034,10 @@ export default function CalculatorPage() {
                 <button
                   type="button"
                   onClick={() => {
-                    if (typeof navigator !== "undefined" && navigator.clipboard) {
+                    if (
+                      typeof navigator !== "undefined" &&
+                      navigator.clipboard
+                    ) {
                       navigator.clipboard.writeText(shareUrl);
                     }
                   }}
@@ -1103,7 +1108,9 @@ export default function CalculatorPage() {
                       disabled={formStatus === "loading"}
                       className="h-12 w-full shrink-0 rounded-full bg-[#E96D1F] px-6 font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90 disabled:opacity-60 sm:w-auto sm:px-7"
                     >
-                      {formStatus === "loading" ? "Sending..." : "Join waitlist"}
+                      {formStatus === "loading"
+                        ? "Sending..."
+                        : "Join waitlist"}
                     </button>
                   </form>
                   {formStatus === "error" && (

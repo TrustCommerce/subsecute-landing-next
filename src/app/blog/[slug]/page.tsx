@@ -104,10 +104,7 @@ export default async function BlogPost({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
-        <ShareArticle
-          url={`${SITE_URL}/blog/${slug}`}
-          title={post.title}
-        />
+        <ShareArticle url={`${SITE_URL}/blog/${slug}`} title={post.title} />
 
         <div className="mt-16 rounded-2xl bg-[#E96D1F] p-8 text-center">
           <h2 className="mb-2 font-neue-power text-2xl font-bold text-white">

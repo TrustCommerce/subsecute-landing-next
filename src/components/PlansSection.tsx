@@ -177,9 +177,7 @@ export default function PlansSection() {
             {BENEFITS.map((text) => (
               <li key={text} className="flex flex-row items-center gap-3">
                 <CheckIcon />
-                <span className="font-outfit text-sm text-ink-2">
-                  {text}
-                </span>
+                <span className="font-outfit text-sm text-ink-2">{text}</span>
               </li>
             ))}
           </ul>

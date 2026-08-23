@@ -66,10 +66,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   // Hard-gate future-dated posts: even a direct URL 404s until the date.
   if (data.date && !isPublished(String(data.date))) return null;
 
-  const processed = await remark()
-    .use(remarkGfm)
-    .use(html)
-    .process(rawContent);
+  const processed = await remark().use(remarkGfm).use(html).process(rawContent);
   const content = processed.toString();
 
   return {

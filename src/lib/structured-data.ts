@@ -53,9 +53,7 @@ export function blogPostingSchema(post: {
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     datePublished: post.date,
     dateModified: post.date,
-    ...(post.image
-      ? { image: [`https://subsecute.com${post.image}`] }
-      : {}),
+    ...(post.image ? { image: [`https://subsecute.com${post.image}`] } : {}),
     author: { "@type": "Organization", name: post.author || "Subsecute" },
     publisher: {
       "@type": "Organization",

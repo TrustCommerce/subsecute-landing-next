@@ -3,7 +3,9 @@ export const SITE_URL = "https://subsecute.com";
 // Social proof on the early-access page. Set NEXT_PUBLIC_WAITLIST_COUNT to your
 // real signup count to show "N+ Nigerians already on the list". Left at 0 it
 // shows a reassurance line instead — never a fabricated number.
-export const WAITLIST_COUNT = Number(process.env.NEXT_PUBLIC_WAITLIST_COUNT ?? 0);
+export const WAITLIST_COUNT = Number(
+  process.env.NEXT_PUBLIC_WAITLIST_COUNT ?? 0,
+);
 // Real, fixed launch target for the early-access countdown (ISO 8601, WAT).
 // Keep this honest — if it passes without launch the timer shows a graceful
 // "launching now" state, but a date you actually hit builds far more trust.
