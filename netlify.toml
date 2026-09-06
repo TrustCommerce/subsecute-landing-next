@@ -5,6 +5,15 @@
 [build.environment]
   NEXT_RUNTIME = "edge"
 
+# Apple fetches this file from the exact host named in the app entitlement, and it
+# does not follow a redirect. The apex sends every path to www, so the association
+# for subsecute.com fails without ever saying so. Serve the file where Apple looks.
+[[redirects]]
+  from = "https://subsecute.com/.well-known/*"
+  to = "/.well-known/:splat"
+  status = 200
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
