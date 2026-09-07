@@ -1,4 +1,4 @@
-import { IS_WAITLIST } from "../config";
+import { APP_STORE_URL, IS_WAITLIST, PLAY_STORE_URL } from "../config";
 import WaitlistForm from "./WaitlistForm";
 import ParallaxField from "./ParallaxField";
 
@@ -44,7 +44,7 @@ export default function DownloadSection() {
         ) : (
           <div className="flex flex-col items-center gap-4 sm:flex-row">
             <a
-              href="#"
+              href={APP_STORE_URL}
               aria-label="Download on the App Store"
               className="flex items-center gap-2 rounded-full bg-[#232323] px-6 py-3.5 transition-opacity hover:opacity-90"
             >
@@ -64,7 +64,7 @@ export default function DownloadSection() {
               </div>
             </a>
             <a
-              href="#"
+              href={PLAY_STORE_URL}
               aria-label="Get it on Google Play"
               className="flex items-center gap-2 rounded-full border border-white/35 px-6 py-3.5 transition-opacity hover:opacity-90"
             >

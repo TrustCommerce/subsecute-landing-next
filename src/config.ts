@@ -1,5 +1,12 @@
 export const IS_WAITLIST = process.env.NEXT_PUBLIC_LAUNCH_MODE === "waitlist";
 export const SITE_URL = "https://subsecute.com";
+
+// The live store listings. Neither address names a country: each store sends a
+// visitor to their own region, and a link naming one bounces everybody else.
+export const APP_STORE_URL = "https://apps.apple.com/app/id6795999539";
+export const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.subsecute";
+
 // Social proof on the early-access page. Set NEXT_PUBLIC_WAITLIST_COUNT to your
 // real signup count to show "N+ Nigerians already on the list". Left at 0 it
 // shows a reassurance line instead — never a fabricated number.
