@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import { IS_WAITLIST } from "../config";
 import ExpensesPhone from "./about/ExpensesPhone";
 import ParallaxField from "./ParallaxField";
 
@@ -194,27 +193,6 @@ export default function AboutSection() {
               <AnimatedStat key={stat.label} stat={stat} active={statsInView} />
             ))}
           </div>
-
-          {/* Testimonial — live mode only */}
-          {!IS_WAITLIST && (
-            <div className="flex flex-col gap-3 rounded-2xl border border-carbon-line bg-carbon-2 p-5">
-              <blockquote className="font-outfit text-sm leading-[1.6em] tracking-wide text-on-carbon/90">
-                &ldquo;I haven&apos;t thought about my subscriptions since I
-                switched to Subsecute. It just works, every single month.&rdquo;
-              </blockquote>
-              <div className="flex items-center gap-2">
-                <img
-                  src="/images/landing/testimonial-avatar.png"
-                  alt=""
-                  loading="lazy"
-                  className="h-6 w-6 rounded-full object-cover"
-                />
-                <cite className="font-outfit text-xs not-italic leading-none tracking-wide text-on-carbon-3">
-                  Adaeze K.
-                </cite>
-              </div>
-            </div>
-          )}
         </div>
 
         {/* Right column — the Expenses screen, live rather than a PNG so

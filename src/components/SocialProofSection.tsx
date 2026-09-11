@@ -1,30 +1,24 @@
 "use client";
 
 import { useRef, useEffect, useCallback } from "react";
+import { STORE_RATING, STORE_REVIEW_COUNT } from "@/config";
 
-const TESTIMONIALS = [
-  {
-    name: "Adaeze K.",
-    initial: "A",
-    color: "bg-[#219653]",
-    quote:
-      "I used to lose Netflix every other month declined charges, no warning. With Subsecute, it has not failed once in seven months. I genuinely don't think about it anymore.",
-  },
-  {
-    name: "Tammy A.",
-    initial: "T",
-    color: "bg-[#962135]",
-    quote:
-      "I used to lose Netflix every other month declined charges, no warning. With Subsecute, it has not failed once in seven months. I genuinely don't think about it anymore.",
-  },
-  {
-    name: "Callum K.",
-    initial: "C",
-    color: "bg-[#252196]",
-    quote:
-      "I used to lose Netflix every other month declined charges, no warning. With Subsecute, it has not failed once in seven months. I genuinely don't think about it anymore.",
-  },
-] as const;
+type Testimonial = {
+  name: string;
+  initial: string;
+  color: string;
+  quote: string;
+};
+
+/**
+ * Real quotes only, with permission. This shipped with three placeholders
+ * that all carried the same sentence word for word, under invented names,
+ * and they would have gone live the moment the launch flag flipped.
+ *
+ * Empty means the whole section does not render. Add real ones here and it
+ * comes back on its own.
+ */
+const TESTIMONIALS: readonly Testimonial[] = [];
 
 // --- Tunable ---
 const SLOW_SPEED = 0.3; // px per frame (~18px/s at 60fps)
@@ -42,11 +36,7 @@ function RatingDots({ filled = 5 }: { filled?: number }) {
   );
 }
 
-function TestimonialCard({
-  testimonial,
-}: {
-  testimonial: (typeof TESTIMONIALS)[number];
-}) {
+function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
     <article className="w-[340px] shrink-0 sm:w-[380px] lg:w-[400px]">
       <div className="flex h-full flex-col gap-4 rounded-2xl border border-[#DEE2E6] bg-white p-5">
@@ -72,6 +62,9 @@ function TestimonialCard({
 }
 
 export default function SocialProofSection() {
+  const hasTestimonials = TESTIMONIALS.length > 0;
+  // Both have to be real before either is shown.
+  const hasRating = STORE_RATING > 0 && STORE_REVIEW_COUNT > 0;
   const trackRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number>(0);
   const speedRef = useRef(SLOW_SPEED);
@@ -109,10 +102,11 @@ export default function SocialProofSection() {
   }, []);
 
   useEffect(() => {
+    if (!hasTestimonials) return;
     animateRef.current = animate;
     rafRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(rafRef.current);
-  }, [animate]);
+  }, [animate, hasTestimonials]);
 
   const cardWidth = 420;
 
@@ -123,6 +117,8 @@ export default function SocialProofSection() {
   const jumpRight = useCallback(() => {
     remainingJump.current = cardWidth;
   }, []);
+
+  if (!hasTestimonials) return null;
 
   return (
     <section
@@ -143,16 +139,19 @@ export default function SocialProofSection() {
               What people say
             </h2>
           </div>
-          <div className="flex flex-col items-start gap-2 lg:items-end">
-            <img
-              src="/images/landing/stars-yellow.svg"
-              alt="4.5 star rating"
-              className="h-5 lg:h-6"
-            />
-            <span className="font-outfit text-sm tracking-wide text-[#6C757D]">
-              4.5 from 800 Play/App store reviews
-            </span>
-          </div>
+          {hasRating && (
+            <div className="flex flex-col items-start gap-2 lg:items-end">
+              <img
+                src="/images/landing/stars-yellow.svg"
+                alt={`${STORE_RATING} star rating`}
+                className="h-5 lg:h-6"
+              />
+              <span className="font-outfit text-sm tracking-wide text-[#6C757D]">
+                {STORE_RATING} from {STORE_REVIEW_COUNT.toLocaleString("en-NG")}{" "}
+                Play and App Store reviews
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Carousel */}

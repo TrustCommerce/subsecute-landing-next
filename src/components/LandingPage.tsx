@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { IS_WAITLIST } from "../config";
 import HeroSection from "./HeroSection";
 
 // Below-fold sections code-split into their own chunks. Default ssr: true
@@ -29,7 +28,12 @@ export default function LandingPage() {
       <HowItWorksSection />
       <WhatsAppSection />
       <DownloadSection />
-      {IS_WAITLIST ? <FAQSection /> : <SocialProofSection />}
+      {/* Both, always. FAQ_SCHEMA is emitted on every render, so hiding the
+          visible FAQ in live mode left the structured data describing
+          questions that were not on the page. SocialProofSection hides
+          itself until there are real testimonials. */}
+      <SocialProofSection />
+      <FAQSection />
       <Footer />
     </main>
   );

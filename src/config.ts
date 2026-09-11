@@ -13,6 +13,14 @@ export const PLAY_STORE_URL =
 export const WAITLIST_COUNT = Number(
   process.env.NEXT_PUBLIC_WAITLIST_COUNT ?? 0,
 );
+// Store rating, shown beside the testimonials. Same rule as WAITLIST_COUNT:
+// left at 0 the whole rating block is hidden rather than showing a number we
+// have not earned. Set both once the listings have real reviews.
+export const STORE_RATING = Number(process.env.NEXT_PUBLIC_STORE_RATING ?? 0);
+export const STORE_REVIEW_COUNT = Number(
+  process.env.NEXT_PUBLIC_STORE_REVIEW_COUNT ?? 0,
+);
+
 // Real, fixed launch target for the early-access countdown (ISO 8601, WAT).
 // Keep this honest — if it passes without launch the timer shows a graceful
 // "launching now" state, but a date you actually hit builds far more trust.
