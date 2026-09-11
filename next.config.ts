@@ -13,6 +13,14 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        // The waitlist is retired now the app is live. This URL was in the
+        // sitemap and in every share link the old form generated, so it
+        // redirects rather than 404s.
+        source: "/early-access",
+        destination: "/",
+        permanent: true,
+      },
+      {
         // Renamed: the old slug claimed we ask you to fund a balance before a
         // renewal. We charge your saved payment method instead.
         source: "/blog/why-we-ask-you-to-fund-before-a-renewal",

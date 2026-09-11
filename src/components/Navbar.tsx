@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { IS_WAITLIST } from "../config";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -71,7 +70,7 @@ export default function Navbar() {
             href="#download"
             className="rounded-full bg-ink px-5 py-2 font-outfit text-sm font-medium text-paper transition-colors hover:bg-accent"
           >
-            {IS_WAITLIST ? "Get Early Access" : "Get the App"}
+            Get the App
           </a>
         </div>
 
@@ -186,7 +185,7 @@ export default function Navbar() {
               onClick={close}
               className="flex h-12 w-full items-center justify-center rounded-full bg-[#E96D1F] font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90"
             >
-              {IS_WAITLIST ? "Get Early Access" : "Get the App"}
+              Get the App
             </a>
           </div>
         </div>

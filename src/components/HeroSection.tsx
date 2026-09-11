@@ -1,6 +1,5 @@
-import { IS_WAITLIST } from "../config";
 import Navbar from "./Navbar";
-import WaitlistForm from "./WaitlistForm";
+import StoreBadges from "./StoreBadges";
 
 const LOGO_TOKEN = "pk_dorVGutZSi-4iMholcR1qA";
 
@@ -57,18 +56,9 @@ export default function HeroSection() {
           Shares them. Gifts them. Cancels them. So you don&apos;t have to.
         </p>
 
-        {/* CTA — switches based on launch mode */}
-        <div className="mt-9">
-          {IS_WAITLIST ? (
-            <WaitlistForm variant="light" />
-          ) : (
-            <a
-              href="#download"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-ink px-8 font-outfit text-base font-medium text-paper transition-colors hover:bg-accent lg:h-[52px]"
-            >
-              Get Started
-            </a>
-          )}
+        {/* CTA */}
+        <div className="mt-9 flex justify-center">
+          <StoreBadges />
         </div>
 
         {/* Product shot — one real screen on a hairline plinth */}

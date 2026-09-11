@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { LOGO_DEV_TOKEN, WAITLIST_API } from "@/config";
+import { reportLead } from "@/lib/track";
 
 function logoUrl(domain: string) {
   return `https://img.logo.dev/${domain}?token=${LOGO_DEV_TOKEN}&size=64&format=png`;
@@ -713,6 +714,7 @@ export default function CalculatorPage() {
         body: JSON.stringify({ email, metadata }),
       });
       if (res.ok) {
+        reportLead(email);
         setFormStatus("success");
         setEmail("");
       } else {

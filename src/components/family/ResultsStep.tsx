@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { WAITLIST_API } from "@/config";
+import { reportLead } from "@/lib/track";
 import {
   Avatar,
   ProgressBar,
@@ -71,6 +72,7 @@ export default function ResultsStep({
         body: JSON.stringify({ email, metadata }),
       });
       if (res.ok) {
+        reportLead(email);
         setStatus("success");
         setEmail("");
       } else {

@@ -1,5 +1,4 @@
-import { APP_STORE_URL, IS_WAITLIST, PLAY_STORE_URL } from "../config";
-import WaitlistForm from "./WaitlistForm";
+import StoreBadges from "./StoreBadges";
 import ParallaxField from "./ParallaxField";
 
 export default function DownloadSection() {
@@ -15,9 +14,7 @@ export default function DownloadSection() {
         {/* Platform pill */}
         <div className="mb-8 inline-flex items-center lg:mb-10">
           <span className="font-outfit text-[11px] font-medium uppercase tracking-[0.18em] text-white/80">
-            {IS_WAITLIST
-              ? "Coming soon to iOS & Android"
-              : "Available on iOS & Android"}
+            Available on iOS &amp; Android
           </span>
         </div>
 
@@ -26,65 +23,16 @@ export default function DownloadSection() {
           id="download-heading"
           className="mb-5 max-w-[18ch] text-center font-neue-power text-[2.25rem] font-bold leading-[1.0] tracking-[-0.035em] text-white sm:text-5xl md:text-6xl lg:text-[72px]"
         >
-          {IS_WAITLIST
-            ? "Get early access — for you, your family, or both."
-            : "Every recurring payment, handled."}
+          Every recurring payment, handled.
         </h2>
 
         {/* Subtitle */}
         <p className="mb-10 max-w-[52ch] text-center font-outfit text-base leading-[1.6] text-white/85 sm:text-lg lg:mb-12 lg:text-xl">
-          {IS_WAITLIST
-            ? "Join the waitlist. We'll let you know when Subsecute is ready."
-            : "Download Subsecute. Add your subscriptions and bills. Watch everything renew on time, automatically."}
+          Download Subsecute. Add your subscriptions and bills. Watch everything
+          renew on time, automatically.
         </p>
 
-        {/* CTA — switches based on launch mode */}
-        {IS_WAITLIST ? (
-          <WaitlistForm variant="dark" />
-        ) : (
-          <div className="flex flex-col items-center gap-4 sm:flex-row">
-            <a
-              href={APP_STORE_URL}
-              aria-label="Download on the App Store"
-              className="flex items-center gap-2 rounded-full bg-[#232323] px-6 py-3.5 transition-opacity hover:opacity-90"
-            >
-              <img
-                src="/images/landing/apple-icon.svg"
-                alt=""
-                aria-hidden="true"
-                className="h-7 w-7"
-              />
-              <div className="flex flex-col justify-center">
-                <span className="font-outfit text-xs tracking-wide text-[#ADB5BD]">
-                  Download on the
-                </span>
-                <span className="font-outfit text-base font-bold leading-[1.1em] tracking-wide text-white">
-                  App Store
-                </span>
-              </div>
-            </a>
-            <a
-              href={PLAY_STORE_URL}
-              aria-label="Get it on Google Play"
-              className="flex items-center gap-2 rounded-full border border-white/35 px-6 py-3.5 transition-opacity hover:opacity-90"
-            >
-              <img
-                src="/images/landing/playstore-icon.svg"
-                alt=""
-                aria-hidden="true"
-                className="h-7 w-7"
-              />
-              <div className="flex flex-col justify-center">
-                <span className="font-outfit text-xs tracking-wide text-white/60">
-                  Get it on
-                </span>
-                <span className="font-outfit text-base font-bold leading-[1.1em] tracking-wide text-white">
-                  Google Play
-                </span>
-              </div>
-            </a>
-          </div>
-        )}
+        <StoreBadges tone="paper" />
       </div>
     </section>
   );

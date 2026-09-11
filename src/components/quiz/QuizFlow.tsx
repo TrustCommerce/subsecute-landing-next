@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { WAITLIST_API } from "@/config";
+import { reportLead } from "@/lib/track";
 
 interface Question {
   id: number;
@@ -285,6 +286,7 @@ export default function QuizFlow() {
       });
 
       if (res.ok) {
+        reportLead(email);
         setJoinedWaitlist(true);
         setDisplayScore(0);
         setStage("result");
