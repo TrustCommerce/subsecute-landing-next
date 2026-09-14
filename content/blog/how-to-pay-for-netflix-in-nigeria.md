@@ -63,3 +63,9 @@ Netflix retries for a few days, then suspends the account. You find out when you
 The fix is boring. Make sure the money is there before the date, and get told before it goes out.
 
 That is what Subsecute does. Your Netflix subscription gets its own card, we charge your saved card or direct debit ahead of the renewal date to fund it, and you get a reminder first so nothing surprises you. If you want to stop, you stop before the debit instead of arguing about a refund afterwards.
+
+## Related reading
+
+- [How to Pay for Spotify Premium in Nigeria](/blog/how-to-pay-for-spotify-premium-in-nigeria)
+- [What Netflix, Prime Video and YouTube Premium Cost in Naira](/blog/streaming-subscription-prices-nigeria)
+- [How to Pay for ChatGPT Plus in Nigeria](/blog/how-to-pay-for-chatgpt-plus-in-nigeria)

@@ -48,3 +48,9 @@ Check which ones you actually opened in the last month. Not which ones you like 
 That is usually a shorter list than the bill.
 
 Subsecute puts all of them on one screen with the amounts and the dates, so this stops being a research project you do once a year and becomes something you can see any time you open the app.
+
+## Related reading
+
+- [How to Pay for Netflix in Nigeria](/blog/how-to-pay-for-netflix-in-nigeria)
+- [How to Pay for Spotify Premium in Nigeria](/blog/how-to-pay-for-spotify-premium-in-nigeria)
+- [How Much Nigerians Actually Spend on Subscriptions](/blog/how-much-nigerians-spend-on-subscriptions)

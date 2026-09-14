@@ -46,3 +46,8 @@ Rather than trusting the number you typed in when you added the subscription, we
 One saved payment method, and a charge from us shortly before each renewal rather than one from the merchant on the day.
 
 In exchange you get told before money moves, a separate card per subscription so cancelling one never touches the rest, and a renewal that is not riding on a single transaction clearing at a single moment.
+
+## Related reading
+
+- [What Happens to Your Money and Your Data](/blog/what-happens-to-your-money-and-your-data)
+- [Why Automating Your Subscriptions Is Good for You](/blog/why-automating-your-subscriptions-is-good-for-you)

@@ -86,3 +86,8 @@ Subsecute is not a wallet app, or a savings app, or a payment app with subscript
 Building for one job means we can actually make that job work.
 
 Subsecute runs every subscription you have. Funds them, tracks them, shares them, gifts them, cancels them.
+
+## Related reading
+
+- [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal)
+- [Subscriptions You Forgot You Are Still Paying For](/blog/subscriptions-you-forgot-you-are-paying-for)

@@ -40,3 +40,8 @@ For anything about your account, email support@subsecute.com. For anything about
 ## The full documents
 
 The complete Privacy Policy and Terms of Service are on the site. If something in this post and something in those documents ever appear to disagree, the documents are the ones that count. Tell us and we will fix the mismatch.
+
+## Related reading
+
+- [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal)
+- [Why We Built an App That Only Does Subscriptions](/blog/why-we-only-do-subscriptions)

@@ -1,6 +1,6 @@
 ---
-title: How to Pay for ChatGPT, Claude and Other Dollar Subscriptions in Nigeria (2026)
-description: ChatGPT Plus, Claude Pro, Twitch and other subscriptions are billed abroad, not in naira. Here is what that means for your Nigerian card, why they fail, and how to keep them alive.
+title: How to Pay for ChatGPT Plus in Nigeria (2026)
+description: ChatGPT Plus is billed in US dollars by OpenAI, not in naira. What it costs, how to subscribe from Nigeria, why the charge fails, and how to stop it failing.
 date: "2026-08-05"
 author: The Subsecute Team
 image: /images/blog/every-subscription-one-dashboard.jpg
@@ -43,7 +43,7 @@ $20 a month, billed by OpenAI in US dollars. Subscribe at [chatgpt.com](https://
 
 ### Claude Pro
 
-Anthropic's Claude Pro is $20 a month, or $17 a month if you pay for a year up front. It is billed in US dollars, and you subscribe inside [claude.ai](https://claude.ai) under your plan settings. Paying for Claude in Nigeria works exactly like ChatGPT: a naira card with international transactions enabled, or a dollar card funded ahead of the date. Same charge, same reasons it fails.
+$20 a month, or $17 a month paid annually, billed by Anthropic in US dollars. It works exactly like ChatGPT: a naira card with international transactions enabled, or a dollar card funded ahead of the date. [How to pay for Claude in Nigeria](/blog/how-to-pay-for-claude-in-nigeria) covers it on its own.
 
 ### Twitch
 
@@ -69,3 +69,9 @@ Nobody warns you when a charge fails. You usually find out after the fact, when 
 Keep a buffer. Whatever the charge costs today, plan for a bit more, because the rate will not wait for you.
 
 Better still, stop holding the dates in your head. Subsecute tracks each renewal, reminds you before it lands, and charges your saved card or direct debit ahead of the date so the money is on the card before OpenAI asks for it. Whether it is ChatGPT, Claude or something else, you are not gambling on whether the charge clears on the exact day it is due.
+
+## Related reading
+
+- [How to Pay for Claude in Nigeria](/blog/how-to-pay-for-claude-in-nigeria) for Anthropic's subscription specifically.
+- [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal) explains the before-the-date mechanic.
+- [How to Pay for Netflix in Nigeria](/blog/how-to-pay-for-netflix-in-nigeria) and [Spotify Premium](/blog/how-to-pay-for-spotify-premium-in-nigeria) cover the naira-billed side.

@@ -47,3 +47,9 @@ Stop chasing people for their share. Gift it instead.
 Subsecute gives you a gift link. Set up the subscription, create the link, and send it to whoever. They can cover a month, or a few months, straight from the link, without needing your card or an account of their own. Someone wants to handle your Spotify for your birthday? They open the link and do it. You want to sort a family member's music without asking anyone for anything? Send them the link.
 
 The money moves as a gift, on purpose, instead of a debt you are quietly carrying every month.
+
+## Related reading
+
+- [How to Pay for Netflix in Nigeria](/blog/how-to-pay-for-netflix-in-nigeria)
+- [What Netflix, Prime Video and YouTube Premium Cost in Naira](/blog/streaming-subscription-prices-nigeria)
+- [Subscriptions You Forgot You Are Still Paying For](/blog/subscriptions-you-forgot-you-are-paying-for)

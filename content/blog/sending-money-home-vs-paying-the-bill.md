@@ -40,3 +40,8 @@ The honest answer is that you probably want a monthly transfer for general suppo
 Splitting them makes both easier. The recurring bills stop being something anyone thinks about. The money you send is genuinely free for whatever comes up, instead of being partly spoken for before it arrives.
 
 Subsecute handles the recurring half. The bills that repeat get paid on schedule, with a reminder before each one, so the transfers you send can be for everything else.
+
+## Related reading
+
+- [How to Pay a Family Member's DSTV or Electricity Bill](/blog/pay-family-dstv-electricity-bill)
+- [How to Pay Bills for Family Back Home in Nigeria From Canada](/blog/pay-nigerian-bills-from-canada)

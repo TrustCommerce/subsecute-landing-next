@@ -46,3 +46,8 @@ The money was never the problem. The timing was, and the timing was being manage
 Subsecute is built for the recurring version of this. You set up the bill once, it is paid on schedule, and you get told before each payment goes out.
 
 You are not checking a rate every month. You are not sending instructions. You are not asking anyone whether it went through.
+
+## Related reading
+
+- [Sending Money Home vs Paying the Bill Directly](/blog/sending-money-home-vs-paying-the-bill)
+- [How to Pay a Family Member's DSTV or Electricity Bill](/blog/pay-family-dstv-electricity-bill)

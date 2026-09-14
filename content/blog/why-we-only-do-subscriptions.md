@@ -37,3 +37,8 @@ None of this is technically hard. It just requires the subscription to be the ma
 Being honest about it: Subsecute is not where you save, invest, or send money to a friend.
 
 You keep your bank for banking. You use this for the recurring stuff that your bank was never going to organise for you.
+
+## Related reading
+
+- [What Happens to Your Money and Your Data](/blog/what-happens-to-your-money-and-your-data)
+- [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal)
