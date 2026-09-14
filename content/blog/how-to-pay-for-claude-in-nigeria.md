@@ -15,7 +15,7 @@ howto:
     - "Open your account settings and find the plan section."
     - "Choose Claude Pro, monthly or annual."
     - "Enter your card details, using a billing address that matches the card."
-    - "Confirm with your bank that international transactions are enabled, and check your quarterly dollar limit."
+    - "Confirm with your bank that international transactions are enabled on the card."
 ---
 
 ![AI tools billed abroad, each on its own card](/images/blog/tools-work-together.webp)
@@ -37,9 +37,9 @@ Your bank converts that to naira at its own rate on the day the charge lands, an
 3. Choose Claude Pro, monthly or annual.
 4. Enter your card details, using a billing address that matches the card.
 
-Before you start, make sure international transactions are actually enabled on your card. Nigerian banks switched them off through the 2022 dollar shortage, and only brought them back in July 2025, when [GTBank, Stanbic IBTC, First Bank and Wema resumed the service](https://www.cnbcafrica.com/2025/nigerian-banks-resume-naira-debit-card-use-abroad-after-three-year-pause) with limits as low as $500 a month.
+Before you start, make sure international transactions are actually enabled on your card. Nigerian banks switched them off through the 2022 dollar shortage and [only restored them in July 2025](https://www.cnbcafrica.com/2025/nigerian-banks-resume-naira-debit-card-use-abroad-after-three-year-pause), so it is worth confirming with your bank rather than assuming.
 
-Those limits have risen sharply since. As of [September 2026](https://nairametrics.com/2026/09/07/gtco-firstbank-zenith-bank-others-raise-dollar-spending-limits-as-fx-scarcity-eases/), GTBank allows $40,000 a quarter, Zenith $50,000 a year, UBA $20,000 on POS, FirstBank $10,000 a quarter and Stanbic IBTC $8,000, on the back of foreign reserves crossing $54 billion. For a $20 subscription the ceiling is no longer the problem. Whether the card is switched on for international use, and whether the charge clears on the day, still is.
+Even with the card switched on, the charge still has to clear on the exact day the merchant asks, and nobody tells you when it does not. You find out later, when the subscription has already stopped.
 
 ## Why the charge fails
 
@@ -74,3 +74,4 @@ If you are covering a subscription for somebody else, which is common enough wit
 - [How to Pay for ChatGPT Plus in Nigeria](/blog/how-to-pay-for-chatgpt-plus-in-nigeria)
 - [How to Pay for Netflix in Nigeria](/blog/how-to-pay-for-netflix-in-nigeria)
 - [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal)
+- [Subsecute vs Grey for Paying Subscriptions](/blog/subsecute-vs-grey-for-subscriptions)
