@@ -35,8 +35,6 @@ Check their page before you rely on them.
 
 **Getting dollars into naira.** ₦35 flat to withdraw is cheap, and it is instant. Again, not something Subsecute does.
 
-**One card for everything.** Grey gives you a card and it works on Apple Pay and Google Pay in supported regions. Subsecute issues a separate card per subscription, which is useful for cancelling one without touching the rest, and no use at all if what you wanted was a single card.
-
 ## What happens to a subscription on each
 
 Grey's [own guidance](https://grey.co/blog/virtual-cards-updates) tells you to top up the card before the due date. It also says what happens if you do not. The card freezes after "two(2) initiated transactions with insufficient funds", and after "four (4) failed transactions" it is terminated permanently.
@@ -57,7 +55,7 @@ The date is the product, not something you hold in your head.
 
 ## Which one to pick
 
-**Pick Grey** if you are paid in dollars, or if you want one card you spend with generally.
+**Pick Grey** if you are paid in dollars and want somewhere for them to land.
 
 **Pick Subsecute** if the recurring charges are the thing going wrong. If you have lost a subscription to a failed renewal, if you are covering bills for someone else, or if you would rather answer one message a month than remember five dates.
 
