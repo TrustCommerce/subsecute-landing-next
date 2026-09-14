@@ -44,5 +44,6 @@ The complete Privacy Policy and Terms of Service are on the site. If something i
 
 ## Related reading
 
+- [How to Pay for ChatGPT Plus in Nigeria](/blog/how-to-pay-for-chatgpt-plus-in-nigeria)
 - [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal)
 - [Why We Built an App That Only Does Subscriptions](/blog/why-we-only-do-subscriptions)

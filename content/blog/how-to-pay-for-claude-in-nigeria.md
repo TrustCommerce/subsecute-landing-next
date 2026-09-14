@@ -37,13 +37,15 @@ Your bank converts that to naira at its own rate on the day the charge lands, an
 3. Choose Claude Pro, monthly or annual.
 4. Enter your card details, using a billing address that matches the card.
 
-Before you start, confirm your card can actually make international payments. Many Nigerian banks switched international transactions off on naira cards during the 2022 to 2023 forex squeeze and only switched them back on in 2025, usually with a quarterly dollar limit. If the charge keeps failing, that is the first thing to check with your bank, along with what your limit currently is.
+Before you start, make sure international transactions are actually enabled on your card. Nigerian banks switched them off through the 2022 dollar shortage, and only brought them back in July 2025, when [GTBank, Stanbic IBTC, First Bank and Wema resumed the service](https://www.cnbcafrica.com/2025/nigerian-banks-resume-naira-debit-card-use-abroad-after-three-year-pause) with limits as low as $500 a month.
+
+Those limits have risen sharply since. As of [September 2026](https://nairametrics.com/2026/09/07/gtco-firstbank-zenith-bank-others-raise-dollar-spending-limits-as-fx-scarcity-eases/), GTBank allows $40,000 a quarter, Zenith $50,000 a year, UBA $20,000 on POS, FirstBank $10,000 a quarter and Stanbic IBTC $8,000, on the back of foreign reserves crossing $54 billion. For a $20 subscription the ceiling is no longer the problem. Whether the card is switched on for international use, and whether the charge clears on the day, still is.
 
 ## Why the charge fails
 
 It is almost never Anthropic. It is the crossing.
 
-- Your card's international spending limit has to cover $20 at that day's rate, and some banks only re-enabled these transactions in 2025
+- International transactions have to be switched on for the card at all, which many banks only restored in July 2025
 - If the naira moves, a charge that fit last month might not fit this month
 - International transactions have to be enabled on the card at all
 - Any conversion fee sits on top of the $20
@@ -69,6 +71,6 @@ If you are covering a subscription for somebody else, which is common enough wit
 
 ## Related reading
 
-- [How to Pay for ChatGPT Plus in Nigeria](/blog/how-to-pay-for-chatgpt-plus-in-nigeria) covers the OpenAI side, and the wider set of foreign-billed tools.
-- [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal) explains the before-the-date mechanic in detail.
-- [How to Pay for Netflix in Nigeria](/blog/how-to-pay-for-netflix-in-nigeria) covers the naira-billed side for comparison.
+- [How to Pay for ChatGPT Plus in Nigeria](/blog/how-to-pay-for-chatgpt-plus-in-nigeria)
+- [How to Pay for Netflix in Nigeria](/blog/how-to-pay-for-netflix-in-nigeria)
+- [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal)

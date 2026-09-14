@@ -56,5 +56,7 @@ After that, the job is keeping the number visible so it never creeps back up qui
 
 ## Related reading
 
+- [How to Pay for Netflix in Nigeria](/blog/how-to-pay-for-netflix-in-nigeria)
 - [Subscriptions You Forgot You Are Still Paying For](/blog/subscriptions-you-forgot-you-are-paying-for)
 - [What Netflix, Prime Video and YouTube Premium Cost in Naira](/blog/streaming-subscription-prices-nigeria)
+- Or work out what your own subscriptions cost you a year with the [Subsecute bill calculator](/calculator).

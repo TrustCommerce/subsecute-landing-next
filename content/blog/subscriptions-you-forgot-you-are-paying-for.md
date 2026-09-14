@@ -60,5 +60,7 @@ The point of an app like Subsecute is that this list stays visible. Every subscr
 
 ## Related reading
 
+- [How to Pay for ChatGPT Plus in Nigeria](/blog/how-to-pay-for-chatgpt-plus-in-nigeria)
 - [How Much Nigerians Actually Spend on Subscriptions](/blog/how-much-nigerians-spend-on-subscriptions)
 - [Why Automating Your Subscriptions Is Good for You](/blog/why-automating-your-subscriptions-is-good-for-you)
+- Or work out what your own subscriptions cost you a year with the [Subsecute bill calculator](/calculator).

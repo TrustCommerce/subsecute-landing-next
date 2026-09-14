@@ -50,5 +50,6 @@ In exchange you get told before money moves, a separate card per subscription so
 
 ## Related reading
 
+- [How to Pay for Claude in Nigeria](/blog/how-to-pay-for-claude-in-nigeria)
 - [What Happens to Your Money and Your Data](/blog/what-happens-to-your-money-and-your-data)
 - [Why Automating Your Subscriptions Is Good for You](/blog/why-automating-your-subscriptions-is-good-for-you)

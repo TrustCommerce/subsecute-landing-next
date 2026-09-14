@@ -55,3 +55,4 @@ Subsecute puts all of them on one screen with the amounts and the dates, so this
 - [How to Pay for Netflix in Nigeria](/blog/how-to-pay-for-netflix-in-nigeria)
 - [How to Pay for Spotify Premium in Nigeria](/blog/how-to-pay-for-spotify-premium-in-nigeria)
 - [How Much Nigerians Actually Spend on Subscriptions](/blog/how-much-nigerians-spend-on-subscriptions)
+- Or work out what your own subscriptions cost you a year with the [Subsecute bill calculator](/calculator).

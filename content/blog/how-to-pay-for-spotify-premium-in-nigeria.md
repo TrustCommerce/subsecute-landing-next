@@ -41,7 +41,7 @@ Look at Family for a second. ₦2,500 for six people is about ₦417 each. If yo
 4. Choose Credit or Debit Card.
 5. Enter your card and your real billing address.
 
-Before you start, know that Spotify prices in naira but is still a foreign merchant, so a naira card can be declined if your bank has international transactions switched off or capped. That is the usual reason a first attempt fails. Banks restricted this between 2022 and 2023 and eased it in 2025.
+Before you start, know that Spotify prices in naira but is still a foreign merchant, so a naira card can be declined if your bank has international transactions switched off or capped. That is the usual reason a first attempt fails. Nigerian banks switched these off through the 2022 dollar shortage and [only restored them in July 2025](https://www.cnbcafrica.com/2025/nigerian-banks-resume-naira-debit-card-use-abroad-after-three-year-pause).
 
 ## The family plan problem
 
@@ -60,5 +60,6 @@ The money moves as a gift, on purpose, instead of a debt you are quietly carryin
 ## Related reading
 
 - [How to Pay for Netflix in Nigeria](/blog/how-to-pay-for-netflix-in-nigeria)
+- [How to Pay for Claude in Nigeria](/blog/how-to-pay-for-claude-in-nigeria)
 - [What Netflix, Prime Video and YouTube Premium Cost in Naira](/blog/streaming-subscription-prices-nigeria)
-- [Subscriptions You Forgot You Are Still Paying For](/blog/subscriptions-you-forgot-you-are-paying-for)
+- Or work out what your own subscriptions cost you a year with the [Subsecute bill calculator](/calculator).

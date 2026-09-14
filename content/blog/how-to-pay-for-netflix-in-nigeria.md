@@ -38,7 +38,7 @@ There is no annual plan in Nigeria. Everything is billed monthly, on the same da
 
 ## The payment methods that work
 
-**Naira debit card.** Verve, Visa or Mastercard from your bank. Netflix bills in naira, so a working naira card is usually enough. The catch is that Netflix is still a foreign merchant, so the charge can be blocked if your bank has international transactions switched off or capped. Many banks restricted this between 2022 and 2023 and only eased it in 2025, so if your card is being declined, that is the first thing to check.
+**Naira debit card.** Verve, Visa or Mastercard from your bank. Netflix bills in naira, so a working naira card is usually enough. The catch is that Netflix is still a foreign merchant, so the charge can be blocked if your bank has international transactions switched off or capped. Nigerian banks switched international transactions off through the 2022 dollar shortage and [only restored them in July 2025](https://www.cnbcafrica.com/2025/nigerian-banks-resume-naira-debit-card-use-abroad-after-three-year-pause), so if your card is being declined, whether it is enabled for international use is the first thing to check.
 
 **Virtual card.** Works the same way. Useful if you want the subscription separated from your main account.
 
@@ -77,5 +77,6 @@ That is what Subsecute does. Your Netflix subscription gets its own card, we cha
 ## Related reading
 
 - [How to Pay for Spotify Premium in Nigeria](/blog/how-to-pay-for-spotify-premium-in-nigeria)
-- [What Netflix, Prime Video and YouTube Premium Cost in Naira](/blog/streaming-subscription-prices-nigeria)
 - [How to Pay for ChatGPT Plus in Nigeria](/blog/how-to-pay-for-chatgpt-plus-in-nigeria)
+- [What Netflix, Prime Video and YouTube Premium Cost in Naira](/blog/streaming-subscription-prices-nigeria)
+- Or work out what your own subscriptions cost you a year with the [Subsecute bill calculator](/calculator).

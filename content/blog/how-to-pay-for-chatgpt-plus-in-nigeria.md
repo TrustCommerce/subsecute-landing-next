@@ -40,7 +40,9 @@ Using ChatGPT Plus as the example:
 3. Enter your card details.
 4. Use a billing address that matches your card.
 
-Before you start, make sure your naira card works for international payments. Many Nigerian banks switched off international transactions on naira cards during the 2022 to 2023 forex squeeze and only turned them back on in 2025, usually with a quarterly dollar limit. If a foreign charge keeps failing, confirm with your bank that international transactions are on, and check what your limit is.
+Before you start, make sure international transactions are actually enabled on your card. Nigerian banks switched them off through the 2022 dollar shortage, and only brought them back in July 2025, when [GTBank, Stanbic IBTC, First Bank and Wema resumed the service](https://www.cnbcafrica.com/2025/nigerian-banks-resume-naira-debit-card-use-abroad-after-three-year-pause) with limits as low as $500 a month.
+
+Those limits have risen sharply since. As of [September 2026](https://nairametrics.com/2026/09/07/gtco-firstbank-zenith-bank-others-raise-dollar-spending-limits-as-fx-scarcity-eases/), GTBank allows $40,000 a quarter, Zenith $50,000 a year, UBA $20,000 on POS, FirstBank $10,000 a quarter and Stanbic IBTC $8,000, on the back of foreign reserves crossing $54 billion. For a $20 subscription the ceiling is no longer the problem. Whether the card is switched on for international use, and whether the charge clears on the day, still is.
 
 ## The same problem hits Claude, Twitch and the rest
 
@@ -66,7 +68,7 @@ Midjourney, Cursor, GitHub Copilot, Notion and Figma mostly bill in dollars too.
 
 Because the charge is foreign:
 
-- Your card's international spending limit has to cover the amount at that day's rate, and some banks only switched these transactions back on in 2025
+- International transactions have to be switched on for the card at all, which many banks only restored in July 2025
 - If the naira moves, a charge that fit last month might not fit this month
 - International transactions have to be enabled on your card in the first place
 - Any conversion fee is on top, so budget slightly above the sticker price
@@ -81,6 +83,6 @@ Better still, stop holding the dates in your head. Subsecute tracks each renewal
 
 ## Related reading
 
-- [How to Pay for Claude in Nigeria](/blog/how-to-pay-for-claude-in-nigeria) for Anthropic's subscription specifically.
-- [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal) explains the before-the-date mechanic.
-- [How to Pay for Netflix in Nigeria](/blog/how-to-pay-for-netflix-in-nigeria) and [Spotify Premium](/blog/how-to-pay-for-spotify-premium-in-nigeria) cover the naira-billed side.
+- [How to Pay for Claude in Nigeria](/blog/how-to-pay-for-claude-in-nigeria)
+- [How to Pay for Netflix in Nigeria](/blog/how-to-pay-for-netflix-in-nigeria)
+- [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal)

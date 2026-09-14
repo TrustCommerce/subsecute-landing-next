@@ -90,5 +90,6 @@ Subsecute runs every subscription you have. Funds them, tracks them, shares them
 
 ## Related reading
 
+- [How to Pay for Netflix in Nigeria](/blog/how-to-pay-for-netflix-in-nigeria)
 - [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal)
 - [Subscriptions You Forgot You Are Still Paying For](/blog/subscriptions-you-forgot-you-are-paying-for)

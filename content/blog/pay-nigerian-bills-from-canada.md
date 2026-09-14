@@ -50,5 +50,7 @@ You are not checking a rate every month. You are not sending instructions. You a
 
 ## Related reading
 
-- [Sending Money Home vs Paying the Bill Directly](/blog/sending-money-home-vs-paying-the-bill)
 - [How to Pay a Family Member's DSTV or Electricity Bill](/blog/pay-family-dstv-electricity-bill)
+- [Sending Money Home vs Paying the Bill Directly](/blog/sending-money-home-vs-paying-the-bill)
+- [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal)
+- Or plan the bills you cover for family back home with the [Subsecute family planner](/family).

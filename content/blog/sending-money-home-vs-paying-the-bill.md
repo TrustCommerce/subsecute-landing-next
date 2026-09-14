@@ -44,5 +44,7 @@ Subsecute handles the recurring half. The bills that repeat get paid on schedule
 
 ## Related reading
 
-- [How to Pay a Family Member's DSTV or Electricity Bill](/blog/pay-family-dstv-electricity-bill)
 - [How to Pay Bills for Family Back Home in Nigeria From Canada](/blog/pay-nigerian-bills-from-canada)
+- [How to Pay a Family Member's DSTV or Electricity Bill](/blog/pay-family-dstv-electricity-bill)
+- [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal)
+- Or plan the bills you cover for family back home with the [Subsecute family planner](/family).

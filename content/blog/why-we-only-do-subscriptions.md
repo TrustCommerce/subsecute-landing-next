@@ -41,5 +41,6 @@ You keep your bank for banking. You use this for the recurring stuff that your b
 
 ## Related reading
 
-- [What Happens to Your Money and Your Data](/blog/what-happens-to-your-money-and-your-data)
+- [How to Pay for Claude in Nigeria](/blog/how-to-pay-for-claude-in-nigeria)
 - [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal)
+- [What Happens to Your Money and Your Data](/blog/what-happens-to-your-money-and-your-data)
