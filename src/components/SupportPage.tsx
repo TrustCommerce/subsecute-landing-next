@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Footer from "./Footer";
+import DownloadCta from "./DownloadCta";
 
 const HELP_TOPICS = [
   "Billing and payments",
@@ -59,6 +60,13 @@ export default function SupportPage() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          <div className="mt-12 w-full">
+            <DownloadCta
+              heading="Still need the app?"
+              sub="Subsecute is live on iOS and Android. Most questions are quicker to answer with it in front of you."
+            />
           </div>
 
           <p className="mt-10 font-outfit text-sm text-[#5c5c54]">

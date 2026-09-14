@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Footer from "./Footer";
+import DownloadCta from "./DownloadCta";
 
 const APP_STEPS = [
   "Open Subsecute and sign in",
@@ -180,6 +181,13 @@ export default function DeleteAccountPage() {
             . Subsecute is a product of TrustCommerce Resources Ltd (RC
             7131175).
           </p>
+
+          <div className="mt-12 w-full">
+            <DownloadCta
+              heading="Changed your mind?"
+              sub="If you closed your account by accident, or you want to start again, Subsecute is on iOS and Android."
+            />
+          </div>
         </div>
       </main>
       <Footer />

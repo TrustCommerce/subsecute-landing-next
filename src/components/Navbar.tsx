@@ -66,12 +66,12 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
-          <a
-            href="#download"
+          <Link
+            href="/#download"
             className="rounded-full bg-ink px-5 py-2 font-outfit text-sm font-medium text-paper transition-colors hover:bg-accent"
           >
             Get the App
-          </a>
+          </Link>
         </div>
 
         {/* Mobile hamburger — animated to X */}
@@ -180,13 +180,13 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="mt-auto pt-6">
-            <a
-              href="#download"
+            <Link
+              href="/#download"
               onClick={close}
               className="flex h-12 w-full items-center justify-center rounded-full bg-[#E96D1F] font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90"
             >
               Get the App
-            </a>
+            </Link>
           </div>
         </div>
 

@@ -77,7 +77,7 @@ const FOOTER_LINKS = [
     links: [
       { label: "Features", href: "#features" },
       { label: "How it works", href: "#how-it-works" },
-      { label: "Downloads", href: "#download" },
+      { label: "Downloads", href: "/#download" },
     ],
   },
   {
