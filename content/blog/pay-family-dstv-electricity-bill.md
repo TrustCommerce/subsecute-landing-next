@@ -2,6 +2,7 @@
 title: How to Pay a Family Member's DSTV or Electricity Bill Without Calling Them
 description: What you need to pay someone else's cable or power bill in Nigeria, and how to set it up so it happens every month on its own.
 date: "2026-08-12"
+updated: "2026-09-14"
 author: The Subsecute Team
 image: /images/blog/household-bills-dashboard.jpg
 tags:

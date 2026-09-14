@@ -17,15 +17,36 @@ function isPublished(date: string): boolean {
   return date <= today;
 }
 
+/** Optional HowTo block. Written out in frontmatter rather than scraped from
+ *  the rendered markdown, so the author decides what counts as a step. */
+export interface HowTo {
+  name: string;
+  steps: string[];
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
   description: string;
+  /** Publication date. This alone drives the publish gate. */
   date: string;
+  /** Last substantive edit. Falls back to `date`. Never affects publishing. */
+  updated: string;
   author: string;
   tags: string[];
   image: string;
+  howto?: HowTo;
   content: string;
+}
+
+/** Frontmatter is untyped, so narrow it before trusting it. */
+function readHowTo(data: Record<string, unknown>): HowTo | undefined {
+  const raw = data.howto as { name?: unknown; steps?: unknown } | undefined;
+  if (!raw || typeof raw.name !== "string" || !Array.isArray(raw.steps)) {
+    return undefined;
+  }
+  const steps = raw.steps.filter((s): s is string => typeof s === "string");
+  return steps.length > 0 ? { name: raw.name, steps } : undefined;
 }
 
 export function getAllPosts(): Omit<BlogPost, "content">[] {
@@ -44,6 +65,7 @@ export function getAllPosts(): Omit<BlogPost, "content">[] {
       title: data.title || slug,
       description: data.description || "",
       date: data.date || "",
+      updated: data.updated || data.date || "",
       author: data.author || "Subsecute Team",
       tags: data.tags || [],
       image: data.image || "",
@@ -74,9 +96,11 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     title: data.title || slug,
     description: data.description || "",
     date: data.date || "",
+    updated: data.updated || data.date || "",
     author: data.author || "Subsecute Team",
     tags: data.tags || [],
     image: data.image || "",
+    howto: readHowTo(data),
     content,
   };
 }

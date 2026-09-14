@@ -2,6 +2,7 @@
 title: Sending Money Home vs Paying the Bill Directly
 description: Two ways to support family in Nigeria from abroad. Each is better in different situations. Here is how to tell which one you need.
 date: "2026-08-11"
+updated: "2026-09-14"
 author: The Subsecute Team
 image: /images/blog/deciding-how-to-pay.png
 tags:

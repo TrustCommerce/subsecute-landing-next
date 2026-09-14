@@ -2,6 +2,7 @@
 title: How Much Nigerians Actually Spend on Subscriptions Every Month
 description: Streaming, music, cable, storage, AI tools. Added up, the average Nigerian subscription bill is bigger than most people expect.
 date: "2026-08-07"
+updated: "2026-09-14"
 author: The Subsecute Team
 image: /images/blog/subscription-spend-breakdown.png
 tags:

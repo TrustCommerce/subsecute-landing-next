@@ -1,3 +1,4 @@
+import { SITE_URL } from "@/config";
 import { FAQS } from "./faqs";
 
 export const APP_SCHEMA = {
@@ -42,6 +43,7 @@ export function blogPostingSchema(post: {
   title: string;
   description: string;
   date: string;
+  updated?: string;
   author: string;
   image?: string;
 }) {
@@ -54,7 +56,9 @@ export function blogPostingSchema(post: {
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     datePublished: post.date,
-    dateModified: post.date,
+    // Recency is weighted heavily by answer engines, so an edited post has to
+    // say so. Falls back to the publish date when it has never been touched.
+    dateModified: post.updated || post.date,
     ...(post.image ? { image: [`https://subsecute.com${post.image}`] } : {}),
     author: { "@type": "Organization", name: post.author || "Subsecute" },
     publisher: {
@@ -94,3 +98,30 @@ export const FAQ_SCHEMA = {
     acceptedAnswer: { "@type": "Answer", text: faq.answer },
   })),
 };
+
+/**
+ * HowTo markup for the step-by-step posts. This is the schema that lets an
+ * answer engine lift the steps out as a structured answer rather than
+ * paraphrasing the prose around them.
+ */
+export function howToSchema(post: {
+  slug: string;
+  howto: { name: string; steps: string[] };
+  description: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: post.howto.name,
+    description: post.description,
+    ...(post.image ? { image: `${SITE_URL}${post.image}` } : {}),
+    step: post.howto.steps.map((text, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: text.split(/[.:]/)[0].slice(0, 80),
+      text,
+      url: `${SITE_URL}/blog/${post.slug}`,
+    })),
+  };
+}

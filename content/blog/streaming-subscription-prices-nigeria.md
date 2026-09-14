@@ -2,6 +2,7 @@
 title: What Netflix, Prime Video and YouTube Premium Cost in Naira
 description: A straight comparison of what the main streaming services cost per month in Nigeria, and which one gives you the most for your money.
 date: "2026-08-06"
+updated: "2026-09-14"
 author: The Subsecute Team
 image: /images/blog/streaming-expenses-screen.jpg
 tags:

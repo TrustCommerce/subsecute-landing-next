@@ -2,6 +2,7 @@
 title: Subscriptions You Forgot You Are Still Paying For
 description: The recurring charges that hide in plain sight, and a ten-minute audit to find every one of them.
 date: "2026-08-09"
+updated: "2026-09-14"
 author: The Subsecute Team
 image: /images/blog/reviewing-subscriptions-on-laptop.png
 tags:

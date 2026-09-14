@@ -2,6 +2,7 @@
 title: Why We Built an App That Only Does Subscriptions
 description: Most finance apps try to do everything. Subsecute does one thing. Here is the reasoning behind that, and what you give up.
 date: "2026-08-13"
+updated: "2026-09-14"
 author: The Subsecute Team
 image: /images/blog/built-around-how-you-subscribe.jpg
 tags:

@@ -2,11 +2,20 @@
 title: How to Pay for Claude in Nigeria (2026)
 description: Claude Pro is billed in US dollars by Anthropic, not in naira. Here is what it costs, how to subscribe from Nigeria, why the charge fails, and how to stop it failing.
 date: "2026-09-14"
+updated: "2026-09-14"
 author: The Subsecute Team
 image: /images/blog/tools-work-together.webp
 tags:
   - Claude
   - USD Cards
+howto:
+  name: "How to pay for Claude Pro from Nigeria"
+  steps:
+    - "Log in at claude.ai."
+    - "Open your account settings and find the plan section."
+    - "Choose Claude Pro, monthly or annual."
+    - "Enter your card details, using a billing address that matches the card."
+    - "Confirm with your bank that international transactions are enabled, and check your quarterly dollar limit."
 ---
 
 ![AI tools billed abroad, each on its own card](/images/blog/tools-work-together.webp)
@@ -60,6 +69,6 @@ If you are covering a subscription for somebody else, which is common enough wit
 
 ## Related reading
 
-- [How to Pay for ChatGPT, Claude and Other Dollar Subscriptions in Nigeria](/blog/how-to-pay-for-chatgpt-plus-in-nigeria) covers the wider set of foreign-billed tools.
+- [How to Pay for ChatGPT Plus in Nigeria](/blog/how-to-pay-for-chatgpt-plus-in-nigeria) covers the OpenAI side, and the wider set of foreign-billed tools.
 - [How Subsecute Pays for a Renewal](/blog/how-subsecute-pays-a-renewal) explains the before-the-date mechanic in detail.
 - [How to Pay for Netflix in Nigeria](/blog/how-to-pay-for-netflix-in-nigeria) covers the naira-billed side for comparison.

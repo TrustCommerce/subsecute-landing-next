@@ -2,6 +2,7 @@
 title: How Subsecute Pays for a Renewal
 description: Most apps save your card and let the merchant charge it on the day. Subsecute charges your payment method before the date, and tells you first.
 date: "2026-08-14"
+updated: "2026-09-14"
 author: The Subsecute Team
 image: /images/blog/all-subscriptions-one-place.jpg
 tags:

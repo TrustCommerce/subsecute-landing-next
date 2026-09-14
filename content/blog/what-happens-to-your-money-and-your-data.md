@@ -2,6 +2,7 @@
 title: What Happens to Your Money and Your Data at Subsecute
 description: A plain explanation of how Subsecute handles your funds and your personal information, without the legal language.
 date: "2026-08-15"
+updated: "2026-09-14"
 author: The Subsecute Team
 image: /images/blog/no-interest-no-surprises.png
 tags:

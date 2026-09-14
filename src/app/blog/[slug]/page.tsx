@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
-import { blogPostingSchema } from "@/lib/structured-data";
+import { blogPostingSchema, howToSchema } from "@/lib/structured-data";
 import ShareArticle from "@/components/ShareArticle";
 import { SITE_URL } from "@/config";
 
@@ -63,6 +63,23 @@ export default async function BlogPost({ params }: Props) {
           __html: JSON.stringify(blogPostingSchema(post)),
         }}
       />
+      {/* Step-by-step posts also carry HowTo, which is what lets an answer
+          engine lift the steps out as structured instructions. */}
+      {post.howto && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              howToSchema({
+                slug,
+                howto: post.howto,
+                description: post.description,
+                image: post.image,
+              }),
+            ),
+          }}
+        />
+      )}
       <nav className="border-b border-[#DEE2E6] bg-white px-4 py-4">
         <div className="mx-auto flex max-w-[800px] items-center justify-between">
           <Link href="/">
@@ -83,10 +100,21 @@ export default async function BlogPost({ params }: Props) {
 
       <article className="mx-auto max-w-[800px] px-4 py-16">
         <div className="mb-8">
-          <div className="mb-3 flex items-center gap-3">
-            <time className="font-outfit text-sm text-[#ADB5BD]">
+          <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1">
+            <time
+              dateTime={post.date}
+              className="font-outfit text-sm text-[#ADB5BD]"
+            >
               {post.date}
             </time>
+            {/* Recency is weighted heavily by answer engines, and a reader
+                deserves to know the page was revisited. Only shown when the
+                post has actually been edited since publication. */}
+            {post.updated && post.updated !== post.date && (
+              <span className="font-outfit text-sm text-[#6C757D]">
+                Last updated <time dateTime={post.updated}>{post.updated}</time>
+              </span>
+            )}
             <span className="font-outfit text-sm text-[#ADB5BD]">
               by {post.author}
             </span>

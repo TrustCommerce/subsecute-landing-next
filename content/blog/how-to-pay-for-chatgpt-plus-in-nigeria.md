@@ -2,12 +2,21 @@
 title: How to Pay for ChatGPT Plus in Nigeria (2026)
 description: ChatGPT Plus is billed in US dollars by OpenAI, not in naira. What it costs, how to subscribe from Nigeria, why the charge fails, and how to stop it failing.
 date: "2026-08-05"
+updated: "2026-09-14"
 author: The Subsecute Team
 image: /images/blog/every-subscription-one-dashboard.jpg
 tags:
   - ChatGPT
   - Claude
   - USD Cards
+howto:
+  name: "How to pay for ChatGPT Plus from Nigeria"
+  steps:
+    - "Log in to chatgpt.com."
+    - "Open Settings, then Subscription, and choose Plus."
+    - "Enter your card details."
+    - "Use a billing address that matches your card."
+    - "Confirm with your bank that international transactions are enabled on the card, and check your quarterly dollar limit."
 ---
 
 ![Every subscription in one dashboard, each on its own card](/images/blog/every-subscription-one-dashboard.jpg)

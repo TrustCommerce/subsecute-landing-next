@@ -2,6 +2,7 @@
 title: How to Pay Bills for Family Back Home in Nigeria From Canada
 description: Paying a family member's electricity, cable or school bill from Canada without sending money, waiting, and following up twice.
 date: "2026-08-10"
+updated: "2026-09-14"
 author: The Subsecute Team
 image: /images/blog/subscriptions-better-together.png
 tags:
