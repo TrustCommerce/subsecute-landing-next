@@ -82,7 +82,7 @@ export default function ShareArticle({ url, title }: Props) {
 
       {copied && (
         <p className="font-outfit text-xs tracking-wide text-[#E96D1F]">
-          Link copied — paste it into your story or bio.
+          Link copied. Paste it into your story or bio.
         </p>
       )}
     </div>

@@ -35,7 +35,7 @@ export const FAQS = [
   {
     question: "How is Subsecute different from Grey.co or Chipper Cash?",
     answer:
-      "Unlike general-purpose dollar cards, Subsecute is purpose-built for recurring payments. Each subscription gets its own dedicated card, auto-funded before renewal, with reminders and spend tracking. Plus, Subsecute also handles local bill payments — airtime, data, power, and cable — so everything recurring lives in one place.",
+      "Unlike general-purpose dollar cards, Subsecute is purpose-built for recurring payments. Each subscription gets its own dedicated card, auto-funded before renewal, with reminders and spend tracking. Subsecute also handles local bill payments, including airtime, data, power and cable, so everything recurring lives in one place.",
   },
   {
     question: "Can I use Subsecute for family or team subscription plans?",
@@ -55,6 +55,6 @@ export const FAQS = [
   {
     question: "How can I pay for my Claude subscription in Nigeria?",
     answer:
-      "Subsecute creates a dedicated virtual USD card for your Claude subscription and funds it from your saved card or direct debit before each renewal. Add Claude as a subscription and it runs itself — no manual transfers, no charge landing on your naira card at the worst moment.",
+      "Subsecute creates a dedicated virtual USD card for your Claude subscription and funds it from your saved card or direct debit before each renewal. Add Claude as a subscription and it runs itself. No manual transfers, and no charge landing on your naira card at the worst moment.",
   },
 ] as const;

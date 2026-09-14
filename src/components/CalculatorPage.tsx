@@ -1085,8 +1085,8 @@ export default function CalculatorPage() {
                     Subsecute monitors every leak.
                   </p>
                   <p className="mt-2 font-outfit text-xs text-[#6C757D]">
-                    Join the waitlist and we&apos;ll let you know when it&apos;s
-                    live.
+                    Send yourself the breakdown, then get the app and plug the
+                    leaks.
                   </p>
                   <form
                     onSubmit={handleSubmit}
@@ -1112,7 +1112,7 @@ export default function CalculatorPage() {
                     >
                       {formStatus === "loading"
                         ? "Sending..."
-                        : "Join waitlist"}
+                        : "Email me this"}
                     </button>
                   </form>
                   {formStatus === "error" && (

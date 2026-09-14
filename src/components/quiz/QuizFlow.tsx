@@ -399,7 +399,7 @@ export default function QuizFlow() {
               Your score is ready!
             </h2>
             <p className="mb-8 font-outfit text-sm text-[#6C757D] sm:text-base">
-              Join the waitlist to get your score and early access.
+              Enter your email to get your score and the fixes.
             </p>
             <form
               onSubmit={handleEmailSubmit}
@@ -523,7 +523,7 @@ export default function QuizFlow() {
 
             <div className="flex flex-col items-center gap-3">
               <p className="font-outfit text-xs text-[#6C757D]">
-                Challenge a friend — share your score
+                Challenge a friend, share your score
               </p>
               <div className="flex items-center gap-3">
                 <a
@@ -569,7 +569,7 @@ export default function QuizFlow() {
                   Subsecute fixes all of this.
                 </p>
                 <p className="font-outfit text-xs text-[#6C757D]">
-                  Join the waitlist for early access.
+                  Get the app, or send yourself the fixes first.
                 </p>
                 <button
                   type="button"
@@ -580,7 +580,7 @@ export default function QuizFlow() {
                   }}
                   className="mt-1 h-11 rounded-full bg-[#E96D1F] px-7 font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90"
                 >
-                  Join the waitlist
+                  Email me the fixes
                 </button>
               </div>
             )}

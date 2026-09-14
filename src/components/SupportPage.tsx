@@ -39,7 +39,7 @@ export default function SupportPage() {
               >
                 support@subsecute.com
               </a>{" "}
-              and we&apos;ll get back to you within 1–2 business days.
+              and we&apos;ll get back to you within one to two business days.
             </p>
 
             <h2 className="mt-8 font-neue-power text-xl font-bold text-[#232323]">

@@ -262,7 +262,7 @@ export default function ResultsStep({
               <p className="text-center font-outfit text-base font-semibold text-[#232323]">
                 {totalMonthly > 0
                   ? `Stop sending money every month manually.`
-                  : `Join the waitlist for early access.`}
+                  : `Send yourself the plan, then get the app.`}
               </p>
               <p className="mt-2 text-center font-outfit text-xs text-[#6C757D]">
                 {totalMonthly > 0
@@ -291,7 +291,7 @@ export default function ResultsStep({
                   disabled={status === "loading"}
                   className="h-11 shrink-0 rounded-full bg-[#E96D1F] px-6 font-outfit text-sm font-medium tracking-wide text-white transition-opacity hover:opacity-90 disabled:opacity-60"
                 >
-                  {status === "loading" ? "Joining..." : "Join waitlist"}
+                  {status === "loading" ? "Sending..." : "Email me this plan"}
                 </button>
               </form>
               {status === "error" && (

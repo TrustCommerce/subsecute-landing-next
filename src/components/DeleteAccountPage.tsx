@@ -122,7 +122,7 @@ export default function DeleteAccountPage() {
                 subscriptions. Nothing in it is used for anything. It is never
                 used to contact you and never used for marketing, and nobody
                 goes through it. It exists only because the law requires it, and
-                it is deleted once the retention period ends — at least five
+                it is deleted once the retention period ends, at least five
                 years, which is what anti-money-laundering law and our
                 agreements with our licensed providers require.
               </p>

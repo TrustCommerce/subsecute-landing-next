@@ -16,7 +16,7 @@ The obvious way to build this app is to hand your card to Netflix and let Netfli
 
 We do it slightly differently, and it is a fair thing to ask about.
 
-Each subscription you add gets its own virtual card. Ahead of the renewal date, we charge the payment method you added — your card or your direct debit — for that one subscription, and put the money on that one card. When the merchant comes to collect, it is already sitting there.
+Each subscription you add gets its own virtual card. Ahead of the renewal date, we charge the payment method you added, your card or your direct debit, for that one subscription, and put the money on that one card. When the merchant comes to collect, it is already sitting there.
 
 ## Ahead of the date, not on it
 

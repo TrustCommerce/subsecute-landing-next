@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import { blogPostingSchema, howToSchema } from "@/lib/structured-data";
 import ShareArticle from "@/components/ShareArticle";
+import StoreBadges from "@/components/StoreBadges";
 import { SITE_URL } from "@/config";
 
 // Future-dated posts aren't prebuilt (see generateStaticParams). They render
@@ -139,14 +140,9 @@ export default async function BlogPost({ params }: Props) {
             Ready to automate your subscriptions?
           </h2>
           <p className="mb-6 font-outfit text-white/80">
-            Join the waitlist and be first to know when Subsecute launches.
+            Subsecute is live on iOS and Android.
           </p>
-          <Link
-            href="/#download"
-            className="inline-flex h-12 items-center rounded-full bg-[#232323] px-8 font-outfit text-sm font-medium text-white hover:opacity-90"
-          >
-            Join the Waitlist
-          </Link>
+          <StoreBadges tone="paper" className="justify-center" />
         </div>
       </article>
     </div>

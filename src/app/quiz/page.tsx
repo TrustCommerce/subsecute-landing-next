@@ -4,7 +4,7 @@ import { DEFAULT_SHARE_IMAGE, SITE_URL } from "@/config";
 
 const title = "What's Your Subscription Score?";
 const description =
-  "Take the Subsecute Subscription Score quiz. 7 questions, 60 seconds. Find out if you're in control of your subscriptions — or in chaos.";
+  "Take the Subsecute Subscription Score quiz. 7 questions, 60 seconds. Find out if you're in control of your subscriptions, or in chaos.";
 const url = `${SITE_URL}/quiz`;
 
 export const metadata: Metadata = {

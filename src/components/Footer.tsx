@@ -113,7 +113,7 @@ export default function Footer() {
           />
           <p className="font-outfit text-sm leading-[1.5em] tracking-wide text-[#ADB5BD] lg:text-base">
             The recurring money app for Nigerians. Pay your bills, your
-            family&apos;s bills, anyone&apos;s bills — from anywhere.
+            family&apos;s bills, anyone&apos;s bills, from anywhere.
           </p>
           <ul
             role="list"

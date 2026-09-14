@@ -33,19 +33,19 @@ const syne = Syne({
 
 export const metadata: Metadata = {
   title: {
-    default: "Subsecute — The Recurring Money App for Nigerians",
+    default: "Subsecute: The Recurring Money App for Nigerians",
     template: "%s | Subsecute",
   },
   description:
-    "Pay every recurring bill on autopilot — yours, your family's, anyone's. Virtual USD cards for Netflix, Spotify, ChatGPT. Auto-pay for airtime, data, DSTV, and power. Built for Nigerians at home and abroad.",
+    "Pay every recurring bill on autopilot. Yours, your family's, anyone's. Virtual USD cards for Netflix, Spotify, ChatGPT. Auto-pay for airtime, data, DSTV, and power. Built for Nigerians at home and abroad.",
   keywords:
     "automate subscriptions Nigeria, virtual dollar card Nigeria, pay Netflix Nigeria, recurring bill payment Nigeria, auto-pay airtime Nigeria",
   metadataBase: new URL("https://subsecute.com"),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Subsecute — The Recurring Money App for Nigerians",
+    title: "Subsecute: The Recurring Money App for Nigerians",
     description:
-      "Pay every recurring bill on autopilot — yours, your family's, anyone's. Virtual USD cards for Netflix, Spotify, ChatGPT. Auto-pay for airtime, data, DSTV, and power. Built for Nigerians at home and abroad.",
+      "Pay every recurring bill on autopilot. Yours, your family's, anyone's. Virtual USD cards for Netflix, Spotify, ChatGPT. Auto-pay for airtime, data, DSTV, and power. Built for Nigerians at home and abroad.",
     url: "https://subsecute.com",
     siteName: "Subsecute",
     locale: "en_NG",
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Subsecute — The Recurring Money App for Nigerians",
+    title: "Subsecute: The Recurring Money App for Nigerians",
     description:
-      "Pay every recurring bill on autopilot — yours, your family's, anyone's. Virtual USD cards for Netflix, Spotify, ChatGPT. Auto-pay for airtime, data, DSTV, and power. Built for Nigerians at home and abroad.",
+      "Pay every recurring bill on autopilot. Yours, your family's, anyone's. Virtual USD cards for Netflix, Spotify, ChatGPT. Auto-pay for airtime, data, DSTV, and power. Built for Nigerians at home and abroad.",
     images: [
       "https://res.cloudinary.com/dwambnh2n/image/upload/v1774920431/Screenshot_2026-03-31_at_2.26.31_AM_amvubi.png",
     ],

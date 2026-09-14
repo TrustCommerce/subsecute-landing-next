@@ -4,7 +4,7 @@ import { DEFAULT_SHARE_IMAGE, SITE_URL } from "@/config";
 
 const title = "How Much Does Supporting Your Family Cost?";
 const description =
-  "Calculate the real cost of every subscription and bill you pay for family back home in Nigeria — Netflix, DSTV, GOtv, airtime, data, power. See your annual total.";
+  "Calculate the real cost of every subscription and bill you pay for family back home in Nigeria, from Netflix and DSTV to GOtv, airtime, data and power. See your annual total.";
 const url = `${SITE_URL}/family`;
 
 export const metadata: Metadata = {
