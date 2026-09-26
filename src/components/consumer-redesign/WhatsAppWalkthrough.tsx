@@ -8,13 +8,13 @@ import {
   ArrowLeft,
 } from "@phosphor-icons/react";
 import s from "./ProductStories.module.css";
+import DirectionalArrow from "./DirectionalArrow";
 
 const conversations = [
   {
     label: "Subscriptions",
     question: "What am I subscribed to?",
-    answer:
-      "Netflix, OpenAI, Claude, and Esele’s Twitch. Two renew this week.",
+    answer: "Netflix, OpenAI, Claude, and Esele’s Twitch. Two renew this week.",
     detail: "Your subscriptions, without searching five different apps.",
     mark: "↻",
   },
@@ -99,7 +99,9 @@ export default function WhatsAppWalkthrough() {
             onClick={() => setActive(index)}
           >
             {item.label}
-            <span aria-hidden="true">↗</span>
+            <span aria-hidden="true">
+              <DirectionalArrow />
+            </span>
           </button>
         ))}
       </div>

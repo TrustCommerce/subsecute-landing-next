@@ -1,6 +1,7 @@
 import Image from "next/image";
 import expenses from "../../../public/images/landing/about-product.png";
 import s from "./SpendingInsights.module.css";
+import DirectionalArrow from "./DirectionalArrow";
 
 export default function SpendingInsights() {
   return (
@@ -34,14 +35,19 @@ export default function SpendingInsights() {
             </div>
           </div>
           <a href="#download" className={s.link}>
-            Get the full picture <span aria-hidden="true">↗</span>
+            Get the full picture{" "}
+            <span aria-hidden="true">
+              <DirectionalArrow />
+            </span>
           </a>
         </div>
         <figure className={s.figure}>
           <div className={s.frame}>
             <div className={s.label}>
-              <span aria-hidden="true">↳</span> IT ALL ADDS UP. NOW YOU CAN SEE
-              HOW.
+              <span aria-hidden="true">
+                <DirectionalArrow direction="turn-right" />
+              </span>{" "}
+              IT ALL ADDS UP. NOW YOU CAN SEE HOW.
             </div>
             <div className={s.screen}>
               <Image

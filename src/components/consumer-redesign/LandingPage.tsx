@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { CONSUMER_FAQS } from "@/lib/consumer-faqs";
 import Link from "next/link";
-import { TwitchLogo } from "@phosphor-icons/react/dist/ssr";
+import { Asterisk, TwitchLogo } from "@phosphor-icons/react/dist/ssr";
+import ChatGptLogo from "./ChatGptLogo";
 import StoreBadges from "../StoreBadges";
 import { MobileMenu, RenewalStory } from "./Interactions";
 import s from "./landing.module.css";
@@ -9,6 +10,7 @@ import AppShowcase from "./AppShowcase";
 import SpendingInsights from "./SpendingInsights";
 import WhatsAppWalkthrough from "./WhatsAppWalkthrough";
 import GiftLinkStory from "./GiftLinkStory";
+import DirectionalArrow from "./DirectionalArrow";
 
 function Brand() {
   return (
@@ -20,7 +22,11 @@ function Brand() {
 }
 
 function Arrow() {
-  return <span aria-hidden="true">↗</span>;
+  return (
+    <span aria-hidden="true">
+      <DirectionalArrow />
+    </span>
+  );
 }
 
 const renewals = [
@@ -39,7 +45,7 @@ const renewals = [
     style: s.power,
   },
   {
-    mark: "✳",
+    mark: <ChatGptLogo />,
     name: "ChatGPT",
     description: "For your next big idea",
     when: "In 5 days",
@@ -57,7 +63,9 @@ function MonthVisual() {
       <div className={s.monthPanel}>
         <div className={s.panelTop}>
           <span className={s.panelEyebrow}>LIFE, A LITTLE MORE ORGANISED</span>
-          <span aria-hidden="true">↗</span>
+          <span aria-hidden="true">
+            <DirectionalArrow />
+          </span>
         </div>
         <h2>
           Your next seven days<span>.</span>
@@ -100,7 +108,9 @@ function MonthVisual() {
           <br />
           everyday.
         </span>
-        <i>↗</i>
+        <i>
+          <DirectionalArrow />
+        </i>
       </div>
       <span className={s.visualCaption}>
         YOUR ROUTINE. WITH ROOM TO BREATHE.
@@ -153,7 +163,10 @@ export default function LandingPage() {
                 Get Subsecute <Arrow />
               </a>
               <a href="#how-it-works" className={s.textLink}>
-                See how it works <span aria-hidden="true">↓</span>
+                See how it works{" "}
+                <span aria-hidden="true">
+                  <DirectionalArrow direction="down" />
+                </span>
               </a>
             </div>
             <p className={s.availability}>
@@ -171,7 +184,9 @@ export default function LandingPage() {
           <div>
             <b>Twitch</b>
             <b className={s.netflix}>NETFLIX</b>
-            <b>✳ ChatGPT</b>
+            <b className={s.chatgptWordmark}>
+              <ChatGptLogo size={22} /> ChatGPT
+            </b>
             <b>DStv</b>
             <b>
               Electricity <span aria-hidden="true">ϟ</span>
@@ -224,7 +239,9 @@ export default function LandingPage() {
               <div className={s.logoComposition} aria-hidden="true">
                 <span>▶</span>
                 <span>≈</span>
-                <span>✳</span>
+                <span>
+                  <Asterisk size="1em" weight="bold" aria-hidden="true" />
+                </span>
               </div>
               <h3>
                 Keep your favourites.
@@ -314,7 +331,10 @@ export default function LandingPage() {
               <span aria-hidden="true">♡</span>One plan. The people you choose.
             </div>
             <div className={s.familyLine}>
-              <span aria-hidden="true">↗</span>A gift that lasts beyond today.
+              <span aria-hidden="true">
+                <DirectionalArrow />
+              </span>
+              A gift that lasts beyond today.
             </div>
             <Link href="/family" className={s.primaryButton}>
               Explore family plans <Arrow />
@@ -357,7 +377,7 @@ export default function LandingPage() {
             <p>Make room for life. Let’s get your month together.</p>
             <StoreBadges className={s.storeBadges} />
             <span className={s.downloadStar} aria-hidden="true">
-              ✳
+              <Asterisk size="1em" weight="bold" />
             </span>
           </div>
         </section>

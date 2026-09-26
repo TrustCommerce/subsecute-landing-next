@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import s from "./landing.module.css";
+import DirectionalArrow from "./DirectionalArrow";
 
 const steps = [
   {
@@ -85,7 +86,9 @@ export function RenewalStory() {
               <strong>{item.title}</strong>
               <span>{item.copy}</span>
             </span>
-            <span aria-hidden="true">↗</span>
+            <span aria-hidden="true">
+              <DirectionalArrow />
+            </span>
           </button>
         ))}
       </div>
@@ -108,7 +111,9 @@ export function RenewalStory() {
           </span>
           <div>
             <span>ONE CARD. ONE SUBSCRIPTION.</span>
-            <span aria-hidden="true">↗</span>
+            <span aria-hidden="true">
+              <DirectionalArrow />
+            </span>
           </div>
         </div>
         <div className={s.detailFooter}>

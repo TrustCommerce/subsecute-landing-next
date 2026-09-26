@@ -1,6 +1,7 @@
 import Image from "next/image";
 import screen from "../../../public/images/landing/phone-screen.png";
 import s from "./AppShowcase.module.css";
+import DirectionalArrow from "./DirectionalArrow";
 
 const highlights = [
   {
@@ -47,7 +48,10 @@ export default function AppShowcase() {
             ))}
           </ol>
           <a className={s.link} href="#download">
-            Make yourself at home <span aria-hidden="true">↗</span>
+            Make yourself at home{" "}
+            <span aria-hidden="true">
+              <DirectionalArrow />
+            </span>
           </a>
         </div>
         <figure className={s.product}>
@@ -61,7 +65,10 @@ export default function AppShowcase() {
             />
           </div>
           <figcaption className={s.caption}>
-            <span aria-hidden="true">↳</span> Your everyday, in one place.
+            <span aria-hidden="true">
+              <DirectionalArrow direction="turn-right" />
+            </span>{" "}
+            Your everyday, in one place.
           </figcaption>
         </figure>
       </div>
