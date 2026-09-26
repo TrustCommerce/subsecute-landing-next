@@ -21,7 +21,8 @@ test("landing arrows cannot fall back to platform emoji fonts", async () => {
   assert.equal(
     (visibleMarkup.match(/https:\/\/img\.logo\.dev\/openai\.com\?/g) || [])
       .length,
-    2,
-    "Both ChatGPT placements must use the real logo",
+    3,
+    "All ChatGPT placements must use the real logo",
   );
+  assert.match(visibleMarkup, /aria-label="YouTube, Twitch and ChatGPT"/);
 });

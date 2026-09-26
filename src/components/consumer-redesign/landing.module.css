@@ -632,12 +632,12 @@
 }
 .logoComposition span:first-child {
   background: #fff6ee;
-  color: #ba431b;
+  color: #ff0033;
   transform: rotate(-15deg) translateY(12px);
 }
 .logoComposition span:nth-child(2) {
-  background: #254731;
-  color: #ddf0c2;
+  background: #9146ff;
+  color: #fff;
   transform: translateY(-10px);
   z-index: 1;
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { CONSUMER_FAQS } from "@/lib/consumer-faqs";
 import Link from "next/link";
-import { Asterisk, TwitchLogo } from "@phosphor-icons/react/dist/ssr";
+import { Asterisk, TwitchLogo, YoutubeLogo } from "@phosphor-icons/react/dist/ssr";
 import ChatGptLogo from "./ChatGptLogo";
 import StoreBadges from "../StoreBadges";
 import { MobileMenu, RenewalStory } from "./Interactions";
@@ -236,11 +236,19 @@ export default function LandingPage() {
                 <span>01 / YOUR SUBSCRIPTIONS</span>
                 <Arrow />
               </div>
-              <div className={s.logoComposition} aria-hidden="true">
-                <span>▶</span>
-                <span>≈</span>
+              <div
+                className={s.logoComposition}
+                role="img"
+                aria-label="YouTube, Twitch and ChatGPT"
+              >
                 <span>
-                  <Asterisk size="1em" weight="bold" aria-hidden="true" />
+                  <YoutubeLogo size={48} weight="fill" aria-hidden="true" />
+                </span>
+                <span>
+                  <TwitchLogo size={44} weight="fill" aria-hidden="true" />
+                </span>
+                <span>
+                  <ChatGptLogo size={44} />
                 </span>
               </div>
               <h3>
