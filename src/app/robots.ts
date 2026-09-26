@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/config";
 
 // AI search/answer-engine crawlers we explicitly welcome (GEO / "AI SEO").
-// Each platform reads its own agent, so an omission is a silent block: that
-// platform simply never cites us.
+// Unlisted crawlers inherit the wildcard rule. Search access and training
+// permissions are different; preserve existing training permissions here.
 const AI_BOTS = [
   "GPTBot", // OpenAI training
   "OAI-SearchBot", // ChatGPT search results
@@ -11,9 +11,11 @@ const AI_BOTS = [
   "PerplexityBot",
   "Perplexity-User",
   "ClaudeBot", // Anthropic
+  "Claude-SearchBot",
+  "Claude-User",
   "anthropic-ai",
   "Claude-Web",
-  "Google-Extended", // gates Gemini AND Google AI Overviews
+  "Google-Extended", // some Gemini uses; Googlebot controls Google Search AI
   "Bingbot", // powers Microsoft Copilot
   "Applebot-Extended", // Apple Intelligence
   "cohere-ai",

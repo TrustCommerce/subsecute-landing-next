@@ -1,0 +1,1430 @@
+.page {
+  --paper: #faf8ef;
+  --ink: #1b201a;
+  --orange: #b94b16;
+  --line: #dedfd3;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-outfit), sans-serif;
+  overflow: clip;
+}
+.page * {
+  box-sizing: border-box;
+}
+.page a {
+  text-decoration: none;
+}
+.page button {
+  font: inherit;
+}
+.page :is(a, button, summary):focus-visible {
+  outline: 3px solid #b94b16;
+  outline-offset: 5px;
+}
+.page section {
+  scroll-margin-top: 28px;
+}
+.container {
+  max-width: 1320px;
+  margin: auto;
+  padding-inline: 56px;
+}
+.header {
+  max-width: 1440px;
+  margin: auto;
+  height: 104px;
+  padding: 0 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: -1.5px;
+  color: var(--ink);
+}
+.desktopNav {
+  display: flex;
+  gap: 32px;
+  font-size: 14px;
+}
+.desktopNav a {
+  padding: 14px 0;
+}
+.desktopNav a:hover,
+.textLink:hover {
+  color: var(--orange);
+}
+.headerCta {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: var(--ink);
+  color: white;
+  padding: 14px 23px;
+  border-radius: 7px;
+  font-size: 14px;
+}
+.mobileMenu {
+  display: none;
+}
+.skipLink {
+  position: fixed;
+  left: 16px;
+  top: -100px;
+  z-index: 100;
+  background: white;
+  padding: 16px;
+}
+.skipLink:focus {
+  top: 16px;
+}
+.hero {
+  display: grid;
+  grid-template-columns: 0.94fr 1.06fr;
+  align-items: center;
+  min-height: 660px;
+  padding-top: 40px;
+  padding-bottom: 56px;
+  gap: 20px;
+}
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px !important;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  line-height: 1.5 !important;
+  margin: 0 0 26px !important;
+  color: var(--orange);
+}
+.eyebrow > span {
+  height: 6px;
+  width: 6px;
+  background: var(--orange);
+  border-radius: 50%;
+}
+.page h1,
+.page h2,
+.page h3 {
+  font-family: var(--font-space-grotesk-loaded), sans-serif;
+  font-weight: 600;
+  letter-spacing: -2.8px;
+}
+.page h1 {
+  font-size: clamp(60px, 5.5vw, 82px);
+  line-height: 1.02;
+  margin: 0 0 26px;
+}
+.page h1 em {
+  font-style: normal;
+  color: var(--orange);
+}
+.lead {
+  font-size: 18px;
+  line-height: 1.65;
+  color: #62665b;
+  max-width: 420px;
+  margin: 0 0 28px;
+}
+.heroActions {
+  display: flex;
+  gap: 26px;
+  align-items: center;
+}
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  background: var(--orange);
+  color: #fff;
+  padding: 17px 24px;
+  border-radius: 7px;
+  font-weight: 500;
+  font-size: 15px;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+.primaryButton:hover {
+  background: #983d11;
+  transform: translateY(-2px);
+}
+.textLink {
+  display: inline-flex;
+  gap: 17px;
+  align-items: center;
+  font-size: 14px;
+  min-height: 44px;
+  border-bottom: 1px solid currentColor;
+}
+.availability {
+  font-size: 11px;
+  color: #74766c;
+  margin: 19px 0 0;
+}
+.monthVisual {
+  height: 548px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+}
+.orbit {
+  position: absolute;
+  width: 460px;
+  height: 460px;
+  background: #ecebdc;
+  border-radius: 50%;
+  left: 52px;
+  top: 26px;
+}
+.monthPanel {
+  position: relative;
+  z-index: 2;
+  background: #fffef9;
+  border: 1px solid #e2e0d4;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 470px;
+  box-shadow: 0 25px 60px -32px #47493866;
+  transform: rotate(-3deg);
+  padding: 28px 26px 0;
+  animation: arrive 0.7s ease-out both;
+}
+.panelTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.panelEyebrow {
+  font-size: 9px;
+  letter-spacing: 1.3px;
+  color: #74776a;
+  font-weight: 500;
+}
+.monthPanel h2 {
+  font-size: 29px;
+  letter-spacing: -1.5px;
+  margin: 20px 0;
+}
+.monthPanel h2 > span {
+  color: var(--orange);
+}
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 22px;
+  gap: 5px;
+}
+.week > div {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 0 17px;
+  border-radius: 7px;
+}
+.week span {
+  font-size: 10px;
+  color: #777b70;
+}
+.week b {
+  font-size: 14px;
+  font-weight: 500;
+}
+.week i {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  bottom: 7px;
+  background: var(--orange);
+}
+.selectedDay {
+  background: #e5ebda;
+}
+.selectedDay b {
+  color: #34402d;
+}
+.renewalRow {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  padding: 21px 0;
+  border-bottom: 1px solid #e9e9df;
+}
+.serviceMark {
+  width: 39px;
+  height: 39px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+  font-weight: 500;
+}
+.twitch {
+  background: #ede3f7;
+  color: #6441a5;
+}
+.power {
+  background: #f6e5cd;
+  color: #a75617;
+}
+.chatgpt {
+  background: #e0e5de;
+  color: #334d3f;
+}
+.renewalRow strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+.renewalRow small {
+  display: block;
+  font-size: 10px;
+  color: #7b7c70;
+  margin-top: 3px;
+}
+.when {
+  font-size: 9px;
+  margin-left: auto;
+  color: #5c6254;
+  background: #f0f0e7;
+  white-space: nowrap;
+  padding: 5px 7px;
+  border-radius: 4px;
+}
+.panelBottom {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 10px;
+  color: #5d6854;
+  padding: 19px 0;
+}
+.tick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #dce7d0;
+  color: #465b32;
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+}
+.floatingNote {
+  position: absolute;
+  z-index: 3;
+  top: 7px;
+  left: 70px;
+  transform: rotate(4deg);
+  padding: 12px 17px;
+  background: #e5ebda;
+  border: 1px solid #ccd6bd;
+  color: #40503b;
+  font-size: 12px;
+  border-radius: 5px;
+}
+.floatingNote span {
+  margin-right: 8px;
+}
+.smallCard {
+  position: absolute;
+  z-index: 3;
+  bottom: 30px;
+  right: -16px;
+  width: 193px;
+  height: 122px;
+  border-radius: 10px;
+  background: #bf501c;
+  color: #fff3df;
+  transform: rotate(11deg);
+  padding: 16px;
+  box-shadow: 0 15px 30px -15px #58351f66;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.smallCard b {
+  font-size: 16px;
+  letter-spacing: -0.8px;
+}
+.smallCard > span {
+  font-size: 10px;
+  line-height: 1.3;
+}
+.smallCard i {
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+  font-size: 30px;
+  font-style: normal;
+}
+.visualCaption {
+  position: absolute;
+  bottom: -5px;
+  left: 44px;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #7b7e70;
+}
+.serviceStrip {
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 55px;
+  min-height: 118px;
+}
+.serviceStrip > span {
+  font-size: 9px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+  color: #7b7c70;
+  flex-shrink: 0;
+}
+.serviceStrip > div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  gap: 22px;
+  opacity: 0.65;
+}
+.serviceStrip b {
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+.netflix {
+  font-family: Impact, sans-serif;
+  font-weight: 400 !important;
+  letter-spacing: 1px !important;
+}
+.darkSection {
+  background: #1b211c;
+  color: #f9f8ee;
+  padding: 90px 0 96px;
+}
+.sectionIntro {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 36px;
+  margin-bottom: 50px;
+}
+.page h2 {
+  font-size: clamp(38px, 4.2vw, 58px);
+  line-height: 1.08;
+  margin: 0;
+}
+.sectionIntro > p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #72776a;
+  max-width: 350px;
+  margin: 0 0 5px;
+}
+.darkSection .eyebrow {
+  color: #e6a276;
+}
+.darkSection h2 span {
+  color: #dd7e45;
+}
+.darkSection .sectionIntro > p {
+  color: #bac1b2;
+}
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 95px;
+  align-items: center;
+}
+.step {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  gap: 21px;
+  text-align: left;
+  padding: 27px 0;
+  border: 0;
+  border-bottom: 1px solid #485043;
+  background: transparent;
+  color: #bac1b2;
+  cursor: pointer;
+}
+.step:first-child {
+  padding-top: 0;
+}
+.step > span:nth-child(2) {
+  flex: 1;
+}
+.step strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 500;
+  color: #f9f8ef;
+}
+.step span span {
+  display: block;
+  line-height: 1.6;
+  font-size: 14px;
+  margin-top: 9px;
+  max-width: 300px;
+}
+.stepNumber {
+  border: 1px solid #707867;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.activeStep .stepNumber {
+  background: #bf501c;
+  border-color: #bf501c;
+  color: white;
+}
+.step > span:last-child {
+  font-size: 22px;
+}
+.activeStep > span:last-child {
+  color: #efa774;
+}
+.renewalDetail {
+  padding: 34px;
+  border-radius: 13px;
+  background: #f6f5ec;
+  color: var(--ink);
+  min-height: 413px;
+}
+.renewalDetail h3 {
+  font-size: 28px;
+  letter-spacing: -1.2px;
+  margin: 18px 0 10px;
+}
+.renewalDetail > p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #6b7062;
+  min-height: 47px;
+  margin-bottom: 26px;
+}
+.virtualCard {
+  background: #b74b1b;
+  color: #fff6e8;
+  border-radius: 12px;
+  padding: 22px;
+  position: relative;
+  min-height: 174px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.virtualCard > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+.virtualCard b {
+  font-size: 20px;
+  letter-spacing: -1px;
+}
+.virtualCard div span {
+  font-size: 9px;
+  letter-spacing: 0.7px;
+}
+.cardMark {
+  position: absolute;
+  font-size: 190px;
+  line-height: 1;
+  font-weight: 600;
+  right: 0;
+  top: 0;
+  color: #c7612b;
+  transform: rotate(-15deg);
+}
+.detailFooter {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  margin-top: 24px;
+}
+.detailFooter > span:last-child {
+  margin-left: auto;
+  color: #777d6e;
+  font-size: 9px;
+}
+.everyday {
+  padding-block: 100px;
+}
+.everydayGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.everydayGrid article {
+  padding: 31px 36px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.subscriptionTile {
+  background: #e6ebdc;
+}
+.billsTile {
+  background: #f1e7d7;
+}
+.tileTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #5f6657;
+}
+.tileTop > span:last-child {
+  font-size: 23px;
+}
+.logoComposition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 210px;
+  gap: 12px;
+}
+.logoComposition span {
+  width: 89px;
+  height: 96px;
+  border-radius: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 53px;
+  box-shadow: 0 14px 19px -16px #29342166;
+}
+.logoComposition span:first-child {
+  background: #fff6ee;
+  color: #ba431b;
+  transform: rotate(-15deg) translateY(12px);
+}
+.logoComposition span:nth-child(2) {
+  background: #254731;
+  color: #ddf0c2;
+  transform: translateY(-10px);
+  z-index: 1;
+}
+.logoComposition span:last-child {
+  background: #fcfbf4;
+  color: #435442;
+  transform: rotate(15deg) translateY(12px);
+}
+.page h3 {
+  font-size: 29px;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin: 12px 0;
+}
+.everydayGrid p {
+  font-size: 14px;
+  color: #65705d;
+  margin: 16px 0 8px;
+  line-height: 1.6;
+}
+.receipt {
+  margin: 25px auto 15px;
+  background: #fffdf6;
+  width: 90%;
+  padding: 18px 20px;
+  transform: rotate(-3deg);
+  box-shadow: 0 10px 20px -15px #80644066;
+}
+.receipt > span {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #767c6b;
+}
+.receipt > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11px;
+  padding: 13px 0;
+  border-bottom: 1px dashed #dcded1;
+}
+.receipt b {
+  font-size: 9px;
+  font-weight: 400;
+  color: #737768;
+}
+.whatsappSection {
+  background: #e8ede1;
+  padding-block: 86px;
+}
+.whatsappGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+.whatsappGrid .lead {
+  margin-top: 24px;
+}
+.conversation {
+  background: #fafbf4;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px -32px #23311c88;
+  transform: rotate(2deg);
+}
+.conversationHeader {
+  padding: 20px 23px;
+  border-bottom: 1px solid #e2e5d7;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.chatAvatar {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dce7d0;
+  color: #364f2a;
+  border-radius: 50%;
+  font-size: 25px;
+  font-weight: 600;
+}
+.conversationHeader b {
+  font-size: 14px;
+  font-weight: 500;
+}
+.conversationHeader small {
+  display: block;
+  font-size: 10px;
+  color: #767d6b;
+}
+.conversationHeader > span:last-child {
+  margin-left: auto;
+}
+.chatBody {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.chatDate {
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #79816f;
+}
+.outgoing {
+  align-self: flex-end;
+  background: #dce9cf;
+  font-size: 13px;
+  padding: 13px 18px;
+  border-radius: 12px 12px 0 12px;
+  margin: 0;
+}
+.incoming {
+  background: #fff;
+  border: 1px solid #e3e6db;
+  border-radius: 12px 12px 12px 0;
+  padding: 16px;
+  max-width: 300px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.incoming p {
+  margin: 0;
+}
+.incoming > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0;
+}
+.incoming small {
+  display: block;
+  font-size: 10px;
+  color: #78806e;
+}
+.chatFootnote {
+  font-size: 9px;
+  color: #757d6a;
+  text-align: center;
+}
+.family {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 80px;
+  padding-block: 110px;
+}
+.familyImage {
+  position: relative;
+  height: 510px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #e8dfcb;
+}
+.familyImage > img {
+  object-fit: cover;
+}
+.familyNote {
+  position: absolute;
+  left: 22px;
+  bottom: 25px;
+  right: 22px;
+  background: #fffdf4;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 9px;
+  box-shadow: 0 10px 20px -15px #25231c66;
+}
+.familyNote > span:first-child {
+  width: 37px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 25px;
+}
+.familyNote b {
+  font-size: 12px;
+  font-weight: 500;
+}
+.familyNote small {
+  display: block;
+  font-size: 10px;
+  color: #737866;
+  margin-top: 3px;
+}
+.familyNote > span:last-child {
+  margin-left: auto;
+  font-size: 26px;
+}
+.family .lead {
+  margin-top: 25px;
+}
+.familyLine {
+  padding: 21px 0;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.familyLine > span {
+  font-size: 24px;
+  color: var(--orange);
+}
+.family .primaryButton {
+  margin-top: 20px;
+}
+.faq {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 80px;
+  padding-bottom: 110px;
+}
+.faq h2 {
+  font-size: 40px;
+}
+.faq > div > p:not(.eyebrow) {
+  font-size: 14px;
+  color: #777d6c;
+  margin: 24px 0 7px;
+}
+.questions details {
+  border-top: 1px solid var(--line);
+}
+.questions details:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.questions summary {
+  list-style: none;
+  padding: 23px 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 15px;
+}
+.questions summary::-webkit-details-marker {
+  display: none;
+}
+.questions summary span {
+  font-size: 20px;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+.questions details[open] summary span {
+  transform: rotate(45deg);
+}
+.questions details p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #68715e;
+  max-width: 490px;
+  margin: 0 0 24px;
+}
+.download {
+  background: #bd4e1b;
+  color: #fff6e7;
+  padding: 72px 0;
+  overflow: hidden;
+}
+.download > .container {
+  position: relative;
+}
+.download .eyebrow {
+  color: #ffe0c8;
+}
+.download h2 {
+  font-size: 70px;
+  position: relative;
+  z-index: 1;
+}
+.download p:not(.eyebrow) {
+  font-size: 17px;
+  margin: 24px 0 28px;
+  position: relative;
+  z-index: 1;
+}
+.storeBadges {
+  position: relative;
+  z-index: 1;
+}
+.downloadStar {
+  position: absolute;
+  font-size: 400px;
+  line-height: 1;
+  right: 20px;
+  top: -30px;
+  color: #cc6632;
+  transform: rotate(13deg);
+}
+.footer {
+  padding-block: 52px 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.footer p {
+  font-size: 12px;
+  color: #78806c;
+  margin: 12px 0;
+}
+.footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  justify-content: end;
+  align-items: start;
+  padding-top: 10px;
+  font-size: 12px;
+}
+.footer nav a {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footerBottom {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+  font-size: 10px;
+  color: #7c8272;
+}
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: translateY(15px) rotate(-3deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-3deg);
+  }
+}
+.page .monthPanel h2 {
+  font-size: 29px;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+  margin: 20px 0;
+}
+@media (min-width: 1450px) {
+  .desktopBreak {
+    display: none;
+  }
+  .hero {
+    grid-template-columns: 1.05fr 1fr;
+  }
+  .hero h1 {
+    font-size: 77px;
+  }
+  .heroCopy {
+    margin-left: -15px;
+  }
+}
+@media (max-width: 1100px) {
+  .container {
+    padding-inline: 36px;
+  }
+  .header {
+    padding-inline: 36px;
+  }
+  .desktopNav {
+    gap: 18px;
+  }
+  .hero {
+    gap: 15px;
+  }
+  .hero h1 {
+    font-size: 64px;
+  }
+  .monthVisual {
+    height: 515px;
+  }
+  .monthPanel {
+    padding: 22px 19px 0;
+  }
+  .monthPanel h2 {
+    font-size: 25px;
+  }
+  .orbit {
+    width: 360px;
+    height: 360px;
+    left: 10px;
+    top: 70px;
+  }
+  .smallCard {
+    right: -9px;
+    bottom: 28px;
+    width: 166px;
+    height: 108px;
+  }
+  .serviceStrip {
+    gap: 25px;
+  }
+  .serviceStrip b {
+    font-size: 19px;
+  }
+  .storyGrid,
+  .whatsappGrid {
+    gap: 45px;
+  }
+  .family,
+  .faq {
+    gap: 40px;
+  }
+  .familyImage {
+    height: 470px;
+  }
+  .familyNote {
+    left: 12px;
+    right: 12px;
+  }
+  .renewalDetail {
+    padding: 25px;
+  }
+  .everydayGrid article {
+    padding: 25px;
+  }
+  .footer nav {
+    gap: 18px;
+  }
+}
+@media (max-width: 760px) {
+  .container {
+    padding-inline: 24px;
+  }
+  .header {
+    height: 83px;
+    padding-inline: 24px;
+    gap: 12px;
+  }
+  .brand {
+    font-size: 25px;
+  }
+  .brand img {
+    width: 32px;
+    height: 32px;
+  }
+  .desktopNav,
+  .headerCta {
+    display: none;
+  }
+  .mobileMenu {
+    display: block;
+  }
+  .menuButton {
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 11px 15px;
+    font-size: 12px;
+    color: var(--ink);
+    min-height: 44px;
+  }
+  .mobileLinks {
+    position: absolute;
+    top: 75px;
+    left: 16px;
+    right: 16px;
+    z-index: 10;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 10px 20px;
+    box-shadow: 0 20px 30px -20px #27301f88;
+    border-radius: 8px;
+  }
+  .mobileLinks a {
+    display: block;
+    padding: 15px 0;
+    font-size: 15px;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-top: 38px;
+    padding-bottom: 30px;
+    min-height: 0;
+  }
+  .hero h1 {
+    font-size: clamp(49px, 10vw, 72px);
+    letter-spacing: -2.9px;
+    line-height: 1.03;
+  }
+  .desktopBreak {
+    display: none;
+  }
+  .hero .eyebrow {
+    font-size: 9px !important;
+    letter-spacing: 1.2px;
+    margin-bottom: 20px !important;
+  }
+  .lead {
+    font-size: 16px;
+    max-width: 460px;
+    line-height: 1.65;
+  }
+  .heroActions {
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+  .primaryButton {
+    padding: 16px 21px;
+    font-size: 14px;
+  }
+  .textLink {
+    font-size: 13px;
+  }
+  .availability {
+    font-size: 10px;
+  }
+  .monthVisual {
+    max-width: 480px;
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    margin: 14px auto 0;
+    padding: 15px 12px;
+  }
+  .monthPanel {
+    max-width: 440px;
+    padding: 24px 21px 0;
+  }
+  .monthPanel h2 {
+    font-size: 27px;
+  }
+  .floatingNote {
+    top: 0;
+    left: 45px;
+    font-size: 10px;
+  }
+  .orbit {
+    width: 310px;
+    height: 310px;
+    left: 20px;
+    top: 75px;
+  }
+  .smallCard {
+    right: 0;
+    bottom: 0;
+    width: 150px;
+    height: 98px;
+    padding: 13px;
+  }
+  .smallCard b {
+    font-size: 14px;
+  }
+  .smallCard > span {
+    font-size: 9px;
+  }
+  .visualCaption {
+    left: 13px;
+    bottom: -15px;
+    font-size: 6px;
+  }
+  .serviceStrip {
+    flex-direction: column;
+    align-items: start;
+    gap: 23px;
+    padding-block: 32px;
+    margin-top: 22px;
+  }
+  .serviceStrip > span {
+    font-size: 8px;
+  }
+  .serviceStrip > span br {
+    display: none;
+  }
+  .serviceStrip > div {
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 20px 25px;
+  }
+  .serviceStrip b {
+    font-size: 19px;
+  }
+  .sectionIntro {
+    display: block;
+    margin-bottom: 35px;
+  }
+  .sectionIntro > p {
+    margin-top: 24px;
+    font-size: 15px;
+  }
+  .page h2 {
+    font-size: 40px;
+    letter-spacing: -1.9px;
+  }
+  .darkSection {
+    padding-block: 64px;
+  }
+  .darkSection .eyebrow {
+    font-size: 9px !important;
+  }
+  .storyGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .step {
+    padding: 22px 0;
+    gap: 16px;
+  }
+  .step strong {
+    font-size: 18px;
+  }
+  .step span span {
+    font-size: 13px;
+    max-width: none;
+  }
+  .stepNumber {
+    width: 34px;
+    height: 34px;
+    font-size: 11px;
+  }
+  .renewalDetail {
+    min-height: 390px;
+    padding: 26px;
+  }
+  .renewalDetail h3 {
+    font-size: 26px;
+  }
+  .everyday {
+    padding-block: 65px;
+  }
+  .everydayGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .everydayGrid article {
+    padding: 24px;
+  }
+  .page h3 {
+    font-size: 27px;
+  }
+  .logoComposition {
+    height: 185px;
+  }
+  .receipt {
+    margin-bottom: 30px;
+  }
+  .whatsappSection {
+    padding-block: 62px;
+  }
+  .whatsappGrid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .conversation {
+    margin-inline: 5px;
+    transform: rotate(1deg);
+  }
+  .family {
+    grid-template-columns: 1fr;
+    gap: 37px;
+    padding-block: 65px;
+  }
+  .familyImage {
+    height: 420px;
+  }
+  .family .lead {
+    margin-bottom: 22px;
+  }
+  .familyLine {
+    font-size: 14px;
+    padding-block: 17px;
+  }
+  .faq {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding-bottom: 65px;
+  }
+  .faq h2 {
+    font-size: 37px;
+  }
+  .questions summary {
+    font-size: 14px;
+    padding-block: 22px;
+  }
+  .download {
+    padding-block: 58px;
+  }
+  .download h2 {
+    font-size: 52px;
+  }
+  .download p:not(.eyebrow) {
+    font-size: 15px;
+    max-width: 245px;
+  }
+  .downloadStar {
+    right: -75px;
+    top: 5px;
+    font-size: 245px;
+    opacity: 0.55;
+  }
+  .storeBadges {
+    max-width: 240px;
+  }
+  .footer {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-top: 37px;
+  }
+  .footer nav {
+    justify-content: start;
+    flex-wrap: wrap;
+    gap: 10px 25px;
+  }
+  .footerBottom {
+    flex-direction: column;
+    gap: 12px;
+    font-size: 9px;
+  }
+  .eyebrow {
+    font-size: 10px !important;
+    margin-bottom: 20px !important;
+  }
+}
+@media (max-width: 360px) {
+  .container {
+    padding-inline: 19px;
+  }
+  .header {
+    padding-inline: 19px;
+  }
+  .hero h1 {
+    font-size: 45px;
+  }
+  .heroActions {
+    gap: 12px;
+  }
+  .primaryButton {
+    gap: 17px;
+    padding-inline: 17px;
+  }
+  .monthVisual {
+    padding-inline: 5px;
+    min-height: 475px;
+  }
+  .monthPanel {
+    padding: 20px 15px 0;
+  }
+  .monthPanel h2 {
+    font-size: 23px;
+  }
+  .renewalRow {
+    gap: 8px;
+  }
+  .renewalRow small {
+    font-size: 8px;
+  }
+  .when {
+    font-size: 8px;
+    padding: 5px;
+  }
+  .serviceMark {
+    width: 33px;
+    height: 33px;
+  }
+  .week {
+    gap: 2px;
+  }
+  .familyNote {
+    gap: 8px;
+    padding: 12px;
+  }
+  .familyNote b {
+    font-size: 11px;
+  }
+  .familyNote small {
+    font-size: 9px;
+  }
+  .download h2 {
+    font-size: 46px;
+  }
+  .renewalDetail {
+    padding: 22px;
+  }
+  .detailFooter {
+    font-size: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, DM_Sans, Space_Grotesk, Syne } from "next/font/google";
 import "./globals.css";
 import XPixel from "@/components/XPixel";
+import { SITE_URL } from "@/config";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -40,13 +41,13 @@ export const metadata: Metadata = {
     "Pay every recurring bill on autopilot. Yours, your family's, anyone's. Virtual USD cards for Netflix, Spotify, ChatGPT. Auto-pay for airtime, data, DSTV, and power. Built for Nigerians at home and abroad.",
   keywords:
     "automate subscriptions Nigeria, virtual dollar card Nigeria, pay Netflix Nigeria, recurring bill payment Nigeria, auto-pay airtime Nigeria",
-  metadataBase: new URL("https://subsecute.com"),
+  metadataBase: new URL(SITE_URL),
   alternates: { canonical: "/" },
   openGraph: {
     title: "Subsecute: The Recurring Money App for Nigerians",
     description:
       "Pay every recurring bill on autopilot. Yours, your family's, anyone's. Virtual USD cards for Netflix, Spotify, ChatGPT. Auto-pay for airtime, data, DSTV, and power. Built for Nigerians at home and abroad.",
-    url: "https://subsecute.com",
+    url: SITE_URL,
     siteName: "Subsecute",
     locale: "en_NG",
     type: "website",

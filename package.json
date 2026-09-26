@@ -12,8 +12,9 @@
     "fix": "pnpm lint:fix && pnpm format"
   },
   "dependencies": {
+    "@phosphor-icons/react": "2.1.10",
     "gray-matter": "^4.0.3",
-    "next": "16.2.2",
+    "next": "16.3.6",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "remark": "^15.0.1",
@@ -27,7 +28,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.2.2",
+    "eslint-config-next": "16.3.6",
     "prettier": "^3.8.1",
     "tailwindcss": "^4",
     "typescript": "^5"

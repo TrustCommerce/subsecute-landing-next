@@ -1,41 +1,39 @@
-import { SITE_URL } from "@/config";
-import { FAQS } from "./faqs";
+import { SITE_URL, APP_STORE_URL, PLAY_STORE_URL } from "@/config";
+import { CONSUMER_FAQS } from "./consumer-faqs";
 
 export const APP_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
+  "@id": `${SITE_URL}/#app`,
   name: "Subsecute",
   applicationCategory: "FinanceApplication",
   operatingSystem: "iOS, Android",
   description:
-    "Automate your subscriptions and bills in Nigeria. Virtual USD cards for Netflix, Spotify, ChatGPT. Auto-pay airtime, data, power, DSTV. Cancel anything in one tap.",
-  url: "https://subsecute.com",
-  author: { "@type": "Organization", name: "Subsecute" },
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-    availability: "https://schema.org/PreOrder",
-  },
+    "Manage subscriptions and recurring bills in Nigeria with dedicated virtual dollar cards, renewal reminders, spending summaries, family plans and gift links.",
+  url: SITE_URL,
+  author: { "@id": `${SITE_URL}/#organization` },
+  downloadUrl: [APP_STORE_URL, PLAY_STORE_URL],
   featureList: [
     "Virtual USD cards for international subscriptions",
     "Automatic card funding before renewal dates",
     "Recurring bill payments for airtime, data, power, and cable",
     "Subscription renewal reminders",
     "Spending analytics and tracking",
-    "Family and team subscription plans",
+    "Family subscription plans",
     "Shareable funding links",
   ],
-  screenshot: "https://subsecute.com/images/landing/phone-screen.png",
+  screenshot: `${SITE_URL}/images/landing/phone-screen.png`,
   countriesSupported: "NG",
 };
 
 export const WEBSITE_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
   name: "Subsecute",
-  url: "https://subsecute.com",
-  publisher: { "@type": "Organization", name: "Subsecute" },
+  url: SITE_URL,
+  inLanguage: "en-NG",
+  publisher: { "@id": `${SITE_URL}/#organization` },
 };
 
 export function blogPostingSchema(post: {
@@ -47,7 +45,7 @@ export function blogPostingSchema(post: {
   author: string;
   image?: string;
 }) {
-  const url = `https://subsecute.com/blog/${post.slug}`;
+  const url = `${SITE_URL}/blog/${post.slug}`;
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -59,7 +57,7 @@ export function blogPostingSchema(post: {
     // Recency is weighted heavily by answer engines, so an edited post has to
     // say so. Falls back to the publish date when it has never been touched.
     dateModified: post.updated || post.date,
-    ...(post.image ? { image: [`https://subsecute.com${post.image}`] } : {}),
+    ...(post.image ? { image: [new URL(post.image, SITE_URL).href] } : {}),
     author: { "@type": "Organization", name: post.author || "Subsecute" },
     publisher: {
       "@type": "Organization",
@@ -75,11 +73,12 @@ export function blogPostingSchema(post: {
 export const ORG_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
   name: "Subsecute",
-  url: "https://subsecute.com",
+  url: SITE_URL,
   logo: "https://res.cloudinary.com/dwambnh2n/image/upload/v1775598701/Subsecute_Icon_sastth.png",
   description:
-    "Automate your subscriptions and bills in Nigeria. Virtual USD cards for Netflix, Spotify, ChatGPT. Auto-pay airtime, data, power, DSTV.",
+    "Subscription management, virtual dollar cards and recurring bill payments for Nigerians, with spending summaries, family plans and gift links.",
   foundingLocation: { "@type": "Place", name: "Nigeria" },
   areaServed: { "@type": "Country", name: "Nigeria" },
   contactPoint: {
@@ -92,10 +91,10 @@ export const ORG_SCHEMA = {
 export const FAQ_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: FAQS.map((faq) => ({
+  mainEntity: CONSUMER_FAQS.map(([question, answer]) => ({
     "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
   })),
 };
 

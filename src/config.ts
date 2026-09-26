@@ -1,4 +1,4 @@
-export const SITE_URL = "https://subsecute.com";
+export const SITE_URL = "https://www.subsecute.com";
 
 // The live store listings. Neither address names a country: each store sends a
 // visitor to their own region, and a link naming one bounces everybody else.

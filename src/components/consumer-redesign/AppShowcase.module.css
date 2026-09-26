@@ -1,0 +1,172 @@
+.section {
+  background: #f0f0e5;
+  border-top: 1px solid var(--line);
+}
+.layout {
+  max-width: 1320px;
+  margin: auto;
+  padding: 72px 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.eyebrow {
+  color: var(--orange);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.6px;
+  margin: 0 0 24px;
+}
+.copy .title {
+  font-size: clamp(36px, 3.6vw, 50px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  margin: 0;
+}
+.title em {
+  color: var(--orange);
+  font-style: normal;
+}
+.intro {
+  color: #62665b;
+  font-size: 17px;
+  line-height: 1.65;
+  max-width: 360px;
+  margin: 24px 0 32px;
+}
+.highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 400px;
+}
+.highlights li {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-top: 1px solid #d6d9ca;
+}
+.number {
+  color: var(--orange);
+  font-size: 11px;
+  padding-top: 4px;
+}
+.highlights h3 {
+  font-size: 17px;
+  line-height: 1.4;
+  letter-spacing: -0.4px;
+  margin: 0 0 6px;
+}
+.highlights p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #62665b;
+  margin: 0;
+}
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  min-height: 44px;
+  border-bottom: 1px solid currentColor;
+  margin-top: 16px;
+  font-size: 14px;
+}
+.link:hover {
+  color: var(--orange);
+}
+.product {
+  margin: 0;
+  position: relative;
+  display: grid;
+  justify-items: center;
+  padding: 8px 0 0;
+  isolation: isolate;
+}
+.backdrop {
+  position: absolute;
+  z-index: -1;
+  inset: 56px 0 72px;
+  background: #dfe5d3;
+  border-radius: 48% 48% 12px 12px;
+}
+.phone {
+  width: 320px;
+  padding: 8px;
+  border-radius: 40px;
+  background: #242821;
+  border: 1px solid #52594c;
+  box-shadow: 0 28px 40px -28px #2a32287a;
+}
+.screen {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 32px;
+}
+.caption {
+  font-size: 11px;
+  letter-spacing: 0.2px;
+  color: #626b58;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.caption span {
+  font-size: 24px;
+  color: var(--orange);
+}
+@media (max-width: 1100px) {
+  .layout {
+    padding-inline: 36px;
+    gap: 32px;
+  }
+}
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 56px 24px;
+  }
+  .copy .title {
+    font-size: 38px;
+  }
+  .intro {
+    font-size: 16px;
+    margin: 20px 0 24px;
+  }
+  .highlights {
+    max-width: none;
+  }
+  .highlights li {
+    padding: 16px 0;
+  }
+  .phone {
+    width: 296px;
+  }
+  .product {
+    max-width: 420px;
+    width: 100%;
+    margin: auto;
+  }
+  .backdrop {
+    inset-inline: -4px;
+  }
+}
+@media (max-width: 380px) {
+  .layout {
+    padding-inline: 19px;
+  }
+  .copy .title {
+    font-size: 34px;
+  }
+  .phone {
+    width: 260px;
+    border-radius: 34px;
+  }
+  .screen {
+    border-radius: 26px;
+  }
+}
