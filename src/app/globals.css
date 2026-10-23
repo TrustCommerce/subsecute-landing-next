@@ -57,7 +57,7 @@
   /* Ink */
   --color-ink: #16150f; /* headings, primary text */
   --color-ink-2: #57534a; /* body copy */
-  --color-ink-3: #8a8578; /* captions, meta */
+  --color-ink-3: #6b6659; /* captions, meta */
   --color-ink-inverse: #faf8f0; /* text on dark */
 
   /* Lines — the primary depth cue */
@@ -137,7 +137,7 @@ body {
 }
 
 .wa-play .wa-msg {
-  animation: wa-pop 0.42s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+  animation: wa-pop 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: var(--delay, 0ms);
 }
 
@@ -226,7 +226,7 @@ body {
 /* A message the reader triggered: animates the moment it is inserted, so
    it needs no scheduling. */
 .wa-live {
-  animation: wa-pop 0.34s cubic-bezier(0.22, 1.2, 0.36, 1) both;
+  animation: wa-pop 0.34s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* Typing dots. */
@@ -533,4 +533,41 @@ body {
 .route-near {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='176' height='176' viewBox='0 0 176 176'%3E%3Cg stroke='%23e96d1f' stroke-opacity='0.22' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M88 79v18'/%3E%3C/g%3E%3Ccircle cx='88' cy='88' r='3.4' fill='none' stroke='%23e96d1f' stroke-opacity='0.24' stroke-width='1.6'/%3E%3C/svg%3E");
   background-size: 176px 176px;
+}
+
+/* Browser surfaces. These ship with defaults that belong to no design system,
+   so they get the palette like everything else. */
+::selection {
+  background: var(--color-accent-wash);
+  color: var(--color-ink);
+}
+::-moz-selection {
+  background: var(--color-accent-wash);
+  color: var(--color-ink);
+}
+
+:root {
+  caret-color: var(--color-accent);
+  accent-color: var(--color-accent);
+}
+
+a {
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: from-font;
+}
+
+/* Statement rows, amounts and dates line up column-wise rather than drifting. */
+[data-numeric],
+time {
+  font-variant-numeric: tabular-nums;
+}
+
+/* The skip-link target. This cannot live in a CSS Module: module files hash
+   ID selectors, so #main-content compiles to a hashed name that matches
+   nothing, and the sticky header silently covered the h1. */
+#main-content {
+  scroll-margin-top: 128px;
+}
+#main-content:focus {
+  outline: none;
 }

@@ -1,68 +1,78 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import {
   ArrowUpRight,
   Gift,
   Heart,
   LinkSimple,
+  Sparkle,
 } from "@phosphor-icons/react/dist/ssr";
 import originalGift from "../../../public/images/consumer-redesign/gift-link-original.webp";
 import s from "./ProductStories.module.css";
 import frame from "./GiftLinkFrame.module.css";
 
 export default function GiftLinkStory() {
+  const section = useRef<HTMLElement>(null);
+  const figure = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const node = section.current;
+    const artwork = figure.current;
+    if (!node || !artwork || !("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.25) return;
+        node.dataset.arrived = "true";
+        observer.disconnect();
+      },
+      { threshold: 0.25 },
+    );
+    observer.observe(artwork);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
+      ref={section}
       id="gift-links"
       aria-labelledby="gift-story-title"
       className={s.giftSection}
     >
       <div className={s.giftLayout}>
         <div className={s.giftCopy}>
-          <p className={s.eyebrow}>A LINK. A LITTLE LOVE.</p>
           <h2 id="gift-story-title">
-            “I’ve got this one.”
+            “Make I run am for you.”
             <br />
-            <em>Now there’s a link for that.</em>
+            <em>Send them a link.</em>
           </h2>
           <p className={s.intro}>
-            Give your people a way to show up for you. Share your gift link.
-            They choose what to cover, and for how long.
+            When someone asks what you need, send your gift link. They can cover
+            a subscription, a bill or a few months of either.
           </p>
-          <ol className={s.giftSteps}>
-            <li>
-              <span>01</span>Share your unique gift link.
-            </li>
-            <li>
-              <span>02</span>They choose which bills and how many months.
-            </li>
-            <li>
-              <span>03</span>They pay securely in one checkout.
-            </li>
-            <li>
-              <span>04</span>Bills get paid. Cards get funded.
-            </li>
-          </ol>
-          <a href="#download" className={s.giftCta}>
-            Get your own gift link <ArrowUpRight size={18} aria-hidden="true" />
-          </a>
         </div>
-        <figure className={frame.figure}>
+        <figure ref={figure} className={frame.figure}>
           <div className={frame.backdrop} aria-hidden="true" />
           <div className={frame.decorations} aria-hidden="true">
             <span className={frame.envelope}>
               <span className={frame.note}>
-                <Heart size={18} weight="fill" />
+                <Heart size={26} weight="fill" />
               </span>
               <span className={frame.envelopeFold} />
             </span>
             <span className={frame.giftTag}>
-              <Gift size={25} weight="light" />
+              <Gift size={30} weight="light" />
             </span>
-            <span className={frame.sparkle}>✦</span>
-            <span className={frame.smallSparkle}>✧</span>
+            <span className={frame.sparkle}>
+              <Sparkle size={24} weight="fill" />
+            </span>
+            <span className={frame.smallSparkle}>
+              <Sparkle size={16} />
+            </span>
           </div>
           <div className={frame.link}>
-            <LinkSimple size={16} aria-hidden="true" />
+            <LinkSimple size={18} aria-hidden="true" />
             <span>
               gift.subsecute.com/<b>amara</b>
             </span>
@@ -70,17 +80,40 @@ export default function GiftLinkStory() {
           <div className={frame.screen}>
             <Image
               src={originalGift}
-              alt="Subsecute gift-link display for Amara: pick items, choose months and pay once, with Claude and MTN airtime funding options."
-              sizes="(max-width: 760px) 85vw, 380px"
+              alt="Example Subsecute gift link for Amara, showing subscriptions, airtime and the option to choose how many months to cover."
+              sizes="(max-width: 420px) 85vw, 380px"
             />
           </div>
-          <span className={frame.seal} aria-hidden="true">
-            <Heart size={24} weight="fill" />
-          </span>
           <figcaption>
             A little help, straight to the things they need.
           </figcaption>
         </figure>
+        <ol className={s.giftSteps}>
+          <li>
+            <span>01</span>
+            <div>
+              <strong>Share your link.</strong>
+              <p>Send it to someone who’s asking what you need.</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <strong>They choose what to cover.</strong>
+              <p>A subscription, a bill, or a few months of either.</p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <strong>Something off your list.</strong>
+              <p>Their contribution goes towards what they picked.</p>
+            </div>
+          </li>
+        </ol>
+        <a href="#download" className={s.giftCta}>
+          Get your own gift link <ArrowUpRight size={18} aria-hidden="true" />
+        </a>
       </div>
     </section>
   );

@@ -57,7 +57,7 @@ export default async function BlogPost({ params }: Props) {
   if (!post) notFound();
 
   return (
-    <div className="min-h-screen bg-[#FFFEEC]">
+    <div className="min-h-screen bg-[#faf8ef]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -81,7 +81,7 @@ export default async function BlogPost({ params }: Props) {
           }}
         />
       )}
-      <nav className="border-b border-[#DEE2E6] bg-white px-4 py-4">
+      <nav className="border-b border-[#DEE2E6] bg-[#faf8ef] px-4 py-4">
         <div className="mx-auto flex max-w-[800px] items-center justify-between">
           <Link href="/">
             <img

@@ -5,6 +5,16 @@
 - Original Subsecute Expenses screenshot. Displayed in a cropped frame without changing the screenshot or inventing spending data. The pictured period is "This year", not a current monthly spend or pricing quote.
 
 ## Family photograph
+- Current file: family-generations-rdne-pexels.jpg
+- Photographer: RDNE Stock project
+- Photo: https://www.pexels.com/photo/women-and-a-girl-sitting-on-a-couch-7951670/
+- Download: https://images.pexels.com/photos/7951670/pexels-photo-7951670.jpeg?auto=compress&cs=tinysrgb&w=1400
+- Licence: https://www.pexels.com/license/
+- Accessed: 2026-10-23. Free Pexels stock photograph, downloaded at 1400px. No generative modifications. Responsive 3:2 presentation preserves the group.
+- Pexels describes the subjects as African American. Do not describe the photograph as Nigerian or infer a specific age or family relationship. The user reviewed this specific image and accepted it as a candidate after that distinction was explained.
+- Used as family imagery, not a testimonial or claim that the subjects use Subsecute.
+
+### Previous family photograph (retained, no longer rendered)
 - File: family-laura-tancredi-pexels.webp
 - Photographer: Laura Tancredi
 - Photo: https://www.pexels.com/photo/smiling-plump-black-woman-having-phone-call-7065249/

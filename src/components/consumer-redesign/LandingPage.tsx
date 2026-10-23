@@ -1,15 +1,26 @@
 import Image from "next/image";
-import { CONSUMER_FAQS } from "@/lib/consumer-faqs";
 import Link from "next/link";
-import { Asterisk, TwitchLogo, YoutubeLogo } from "@phosphor-icons/react/dist/ssr";
+import { CONSUMER_FAQS } from "@/lib/consumer-faqs";
+import {
+  Asterisk,
+  Heart,
+  Lightning,
+  Television,
+  TwitchLogo,
+  WifiHigh,
+  YoutubeLogo,
+} from "@phosphor-icons/react/dist/ssr";
 import ChatGptLogo from "./ChatGptLogo";
 import StoreBadges from "../StoreBadges";
-import { MobileMenu, RenewalStory } from "./Interactions";
+import { MobileMenu } from "./Interactions";
+import RenewalJourney from "./RenewalJourney";
 import s from "./landing.module.css";
-import AppShowcase from "./AppShowcase";
+import ConsumerHero from "./ConsumerHero";
+import Scene from "./Scene";
 import SpendingInsights from "./SpendingInsights";
 import WhatsAppWalkthrough from "./WhatsAppWalkthrough";
 import GiftLinkStory from "./GiftLinkStory";
+import StatementStrip from "./StatementStrip";
 import DirectionalArrow from "./DirectionalArrow";
 
 function Brand() {
@@ -26,96 +37,6 @@ function Arrow() {
     <span aria-hidden="true">
       <DirectionalArrow />
     </span>
-  );
-}
-
-const renewals = [
-  {
-    mark: <TwitchLogo size={24} weight="fill" />,
-    name: "Twitch",
-    description: "Keep up with your favourite creators",
-    when: "Tomorrow",
-    style: s.twitch,
-  },
-  {
-    mark: "ϟ",
-    name: "Mum’s power",
-    description: "A little care, on repeat",
-    when: "In 3 days",
-    style: s.power,
-  },
-  {
-    mark: <ChatGptLogo />,
-    name: "ChatGPT",
-    description: "For your next big idea",
-    when: "In 5 days",
-    style: s.chatgpt,
-  },
-];
-
-function MonthVisual() {
-  return (
-    <div className={s.monthVisual}>
-      <div className={s.orbit} aria-hidden="true" />
-      <div className={s.floatingNote}>
-        <span>✓</span> A little less on your mind.
-      </div>
-      <div className={s.monthPanel}>
-        <div className={s.panelTop}>
-          <span className={s.panelEyebrow}>LIFE, A LITTLE MORE ORGANISED</span>
-          <span aria-hidden="true">
-            <DirectionalArrow />
-          </span>
-        </div>
-        <h2>
-          Your next seven days<span>.</span>
-        </h2>
-        <div className={s.week} aria-hidden="true">
-          {["M", "T", "W", "T", "F", "S", "S"].map((d, i) => (
-            <div key={i} className={i === 1 ? s.selectedDay : ""}>
-              <span>{d}</span>
-              <b>{14 + i}</b>
-              {[1, 3, 5].includes(i) && <i />}
-            </div>
-          ))}
-        </div>
-        <div className={s.renewals}>
-          {renewals.map((r) => (
-            <div key={r.name} className={s.renewalRow}>
-              <span
-                className={`${s.serviceMark} ${r.style}`}
-                aria-hidden="true"
-              >
-                {r.mark}
-              </span>
-              <div>
-                <strong>{r.name}</strong>
-                <small>{r.description}</small>
-              </div>
-              <span className={s.when}>{r.when}</span>
-            </div>
-          ))}
-        </div>
-        <div className={s.panelBottom}>
-          <span className={s.tick}>✓</span>
-          <span>One place for what comes next.</span>
-        </div>
-      </div>
-      <div className={s.smallCard} aria-hidden="true">
-        <b>subsecute</b>
-        <span>
-          Made for your
-          <br />
-          everyday.
-        </span>
-        <i>
-          <DirectionalArrow />
-        </i>
-      </div>
-      <span className={s.visualCaption}>
-        YOUR ROUTINE. WITH ROOM TO BREATHE.
-      </span>
-    </div>
   );
 }
 
@@ -138,25 +59,21 @@ export default function LandingPage() {
         </a>
         <MobileMenu />
       </header>
-      <main id="main-content">
+      <main id="main-content" tabIndex={-1}>
         <section
           className={`${s.container} ${s.hero}`}
           aria-labelledby="hero-title"
         >
           <div className={s.heroCopy}>
-            <p className={s.eyebrow}>
-              <span /> FOR THE LIFE YOU HAVE ON REPEAT
-            </p>
             <h1 id="hero-title">
-              The recurring
-              <br />
-              money app
-              <br />
+              The recurring <br />
+              money app <br />
               <em>for Nigerians.</em>
             </h1>
             <p className={s.lead}>
-              Subsecute runs every subscription you have. Funds them. Tracks
-              them. Shares them. Gifts them. Cancels them. So you don’t have to.
+              Give each subscription its own dollar card. Fund it in naira, get
+              a reminder before renewal, and see what you’re paying for. Your
+              bills and family payments belong here too.
             </p>
             <div className={s.heroActions}>
               <a href="#download" className={s.primaryButton}>
@@ -169,11 +86,9 @@ export default function LandingPage() {
                 </span>
               </a>
             </div>
-            <p className={s.availability}>
-              Made for your everyday. Available on iOS & Android.
-            </p>
+            <p className={s.availability}>Available on iOS & Android.</p>
           </div>
-          <MonthVisual />
+          <ConsumerHero />
         </section>
         <div className={`${s.container} ${s.serviceStrip}`}>
           <span>
@@ -189,51 +104,50 @@ export default function LandingPage() {
             </b>
             <b>DStv</b>
             <b>
-              Electricity <span aria-hidden="true">ϟ</span>
+              Electricity{" "}
+              <Lightning size={18} weight="fill" aria-hidden="true" />
             </b>
           </div>
         </div>
-        <AppShowcase />
-        <SpendingInsights />
+        <StatementStrip />
         <section id="how-it-works" className={s.darkSection}>
           <div className={s.container}>
             <div className={s.sectionIntro}>
               <div>
-                <p className={s.eyebrow}>A LITTLE SETUP. A LOT LESS CHASING.</p>
                 <h2>
-                  Ready before
+                  A separate card
                   <br />
-                  the renewal<span>.</span>
+                  for every subscription<span>.</span>
                 </h2>
               </div>
               <p>
-                One subscription. One dedicated card.
-                <br />A clear next step.
+                Set up each subscription once. Keep its funding, renewal date
+                and payment history together, instead of checking them in
+                separate places.
               </p>
             </div>
-            <RenewalStory />
+            <RenewalJourney />
           </div>
         </section>
+        <SpendingInsights />
         <section id="everyday" className={`${s.container} ${s.everyday}`}>
           <div className={s.sectionIntro}>
             <div>
-              <p className={s.eyebrow}>MORE LIFE. LESS ADMIN.</p>
               <h2>
-                All the things
+                The subscriptions you love.
                 <br />
-                that keep life going.
+                The bills you can’t skip.
               </h2>
             </div>
             <p>
-              From your favourite shows to the lights at home.
-              <br />
-              Make room for the things that matter.
+              Your streaming, software, electricity and airtime, all in
+              Subsecute.
             </p>
           </div>
-          <div className={s.everydayGrid}>
+          <Scene className={s.everydayGrid}>
             <article className={s.subscriptionTile}>
               <div className={s.tileTop}>
-                <span>01 / YOUR SUBSCRIPTIONS</span>
+                <span>Your subscriptions</span>
                 <Arrow />
               </div>
               <div
@@ -254,51 +168,59 @@ export default function LandingPage() {
               <h3>
                 Keep your favourites.
                 <br />
-                Lose the mental tabs.
+                Keep track of the cost.
               </h3>
               <p>Dedicated cards and a clearer view of what renews next.</p>
             </article>
             <article className={s.billsTile}>
               <div className={s.tileTop}>
-                <span>02 / THE HOME ESSENTIALS</span>
+                <span>The home essentials</span>
                 <Arrow />
               </div>
               <div className={s.receipt}>
                 <span>THE EVERYDAY LIST</span>
                 <div>
-                  <span>ϟ Electricity</span>
-                  <b>Home, powered.</b>
+                  <span>
+                    <Lightning size={16} weight="fill" aria-hidden="true" />
+                    Electricity
+                  </span>
+                  <b>Your meter</b>
                 </div>
                 <div>
-                  <span>◉ Data & airtime</span>
-                  <b>Stay connected.</b>
+                  <span>
+                    <WifiHigh size={16} weight="bold" aria-hidden="true" />
+                    Data &amp; airtime
+                  </span>
+                  <b>Your number</b>
                 </div>
                 <div>
-                  <span>▣ TV</span>
-                  <b>Time to unwind.</b>
+                  <span>
+                    <Television size={16} weight="fill" aria-hidden="true" />
+                    TV
+                  </span>
+                  <b>Your decoder</b>
                 </div>
               </div>
               <h3>
-                Life doesn’t stop.
+                Electricity. Data. TV.
                 <br />
-                Neither do the essentials.
+                Yes, those too.
               </h3>
-              <p>Bring your regular bills into the same simple routine.</p>
+              <p>Pay regular bills alongside your subscriptions.</p>
             </article>
-          </div>
+          </Scene>
         </section>
         <section id="whatsapp" className={s.whatsappSection}>
           <div className={`${s.container} ${s.whatsappGrid}`}>
             <div>
-              <p className={s.eyebrow}>RIGHT WHERE YOU ALREADY ARE</p>
               <h2>
-                Less app-hopping.
+                Ask on WhatsApp,
                 <br />
-                More “sorted.”
+                where you already are.
               </h2>
               <p className={s.lead}>
-                A familiar conversation. A simpler way to keep up with your
-                subscriptions through Subsecute on WhatsApp.
+                Ask what you’re subscribed to or what’s due next. Get an answer
+                without opening another app.
               </p>
               <a href="#download" className={s.textLink}>
                 Start with the Subsecute app <Arrow />
@@ -308,41 +230,43 @@ export default function LandingPage() {
           </div>
         </section>
         <section id="your-people" className={`${s.container} ${s.family}`}>
-          <div className={s.familyImage}>
+          <Scene className={s.familyImage}>
             <Image
-              src="/images/consumer-redesign/family-laura-tancredi-pexels.webp"
-              alt="A smiling woman talking on her phone against a warm beige background"
+              src="/images/consumer-redesign/family-generations-rdne-pexels.jpg"
+              alt="Several generations of a family smiling together on a sofa"
               fill
               sizes="(max-width: 760px) 100vw, 50vw"
             />
             <div className={s.familyNote}>
-              <span className={s.power}>ϟ</span>
+              <span className={s.power}>
+                <Lightning size={18} weight="fill" aria-hidden="true" />
+              </span>
               <div>
-                <b>A little care, on repeat.</b>
-                <small>For the people who feel like home.</small>
+                <b>Mum’s electricity</b>
+                <small>Part of your family plan</small>
               </div>
-              <span aria-hidden="true">♡</span>
+              <Heart size={16} aria-hidden="true" />
             </div>
-          </div>
+          </Scene>
           <div>
-            <p className={s.eyebrow}>FOR YOUR PEOPLE</p>
             <h2>
-              Care that keeps
+              Cover their bills
               <br />
-              showing up.
+              from wherever you are.
             </h2>
             <p className={s.lead}>
-              Their power. Their data. Their favourite shows. Keep the everyday
-              things covered, even when you’re miles away.
+              Their light, their data, their DStv. Add them to a plan, set a
+              monthly limit, and the bills come out of your balance.
             </p>
             <div className={s.familyLine}>
-              <span aria-hidden="true">♡</span>One plan. The people you choose.
+              <Heart size={16} aria-hidden="true" />
+              One plan, up to 25 people, a limit each.
             </div>
             <div className={s.familyLine}>
               <span aria-hidden="true">
                 <DirectionalArrow />
               </span>
-              A gift that lasts beyond today.
+              Or a gift link, so somebody covers one of yours.
             </div>
             <Link href="/family" className={s.primaryButton}>
               Explore family plans <Arrow />
@@ -351,38 +275,42 @@ export default function LandingPage() {
         </section>
         <GiftLinkStory />
         <section className={`${s.container} ${s.faq}`}>
-          <div>
-            <p className={s.eyebrow}>GOOD QUESTIONS.</p>
+          <div className={s.faqIntro}>
             <h2>
-              A little clarity
+              Questions people
               <br />
-              goes a long way.
+              ask before downloading.
             </h2>
-            <p>Still have something on your mind?</p>
-            <Link href="/support" className={s.textLink}>
-              Talk to us <Arrow />
-            </Link>
+            <p>
+              Still have something on your mind?{" "}
+              <Link href="/support" className={s.textLink}>
+                Talk to us <Arrow />
+              </Link>
+            </p>
           </div>
-          <div className={s.questions}>
-            {CONSUMER_FAQS.map(([question, answer]) => (
-              <details key={question}>
-                <summary>
-                  {question}
-                  <span aria-hidden="true">+</span>
-                </summary>
-                <p>{answer}</p>
-              </details>
+          {/* One list, not a trust block beside an accordion. Those two were
+              answering the same questions twice, and the accordion hid its
+              half behind a click at the exact moment someone is deciding
+              whether to hand over a card. Every line is sourced: the fee and
+              rate from our own terms, the rest from the product and the
+              company record already in the footer. */}
+          <dl className={s.answers}>
+            {CONSUMER_FAQS.map(([term, answer]) => (
+              <div key={term}>
+                <dt>{term}</dt>
+                <dd>{answer}</dd>
+              </div>
             ))}
-          </div>
+          </dl>
         </section>
         <section id="download" className={s.download}>
           <div className={s.container}>
-            <p className={s.eyebrow}>TAKE SOMETHING OFF YOUR MIND.</p>
             <h2>
-              Your everyday.
-              <br />A little lighter.
+              Put your next month
+              <br />
+              in Subsecute.
             </h2>
-            <p>Make room for life. Let’s get your month together.</p>
+            <p>Start with one subscription. Add the rest as you go.</p>
             <StoreBadges className={s.storeBadges} />
             <span className={s.downloadStar} aria-hidden="true">
               <Asterisk size="1em" weight="bold" />
@@ -393,7 +321,7 @@ export default function LandingPage() {
       <footer className={`${s.container} ${s.footer}`}>
         <div>
           <Brand />
-          <p>Your everyday, already handled.</p>
+          <p>The recurring money app for Nigerians.</p>
         </div>
         <nav aria-label="Footer navigation">
           <Link href="/support">Support</Link>
@@ -409,7 +337,7 @@ export default function LandingPage() {
           <span>
             © {new Date().getFullYear()} Subsecute. All rights reserved.
           </span>
-          <span>Made for the way you live.</span>
+          <span>TrustCommerce Resources Ltd · RC 7131175</span>
         </div>
       </footer>
     </div>

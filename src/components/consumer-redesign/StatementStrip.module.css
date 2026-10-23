@@ -1,0 +1,205 @@
+.section {
+  max-width: 1320px;
+  margin: auto;
+  padding: 0 56px 100px;
+}
+
+.layout {
+  border-top: 1px solid var(--line);
+  padding-top: 72px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 88px;
+  align-items: center;
+}
+
+
+/* ── The statement ──────────────────────────────────────────────
+   Deliberately plainer than the rest of the page: a bank statement
+   is the one artefact on this site the reader has already seen a
+   hundred times, and dressing it up would break the recognition.   */
+.statement {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.statementHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.statementHead span:last-child {
+  letter-spacing: 0.2px;
+  font-weight: 500;
+  color: #6b6659;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 62px 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+  padding: 13px 20px;
+  font-size: 14px;
+  border-bottom: 1px solid #f0ece0;
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.date {
+  color: #6b6659;
+  font-variant-numeric: tabular-nums;
+  font-size: 13px;
+}
+
+.amount {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+
+/* The three foreign software charges. Tinted so the eye groups them
+   before any copy explains why they belong together. */
+.flagged {
+  background: #fdf3ec;
+}
+
+/* Swapping the description in place is the whole point: the deck had
+   to put the problem and the fix on two different slides, a page can
+   make them the same line. */
+.desc {
+  position: relative;
+  min-height: 1.35em;
+}
+
+.desc > span {
+  display: block;
+  transition:
+    opacity 420ms ease,
+    transform 420ms ease;
+}
+
+.code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12.5px;
+  letter-spacing: -0.2px;
+  color: #57534a;
+}
+
+.named {
+  position: absolute;
+  inset: 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.resolved .code {
+  opacity: 0;
+  transform: translateY(-4px);
+}
+
+.unresolved .named {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.caption {
+  margin: 14px 2px 0;
+  font-size: 12.5px;
+  color: #6b6659;
+}
+
+/* ── Copy side ─────────────────────────────────────────────────── */
+.copy h2 {
+  font-size: 44px;
+  line-height: 1.15;
+  letter-spacing: -0.032em;
+  margin: 0;
+  color: var(--ink);
+}
+
+.copy p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #62665b;
+  max-width: 400px;
+  margin: 24px 0 0;
+}
+
+.replay {
+  margin-top: 28px;
+  border: 1px solid var(--line);
+  background: transparent;
+  border-radius: 999px;
+  padding: 9px 18px;
+  font: inherit;
+  font-size: 13px;
+  color: #57534a;
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.replay:hover {
+  border-color: #c9c3b1;
+  color: var(--ink);
+}
+
+.replay:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+  .copy h2 {
+    font-size: 34px;
+    letter-spacing: -0.03em;
+  }
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 0 20px 72px;
+  }
+  .layout {
+    padding-top: 52px;
+  }
+  .row {
+    grid-template-columns: 50px 1fr auto;
+    gap: 10px;
+    font-size: 13px;
+    padding: 12px 14px;
+  }
+  .statementHead {
+    padding: 12px 14px;
+  }
+  .code {
+    font-size: 12px;
+  }
+  .copy h2 {
+    font-size: 29px;
+  }
+}
+
+/* Someone who asked for less motion still gets the point: the rows
+   simply start resolved, with no swap to miss. */
+@media (prefers-reduced-motion: reduce) {
+  .desc > span {
+    transition: none;
+  }
+}

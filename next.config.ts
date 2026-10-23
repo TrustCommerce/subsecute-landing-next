@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Local previews use both hostnames. Allow the loopback IP to hydrate in dev.
+  allowedDevOrigins: ["127.0.0.1"],
   // The blog routes read markdown from content/blog at runtime (ISR
   // revalidation reveals date-gated posts on their day). Bundle those files
   // into the serverless functions so the reads work in production, not just

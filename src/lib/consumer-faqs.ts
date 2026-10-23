@@ -1,27 +1,29 @@
-// Shared by the visible homepage and JSON-LD so answers cannot drift apart.
+// The six answers on the landing page, and the FAQPage schema, from one
+// array. They were briefly two different sets of six, which is exactly the
+// drift this file exists to prevent.
 export const CONSUMER_FAQS = [
   [
-    "What is Subsecute?",
-    "Subsecute is a subscription and recurring bill management app for Nigerians. It brings dedicated virtual dollar cards, renewal reminders, spending summaries, family plans and gift links together on iOS and Android.",
+    "What it costs",
+    "Review the applicable fee, exchange rate and total when you set up or fund a subscription. Scheduled funding then follows the arrangement you choose.",
   ],
   [
-    "What can I manage with Subsecute?",
-    "Keep subscriptions, recurring bills and payments for your people in one place. Check the app for supported services and payment options.",
+    "The rate you get",
+    "Conversion between naira and dollars runs at prevailing market rates.",
   ],
   [
-    "How do I fund a subscription?",
-    "Use a supported saved card or direct debit as your funding method. You can review the available options and payment details in the app before you confirm.",
+    "How you fund it",
+    "Choose a funding method in the app. Subsecute converts naira and loads the subscription’s dollar card on its funding schedule. Keep enough money available for scheduled funding.",
   ],
   [
-    "Can I take care of bills for someone else?",
-    "Yes. Subsecute brings family plans and gifting into the same everyday experience, so you can help cover the things your people rely on.",
+    "Cancelling",
+    "Cancelling in Subsecute closes that subscription’s card. It does not cancel your agreement with the merchant. Cancel the plan with them too if you no longer want the service.",
   ],
   [
-    "Does stopping a card cancel my subscription?",
-    "No. Stopping card funding is not the same as cancelling a subscription. Cancel with the service provider if you no longer want their service.",
+    "Paying for someone else",
+    "Run a plan for up to 25 people with a monthly limit each, or share a gift link so somebody covers one of your bills.",
   ],
   [
-    "Where can I see fees and get help?",
-    "Review applicable fees in the app before confirming a payment. Visit our support page if you need help with your account or a transaction.",
+    "Who we are",
+    "Subsecute is a product of TrustCommerce Resources Ltd, RC 7131175.",
   ],
 ] as const;

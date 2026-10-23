@@ -21,8 +21,14 @@
   outline: 3px solid #b94b16;
   outline-offset: 5px;
 }
+/* The accent ring measured 1.05:1 against the orange band, so on the two
+   dark/accent surfaces the ring inverts instead of disappearing. */
+.download :is(a, button, summary):focus-visible,
+.darkSection :is(a, button, summary):focus-visible {
+  outline-color: #faf8ef;
+}
 .page section {
-  scroll-margin-top: 28px;
+  scroll-margin-top: 128px;
 }
 .container {
   max-width: 1320px;
@@ -30,7 +36,14 @@
   padding-inline: 56px;
 }
 .header {
-  max-width: 1440px;
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 200ms ease;
+  max-width: 100%;
   margin: auto;
   height: 104px;
   padding: 0 56px;
@@ -45,7 +58,7 @@
   gap: 6px;
   font-size: 27px;
   font-weight: 600;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.03em;
   color: var(--ink);
 }
 .desktopNav {
@@ -93,29 +106,12 @@
   padding-bottom: 56px;
   gap: 20px;
 }
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  font-size: 11px !important;
-  font-weight: 600;
-  letter-spacing: 1.6px;
-  line-height: 1.5 !important;
-  margin: 0 0 26px !important;
-  color: var(--orange);
-}
-.eyebrow > span {
-  height: 6px;
-  width: 6px;
-  background: var(--orange);
-  border-radius: 50%;
-}
 .page h1,
 .page h2,
 .page h3 {
   font-family: var(--font-space-grotesk-loaded), sans-serif;
   font-weight: 600;
-  letter-spacing: -2.8px;
+  letter-spacing: -0.035em;
 }
 .page h1 {
   font-size: clamp(60px, 5.5vw, 82px);
@@ -166,8 +162,8 @@
   border-bottom: 1px solid currentColor;
 }
 .availability {
-  font-size: 11px;
-  color: #74766c;
+  font-size: 12px;
+  color: #5a5c53;
   margin: 19px 0 0;
 }
 .monthVisual {
@@ -205,18 +201,12 @@
   align-items: center;
   gap: 8px;
 }
-.panelEyebrow {
-  font-size: 9px;
-  letter-spacing: 1.3px;
-  color: #74776a;
-  font-weight: 500;
-}
-.monthPanel h2 {
+.monthPanel .panelHeading {
   font-size: 29px;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.03em;
   margin: 20px 0;
 }
-.monthPanel h2 > span {
+.monthPanel .panelHeading > span {
   color: var(--orange);
 }
 .week {
@@ -236,8 +226,8 @@
   border-radius: 7px;
 }
 .week span {
-  font-size: 10px;
-  color: #777b70;
+  font-size: 12px;
+  color: #5c5f55;
 }
 .week b {
   font-size: 14px;
@@ -302,12 +292,12 @@
 }
 .renewalRow small {
   display: block;
-  font-size: 10px;
-  color: #7b7c70;
+  font-size: 12px;
+  color: #5e6054;
   margin-top: 3px;
 }
 .when {
-  font-size: 9px;
+  font-size: 12px;
   margin-left: auto;
   color: #5c6254;
   background: #f0f0e7;
@@ -319,7 +309,7 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: 10px;
+  font-size: 12px;
   color: #5d6854;
   padding: 19px 0;
 }
@@ -332,7 +322,7 @@
   color: #465b32;
   width: 20px;
   height: 20px;
-  font-size: 11px;
+  font-size: 12px;
 }
 .floatingNote {
   position: absolute;
@@ -357,7 +347,7 @@
   right: -16px;
   width: 193px;
   height: 122px;
-  border-radius: 10px;
+  border-radius: 14px;
   background: #bf501c;
   color: #fff3df;
   transform: rotate(11deg);
@@ -369,10 +359,10 @@
 }
 .smallCard b {
   font-size: 16px;
-  letter-spacing: -0.8px;
+  letter-spacing: -0.022em;
 }
 .smallCard > span {
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.3;
 }
 .smallCard i {
@@ -382,14 +372,6 @@
   font-size: 30px;
   font-style: normal;
 }
-.visualCaption {
-  position: absolute;
-  bottom: -5px;
-  left: 44px;
-  font-size: 8px;
-  letter-spacing: 1.5px;
-  color: #7b7e70;
-}
 .serviceStrip {
   border-top: 1px solid var(--line);
   display: flex;
@@ -398,10 +380,10 @@
   min-height: 118px;
 }
 .serviceStrip > span {
-  font-size: 9px;
+  font-size: 12px;
   line-height: 1.6;
   letter-spacing: 1px;
-  color: #7b7c70;
+  color: #5e6054;
   flex-shrink: 0;
 }
 .serviceStrip > div {
@@ -415,7 +397,7 @@
 .serviceStrip b {
   font-size: 23px;
   font-weight: 600;
-  letter-spacing: -1px;
+  letter-spacing: -0.025em;
 }
 .netflix {
   font-family: Impact, sans-serif;
@@ -442,12 +424,9 @@
 .sectionIntro > p {
   font-size: 16px;
   line-height: 1.7;
-  color: #72776a;
+  color: #585d51;
   max-width: 350px;
   margin: 0 0 5px;
-}
-.darkSection .eyebrow {
-  color: #e6a276;
 }
 .darkSection h2 span {
   color: #dd7e45;
@@ -525,7 +504,7 @@
 }
 .renewalDetail h3 {
   font-size: 28px;
-  letter-spacing: -1.2px;
+  letter-spacing: -0.028em;
   margin: 18px 0 10px;
 }
 .renewalDetail > p {
@@ -555,10 +534,10 @@
 }
 .virtualCard b {
   font-size: 20px;
-  letter-spacing: -1px;
+  letter-spacing: -0.025em;
 }
 .virtualCard div span {
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 0.7px;
 }
 .cardMark {
@@ -575,25 +554,25 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  font-size: 11px;
+  font-size: 12px;
   margin-top: 24px;
 }
 .detailFooter > span:last-child {
   margin-left: auto;
-  color: #777d6e;
-  font-size: 9px;
+  color: #5c6254;
+  font-size: 12px;
 }
 .everyday {
   padding-block: 100px;
 }
 .everydayGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 24px;
 }
 .everydayGrid article {
   padding: 31px 36px;
-  border-radius: 10px;
+  border-radius: 14px;
   overflow: hidden;
 }
 .subscriptionTile {
@@ -606,7 +585,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 9px;
+  font-size: 12px;
   letter-spacing: 1px;
   color: #5f6657;
 }
@@ -648,13 +627,13 @@
 }
 .page h3 {
   font-size: 29px;
-  letter-spacing: -1px;
+  letter-spacing: -0.025em;
   line-height: 1.2;
   margin: 12px 0;
 }
 .everydayGrid p {
   font-size: 14px;
-  color: #65705d;
+  color: #4e5847;
   margin: 16px 0 8px;
   line-height: 1.6;
 }
@@ -667,20 +646,20 @@
   box-shadow: 0 10px 20px -15px #80644066;
 }
 .receipt > span {
-  font-size: 8px;
+  font-size: 11.5px;
   letter-spacing: 1.5px;
-  color: #767c6b;
+  color: #5b6152;
 }
 .receipt > div {
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  font-size: 11px;
+  font-size: 12px;
   padding: 13px 0;
   border-bottom: 1px dashed #dcded1;
 }
 .receipt b {
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 400;
   color: #737768;
 }
@@ -690,12 +669,18 @@
 }
 .whatsappGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 100px;
+  grid-template-columns: 1fr;
+  gap: 44px;
   align-items: center;
 }
+.whatsappGrid > div:first-child {
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+}
 .whatsappGrid .lead {
-  margin-top: 24px;
+  margin: 24px auto;
+  max-width: 530px;
 }
 .conversation {
   background: #fafbf4;
@@ -728,7 +713,7 @@
 }
 .conversationHeader small {
   display: block;
-  font-size: 10px;
+  font-size: 12px;
   color: #767d6b;
 }
 .conversationHeader > span:last-child {
@@ -741,7 +726,7 @@
   gap: 18px;
 }
 .chatDate {
-  font-size: 8px;
+  font-size: 11.5px;
   letter-spacing: 1px;
   text-align: center;
   color: #79816f;
@@ -774,24 +759,24 @@
 }
 .incoming small {
   display: block;
-  font-size: 10px;
+  font-size: 12px;
   color: #78806e;
 }
 .chatFootnote {
-  font-size: 9px;
+  font-size: 12px;
   color: #757d6a;
   text-align: center;
 }
 .family {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
   gap: 80px;
   padding-block: 110px;
 }
 .familyImage {
   position: relative;
-  height: 510px;
+  aspect-ratio: 3 / 2;
   border-radius: 12px;
   overflow: hidden;
   background: #e8dfcb;
@@ -827,8 +812,8 @@
 }
 .familyNote small {
   display: block;
-  font-size: 10px;
-  color: #737866;
+  font-size: 12px;
+  color: #595e4e;
   margin-top: 3px;
 }
 .familyNote > span:last-child {
@@ -853,52 +838,73 @@
 .family .primaryButton {
   margin-top: 20px;
 }
+
+/* Product objects move. Reading and scrolling never wait for them. */
+.everydayGrid[data-entered] .logoComposition span {
+  animation: serviceArrive 1100ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.everydayGrid[data-entered] .logoComposition span:nth-child(2) {
+  animation-delay: 130ms;
+}
+.everydayGrid[data-entered] .logoComposition span:nth-child(3) {
+  animation-delay: 260ms;
+}
+.everydayGrid[data-entered] .receipt {
+  animation: receiptArrive 1100ms 150ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.familyImage[data-entered] .familyNote {
+  animation: familyNotice 1000ms 250ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes serviceArrive {
+  from {
+    translate: 0 40px;
+    opacity: 0.35;
+  }
+  to {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
+@keyframes receiptArrive {
+  from {
+    transform: translateY(40px) rotate(4deg);
+  }
+  to {
+    transform: rotate(-3deg);
+  }
+}
+@keyframes familyNotice {
+  from {
+    translate: 0 32px;
+    opacity: 0.3;
+  }
+  to {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .familyImage > img {
+      animation: familyPhoto linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+  }
+}
+@keyframes familyPhoto {
+  from {
+    transform: scale(1.025);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 .faq {
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 80px;
   padding-bottom: 110px;
 }
 .faq h2 {
-  font-size: 40px;
-}
-.faq > div > p:not(.eyebrow) {
-  font-size: 14px;
-  color: #777d6c;
-  margin: 24px 0 7px;
-}
-.questions details {
-  border-top: 1px solid var(--line);
-}
-.questions details:last-child {
-  border-bottom: 1px solid var(--line);
-}
-.questions summary {
-  list-style: none;
-  padding: 23px 0;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 15px;
-}
-.questions summary::-webkit-details-marker {
-  display: none;
-}
-.questions summary span {
-  font-size: 20px;
-  line-height: 1;
-  transition: transform 0.2s;
-}
-.questions details[open] summary span {
-  transform: rotate(45deg);
-}
-.questions details p {
-  font-size: 14px;
-  line-height: 1.7;
-  color: #68715e;
-  max-width: 490px;
-  margin: 0 0 24px;
+  font-size: 44px;
 }
 .download {
   background: #bd4e1b;
@@ -909,23 +915,23 @@
 .download > .container {
   position: relative;
 }
-.download .eyebrow {
-  color: #ffe0c8;
-}
 .download h2 {
   font-size: 70px;
   position: relative;
   z-index: 1;
 }
-.download p:not(.eyebrow) {
-  font-size: 17px;
-  margin: 24px 0 28px;
+.download > .container > p {
   position: relative;
   z-index: 1;
+  max-width: 520px;
+  margin: 24px 0 0;
+  font-size: 18px;
+  line-height: 1.6;
 }
 .storeBadges {
   position: relative;
   z-index: 1;
+  margin-top: 32px;
 }
 .downloadStar {
   position: absolute;
@@ -944,13 +950,21 @@
 }
 .footer p {
   font-size: 12px;
-  color: #78806c;
+  color: #5d6453;
   margin: 12px 0;
 }
 .footer nav {
   display: flex;
   flex-wrap: wrap;
   gap: 26px;
+}
+/* 23.9-42.8px wide measured; short words need padding to reach 44. */
+.footer nav a {
+  display: inline-flex;
+  align-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
   justify-content: end;
   align-items: start;
   padding-top: 10px;
@@ -968,8 +982,8 @@
   justify-content: space-between;
   border-top: 1px solid var(--line);
   padding-top: 24px;
-  font-size: 10px;
-  color: #7c8272;
+  font-size: 12px;
+  color: #5f6559;
 }
 @keyframes arrive {
   from {
@@ -981,9 +995,9 @@
     transform: translateY(0) rotate(-3deg);
   }
 }
-.page .monthPanel h2 {
+.page .monthPanel .panelHeading {
   font-size: 29px;
-  letter-spacing: -1.5px;
+  letter-spacing: -0.03em;
   line-height: 1.15;
   margin: 20px 0;
 }
@@ -1023,7 +1037,7 @@
   .monthPanel {
     padding: 22px 19px 0;
   }
-  .monthPanel h2 {
+  .monthPanel .panelHeading {
     font-size: 25px;
   }
   .orbit {
@@ -1053,7 +1067,7 @@
     gap: 40px;
   }
   .familyImage {
-    height: 470px;
+    aspect-ratio: 3 / 2;
   }
   .familyNote {
     left: 12px;
@@ -1070,6 +1084,15 @@
   }
 }
 @media (max-width: 760px) {
+  /* Collage overlap is a desktop effect; stacked, it sat on top of the
+     hero's trust line and on the "In 5 days" renewal row. */
+  .smallCard {
+    display: none;
+  }
+  /* The star hung 99px past the right edge at 390px. */
+  .downloadStar {
+    display: none;
+  }
   .container {
     padding-inline: 24px;
   }
@@ -1085,14 +1108,40 @@
     width: 32px;
     height: 32px;
   }
-  .desktopNav,
-  .headerCta {
+  .desktopNav {
     display: none;
+  }
+  /* Was display:none, which deleted the sticky header's only reason to
+     exist on the viewport with a 12,000px scroll. */
+  .headerCta {
+    display: inline-flex;
+    white-space: nowrap;
+    min-height: 44px;
+    padding: 0 16px;
+    font-size: 13px;
+    gap: 5px;
+    flex: none;
+  }
+  /* The wordmark can give up room before the CTA does. */
+  .header {
+    gap: 10px;
+    padding-inline: 18px;
+  }
+  .header .brand span {
+    display: none;
+  }
+  .header .brand {
+    min-width: 44px;
+    justify-content: center;
   }
   .mobileMenu {
     display: block;
   }
   .menuButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
     background: transparent;
     border: 1px solid var(--line);
     border-radius: 6px;
@@ -1127,16 +1176,11 @@
   }
   .hero h1 {
     font-size: clamp(49px, 10vw, 72px);
-    letter-spacing: -2.9px;
+    letter-spacing: -0.035em;
     line-height: 1.03;
   }
   .desktopBreak {
     display: none;
-  }
-  .hero .eyebrow {
-    font-size: 9px !important;
-    letter-spacing: 1.2px;
-    margin-bottom: 20px !important;
   }
   .lead {
     font-size: 16px;
@@ -1155,7 +1199,7 @@
     font-size: 13px;
   }
   .availability {
-    font-size: 10px;
+    font-size: 12px;
   }
   .monthVisual {
     max-width: 480px;
@@ -1169,13 +1213,13 @@
     max-width: 440px;
     padding: 24px 21px 0;
   }
-  .monthPanel h2 {
+  .monthPanel .panelHeading {
     font-size: 27px;
   }
   .floatingNote {
     top: 0;
     left: 45px;
-    font-size: 10px;
+    font-size: 12px;
   }
   .orbit {
     width: 310px;
@@ -1194,7 +1238,7 @@
     font-size: 14px;
   }
   .smallCard > span {
-    font-size: 9px;
+    font-size: 12px;
   }
   .visualCaption {
     left: 13px;
@@ -1209,10 +1253,15 @@
     margin-top: 22px;
   }
   .serviceStrip > span {
-    font-size: 8px;
+    font-size: 11.5px;
   }
+  /* The <br> was the only whitespace between these two clauses; hiding it
+     rendered "FAVOURITESTO". Collapse it to a space instead. */
   .serviceStrip > span br {
-    display: none;
+    content: "";
+  }
+  .serviceStrip > span br::after {
+    content: " ";
   }
   .serviceStrip > div {
     flex-wrap: wrap;
@@ -1232,13 +1281,10 @@
   }
   .page h2 {
     font-size: 40px;
-    letter-spacing: -1.9px;
+    letter-spacing: -0.032em;
   }
   .darkSection {
     padding-block: 64px;
-  }
-  .darkSection .eyebrow {
-    font-size: 9px !important;
   }
   .storyGrid {
     grid-template-columns: 1fr;
@@ -1258,7 +1304,7 @@
   .stepNumber {
     width: 34px;
     height: 34px;
-    font-size: 11px;
+    font-size: 12px;
   }
   .renewalDetail {
     min-height: 390px;
@@ -1303,7 +1349,16 @@
     padding-block: 65px;
   }
   .familyImage {
-    height: 420px;
+    aspect-ratio: 3 / 2;
+  }
+  .familyNote {
+    bottom: 10px;
+    padding: 10px;
+    gap: 10px;
+  }
+  .familyNote > span:first-child {
+    width: 30px;
+    height: 30px;
   }
   .family .lead {
     margin-bottom: 22px;
@@ -1330,10 +1385,6 @@
   .download h2 {
     font-size: 52px;
   }
-  .download p:not(.eyebrow) {
-    font-size: 15px;
-    max-width: 245px;
-  }
   .downloadStar {
     right: -75px;
     top: 5px;
@@ -1356,11 +1407,7 @@
   .footerBottom {
     flex-direction: column;
     gap: 12px;
-    font-size: 9px;
-  }
-  .eyebrow {
-    font-size: 10px !important;
-    margin-bottom: 20px !important;
+    font-size: 12px;
   }
 }
 @media (max-width: 360px) {
@@ -1387,17 +1434,17 @@
   .monthPanel {
     padding: 20px 15px 0;
   }
-  .monthPanel h2 {
+  .monthPanel .panelHeading {
     font-size: 23px;
   }
   .renewalRow {
     gap: 8px;
   }
   .renewalRow small {
-    font-size: 8px;
+    font-size: 11.5px;
   }
   .when {
-    font-size: 8px;
+    font-size: 11.5px;
     padding: 5px;
   }
   .serviceMark {
@@ -1412,10 +1459,10 @@
     padding: 12px;
   }
   .familyNote b {
-    font-size: 11px;
+    font-size: 12px;
   }
   .familyNote small {
-    font-size: 9px;
+    font-size: 12px;
   }
   .download h2 {
     font-size: 46px;
@@ -1424,7 +1471,7 @@
     padding: 22px;
   }
   .detailFooter {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1435,4 +1482,128 @@
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Icon plus word pairs. These used to be a glyph inside the text run; a drawn
+   icon is an element, so it needs to be told to stay on the line. */
+.serviceStrip b,
+.receipt > div > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.serviceStrip b svg,
+.receipt > div > span svg {
+  flex: none;
+}
+
+/* Trust block: fills the dead left column of the FAQ, which measured ~300px
+   of empty space at exactly the point a visitor is weighing objections. */
+/* Not an eyebrow: sentence case, ink, and the same weight as a question in
+   the accordion beside it, because these answer what that accordion defers. */
+
+/* Touch targets. Footer links measured 23.9-42.8px wide and the brand links
+   37.5px tall, all under the 44px minimum. */
+.footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.brand {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Elevation declared once. These four carried a 1px hairline under a
+   15-60px soft shadow, which reads as the ghost card. */
+.monthPanel {
+  border-color: transparent;
+}
+
+/* Heading rhythm. Both flagged headings had equal or more space below than
+   above, which visually attaches them to the preceding block. */
+.faq > div > h2 {
+  margin-block: 0 24px;
+}
+.billsTile h3 {
+  margin-block: 28px 12px;
+}
+
+/* The decorative card overlapped the "In 5 days" renewal row by 58%.
+   Nudging it clear keeps the collage without eating content. */
+.smallCard {
+  transform: translate(18px, 46px) rotate(-6deg);
+}
+
+/* The answers. One list, everything visible: nothing a buyer needs sits
+   behind a disclosure triangle. */
+.faqIntro {
+  max-width: 44ch;
+  margin-bottom: 56px;
+}
+.faqIntro p {
+  margin: 18px 0 0;
+  font-size: 16px;
+  color: #5c6254;
+}
+.answers {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px 56px;
+}
+.answers > div {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+.answers dt {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.014em;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+.answers dd {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #5c6254;
+  max-width: 46ch;
+}
+
+@media (max-width: 760px) {
+  .faqIntro {
+    margin-bottom: 36px;
+  }
+  .answers {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .faq h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 1100px) and (min-width: 761px) {
+  .answers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  /* These two reflowed together mid-scroll and were the only source of
+     layout shift on mobile. */
+  .darkSection,
+  .everyday {
+    contain: layout paint;
+  }
+}
+
+/* Uppercase-label tracking on mixed-case text reads as a spacing bug. */
+.tileTop span,
+.virtualCard span {
+  letter-spacing: 0.01em;
 }

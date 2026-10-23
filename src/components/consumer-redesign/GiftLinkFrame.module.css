@@ -2,17 +2,16 @@
   position: relative;
   isolation: isolate;
   width: 100%;
-  max-width: 460px;
-  margin: 0 auto;
-  padding: 76px 28px 0;
+  max-width: 800px;
+  margin: 24px auto 0;
+  padding: 24px 0 0;
 }
 .backdrop {
   position: absolute;
-  inset: 116px 14px 70px;
-  background: #f0dfcf;
-  border-radius: 24px 64px 24px 64px;
-  transform: rotate(-7deg);
   z-index: -1;
+  inset: 80px 8% 76px;
+  border-radius: 50%;
+  background: #f1dfcc;
 }
 .decorations {
   pointer-events: none;
@@ -21,38 +20,37 @@
 }
 .envelope {
   position: absolute;
-  top: 32px;
-  left: 12px;
-  width: 84px;
-  height: 58px;
-  background: #e7bb94;
+  top: 32%;
+  left: 6%;
+  width: 116px;
+  height: 80px;
+  background: #e2b48b;
   border-radius: 4px;
-  transform: rotate(-16deg);
-  box-shadow: 0 12px 18px -14px #79553980;
+  transform: rotate(-18deg);
 }
 .envelope::before {
   content: "";
   position: absolute;
-  inset: -29px 0 0;
-  background: #e7bb94;
+  inset: -40px 0 0;
+  background: #e2b48b;
   clip-path: polygon(0 34%, 50% 0, 100% 34%, 100% 100%, 0 100%);
   border-radius: 4px;
 }
 .note {
   position: absolute;
-  inset: -12px 12px 8px;
+  inset: -20px 16px 12px;
   display: grid;
   place-items: center;
-  padding-bottom: 16px;
+  padding-bottom: 20px;
+  border-radius: 4px;
   background: #fffbf3;
   color: var(--orange);
-  border-radius: 4px;
   transform: rotate(5deg);
 }
 .envelopeFold {
   position: absolute;
   inset: 0;
-  background: #f4cfac;
+  background: #f2cba7;
   clip-path: polygon(0 0, 50% 45%, 100% 0, 100% 100%, 0 100%);
   border-radius: 4px;
 }
@@ -60,78 +58,76 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: #efc39e;
+  background: #edbf95;
   clip-path: polygon(0 100%, 50% 45%, 100% 100%);
 }
 .giftTag {
   position: absolute;
-  top: 58px;
-  right: 8px;
-  width: 49px;
-  height: 65px;
+  top: 43%;
+  right: 7%;
+  width: 68px;
+  height: 88px;
   display: grid;
   place-items: center;
-  padding-top: 9px;
-  border: 1px solid #c9cfbc;
-  border-radius: 13px 13px 5px 5px;
-  background: #e6eadb;
-  color: #647250;
+  padding-top: 10px;
+  border: 1px solid #bbc7aa;
+  border-radius: 16px 16px 5px 5px;
+  background: #e1e8d4;
+  color: #4e653d;
   transform: rotate(17deg);
-  box-shadow: 0 9px 15px -12px #42503666;
 }
 .giftTag::before {
   content: "";
   position: absolute;
-  top: 7px;
-  left: 21px;
-  width: 5px;
-  height: 5px;
+  top: 9px;
+  left: 30px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--paper);
-  border: 1px solid #b8c0a9;
+  border: 1px solid #a0ae8c;
 }
 .giftTag::after {
   content: "";
   position: absolute;
-  width: 26px;
-  height: 33px;
-  top: -25px;
-  left: 12px;
-  border: 1px solid #9ba588;
+  width: 32px;
+  height: 40px;
+  top: -32px;
+  left: 18px;
+  border: 1px solid #889b72;
   border-radius: 50%;
   transform: rotate(-24deg);
 }
 .sparkle,
 .smallSparkle {
   position: absolute;
-  color: #b27b4c;
-  font-size: 24px;
+  color: #a66536;
 }
 .sparkle {
-  top: 24px;
-  right: 97px;
+  right: 16%;
+  top: 15%;
   transform: rotate(12deg);
 }
 .smallSparkle {
-  left: 3px;
-  bottom: 114px;
-  font-size: 20px;
+  left: 17%;
+  bottom: 24%;
 }
 .link {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 16px 8px;
-  color: #765837;
-  font-size: 12px;
-  letter-spacing: 0.1px;
+  min-height: 48px;
+  margin-bottom: 12px;
+  color: #765032;
+  font-size: 14px;
 }
 .screen {
+  position: relative;
   max-width: 380px;
   margin: auto;
   border-radius: 18px;
-  box-shadow: 0 24px 36px -28px #61503b66;
+  box-shadow: 0 20px 40px -28px #61503b66;
   background: #fff;
   overflow: hidden;
 }
@@ -140,71 +136,123 @@
   width: 100%;
   height: auto;
 }
-.seal {
-  position: absolute;
-  right: 7px;
-  bottom: 82px;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--orange);
-  color: #ffe5cb;
-  border: 5px solid var(--paper);
-  transform: rotate(12deg);
-}
 .figure figcaption {
   text-align: center;
-  font-size: 11px;
-  color: #716952;
+  font-size: 13px;
+  color: #6b604a;
   line-height: 1.6;
   padding: 24px 0 0;
 }
+:global([data-arrived="true"]) .envelope {
+  animation: envelopeArrival 900ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+:global([data-arrived="true"]) .note {
+  animation: noteLift 1200ms 300ms ease-in-out both;
+}
+:global([data-arrived="true"]) .giftTag {
+  animation: tagSettle 1100ms 200ms ease-out both;
+}
+@keyframes envelopeArrival {
+  from {
+    transform: translate(-22px, 20px) rotate(-28deg);
+  }
+  to {
+    transform: translate(0, 0) rotate(-18deg);
+  }
+}
+@keyframes noteLift {
+  0%,
+  100% {
+    transform: translateY(0) rotate(5deg);
+  }
+  45% {
+    transform: translateY(-16px) rotate(-2deg);
+  }
+}
+@keyframes tagSettle {
+  0% {
+    transform: rotate(28deg);
+  }
+  55% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(17deg);
+  }
+}
 @media (max-width: 760px) {
   .figure {
-    max-width: 420px;
-    padding: 76px 16px 0;
+    max-width: 520px;
+    margin-top: 16px;
+    padding-top: 56px;
   }
   .backdrop {
-    inset: 114px 14px 66px;
-    transform: rotate(-5deg);
+    inset: 120px 0 64px;
   }
   .envelope {
-    left: 9px;
-    transform: rotate(-16deg) scale(0.82);
-    transform-origin: left center;
+    top: 20px;
+    left: 2%;
+    width: 70px;
+    height: 48px;
+    transform: rotate(-18deg);
+  }
+  .envelope::before {
+    inset-block-start: -24px;
+  }
+  .note {
+    inset: -12px 10px 6px;
+    padding-bottom: 12px;
+  }
+  .note svg {
+    width: 18px;
   }
   .giftTag {
-    right: 5px;
-    top: 43px;
-    transform: rotate(17deg) scale(0.85);
+    top: 16px;
+    right: 2%;
+    width: 42px;
+    height: 54px;
+    border-radius: 10px 10px 4px 4px;
+  }
+  .giftTag svg {
+    width: 22px;
+  }
+  .giftTag::before {
+    left: 18px;
+    top: 6px;
+    width: 4px;
+    height: 4px;
+  }
+  .giftTag::after {
+    width: 20px;
+    height: 26px;
+    top: -20px;
+    left: 10px;
   }
   .sparkle {
-    right: 79px;
-    top: 20px;
-    font-size: 20px;
+    top: 10px;
+    right: 24%;
   }
   .smallSparkle {
-    left: -1px;
-    bottom: 110px;
-    font-size: 16px;
+    left: 17%;
+    top: 8px;
+    bottom: auto;
   }
   .link {
-    font-size: 11px;
-    padding-block: 16px;
+    font-size: 12px;
+    margin-bottom: 8px;
   }
-  .seal {
-    right: -2px;
-    width: 44px;
-    height: 44px;
-    bottom: 72px;
-  }
-  .seal svg {
-    width: 20px;
+  .screen {
+    max-width: min(380px, 100%);
   }
   .figure figcaption {
-    font-size: 10px;
+    font-size: 12px;
     padding-top: 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :global([data-arrived="true"]) .envelope,
+  :global([data-arrived="true"]) .note,
+  :global([data-arrived="true"]) .giftTag {
+    animation: none;
   }
 }

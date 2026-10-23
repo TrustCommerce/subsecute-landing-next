@@ -1,0 +1,235 @@
+.journey {
+  margin-top: 56px;
+}
+.steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+  padding: 0;
+  margin: 0;
+}
+.steps > li {
+  min-width: 0;
+}
+.visual {
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.miniCard {
+  width: 245px;
+  background: #e4e9cf;
+  color: #243121;
+  border-radius: 13px;
+  padding: 22px;
+  transform: rotate(-7deg);
+  box-shadow: 0 18px 36px -16px #0007;
+}
+.miniCard > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+}
+.miniCard > strong {
+  display: block;
+  font-size: 28px;
+  margin: 21px 0;
+  font-weight: 500;
+}
+.miniCard small {
+  font-size: 12px;
+}
+.funding {
+  gap: 0;
+}
+.fundingNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100px;
+  flex: none;
+}
+.fundingNode svg {
+  width: 64px;
+  height: 64px;
+  padding: 18px;
+  border: 1px solid #61705b;
+  border-radius: 50%;
+  color: #e4e9cf;
+}
+.fundingNode span {
+  font-size: 14px;
+  color: #e4e9cf;
+}
+.connector {
+  height: 1px;
+  flex: 1;
+  position: relative;
+  background: #607455;
+  margin-top: -33px;
+}
+.connector i {
+  position: absolute;
+  height: 9px;
+  width: 9px;
+  top: -4px;
+  left: calc(100% - 8px);
+  border-radius: 50%;
+  background: #e0ad66;
+}
+.fundingCaption {
+  position: absolute;
+  bottom: 23px;
+  color: #c4ccb9;
+  font-size: 12px;
+}
+.notification {
+  background: #faf8ef;
+  color: #273322;
+  padding: 20px 17px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 12px;
+  transform: rotate(4deg);
+  box-shadow: 0 18px 36px -16px #0007;
+}
+.notification > svg {
+  flex: none;
+  color: #a7491a;
+}
+.notification strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+.notification p {
+  font-size: 12px;
+  margin: 7px 0 16px;
+}
+.notification div > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-top: 1px solid #d5dacb;
+  padding-top: 12px;
+  font-size: 12px;
+}
+.copy {
+  border-top: 1px solid #4a5842;
+  padding-top: 23px;
+}
+.copy > span {
+  color: #e0ad66;
+  font-size: 13px;
+}
+.copy h3 {
+  font-size: 25px;
+  line-height: 1.2;
+  margin: 13px 0;
+  color: #faf8ef;
+}
+.copy p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #c4ccb9;
+  margin: 0;
+}
+.note {
+  color: #c4ccb9;
+  font-size: 12px;
+  margin: 38px 0 0;
+  line-height: 1.6;
+}
+.visual[data-entered] .miniCard {
+  animation: issue 1000ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.visual[data-entered] .connector i {
+  animation: load 1800ms 500ms ease-in-out both;
+}
+.visual[data-entered] .notification {
+  animation: notify 900ms 1300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes issue {
+  from {
+    transform: translateY(30px) rotate(-16deg);
+  }
+  to {
+    transform: rotate(-7deg);
+  }
+}
+@keyframes load {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 8px);
+  }
+}
+@keyframes notify {
+  from {
+    transform: translateY(24px) rotate(0);
+    opacity: 0.3;
+  }
+  to {
+    transform: rotate(4deg);
+    opacity: 1;
+  }
+}
+@media (max-width: 1000px) {
+  .steps {
+    gap: 24px;
+  }
+  .notification {
+    padding: 16px 12px;
+    gap: 8px;
+  }
+  .miniCard {
+    width: 220px;
+  }
+  .fundingNode {
+    width: 80px;
+  }
+}
+@media (max-width: 760px) {
+  .journey {
+    margin-top: 28px;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .steps > li {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .visual {
+    height: 205px;
+    max-width: 350px;
+    width: 100%;
+    margin: auto;
+  }
+  .copy {
+    padding-top: 18px;
+  }
+  .copy h3 {
+    font-size: 27px;
+  }
+  .note {
+    margin-top: 28px;
+  }
+  .connector {
+    max-width: 100px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .visual[data-entered] .miniCard,
+  .visual[data-entered] .connector i,
+  .visual[data-entered] .notification {
+    animation: none;
+  }
+}

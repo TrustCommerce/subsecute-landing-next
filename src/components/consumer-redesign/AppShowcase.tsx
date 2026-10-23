@@ -5,16 +5,16 @@ import DirectionalArrow from "./DirectionalArrow";
 
 const highlights = [
   {
-    title: "See the bigger picture.",
-    text: "Your active subscriptions and monthly spending, together on your home screen.",
+    title: "Everything you pay for, listed.",
+    text: "Every active subscription and what they come to this month, on the first screen you open.",
   },
   {
-    title: "Know what needs you.",
-    text: "Upcoming renewals have their own place. Find what needs attention without digging.",
+    title: "Renewals that need a decision.",
+    text: "Anything charging soon sits in its own place, so you are not digging for it.",
   },
   {
-    title: "Make it a shared thing.",
-    text: "Create a plan or share your gift link, right from home.",
+    title: "Bills someone else can cover.",
+    text: "Start a plan for your people, or share a gift link so somebody can pay one of yours.",
   },
 ];
 
@@ -27,19 +27,17 @@ export default function AppShowcase() {
     >
       <div className={s.layout}>
         <div className={s.copy}>
-          <p className={s.eyebrow}>MEET YOUR NEW HOME SCREEN</p>
           <h2 id="app-showcase-title" className={s.title}>
-            A place for it all.
+            Everything you pay for,
             <br />
-            <em>Right in your pocket.</em>
+            <em>on one screen.</em>
           </h2>
           <p className={s.intro}>
-            Here’s what a little less life admin looks like in Subsecute.
+            No hunting through five apps and a bank statement to find out what you owe.
           </p>
           <ol className={s.highlights}>
             {highlights.map(({ title, text }, index) => (
               <li key={title}>
-                <span className={s.number}>0{index + 1}</span>
                 <div>
                   <h3>{title}</h3>
                   <p>{text}</p>

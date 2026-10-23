@@ -11,17 +11,10 @@
   gap: 64px;
   align-items: center;
 }
-.eyebrow {
-  color: var(--orange);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 1.6px;
-  margin: 0 0 24px;
-}
 .copy .title {
   font-size: clamp(36px, 3.6vw, 50px);
   line-height: 1.12;
-  letter-spacing: -2px;
+  letter-spacing: -0.032em;
   margin: 0;
 }
 .title em {
@@ -47,15 +40,10 @@
   padding: 20px 0;
   border-top: 1px solid #d6d9ca;
 }
-.number {
-  color: var(--orange);
-  font-size: 11px;
-  padding-top: 4px;
-}
 .highlights h3 {
   font-size: 17px;
   line-height: 1.4;
-  letter-spacing: -0.4px;
+  letter-spacing: -0.018em;
   margin: 0 0 6px;
 }
 .highlights p {
@@ -106,7 +94,7 @@
   border-radius: 32px;
 }
 .caption {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 0.2px;
   color: #626b58;
   margin-top: 20px;
@@ -169,4 +157,10 @@
   .screen {
     border-radius: 26px;
   }
+}
+
+/* Depth comes from the shadow alone; the hairline under it read as a ghost
+   card in the detector and in person. */
+.phone {
+  border-color: transparent;
 }
