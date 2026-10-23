@@ -73,7 +73,7 @@ export default function LandingPage() {
             <p className={s.lead}>
               Give every subscription its own dollar card. Automatically funded in
               naira, with a reminder before renewal. Share your link so someone
-              else can cover it.
+              else can cover it. Automate your regular bills, too.
             </p>
             <div className={s.heroActions}>
               <a href="#download" className={s.primaryButton}>
