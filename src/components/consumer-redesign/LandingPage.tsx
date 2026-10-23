@@ -71,9 +71,9 @@ export default function LandingPage() {
               <em>for Nigerians.</em>
             </h1>
             <p className={s.lead}>
-              Give each subscription its own dollar card. Fund it in naira, get
-              a reminder before renewal, and see what you’re paying for. Your
-              bills and family payments belong here too.
+              Give every subscription its own dollar card. Automatically funded in
+              naira, with a reminder before renewal. Share your link so someone
+              else can cover it.
             </p>
             <div className={s.heroActions}>
               <a href="#download" className={s.primaryButton}>
