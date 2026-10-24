@@ -5,6 +5,7 @@ import {
   APP_SCHEMA,
   ORG_SCHEMA,
   FAQ_SCHEMA,
+  CARD_SCHEMA,
   WEBSITE_SCHEMA,
 } from "@/lib/structured-data";
 
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      {[WEBSITE_SCHEMA, APP_SCHEMA, ORG_SCHEMA, FAQ_SCHEMA].map((schema) => (
+      {[WEBSITE_SCHEMA, APP_SCHEMA, CARD_SCHEMA, ORG_SCHEMA, FAQ_SCHEMA].map((schema) => (
         <script
           key={schema["@type"]}
           type="application/ld+json"

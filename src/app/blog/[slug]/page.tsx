@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
-import { blogPostingSchema, howToSchema } from "@/lib/structured-data";
+import {
+  blogPostingSchema,
+  breadcrumbSchema,
+  howToSchema,
+} from "@/lib/structured-data";
 import ShareArticle from "@/components/ShareArticle";
 import StoreBadges from "@/components/StoreBadges";
 import { SITE_URL } from "@/config";
@@ -62,6 +66,14 @@ export default async function BlogPost({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(blogPostingSchema(post)),
+        }}
+      />
+      {/* The trail Google renders in place of a bare URL, and the signal that
+          this post belongs to a blog on a site rather than standing alone. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema(post)),
         }}
       />
       {/* Step-by-step posts also carry HowTo, which is what lets an answer

@@ -2,6 +2,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   businessReleased,
+  businessIndexable as indexable,
+  businessRewriteTarget as rewriteTarget,
   businessRouteAction as route,
 } from "../src/lib/business-release.mjs";
 test("release is explicit and fails closed", () => {
@@ -44,18 +46,68 @@ test("enabled business root rewrites, internal path canonicalizes", () => {
     "redirect",
   );
 });
-test("business host does not leak consumer pages or sitemap", () => {
-  for (const path of [
-    "/blog",
-    "/signup",
-    "/dashboard",
-    "/sitemap.xml",
-    "/robots.txt",
-  ])
+test("business host does not leak consumer pages", () => {
+  for (const path of ["/blog", "/signup", "/dashboard", "/support", "/quiz"])
     assert.equal(
       route("business.subsecute.com", path, "true", "production"),
       "deny",
     );
+});
+test("business host serves its own crawler files, never the consumer ones", () => {
+  // robots.txt is per-host and the consumer sitemap lists consumer URLs, so
+  // each of these maps to a handler under the one segment this host may read.
+  for (const [requested, target] of [
+    ["/robots.txt", "/business/robots.txt"],
+    ["/sitemap.xml", "/business/sitemap.xml"],
+    ["/llms.txt", "/business/llms.txt"],
+  ]) {
+    assert.equal(
+      route("business.subsecute.com", requested, "true", "production"),
+      "rewrite",
+    );
+    assert.equal(rewriteTarget(requested), target);
+  }
+  // Still gated: nothing is served before the release flag is on.
+  for (const path of ["/robots.txt", "/sitemap.xml", "/llms.txt"])
+    assert.equal(
+      route("business.subsecute.com", path, "false", "production"),
+      "deny",
+    );
+});
+test("the share image is reachable on both the business host and local preview", () => {
+  assert.equal(
+    route(
+      "business.subsecute.com",
+      "/business/opengraph-image",
+      "true",
+      "production",
+    ),
+    "pass",
+  );
+  assert.equal(
+    route("localhost:3002", "/business/opengraph-image", "true", "development"),
+    "pass",
+  );
+  assert.equal(
+    route(
+      "localhost:3002",
+      "/business/opengraph-image",
+      "false",
+      "development",
+    ),
+    "deny",
+  );
+});
+test("search indexing is a second switch on top of the release flag", () => {
+  assert.equal(indexable("true", "true"), true);
+  for (const [flag, index] of [
+    ["true", undefined],
+    ["true", "false"],
+    ["true", "1"],
+    ["false", "true"],
+    [undefined, "true"],
+  ])
+    assert.equal(indexable(flag, index), false);
 });
 test("no production preview path or lookalike-host bypass", () => {
   for (const host of [

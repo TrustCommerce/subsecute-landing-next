@@ -86,6 +86,45 @@ export const ORG_SCHEMA = {
     email: "hello@subsecute.com",
     contactType: "customer service",
   },
+  // sameAs is how an engine confirms that the Subsecute on this domain, the
+  // one on the App Store and the one posting on X are a single company rather
+  // than three similarly named things. It is the cheapest entity signal
+  // available and the one a new brand most needs.
+  sameAs: [
+    APP_STORE_URL,
+    PLAY_STORE_URL,
+    "https://x.com/subsecute_",
+    "https://www.instagram.com/subsecute",
+    "https://www.tiktok.com/@subsecute",
+    "https://www.facebook.com/share/14dBDtDQg1h/",
+  ],
+};
+
+/**
+ * The card itself, as its own entity.
+ *
+ * `PaymentCard` is a schema.org subtype of FinancialProduct and Service, and
+ * it is what someone is actually asking about when they type "virtual dollar
+ * card Nigeria" into an answer engine. The SoftwareApplication node above
+ * describes the app; this describes the thing the app issues. They are
+ * different questions and deserve different nodes.
+ */
+export const CARD_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "PaymentCard",
+  "@id": `${SITE_URL}/#card`,
+  name: "Subsecute virtual dollar card",
+  url: SITE_URL,
+  provider: { "@id": `${SITE_URL}/#organization` },
+  description:
+    "A virtual dollar card issued per subscription, funded from naira a few days before the renewal date. Closing the subscription closes the card, so the merchant's next charge is declined.",
+  category: "Virtual dollar card for subscriptions",
+  areaServed: { "@type": "Country", name: "Nigeria" },
+  currenciesAccepted: "NGN",
+  audience: {
+    "@type": "Audience",
+    name: "Nigerians at home and abroad paying for international subscriptions",
+  },
 };
 
 export const FAQ_SCHEMA = {
@@ -122,5 +161,33 @@ export function howToSchema(post: {
       text,
       url: `${SITE_URL}/blog/${post.slug}`,
     })),
+  };
+}
+
+
+/**
+ * Breadcrumbs for an article. Two jobs: the trail Google renders under a
+ * result instead of a bare URL, and telling an engine that a post is part of
+ * a blog on a site rather than a page floating on its own.
+ */
+export function breadcrumbSchema(post: { slug: string; title: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Articles",
+        item: `${SITE_URL}/blog`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `${SITE_URL}/blog/${post.slug}`,
+      },
+    ],
   };
 }

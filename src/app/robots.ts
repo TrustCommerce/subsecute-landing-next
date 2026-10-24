@@ -4,7 +4,7 @@ import { SITE_URL } from "@/config";
 // AI search/answer-engine crawlers we explicitly welcome (GEO / "AI SEO").
 // Unlisted crawlers inherit the wildcard rule. Search access and training
 // permissions are different; preserve existing training permissions here.
-const AI_BOTS = [
+export const AI_BOTS = [
   "GPTBot", // OpenAI training
   "OAI-SearchBot", // ChatGPT search results
   "ChatGPT-User", // ChatGPT browsing on a user's behalf

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import {
   BUSINESS_EDGE_HEADER,
   businessRouteAction,
+  businessRewriteTarget,
 } from "./lib/business-release.mjs";
 export function proxy(request: NextRequest) {
   const action = businessRouteAction(
@@ -21,7 +22,7 @@ export function proxy(request: NextRequest) {
     });
   if (action === "rewrite") {
     const url = request.nextUrl.clone();
-    url.pathname = "/business";
+    url.pathname = businessRewriteTarget(request.nextUrl.pathname);
     const response = NextResponse.rewrite(url);
     response.headers.set("Cache-Control", "private, no-store");
     return response;
