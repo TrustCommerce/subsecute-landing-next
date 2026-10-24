@@ -1,0 +1,211 @@
+.warning {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #e8eadd;
+  border-radius: 12px;
+  padding: 48px;
+  gap: 72px;
+  text-align: left;
+  max-width: 1240px;
+  margin: auto;
+}
+.messageSide {
+  align-self: center;
+  min-width: 0;
+}
+.channel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #34503b;
+  margin-bottom: 18px;
+}
+.message {
+  padding: 28px;
+  background: #fffefa;
+  border-radius: 4px 16px 16px 16px;
+  box-shadow: 0 10px 24px #293b2010;
+}
+.sender {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #34503b;
+  font-size: 14px;
+  font-weight: 500;
+}
+.warning .message h2 {
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  margin: 24px 0 12px;
+}
+.message p {
+  color: #545c4d;
+  line-height: 1.65;
+  font-size: 16px;
+}
+.subscription {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #e1e3d9;
+  margin-top: 24px;
+  padding-top: 20px;
+  font-size: 14px;
+}
+.subscription small {
+  display: block;
+  font-size: 12px;
+  color: #545c4d;
+  margin-top: 4px;
+}
+.subscription > strong {
+  margin-left: auto;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.messageSide .caption {
+  font-size: 12px;
+  color: #545c4d;
+  margin: 16px 0 0;
+}
+.routing {
+  min-width: 0;
+}
+.routing h3 {
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+}
+.warning .routing > p {
+  margin: 16px 0 20px;
+  color: #545c4d;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.recipients {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-height: 204px;
+}
+.recipients li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid #cdd3c2;
+  animation: arrive 550ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.recipients li:nth-child(2) {
+  animation-delay: 100ms;
+}
+.recipients li:nth-child(3) {
+  animation-delay: 200ms;
+}
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #d4dcc8;
+  color: #33432a;
+  font-size: 12px;
+}
+.recipients strong {
+  font-weight: 500;
+  font-size: 14px;
+}
+.recipients small {
+  display: block;
+  font-size: 12px;
+  color: #545c4d;
+}
+.once {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  font-size: 12px;
+  color: #34503b;
+}
+.scenario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  margin-top: 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.scenario input {
+  width: 18px;
+  height: 18px;
+  accent-color: #34503b;
+  flex-shrink: 0;
+}
+.excluded {
+  display: block;
+  font-size: 12px;
+  color: #545c4d;
+}
+@keyframes arrive {
+  from {
+    opacity: 0.3;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 900px) {
+  .warning {
+    padding: 32px;
+    gap: 36px;
+  }
+  .once svg {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .warning {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 24px;
+  }
+  .message {
+    padding: 22px;
+  }
+  .message h2 {
+    font-size: 24px;
+  }
+  .routing h3 {
+    font-size: 27px;
+  }
+}
+@media (max-width: 360px) {
+  .warning {
+    padding: 18px;
+  }
+  .message {
+    padding: 16px;
+  }
+  .subscription {
+    flex-wrap: wrap;
+  }
+  .once {
+    max-width: 60px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .recipients li {
+    animation: none;
+  }
+}

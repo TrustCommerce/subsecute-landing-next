@@ -1,0 +1,456 @@
+/* Keep each illustration's controls close to the thing they describe. */
+.bl-subscription-ledger {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  perspective: 900px;
+}
+.bl-subscription-ledger li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 20px;
+  border-bottom: 1px solid var(--lp-line);
+  background: #fffdf7;
+  transition:
+    background 400ms ease,
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.bl-subscription-ledger li[data-active="true"] {
+  background: #f1eadc;
+  transform: translateX(8px);
+}
+.bl-subscription-ledger li > div {
+  flex: 1;
+  min-width: 0;
+}
+.bl-subscription-ledger strong {
+  font-size: 16px;
+  font-weight: 500;
+}
+.bl-subscription-ledger span {
+  display: block;
+  font-size: 12px;
+  color: var(--lp-muted);
+  margin-top: 4px;
+}
+.bl-subscription-ledger li > strong {
+  white-space: nowrap;
+  font-size: 14px;
+}
+.bc-workflow-guide {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 64px;
+  align-items: center;
+}
+.bc-setup-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.bc-setup-list li {
+  padding: 12px 0 24px;
+  border-top: 1px solid var(--lp-line);
+}
+.bc-setup-list button {
+  display: grid;
+  grid-template-columns: 36px 1fr 18px;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  background: transparent;
+  color: var(--lp-ink);
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+.bc-setup-number {
+  font-size: 14px;
+  color: var(--lp-muted);
+  transition: color 300ms;
+}
+.bc-setup-list button > svg {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition:
+    opacity 300ms,
+    transform 300ms;
+}
+.bc-setup-list [aria-pressed="true"] {
+  color: var(--lp-orange);
+}
+.bc-setup-list [aria-pressed="true"] .bc-setup-number {
+  color: inherit;
+}
+.bc-setup-list [aria-pressed="true"] > svg {
+  opacity: 1;
+  transform: none;
+}
+.bc-setup-list p {
+  margin: 4px 30px 0 48px;
+  color: var(--lp-muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.bc-setup-artwork {
+  min-width: 0;
+  background: #e9ebdf;
+  padding: 48px 32px;
+  border-radius: 12px;
+  perspective: 1200px;
+}
+.bc-setup-scene {
+  grid-area: 1 / 1;
+  min-width: 0;
+  align-self: center;
+}
+.bc-setup-scene[data-active="false"] {
+  visibility: hidden;
+  pointer-events: none;
+}
+.bc-setup-scene .bp-setup {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 420px;
+}
+.bc-demo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.bc-demo-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 18px;
+  border: 1px solid #7b896f;
+  border-radius: 24px;
+  background: transparent;
+  color: var(--lp-ink);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    background 180ms,
+    color 180ms;
+}
+.bc-demo-actions button:hover {
+  background: #40523a;
+}
+.bc-demo-actions button[aria-pressed="true"] {
+  background: #fffdf6;
+  border-color: #fffdf6;
+  color: #263225;
+}
+.bl-funding-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0 12px;
+}
+.bl-funding-timeline li {
+  display: flex;
+  position: relative;
+  gap: 20px;
+  padding-bottom: 28px;
+}
+.bl-funding-timeline li:last-child {
+  padding-bottom: 0;
+}
+.bl-funding-timeline li:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 30px;
+  bottom: 0;
+  width: 1px;
+  background: var(--lp-line);
+}
+.bl-funding-timeline li[data-complete="true"]::before {
+  background: var(--lp-orange);
+}
+.bl-event-node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 29px;
+  height: 29px;
+  flex-shrink: 0;
+  border: 1px solid var(--lp-line);
+  border-radius: 50%;
+  background: var(--lp-paper);
+  font-size: 12px;
+  color: var(--lp-muted);
+  transition:
+    background 300ms,
+    color 300ms,
+    transform 400ms;
+}
+.bl-funding-timeline [data-active="true"] .bl-event-node,
+.bl-funding-timeline [data-complete="true"] .bl-event-node {
+  background: #b9460b;
+  border-color: #b9460b;
+  color: #fff;
+}
+.bl-funding-timeline [data-active="true"] .bl-event-node {
+  transform: scale(1.12);
+}
+.bl-funding-timeline strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+}
+.bl-funding-timeline li > div > span {
+  display: block;
+  margin-top: 4px;
+  color: var(--lp-muted);
+  font-size: 13px;
+}
+.bf-file-list {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0;
+}
+.bf-file-list li {
+  padding: 12px 16px 20px;
+  border-top: 1px solid var(--lp-line);
+  transition: background 300ms;
+}
+.bf-file-list li[data-active="true"] {
+  background: #efece2;
+}
+.bf-file-list button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 52px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--lp-ink);
+  font: inherit;
+  font-size: 17px;
+  text-align: left;
+  cursor: pointer;
+}
+.bf-file-list button > svg:first-child {
+  color: var(--lp-orange);
+  flex-shrink: 0;
+}
+.bf-file-list button > span {
+  flex: 1;
+}
+.bf-file-list button small {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 12px;
+  color: var(--lp-muted);
+}
+.bf-file-list button > svg:last-child {
+  transition: transform 300ms;
+}
+.bf-file-list button:hover > svg:last-child {
+  transform: translateX(4px);
+}
+.b-landing .bf-file-list p {
+  margin: 0 24px 0 42px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.bc-setup-list button:focus-visible,
+.bc-demo-actions button:focus-visible,
+.bf-file-list button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+/* Each card arrives separately. The funding trail then explains what follows. */
+.bs-subscription-story[data-entered="true"] .bl-subscription-ledger li {
+  animation: bs-card-deal 850ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.bs-subscription-story[data-entered="true"]
+  .bl-subscription-ledger
+  li:nth-child(2) {
+  animation-delay: 120ms;
+}
+.bs-subscription-story[data-entered="true"]
+  .bl-subscription-ledger
+  li:nth-child(3) {
+  animation-delay: 240ms;
+}
+.bs-expense-story {
+  perspective: 1200px;
+}
+.bs-expense-story[data-entered="true"] .b-spending-card {
+  animation: bs-card-issue 1000ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.bs-expense-story[data-entered="true"] .bl-funding-timeline {
+  animation: bs-trail-draw 900ms 250ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.bc-workflow-guide[data-visible="true"]
+  .bc-setup-scene[data-active="true"]
+  .bt-stage-art {
+  animation: bs-setup-page 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes bs-card-deal {
+  from {
+    transform: translateY(55px) rotateX(14deg) rotateZ(-3deg);
+    opacity: 0.25;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes bs-card-issue {
+  from {
+    transform: translateY(100px) rotateY(-18deg) rotateZ(8deg) scale(0.9);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes bs-trail-draw {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+@keyframes bs-setup-page {
+  from {
+    transform: translateX(36px) rotateY(-8deg);
+    opacity: 0.3;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+/* Scroll connects the product scenes. Browsers without this feature show the final layout. */
+#setup-panel,
+#finance-panel {
+  scroll-margin-top: 32px;
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    #workspace-preview {
+      animation: bs-workspace-settle linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 85%;
+      transform-origin: center top;
+    }
+    .b-landing .bc-controls {
+      animation: bs-controls-open linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 75%;
+    }
+    .bf-paper-deck {
+      animation: bs-records-arrive linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 75%;
+    }
+    #workspace-preview:focus-within,
+    .b-landing .bc-controls:focus-within,
+    .bf-paper-deck:focus-within {
+      animation: none;
+    }
+  }
+}
+@keyframes bs-workspace-settle {
+  from {
+    transform: perspective(1400px) rotateX(8deg) scale(0.94) translateY(64px);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes bs-controls-open {
+  from {
+    clip-path: inset(0 4% round 28px);
+  }
+  to {
+    clip-path: inset(0 0 round 0);
+  }
+}
+@keyframes bs-records-arrive {
+  from {
+    transform: translateY(64px) rotate(-3deg) scale(0.96);
+  }
+  to {
+    transform: none;
+  }
+}
+@media (max-width: 800px) {
+  .bc-workflow-guide {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .bc-setup-artwork {
+    padding: 28px 20px;
+  }
+  .bc-setup-list button {
+    font-size: 18px;
+  }
+  .bc-setup-list p {
+    margin-right: 0;
+  }
+}
+@media (max-width: 600px) {
+  .bl-subscription-ledger li {
+    padding: 22px 10px;
+    gap: 10px;
+  }
+  .bl-subscription-ledger li > strong {
+    font-size: 12px;
+  }
+  .bl-subscription-ledger li[data-active="true"] {
+    transform: none;
+  }
+  .bc-demo-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+  .bf-file-list li {
+    padding-inline: 8px;
+  }
+  .bf-file-list button {
+    font-size: 16px;
+  }
+  .b-landing .bf-file-list p {
+    margin-right: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bl-subscription-ledger li,
+  .bc-setup-number,
+  .bc-setup-list button > svg,
+  .bc-demo-actions button,
+  .bl-event-node,
+  .bf-file-list li,
+  .bf-file-list button > svg:last-child {
+    transition: none;
+  }
+  .bs-subscription-story[data-entered="true"] .bl-subscription-ledger li,
+  .bs-expense-story[data-entered="true"] .b-spending-card,
+  .bs-expense-story[data-entered="true"] .bl-funding-timeline,
+  .bc-workflow-guide[data-visible="true"]
+    .bc-setup-scene[data-active="true"]
+    .bt-stage-art {
+    animation: none;
+  }
+  .bl-subscription-ledger li[data-active="true"],
+  .bl-funding-timeline [data-active="true"] .bl-event-node {
+    transform: none;
+  }
+}

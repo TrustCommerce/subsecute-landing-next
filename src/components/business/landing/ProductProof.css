@@ -1,0 +1,461 @@
+.bp-setup {
+  width: 100%;
+  max-width: 390px;
+  margin: 28px auto 0;
+  padding: 28px;
+  background: #fffefa;
+  border: 1px solid var(--lp-line);
+  border-radius: 8px;
+}
+.b-landing .bp-setup > h3 {
+  margin: 20px 0 8px;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.7px;
+}
+.bp-setup > p {
+  color: var(--lp-muted);
+  font-size: 14px;
+}
+.bp-setup-icon {
+  color: var(--lp-orange);
+}
+.bp-facts {
+  margin: 24px 0 0;
+}
+.bp-facts > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid var(--lp-line);
+  padding: 14px 0;
+  font-size: 13px;
+}
+.bp-facts dt {
+  color: var(--lp-muted);
+}
+.bp-facts dd {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.bp-pending {
+  color: #86521e;
+}
+.bp-setup-note {
+  margin-top: 24px;
+  border-left: 2px solid var(--lp-orange);
+  padding-left: 12px;
+  color: var(--lp-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.bp-example-label {
+  display: block;
+  margin-top: 24px;
+  color: var(--lp-muted);
+  font-size: 12px;
+}
+.bp-wallet-amount {
+  display: block;
+  margin: 12px 0 24px;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+.bp-money-route {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #eceee2;
+  border-radius: 4px;
+  gap: 10px;
+  font-size: 13px;
+}
+.bp-card-choice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--lp-line);
+}
+.bp-card-choice strong,
+.bp-card-choice span:not(.b-tool-logo):not(.bp-avatar) {
+  display: block;
+  font-size: 13px;
+}
+.bp-card-choice div > span {
+  margin-top: 5px;
+  color: var(--lp-muted);
+}
+.bp-avatar {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  background: #ede7dc;
+  border-radius: 50%;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.bp-checkout {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px solid var(--lp-line);
+  border-radius: 6px;
+  font-size: 13px;
+}
+.bp-checkout > span:first-child {
+  color: var(--lp-muted);
+}
+.bp-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #405536;
+  font-size: 12px;
+}
+.bp-section {
+  max-width: 1240px;
+  margin: auto;
+  padding: 80px 0;
+  scroll-margin-top: 100px;
+}
+.b-landing .bp-section h2 {
+  font-family: var(--font-space-grotesk-loaded), sans-serif;
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1.12;
+  font-weight: 500;
+  letter-spacing: -1.8px;
+  margin: 18px 0 22px;
+}
+.bp-section p {
+  color: var(--lp-muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.bp-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: start;
+  border-top: 1px solid var(--lp-line);
+}
+.bp-control-preview {
+  --lp-ink: #fffdf6;
+  --lp-muted: #d0d6c8;
+  --lp-line: #64725b;
+  padding: 32px;
+  background: #263225;
+  color: var(--lp-ink);
+  border-radius: 8px;
+}
+.bp-control-heading {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.bp-control-heading strong {
+  display: block;
+  font-weight: 500;
+}
+.bp-control-heading small {
+  font-size: 12px;
+  color: var(--lp-muted);
+  display: block;
+  margin-top: 4px;
+}
+.bp-switches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.bp-switches button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px 16px;
+  border: 1px solid #c4c7b8;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--lp-ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+}
+.bp-switches button[aria-pressed="true"] {
+  background: #263225;
+  color: #fffdf6;
+  border-color: #263225;
+}
+.bp-control-preview .bp-switches button {
+  border-color: #809073;
+}
+.bp-control-preview .bp-switches button[aria-pressed="true"] {
+  background: #f3efe3;
+  color: #263225;
+  border-color: #f3efe3;
+}
+.bp-control-preview .bp-switches button:focus-visible {
+  outline-color: #ffb480;
+}
+.bp-control-explanation {
+  min-height: 220px;
+  margin-top: 24px;
+  border-top: 1px solid var(--lp-line);
+  padding-top: 24px;
+}
+.b-landing .bp-control-explanation h3 {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 12px 0;
+}
+.bp-control-explanation p {
+  font-size: 14px;
+}
+.bp-control-explanation small {
+  display: block;
+  margin-top: 16px;
+  color: var(--lp-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.bp-expense-controls {
+  margin-top: 28px;
+  border-top: 1px solid var(--lp-line);
+  padding-top: 24px;
+}
+.b-landing .bp-expense-controls h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.bp-expense-controls p {
+  font-size: 14px;
+}
+.bp-control-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+.bp-control-labels span {
+  padding: 5px 10px;
+  border: 1px solid var(--lp-line);
+  border-radius: 4px;
+  color: var(--lp-ink);
+  font-size: 12px;
+}
+.bp-finance {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 70px;
+  align-items: center;
+  border-top: 1px solid var(--lp-line);
+}
+.bp-finance-notes {
+  margin: 28px 0;
+}
+.bp-finance-notes > div {
+  padding: 18px 0;
+  border-top: 1px solid var(--lp-line);
+}
+.bp-finance-notes dt {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.bp-finance-notes dd {
+  color: var(--lp-muted);
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.bp-planned {
+  display: inline-block;
+  padding: 3px 6px;
+  margin-left: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  background: #efe8db;
+  color: #74512f;
+  border-radius: 3px;
+  vertical-align: middle;
+}
+.bp-document-stage {
+  min-width: 0;
+  padding: 28px;
+  background: #eeeae0;
+  border-radius: 8px;
+}
+.bp-document-stage .bp-switches {
+  gap: 4px;
+  margin-bottom: 24px;
+}
+.bp-document-stage .bp-switches button {
+  flex: 1;
+  font-size: 12px;
+  padding: 8px;
+}
+.bp-document {
+  background: #fffefa;
+  padding: 30px;
+  border: 1px solid #d8d6cc;
+  box-shadow: 0 6px 18px #292b2010;
+  min-height: 470px;
+}
+.bp-document-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.bp-document-overline {
+  margin-top: 24px;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  color: var(--lp-muted);
+}
+.b-landing .bp-document h3 {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+  margin: 10px 0;
+}
+.bp-document p {
+  font-size: 12px;
+}
+.bp-document .bp-document-amount {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  margin: 20px 0 4px;
+  color: var(--lp-ink);
+}
+.bp-document .bp-facts {
+  margin-top: 20px;
+}
+.bp-document .bp-total {
+  border-top: 2px solid var(--lp-ink);
+  font-weight: 600;
+  margin-top: 6px;
+}
+.bp-document .bp-total dt {
+  color: var(--lp-ink);
+}
+.bp-document .bp-document-footer {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--lp-line);
+  color: var(--lp-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.bp-attachment {
+  padding: 24px 16px;
+  border: 1px dashed #c8cbbd;
+  margin-top: 28px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.bp-attachment strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+.bp-attachment span {
+  display: block;
+  color: var(--lp-muted);
+  font-size: 12px;
+  margin-top: 5px;
+}
+.bp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.bp-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@media (max-width: 1359px) {
+  .bp-section {
+    margin-inline: 60px;
+  }
+}
+@media (max-width: 1100px) {
+  .bp-section {
+    margin-inline: 32px;
+  }
+  .bp-controls,
+  .bp-finance {
+    gap: 32px;
+  }
+  .bp-document-stage {
+    padding: 20px;
+  }
+  .bp-document {
+    padding: 24px;
+  }
+}
+@media (max-width: 900px) {
+  .bp-section {
+    margin-inline: 22px;
+    padding-block: 48px;
+  }
+  .bp-controls,
+  .bp-finance {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .bp-setup {
+    padding: 20px;
+  }
+  .bp-control-preview {
+    padding: 22px;
+  }
+  .bp-document-stage {
+    padding: 14px;
+  }
+  .bp-document {
+    padding: 18px;
+    min-height: 450px;
+  }
+  .bp-control-explanation {
+    min-height: 240px;
+  }
+  .bp-facts > div {
+    font-size: 12px;
+    gap: 8px;
+  }
+  .bp-document-stage .bp-switches button {
+    flex-basis: 30%;
+    font-size: 12px;
+  }
+}
+@media (max-width: 480px) {
+  .bp-control-preview .bp-switches {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .bp-control-preview .bp-switches button {
+    padding-inline: 8px;
+    gap: 6px;
+    font-size: 13px;
+  }
+}
