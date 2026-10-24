@@ -1,0 +1,247 @@
+/* Start each sequence on arrival, not while its section is below the viewport. */
+.b-landing .bt-swap,
+.b-landing .bt-row {
+  animation: none;
+}
+[data-visible="true"] .bt-swap {
+  animation: bl-panel-in 650ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.bl-ledger-viewport {
+  overflow: hidden;
+}
+[data-visible="true"] .bl-ledger > .bt-row {
+  animation: bl-ledger-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+[data-visible="true"] .bl-ledger > .bt-row:nth-child(2) {
+  animation-delay: 140ms;
+}
+[data-visible="true"] .bl-ledger > .bt-row:nth-child(3) {
+  animation-delay: 280ms;
+}
+[data-running="true"] .bl-ledger > .bt-row > strong {
+  animation: bl-ledger-post 5.5s ease-in-out infinite;
+}
+[data-running="true"] .bl-ledger > .bt-row:nth-child(2) > strong {
+  animation-delay: 700ms;
+}
+[data-running="true"] .bl-ledger > .bt-row:nth-child(3) > strong {
+  animation-delay: 1400ms;
+}
+.bl-control-result {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 10px 20px;
+  padding: 22px;
+  margin-bottom: 24px;
+  background: #354631;
+  border-radius: 8px;
+}
+.bl-control-card {
+  grid-row: span 2;
+  display: grid;
+  gap: 14px;
+  color: #fffdf6;
+  font-size: 12px;
+}
+.bl-control-change {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+}
+.bl-control-change > span {
+  color: #e2e8dc;
+}
+.bl-control-change > strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #fffdf6;
+  font-weight: 500;
+}
+.b-landing .bl-control-result > small {
+  margin: 0;
+  color: #e2e8dc;
+  line-height: 1.5;
+}
+.bc-expense-summary {
+  margin: 24px 0 16px;
+}
+.bc-expense-summary > div + div {
+  margin-top: 24px;
+}
+.bc-expense-summary dt {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.bc-expense-summary dd {
+  margin: 0;
+  color: var(--lp-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.b-landing .bc-expense-caveat {
+  font-size: 12px;
+  margin: 0 0 24px;
+  line-height: 1.6;
+}
+[data-visible="true"] .bl-control-change > strong {
+  animation: bl-result 750ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.bl-subscription-example,
+.bl-expense-example {
+  min-width: 0;
+  margin-block: 24px;
+}
+.b-landing .bl-subscription-example .b-spending-renewal {
+  gap: 12px;
+  margin: 0 0 12px;
+}
+.bl-subscription-example .b-spending-renewal > div {
+  flex: 1;
+}
+.bl-subscription-example .b-spending-renewal > strong {
+  white-space: nowrap;
+}
+.bl-subscription-example .bt-tabs button,
+.bl-expense-example .bt-tabs button {
+  font-size: 12px;
+}
+.bl-example-caption {
+  display: block;
+  margin-top: 12px;
+  color: var(--lp-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.bl-funding-event {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-height: 72px;
+  padding-top: 16px;
+}
+.bl-funding-event > svg {
+  color: #405536;
+  flex-shrink: 0;
+}
+.bl-funding-event strong,
+.bl-funding-event span {
+  display: block;
+  font-size: 13px;
+}
+.bl-funding-event span {
+  color: var(--lp-muted);
+  margin-top: 4px;
+  font-size: 12px;
+}
+[data-visible="true"] .bl-tool-swap {
+  animation: bl-ledger-in 650ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+[data-visible="true"] .bl-funding-event {
+  animation: bl-panel-in 650ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.bf-finance-demo[data-visible="false"] .bf-paper .bp-facts > div {
+  animation: none;
+}
+.bf-finance-demo[data-visible="true"]
+  .bf-paper[data-active="true"]
+  .bp-document-amount {
+  animation: bl-amount-in 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.bf-finance-demo[data-running="true"]
+  .bf-paper[data-active="true"]
+  .bp-total
+  dd {
+  animation: bl-ledger-post 6.5s ease-in-out infinite;
+}
+@keyframes bl-panel-in {
+  from {
+    opacity: 0.2;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes bl-ledger-in {
+  from {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes bl-ledger-post {
+  0%,
+  50%,
+  100% {
+    color: inherit;
+    transform: none;
+  }
+  18%,
+  36% {
+    color: #a94214;
+    transform: translateX(-5px);
+  }
+}
+@keyframes bl-result {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes bl-amount-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(-12px);
+  }
+  to {
+    clip-path: inset(0);
+    transform: none;
+  }
+}
+@media (max-width: 600px) {
+  .bl-control-result {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+  .bl-control-card {
+    display: flex;
+    align-items: center;
+    grid-row: auto;
+  }
+  .b-landing .bl-subscription-example .b-spending-renewal {
+    flex-wrap: wrap;
+  }
+  .bl-subscription-example .b-spending-renewal > strong {
+    font-size: 13px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .b-landing [data-visible="true"] .bt-swap,
+  [data-visible="true"] .bl-ledger > .bt-row,
+  [data-running="true"] .bl-ledger > .bt-row > strong,
+  [data-visible="true"] .bl-control-change > strong,
+  [data-visible="true"] .bl-tool-swap,
+  [data-visible="true"] .bl-funding-event,
+  .bf-finance-demo[data-visible="true"]
+    .bf-paper[data-active="true"]
+    .bp-document-amount,
+  .bf-finance-demo[data-running="true"]
+    .bf-paper[data-active="true"]
+    .bp-total
+    dd {
+    animation: none;
+  }
+}
