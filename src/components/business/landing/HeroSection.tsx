@@ -57,8 +57,8 @@ export function HeroSection({ onRequest }: { onRequest: () => void }) {
         </p>
         <p className={styles.heroDescription}>
           Every admin and the cardholder get a WhatsApp reminder before the
-          charge. Give each subscription its own dollar card, with scheduled
-          funding from your naira company wallet.
+          charge. Give each subscription its own virtual dollar card, with
+          scheduled funding from your company&apos;s naira wallet.
         </p>
         <SignupEntry onRequest={onRequest} />
         <div className={styles.heroNote}>
@@ -77,19 +77,27 @@ export function SupportedTools() {
   return (
     <section
       className="b-landing-tools"
-      aria-label="Business subscription tools"
+      aria-labelledby="tools-title"
     >
-      <p>
-        Subscription cards for
+      <h2 id="tools-title">
+        Virtual dollar cards for{" "}
         <br />
-        <strong>your business tools.</strong>
-      </p>
+        <strong>the tools your company already pays for.</strong>
+      </h2>
       <div>
         {["Figma", "Notion", "ChatGPT", "Framer", "Google Workspace"].map(
           (name) => (
             <span key={name}>
               <ToolLogo name={name} />
-              <strong>{name}</strong>
+              <strong>
+                {name === "ChatGPT" ? (
+                  <Link href="https://www.subsecute.com/blog/how-to-pay-for-chatgpt-plus-in-nigeria">
+                    {name}
+                  </Link>
+                ) : (
+                  name
+                )}
+              </strong>
             </span>
           ),
         )}

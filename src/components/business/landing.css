@@ -532,12 +532,12 @@
   gap: 12px 20px;
   align-items: center;
 }
-.b-landing-tools > p {
+.b-landing-tools > h2 {
   font-size: 13px;
   line-height: 1.6;
   color: var(--lp-muted);
 }
-.b-landing-tools > p strong {
+.b-landing-tools > h2 strong {
   font-weight: 500;
   color: var(--lp-ink);
 }
@@ -1648,7 +1648,7 @@
   .b-landing-tools {
     grid-template-columns: 1fr;
   }
-  .b-landing-tools > p {
+  .b-landing-tools > h2 {
     display: none;
   }
   .b-landing-tools > small {

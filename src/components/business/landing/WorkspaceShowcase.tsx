@@ -96,7 +96,7 @@ export function WorkspaceShowcase() {
           </div>
           <div className={styles.workspaceTitle}>
             <div>
-              <h2>Company overview</h2>
+              <p>Company overview</p>
             </div>
             <span>October 2026</span>
           </div>

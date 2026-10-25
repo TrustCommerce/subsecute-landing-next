@@ -28,7 +28,7 @@ export function RenewalWarning() {
           <div className={styles.sender}>
             <BellRinging size={20} aria-hidden="true" /> Subsecute Business
           </div>
-          <h2>Figma renews on 26 Oct.</h2>
+          <p className={styles.messageTitle}>Figma renews on 26 Oct.</p>
           <p>Check your company wallet before the next scheduled funding.</p>
           <div className={styles.subscription}>
             <ToolLogo name="Figma" />

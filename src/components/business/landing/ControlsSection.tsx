@@ -52,7 +52,7 @@ export function ControlsSection() {
       aria-labelledby="controls-title"
     >
       <div className="bc-controls-intro">
-        <h2 id="controls-title">Stop funding tools you no longer need.</h2>
+        <h2 id="controls-title">Pause, resume or cancel a company subscription.</h2>
         <p>
           Pause scheduled funding, resume a paused subscription or close its
           card. Admins manage each subscription from its own page.

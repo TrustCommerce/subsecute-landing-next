@@ -1,9 +1,13 @@
-// The nine answers rendered on the business landing page, and the FAQPage
+// The answers rendered on the business landing page, and the FAQPage
 // schema, from one array. The consumer side learned this the hard way: when
 // the visible copy and the schema are maintained separately they drift, and
 // a FAQPage whose answers differ from the page is a Google policy violation.
 // See src/lib/consumer-faqs.ts, which exists for the same reason.
 export const BUSINESS_FAQS = [
+  [
+    "Does Subsecute Business work for companies outside Nigeria?",
+    "No. Subsecute Business is for companies registered in Nigeria, funding cards from a naira wallet.",
+  ],
   [
     "Who receives the WhatsApp renewal reminders?",
     "Every company admin and the subscription cardholder. If the card has no holder, only admins receive it. Other team members are not notified.",

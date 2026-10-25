@@ -35,14 +35,14 @@
   font-size: 14px;
   font-weight: 500;
 }
-.warning .message h2 {
+.warning .message .messageTitle {
   font-size: 27px;
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.03em;
   margin: 24px 0 12px;
 }
-.message p {
+.message p:not(.messageTitle) {
   color: #545c4d;
   line-height: 1.65;
   font-size: 16px;
@@ -183,7 +183,7 @@
   .message {
     padding: 22px;
   }
-  .message h2 {
+  .message .messageTitle {
     font-size: 24px;
   }
   .routing h3 {
