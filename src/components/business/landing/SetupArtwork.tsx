@@ -97,7 +97,6 @@ export function SetupArtwork({ active }: { active: number }) {
           </div>
         </>
       )}
-      <small className="bp-example-label">Example account</small>
     </div>
   );
 }

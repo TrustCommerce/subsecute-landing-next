@@ -55,11 +55,10 @@ export function WorkspaceSection() {
           charge.
         </p>
         <PrimaryLink href="#how-it-works">See how funding works</PrimaryLink>
-        <small>Example company account.</small>
       </div>
       <div className="b-landing-workspace-art">
         <div className="b-landing-workspace-mini-nav">
-          <span>Forma Studio · Example account</span>
+          <span>Forma Studio</span>
           <span>
             Overview <ArrowUpRight size={16} />
           </span>

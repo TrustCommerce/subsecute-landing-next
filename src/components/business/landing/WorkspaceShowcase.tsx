@@ -88,10 +88,7 @@ export function WorkspaceShowcase() {
         </aside>
         <div className={styles.workspaceBody}>
           <div className={styles.workspaceTop}>
-            <span>
-              Forma Studio{" "}
-              <span className={styles.exampleTag}>Example account</span>
-            </span>
+            <span>Forma Studio</span>
             <span className={styles.avatar}>AO</span>
           </div>
           <div className={styles.workspaceTitle}>

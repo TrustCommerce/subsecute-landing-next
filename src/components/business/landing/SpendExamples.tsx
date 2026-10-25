@@ -44,9 +44,6 @@ export function SubscriptionExample() {
           </li>
         ))}
       </ul>
-      <div className="bl-example-caption">
-        Example subscription · separate card and funding schedule
-      </div>
     </div>
   );
 }
@@ -67,7 +64,7 @@ export function ExpenseFundingExample() {
           <span>Expense card</span>
         </div>
       </div>
-      <ol className="bl-funding-timeline" aria-label="Example funding sequence">
+      <ol className="bl-funding-timeline" aria-label="Card funding sequence">
         {funding.map((event, index) => (
           <li
             key={event.label}
@@ -84,7 +81,6 @@ export function ExpenseFundingExample() {
           </li>
         ))}
       </ol>
-      <small className="bl-example-caption">Example funding sequence</small>
     </div>
   );
 }
