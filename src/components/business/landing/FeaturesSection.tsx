@@ -4,27 +4,27 @@ import s from "./FeaturesSection.module.css";
 const features = [
   {
     label: "Dedicated subscription cards",
-    detail: "One card per recurring tool, with its own funding amount and schedule.",
+    detail: "A separate virtual dollar card for each subscription, with a defined funding amount and schedule.",
   },
   {
-    label: "WhatsApp reminders for admins and cardholders",
-    detail: "Sent before the charge, to every admin and the cardholder, once each.",
+    label: "WhatsApp renewal reminders",
+    detail: "Notify company admins and the assigned cardholder before each renewal.",
   },
   {
-    label: "Expense cards with named owners",
-    detail: "Issued to a team member with the amount they need loaded onto it.",
+    label: "Expense cards with assigned cardholders",
+    detail: "Assign cards to team members and fund them for approved company purchases.",
   },
   {
-    label: "Team requests and Admin approvals",
-    detail: "A cardholder asks for funds; an admin approves before company money moves.",
+    label: "Funding requests and admin approvals",
+    detail: "Cardholders submit funding requests for admin approval before funds are released.",
   },
   {
     label: "Scheduled subscription funding",
-    detail: "Dollars reach the card ahead of the renewal date, drawn from your naira wallet.",
+    detail: "Fund subscription cards from your company’s naira wallet ahead of each renewal.",
   },
   {
-    label: "Funding history and recorded exchange rates",
-    detail: "Every funding run keeps the naira cost and the rate it converted at.",
+    label: "Funding records and exchange rates",
+    detail: "Review the naira cost and exchange rate recorded for each card funding transaction.",
   },
 ];
 
@@ -40,11 +40,10 @@ export function FeaturesSection() {
         {features.map((feature) => (
           <li key={feature.label}>
             <Check size={19} weight="bold" aria-hidden="true" />
-            <span>
-              {feature.label}
-              <br />
-              {feature.detail}
-            </span>
+            <div>
+              <h3 className={s.featureTitle}>{feature.label}</h3>
+              <p className={s.featureDetail}>{feature.detail}</p>
+            </div>
           </li>
         ))}
       </ul>

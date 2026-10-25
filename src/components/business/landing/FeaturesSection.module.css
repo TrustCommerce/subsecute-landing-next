@@ -32,6 +32,19 @@
   font-size: 16px;
   line-height: 1.5;
 }
+.list .featureTitle {
+  margin: 0;
+  color: var(--lp-ink);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.list .featureDetail {
+  margin: 6px 0 0;
+  color: var(--lp-muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
 .list svg {
   flex-shrink: 0;
   margin-top: 3px;
