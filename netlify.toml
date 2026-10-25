@@ -2,8 +2,8 @@
   command = "npm run build"
   publish = ".next"
 
-[build.environment]
-  NEXT_RUNTIME = "edge"
+# Let Next.js select the runtime for each route. A global NEXT_RUNTIME override
+# breaks Netlify edge bundling for the Node.js proxy.
 
 # Apple fetches this file from the exact host named in the app entitlement, and it
 # does not follow a redirect. The apex sends every path to www, so the association
