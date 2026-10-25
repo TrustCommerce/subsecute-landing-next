@@ -110,9 +110,6 @@ export function ControlsSection() {
             <ExpenseControlsSummary />
           </aside>
         </div>
-        <small className="bp-example-label">
-          Interactive example · no account changes.
-        </small>
       </div>
     </section>
   );

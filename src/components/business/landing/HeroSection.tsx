@@ -94,9 +94,6 @@ export function SupportedTools() {
           ),
         )}
       </div>
-      <small>
-        No affiliation or endorsement. Merchant acceptance may vary.
-      </small>
     </section>
   );
 }

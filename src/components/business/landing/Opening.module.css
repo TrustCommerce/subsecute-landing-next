@@ -77,7 +77,10 @@
   }
   .cardAddendum a {
     gap: 8px;
-    text-align: left;
+    text-align: center;
+  }
+  .cardAddendum a > span {
+    max-width: 18ch;
   }
   .cardAccent {
     width: 30px;

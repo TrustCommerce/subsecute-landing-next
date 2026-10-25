@@ -173,10 +173,6 @@ export function FinanceSection() {
           <a className="bp-link" href="#workspace-features">
             See all features <ArrowUpRight size={17} />
           </a>
-          <p className="bp-example-label">
-            Illustrative records, not a live exchange quote. Keep the vendor’s
-            invoice separately for each purchase.
-          </p>
         </div>
         <div
           className="bf-finance-demo"

@@ -63,10 +63,6 @@ export function SpendingSection() {
         </div>
       </ProductReveal>
       <WorkspaceShowcase />
-      <p className="b-use-cases-note">
-        Keep enough naira in your wallet for scheduled funding. The merchant
-        charges the card separately.
-      </p>
     </section>
   );
 }
@@ -130,9 +126,6 @@ export function ExpenseSection() {
             </article>
           ))}
         </div>
-        <p className="b-use-cases-note">
-          Merchant and card-provider restrictions apply to these examples.
-        </p>
       </div>
     </section>
   );
