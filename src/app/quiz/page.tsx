@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import QuizPage from "@/components/QuizPage";
 import { DEFAULT_SHARE_IMAGE, SITE_URL } from "@/config";
+import { alternatesFor } from "@/lib/seo";
+import { pageBreadcrumbSchema } from "@/lib/structured-data";
 
 const title = "What's Your Subscription Score?";
 const description =
@@ -10,7 +12,7 @@ const url = `${SITE_URL}/quiz`;
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "/quiz" },
+  alternates: alternatesFor("/quiz"),
   openGraph: {
     title,
     description,
@@ -28,5 +30,17 @@ export const metadata: Metadata = {
 };
 
 export default function Quiz() {
-  return <QuizPage />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            pageBreadcrumbSchema("Subscription Score Quiz", "/quiz"),
+          ),
+        }}
+      />
+      <QuizPage />
+    </>
+  );
 }

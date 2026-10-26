@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import CalculatorPage from "@/components/CalculatorPage";
 import { DEFAULT_SHARE_IMAGE, SITE_URL } from "@/config";
+import { alternatesFor } from "@/lib/seo";
+import { pageBreadcrumbSchema } from "@/lib/structured-data";
 
 const title =
   "Naira Leak Calculator: How much are you spending on subscriptions?";
@@ -12,7 +14,7 @@ const url = `${SITE_URL}/calculator`;
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "/calculator" },
+  alternates: alternatesFor("/calculator"),
   openGraph: {
     title,
     description,
@@ -31,8 +33,18 @@ export const metadata: Metadata = {
 
 export default function Calculator() {
   return (
-    <Suspense fallback={null}>
-      <CalculatorPage />
-    </Suspense>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            pageBreadcrumbSchema("Subscription Calculator", "/calculator"),
+          ),
+        }}
+      />
+      <Suspense fallback={null}>
+        <CalculatorPage />
+      </Suspense>
+    </>
   );
 }

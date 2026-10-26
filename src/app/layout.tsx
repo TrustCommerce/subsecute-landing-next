@@ -3,6 +3,7 @@ import { Outfit, DM_Sans, Space_Grotesk, Syne } from "next/font/google";
 import "./globals.css";
 import XPixel from "@/components/XPixel";
 import { SITE_URL } from "@/config";
+import { alternatesFor } from "@/lib/seo";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
   keywords:
     "automate subscriptions Nigeria, virtual dollar card Nigeria, pay Netflix Nigeria, recurring bill payment Nigeria, auto-pay airtime Nigeria",
   metadataBase: new URL(SITE_URL),
-  alternates: { canonical: "/" },
+  alternates: alternatesFor("/"),
   openGraph: {
     title: "Subsecute: The Recurring Money App for Nigerians",
     description:

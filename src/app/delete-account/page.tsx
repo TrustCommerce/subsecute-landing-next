@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import DeleteAccountPage from "@/components/DeleteAccountPage";
 import { SITE_URL } from "@/config";
+import { alternatesFor } from "@/lib/seo";
+import { pageBreadcrumbSchema } from "@/lib/structured-data";
 
 const title = "Delete your account or data";
 const description =
@@ -9,7 +11,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "/delete-account" },
+  alternates: alternatesFor("/delete-account"),
   // Google requires this page to be publicly reachable and crawlable without
   // installing the app, so index it explicitly.
   robots: { index: true, follow: true },
@@ -23,5 +25,17 @@ export const metadata: Metadata = {
 };
 
 export default function DeleteAccount() {
-  return <DeleteAccountPage />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            pageBreadcrumbSchema("Delete Account", "/delete-account"),
+          ),
+        }}
+      />
+      <DeleteAccountPage />
+    </>
+  );
 }

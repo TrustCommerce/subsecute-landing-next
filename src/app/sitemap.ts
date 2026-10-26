@@ -8,7 +8,9 @@ export const revalidate = 300;
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: MetadataRoute.Sitemap = [
     {
-      url: `${SITE_URL}/`,
+      // No trailing slash: this has to match the canonical the home page
+      // declares, or the two disagree about which URL is the real one.
+      url: SITE_URL,
       changeFrequency: "weekly",
       priority: 1,
     },

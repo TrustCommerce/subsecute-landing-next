@@ -10,6 +10,7 @@ import {
 import ShareArticle from "@/components/ShareArticle";
 import StoreBadges from "@/components/StoreBadges";
 import { SITE_URL } from "@/config";
+import { alternatesFor } from "@/lib/seo";
 
 // Future-dated posts aren't prebuilt (see generateStaticParams). They render
 // on demand and revalidate every 5 min, so each goes live on its date on its
@@ -36,11 +37,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: post.title,
     description: post.description,
     authors: [{ name: post.author }],
-    alternates: { canonical: `/blog/${slug}` },
+    alternates: alternatesFor(`/blog/${slug}`),
     openGraph: {
       title: post.title,
       description: post.description,
       url: `/blog/${slug}`,
+      siteName: "Subsecute",
+      locale: "en_NG",
       type: "article",
       publishedTime: post.date,
       ...(ogImage ? { images: [{ url: ogImage }] } : {}),

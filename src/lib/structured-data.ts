@@ -24,6 +24,16 @@ export const APP_SCHEMA = {
   ],
   screenshot: `${SITE_URL}/images/landing/phone-screen.png`,
   countriesSupported: "NG",
+  // The price of the download, not of the service. Apple's lookup API reports
+  // price 0.0 / "Free" in NGN for this listing. Google wants an offer before a
+  // SoftwareApplication is eligible for an app rich result; it also wants a
+  // rating, which has to wait until the listings have reviews worth showing.
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "NGN",
+    availability: "https://schema.org/InStock",
+  },
 };
 
 export const WEBSITE_SCHEMA = {
@@ -79,6 +89,20 @@ export const ORG_SCHEMA = {
   logo: "https://res.cloudinary.com/dwambnh2n/image/upload/v1775598701/Subsecute_Icon_sastth.png",
   description:
     "Subscription management, virtual dollar cards and recurring bill payments for Nigerians, with spending summaries, family plans and gift links.",
+  // "TrustCommerce" on its own collides with an unrelated United States payment
+  // processor of the same name, so the legal name is only safe to publish next
+  // to the registration that pins this company to Nigeria. The RC number is
+  // already public in llms.txt, the footer and the account-deletion page, and
+  // Apple's listing records the same seller name.
+  legalName: "TrustCommerce Resources Ltd",
+  identifier: {
+    "@type": "PropertyValue",
+    name: "RC number",
+    value: "7131175",
+  },
+  // Country only. No street address is published anywhere, and inventing one
+  // to fill the property would be worse than leaving it narrow.
+  address: { "@type": "PostalAddress", addressCountry: "NG" },
   foundingLocation: { "@type": "Place", name: "Nigeria" },
   areaServed: { "@type": "Country", name: "Nigeria" },
   contactPoint: {
@@ -164,7 +188,6 @@ export function howToSchema(post: {
   };
 }
 
-
 /**
  * Breadcrumbs for an article. Two jobs: the trail Google renders under a
  * result instead of a bare URL, and telling an engine that a post is part of
@@ -187,6 +210,27 @@ export function breadcrumbSchema(post: { slug: string; title: string }) {
         position: 3,
         name: post.title,
         item: `${SITE_URL}/blog/${post.slug}`,
+      },
+    ],
+  };
+}
+
+/**
+ * Breadcrumbs for a standalone page. The article version above knows it sits
+ * under /blog; these pages hang directly off the home page, so the trail is
+ * two deep.
+ */
+export function pageBreadcrumbSchema(name: string, path: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name,
+        item: `${SITE_URL}${path}`,
       },
     ],
   };

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import LandingPage from "@/components/consumer-redesign/LandingPage";
 import { SITE_URL } from "@/config";
+import { alternatesFor } from "@/lib/seo";
 import {
   APP_SCHEMA,
   ORG_SCHEMA,
@@ -16,7 +17,7 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: title },
   description,
-  alternates: { canonical: "/" },
+  alternates: alternatesFor("/"),
   robots: {
     index: true,
     follow: true,
@@ -55,15 +56,17 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      {[WEBSITE_SCHEMA, APP_SCHEMA, CARD_SCHEMA, ORG_SCHEMA, FAQ_SCHEMA].map((schema) => (
-        <script
-          key={schema["@type"]}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
-          }}
-        />
-      ))}
+      {[WEBSITE_SCHEMA, APP_SCHEMA, CARD_SCHEMA, ORG_SCHEMA, FAQ_SCHEMA].map(
+        (schema) => (
+          <script
+            key={schema["@type"]}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
+            }}
+          />
+        ),
+      )}
       <LandingPage />
     </>
   );

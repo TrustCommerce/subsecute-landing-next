@@ -44,3 +44,9 @@ next-env.d.ts
 .env
 .env.local
 .env.*.local
+
+# Internal strategy and research. This repository has to stay public -- the
+# owner is a GitHub organization, and Netlify only builds private
+# organization repos on its Pro plan -- so anything written for ourselves
+# stays out of it and lives on local disk instead.
+/docs/

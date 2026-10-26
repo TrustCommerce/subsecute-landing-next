@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import FamilyPage from "@/components/FamilyPage";
 import { DEFAULT_SHARE_IMAGE, SITE_URL } from "@/config";
+import { alternatesFor } from "@/lib/seo";
+import { pageBreadcrumbSchema } from "@/lib/structured-data";
 
 const title = "How Much Does Supporting Your Family Cost?";
 const description =
@@ -10,7 +12,7 @@ const url = `${SITE_URL}/family`;
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "/family" },
+  alternates: alternatesFor("/family"),
   openGraph: {
     title,
     description,
@@ -28,5 +30,17 @@ export const metadata: Metadata = {
 };
 
 export default function Family() {
-  return <FamilyPage />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            pageBreadcrumbSchema("Family Cost Calculator", "/family"),
+          ),
+        }}
+      />
+      <FamilyPage />
+    </>
+  );
 }
