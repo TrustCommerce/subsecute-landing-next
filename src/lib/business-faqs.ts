@@ -5,10 +5,6 @@
 // See src/lib/consumer-faqs.ts, which exists for the same reason.
 export const BUSINESS_FAQS = [
   [
-    "Does Subsecute Business work for companies outside Nigeria?",
-    "No. Subsecute Business is for companies registered in Nigeria, funding cards from a naira wallet.",
-  ],
-  [
     "Who receives the WhatsApp renewal reminders?",
     "Every company admin and the subscription cardholder. If the card has no holder, only admins receive it. Other team members are not notified.",
   ],
@@ -39,6 +35,10 @@ export const BUSINESS_FAQS = [
   [
     "What can I send to my accountant?",
     "Download a PDF company statement or a CSV export. Statements include company-wallet movements and identify saved-card debits separately. Funding records show the recorded naira cost, exchange rate and fees where available. A card top-up is not a merchant purchase, and a Subsecute statement is not the vendor’s invoice.",
+  ],
+  [
+    "Does Subsecute Business work for companies outside Nigeria?",
+    "No. Subsecute Business is for companies registered in Nigeria, funding cards from a naira wallet.",
   ],
   [
     "Can I connect my accounting software?",

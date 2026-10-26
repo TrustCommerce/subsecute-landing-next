@@ -43,7 +43,7 @@ export function RenewalWarning() {
         </p>
       </div>
       <div className={styles.routing}>
-        <h3>Who gets the reminder?</h3>
+        <div className={styles.routingTitle}>Who gets the reminder?</div>
         <p>
           Every admin and the cardholder. If an admin holds the card, they
           receive it once.

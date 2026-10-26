@@ -103,8 +103,12 @@ try {
         .map((element) => element.textContent),
       card: getComputedStyle(document.querySelector(".b-spending-card"))
         .backgroundColor,
-      margin: getComputedStyle(document.querySelector("#renewal-warnings h2"))
-        .marginTop,
+      // The reminder title is illustration content, not a section heading, so
+      // it is a <p>. Match on the CSS-module class, which keeps the readable
+      // name in its hash, rather than on a tag that may be demoted again.
+      margin: getComputedStyle(
+        document.querySelector('#renewal-warnings [class*="messageTitle"]'),
+      ).marginTop,
     }));
     assert.equal(rendered.overflow, false, `${width}px has no page overflow`);
     assert.deepEqual(rendered.small, [], `${width}px text floor`);

@@ -327,7 +327,7 @@
   letter-spacing: 1.2px;
   color: var(--lp-muted);
 }
-.b-landing .bp-document h3 {
+.b-landing .bp-document .bp-document-title {
   font-size: 24px;
   font-weight: 500;
   letter-spacing: -0.6px;

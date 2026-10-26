@@ -75,7 +75,7 @@
 .routing {
   min-width: 0;
 }
-.routing h3 {
+.routing .routingTitle {
   font-size: 30px;
   line-height: 1.2;
   letter-spacing: -0.03em;
@@ -186,7 +186,7 @@
   .message .messageTitle {
     font-size: 24px;
   }
-  .routing h3 {
+  .routing .routingTitle {
     font-size: 27px;
   }
 }

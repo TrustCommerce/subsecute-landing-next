@@ -38,7 +38,7 @@ function FundingRecord() {
   return (
     <>
       <div className="bp-document-overline">CARD FUNDING · 19 OCT 2026</div>
-      <h3>Figma</h3>
+      <div className="bp-document-title">Figma</div>
       <p>Company wallet → card •••• 4412</p>
       <p className="bp-document-amount">US$60.00</p>
       <p>Added to the card, not a merchant purchase</p>
@@ -74,7 +74,9 @@ function SupportingDocument({ csv }: { csv: boolean }) {
       <div className="bp-document-overline">
         {csv ? "ACCOUNTING EXPORT · CSV" : "COMPANY STATEMENT · PDF"}
       </div>
-      <h3>{csv ? "Funding transactions" : "October 2026"}</h3>
+      <div className="bp-document-title">
+        {csv ? "Funding transactions" : "October 2026"}
+      </div>
       <p>
         {csv
           ? "Open the export in a spreadsheet to review dates, amounts, exchange rates and fees."

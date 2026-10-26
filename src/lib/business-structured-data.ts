@@ -1,4 +1,5 @@
 import { BUSINESS_FAQS } from "./business-faqs";
+import { steps } from "@/components/business/landing/content";
 import { ORG_SCHEMA } from "./structured-data";
 
 export const BUSINESS_URL = "https://business.subsecute.com";
@@ -51,6 +52,32 @@ export const BUSINESS_SERVICE_SCHEMA = {
     "@type": "BusinessAudience",
     name: "Nigerian companies paying for software subscriptions in dollars",
   },
+  // An engine answering "what does Subsecute Business actually give you" can
+  // read the product line off this rather than inferring it from prose.
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Subsecute Business cards",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Subscription card",
+          description:
+            "One dollar card per recurring tool, with its own funding amount and schedule. Funded from the company naira wallet before the renewal date.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Expense card",
+          description:
+            "A card for approved team purchases, issued to a named holder with the amount they need loaded onto it. The funded balance is not a recurring monthly spending limit.",
+        },
+      },
+    ],
+  },
   offers: [
     {
       "@type": "Offer",
@@ -95,9 +122,61 @@ export const BUSINESS_FAQ_SCHEMA = {
   })),
 };
 
+/**
+ * The setup flow, generated from the same `steps` array the page renders. A
+ * HowTo is what lets an answer engine hand back the actual procedure instead
+ * of paraphrasing the section around it, and generating it from the rendered
+ * source means the two cannot disagree.
+ */
+export const BUSINESS_HOWTO_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "@id": `${BUSINESS_URL}/#setup`,
+  name: "Set up a Subsecute Business account and issue your first card",
+  description:
+    "Verify the company, fund the naira wallet, create a subscription or expense card, then add it at the merchant.",
+  step: steps.map((s, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: s.title,
+    text: s.description,
+    url: `${BUSINESS_URL}/#how-it-works`,
+  })),
+};
+
+/**
+ * The page as a thing in its own right. `about` and `mentions` are the
+ * disambiguation hooks: they say this page is about that card product, in
+ * that country, rather than leaving an engine to guess which of the many
+ * companies called something similar this is.
+ */
+export const BUSINESS_WEBPAGE_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${BUSINESS_URL}/#webpage`,
+  url: `${BUSINESS_URL}/`,
+  name: "Subsecute Business",
+  description:
+    "WhatsApp renewal reminders for every admin and cardholder, dedicated dollar subscription cards funded from naira, and expense cards for approved team purchases.",
+  inLanguage: "en-NG",
+  isPartOf: { "@id": `${BUSINESS_URL}/#website` },
+  about: { "@id": `${BUSINESS_URL}/#service` },
+  primaryImageOfPage: `${BUSINESS_URL}/business/opengraph-image`,
+  mentions: [
+    {
+      "@type": "Country",
+      name: "Nigeria",
+      sameAs: "https://www.wikidata.org/wiki/Q1033",
+    },
+    { "@id": `${BUSINESS_URL}/#setup` },
+  ],
+};
+
 export const BUSINESS_SCHEMAS = [
   BUSINESS_WEBSITE_SCHEMA,
+  BUSINESS_WEBPAGE_SCHEMA,
   ORG_SCHEMA,
   BUSINESS_SERVICE_SCHEMA,
+  BUSINESS_HOWTO_SCHEMA,
   BUSINESS_FAQ_SCHEMA,
 ];
