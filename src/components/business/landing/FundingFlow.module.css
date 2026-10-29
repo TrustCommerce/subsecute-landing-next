@@ -1,0 +1,596 @@
+.section {
+  width: min(1240px, calc(100% - 64px));
+  margin: 32px auto 80px;
+  padding-top: 64px;
+  border-top: 1px solid var(--lp-line);
+  scroll-margin-top: 100px;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+}
+.heading h2 {
+  font-size: clamp(32px, 3.5vw, 48px);
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+  font-weight: 500;
+}
+.section .heading p {
+  max-width: 700px;
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--lp-muted);
+}
+.legend {
+  display: grid;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--lp-muted);
+  padding-bottom: 4px;
+  flex-shrink: 0;
+}
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.legend i {
+  width: 28px;
+  height: 2px;
+  background: #b84b1c;
+}
+.legend .reminderKey {
+  height: 0;
+  background: none;
+  border-top: 2px dotted #4b755c;
+}
+.stage {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 0.85fr 1fr 1.08fr 1.12fr;
+  column-gap: 48px;
+  row-gap: 100px;
+  align-items: center;
+  padding: 64px 0 28px;
+}
+.connections {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: -1;
+  pointer-events: none;
+}
+.track {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  opacity: 0.3;
+}
+.fundingLine {
+  color: #b84b1c;
+}
+.reminderLine {
+  color: #4b755c;
+}
+.reminderLine .track {
+  stroke-dasharray: 3 7;
+  opacity: 0.45;
+}
+.movingDashes {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-dasharray: 3 14;
+  animation: flow 2s linear infinite;
+  opacity: 0.55;
+}
+.packet {
+  fill: currentColor;
+  stroke: var(--lp-paper);
+  stroke-width: 2;
+}
+.stage[data-running="false"] * {
+  animation-play-state: paused;
+}
+.payment {
+  padding: 22px 18px;
+  background: #fff;
+  border: 1px solid #dddcd3;
+  border-radius: 12px;
+  box-shadow: 0 5px 12px #20261d04;
+}
+.nodeIcon {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #f3f3ec;
+  color: #59624e;
+  margin-bottom: 16px;
+}
+.section .payment h3 {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+.paymentOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #65675e;
+  margin-top: 10px;
+}
+.paymentOption svg {
+  flex-shrink: 0;
+}
+.wallet {
+  position: relative;
+  padding: 22px;
+  background: #29372b;
+  color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 12px 32px #27352817;
+}
+.walletBrand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: -0.7px;
+}
+.walletBrand > svg {
+  margin-left: auto;
+  color: #b3c5aa;
+}
+.naira {
+  display: block;
+  font-size: 50px;
+  line-height: 1;
+  font-weight: 400;
+  padding: 24px 0 12px;
+  color: #e5eed5;
+}
+.wallet h3 {
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+.section .wallet p {
+  color: #c0cbb8;
+  font-size: 13px;
+  margin-top: 4px;
+}
+.walletFoot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid #ffffff26;
+  margin-top: 20px;
+  padding-top: 15px;
+  color: #d4dfca;
+  font-size: 12px;
+}
+.walletFoot span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #b8d79d;
+  box-shadow: 0 0 0 4px #b8d79d14;
+  animation: walletPulse 4.8s ease infinite;
+}
+.subscriptions {
+  display: grid;
+  gap: 14px;
+  position: relative;
+}
+.branchTitle {
+  position: absolute;
+  top: -63px;
+  left: 0;
+  display: grid;
+  gap: 2px;
+  white-space: nowrap;
+}
+.branchTitle > span {
+  font-weight: 500;
+  font-size: 15px;
+}
+.branchTitle small {
+  color: var(--lp-muted);
+  font-size: 12px;
+}
+.subscription {
+  padding: 17px;
+  border-radius: 11px;
+  border: 1px solid #d9ddcf;
+  background: #fff;
+  box-shadow: 0 4px 10px #26332204;
+  animation: cardArrival 4.8s ease infinite;
+  animation-delay: var(--flow-delay);
+}
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.cardTop :global(.b-tool-logo) {
+  width: 31px;
+  height: 31px;
+  border-radius: 8px;
+}
+.cardTop strong {
+  font-size: 16px;
+  font-weight: 500;
+}
+.cardTop > span:last-child {
+  font-size: 12px;
+  color: #717467;
+  margin-left: auto;
+  letter-spacing: 0.06em;
+}
+.cardBottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 19px;
+}
+.cardBottom > span {
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: #525a4a;
+}
+.cardBottom small {
+  color: #717467;
+  font-size: 12px;
+}
+.reminder {
+  background: #f0f4eb;
+  border: 1px solid #d1ddc9;
+  border-radius: 12px;
+  padding: 19px;
+  box-shadow: 0 8px 24px #27352806;
+}
+.reminderHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #3c6348;
+  font-size: 13px;
+}
+.section .reminder h3 {
+  margin-top: 17px;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+.reminder ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+.reminder li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid #dce4d5;
+  font-size: 13px;
+}
+.reminder li > span:last-child {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #5c7054;
+}
+.reminder li svg {
+  animation: receiptPulse 4.8s ease infinite;
+}
+.reminder li:nth-child(2) svg {
+  animation-delay: 0.65s;
+}
+.reminder li:nth-child(3) svg {
+  animation-delay: 1.3s;
+}
+.recipients {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.avatars {
+  display: flex;
+  padding-left: 3px;
+}
+.avatars span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  background: #ead8bc;
+  border: 2px solid #f0f4eb;
+  border-radius: 50%;
+  margin-left: -3px;
+  font-size: 9px;
+  font-weight: 500;
+}
+.avatars span:nth-child(2) {
+  background: #d3dfc2;
+}
+.avatars span:nth-child(3) {
+  background: #eacbb9;
+}
+.recipients p {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #5b6954;
+}
+.recipients strong {
+  font-weight: 500;
+  color: #35472f;
+}
+.expenseLabel {
+  grid-column: 2;
+  align-self: end;
+  padding-bottom: 6px;
+}
+.expenseLabel > svg {
+  color: #b84b1c;
+  margin-bottom: 10px;
+}
+.expenseLabel h3 {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+}
+.section .expenseLabel p {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--lp-muted);
+}
+.expenses {
+  grid-column: 3 / 5;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.expenses .branchTitle {
+  top: -84px;
+}
+.expense {
+  background: #c45422;
+  color: #fff9f2;
+  border: 1px solid #b64b1e;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 20px #a944120a;
+  position: relative;
+  overflow: hidden;
+}
+.expense::after {
+  content: "";
+  width: 180px;
+  height: 180px;
+  border: 1px solid #ffffff12;
+  border-radius: 50%;
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  pointer-events: none;
+}
+.expense:nth-child(3) {
+  background: #ae4319;
+}
+.expenseBrand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+}
+.section .expense h3 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 16px;
+}
+.expenseDigits {
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  margin: 12px 0 22px;
+  color: #ffdec9;
+}
+.expenseDigits > span {
+  margin: 0 6px;
+}
+.expenseBottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: #ffe5d2;
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -34;
+  }
+}
+@keyframes walletPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px #b8d79d14;
+  }
+  45% {
+    box-shadow: 0 0 0 8px #b8d79d00;
+  }
+}
+@keyframes cardArrival {
+  0%,
+  35%,
+  100% {
+    border-color: #d9ddcf;
+    transform: translateY(0);
+  }
+  52%,
+  65% {
+    border-color: #c38c69;
+    transform: translateY(-3px);
+  }
+}
+@keyframes receiptPulse {
+  0%,
+  35%,
+  100% {
+    opacity: 0.3;
+  }
+  55%,
+  75% {
+    opacity: 1;
+  }
+}
+@media (max-width: 1100px) and (min-width: 851px) {
+  .stage {
+    column-gap: 30px;
+    grid-template-columns: 0.9fr 1fr 1.1fr 1.15fr;
+  }
+  .payment,
+  .wallet,
+  .reminder,
+  .subscription {
+    padding: 14px;
+  }
+  .paymentOption {
+    font-size: 12px;
+  }
+  .cardBottom small {
+    display: none;
+  }
+  .recipients {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 850px) {
+  .section {
+    width: calc(100% - 44px);
+    margin-bottom: 48px;
+    padding-top: 44px;
+  }
+  .heading {
+    display: block;
+  }
+  .section .heading p {
+    max-width: 700px;
+    font-size: 16px;
+  }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 24px;
+    margin-top: 24px;
+  }
+  .stage {
+    max-width: 520px;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    gap: 64px;
+    padding: 40px 36px 0;
+  }
+  .payment {
+    width: 100%;
+    max-width: 280px;
+    justify-self: center;
+    padding: 18px;
+  }
+  .section .payment h3 {
+    margin-bottom: 12px;
+  }
+  .nodeIcon {
+    float: right;
+    margin: 0 0 8px 8px;
+  }
+  .wallet {
+    width: 100%;
+    max-width: 280px;
+    justify-self: center;
+    padding: 20px;
+  }
+  .naira {
+    font-size: 40px;
+    padding-top: 16px;
+  }
+  .walletFoot {
+    margin-top: 14px;
+    padding-top: 12px;
+  }
+  .subscriptions {
+    width: 100%;
+    max-width: 280px;
+    justify-self: center;
+    margin-top: 16px;
+  }
+  .subscription {
+    padding: 16px;
+  }
+  .reminder {
+    max-width: 280px;
+    width: 100%;
+    justify-self: center;
+  }
+  .expenseLabel {
+    grid-column: 1;
+    padding: 0 0 0 4px;
+    margin-top: 4px;
+  }
+  .expenseLabel h3 br {
+    display: none;
+  }
+  .expenseLabel h3 {
+    font-size: 22px;
+  }
+  .expenseLabel p br {
+    display: none;
+  }
+  .expenseLabel > svg {
+    display: none;
+  }
+  .expenses {
+    grid-column: 1;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  .expenses .branchTitle {
+    top: -51px;
+  }
+  .expense {
+    max-width: 280px;
+    width: 100%;
+    justify-self: center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .movingDashes,
+  .packet {
+    display: none;
+  }
+  .stage * {
+    animation: none !important;
+  }
+  .track {
+    opacity: 0.65;
+  }
+}

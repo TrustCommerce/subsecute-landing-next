@@ -9,6 +9,8 @@ const eslintConfig = defineConfig([
   globalIgnores([
     // Default ignores of eslint-config-next:
     ".next/**",
+    // Netlify bundles dependency runtimes here; this is generated build output.
+    ".netlify/**",
     "out/**",
     "build/**",
     "next-env.d.ts",

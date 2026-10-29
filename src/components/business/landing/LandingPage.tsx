@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AccessRequestDialog } from "./AccessRequestDialog";
 import { LandingNavigation, LandingFooter } from "./Navigation";
 import { HeroSection, SupportedTools } from "./HeroSection";
+import { FundingFlow } from "./FundingFlow";
 import { WorkflowSection } from "./WorkflowSection";
 import { EditorialSection, FinalCallToAction } from "./StorySections";
 import { FeaturesSection } from "./FeaturesSection";
@@ -25,6 +26,7 @@ export default function LandingPage() {
       <main id="business-main">
         <HeroSection onRequest={requestAccess} />
         <SupportedTools />
+        <FundingFlow />
         <SpendingSection />
         <WorkflowSection />
         <ControlsSection />
