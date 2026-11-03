@@ -34,7 +34,7 @@ export function SetupArtwork({ active }: { active: number }) {
             </div>
           </dl>
           <div className="bp-setup-note">
-            Cards become available when the required checks are complete.
+            Complete verification to issue cards.
           </div>
         </>
       )}
@@ -50,8 +50,7 @@ export function SetupArtwork({ active }: { active: number }) {
             <span>Dollar card</span>
           </div>
           <div className="bp-setup-note">
-            Scheduled subscription funding comes from this wallet. Keep enough
-            available for the next funding date.
+            Keep sufficient funds for upcoming subscription renewals.
           </div>
         </>
       )}
@@ -74,8 +73,7 @@ export function SetupArtwork({ active }: { active: number }) {
             </div>
           </div>
           <div className="bp-setup-note">
-            Separate cards keep each subscription or cardholder’s activity easy
-            to find.
+            View activity for each card separately.
           </div>
         </>
       )}
@@ -88,12 +86,11 @@ export function SetupArtwork({ active }: { active: number }) {
             <span>Payment method</span>
             <strong>Company card · •••• 4412</strong>
             <span className="bp-status">
-              <CheckCircle size={16} /> Active and funded
+              <CheckCircle size={16} /> Funded
             </span>
           </div>
           <div className="bp-setup-note">
-            Creating a card does not buy a subscription. Add the card to the
-            merchant’s billing settings to pay with it.
+            Add this card to the provider’s billing settings.
           </div>
         </>
       )}

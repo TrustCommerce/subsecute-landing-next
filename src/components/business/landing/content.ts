@@ -9,28 +9,28 @@ export const steps = [
     number: "01",
     title: "Verify your business",
     description:
-      "Create your account and submit your company and director details. Complete the required checks before issuing or funding cards.",
+      "Create your account and complete company and director verification.",
     eyebrow: "01 / BUSINESS SETUP",
   },
   {
     number: "02",
     title: "Fund your company wallet",
     description:
-      "Keep naira in your company wallet for scheduled subscription funding. For eligible card creation and top-ups, choose your wallet or a saved company payment card and review the cost first.",
+      "Add naira to your company wallet for scheduled subscription funding.",
     eyebrow: "02 / COMPANY MONEY",
   },
   {
     number: "03",
     title: "Create the right card",
     description:
-      "Give a subscription its own dollar card, funding amount and schedule. For other business purchases, issue an expense card to a team member and choose how much to load.",
+      "Create a dedicated subscription card or assign an expense card to a team member.",
     eyebrow: "03 / SUBSCRIPTION OR EXPENSE",
   },
   {
     number: "04",
     title: "Use it at the merchant",
     description:
-      "Once the card is active and funded, add its details at the service you want to pay. Subsecute handles scheduled card funding; the merchant still runs its own billing and charges the card.",
+      "Add your funded card as the payment method with the service provider.",
     eyebrow: "04 / READY TO PAY",
   },
 ];

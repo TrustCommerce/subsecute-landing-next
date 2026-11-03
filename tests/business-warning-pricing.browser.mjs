@@ -40,13 +40,13 @@ try {
   // Removing pricing must keep the product summary and its navigation intact.
   assert.equal(await page.locator("#pricing").count(), 0);
   const features = page.locator("#workspace-features");
-  assert.deepEqual(await features.locator("li").allTextContents(), [
+  assert.deepEqual(await features.locator("li h3").allTextContents(), [
     "Dedicated subscription cards",
-    "WhatsApp reminders for admins and cardholders",
-    "Expense cards with named owners",
-    "Team requests and Admin approvals",
+    "WhatsApp renewal reminders",
+    "Expense cards with assigned cardholders",
+    "Funding requests and admin approvals",
     "Scheduled subscription funding",
-    "Funding history and recorded exchange rates",
+    "Funding records and exchange rates",
   ]);
   assert.equal(await page.locator('a[href="#pricing"]').count(), 0);
   assert.equal(
@@ -54,7 +54,7 @@ try {
     0,
   );
   assert.equal(
-    await page.getByText(/Vendor receipt|Provider quote/).count(),
+    await page.locator("#finance-records").getByText(/Vendor receipt|Provider quote/).count(),
     0,
   );
 

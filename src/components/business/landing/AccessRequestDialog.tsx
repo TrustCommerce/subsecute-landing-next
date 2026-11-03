@@ -58,7 +58,7 @@ export function AccessRequestDialog({
       digits.length > 15
     ) {
       setError(
-        "Enter a phone number with 10 to 15 digits, including the country code if needed.",
+        "Enter a phone number with 10–15 digits.",
       );
       form.querySelector<HTMLInputElement>('[name="phone"]')?.focus();
       return;
@@ -88,10 +88,10 @@ export function AccessRequestDialog({
         setStatus("idle");
         setError(
           response.status === 400
-            ? "Check your email address and contact details, then try again."
+            ? "Check your contact details and try again."
             : response.status === 429
-              ? "Too many requests from this connection. Please try again in a minute."
-              : "We couldn’t submit your request. Please try again shortly.",
+              ? "Too many requests. Try again shortly."
+              : "Could not submit your request. Try again.",
         );
         return;
       }
@@ -99,7 +99,7 @@ export function AccessRequestDialog({
     } catch {
       setStatus("idle");
       setError(
-        "We couldn’t confirm your request. Check your connection and try again.",
+        "Submission unconfirmed. Check your connection and try again.",
       );
     } finally {
       clearTimeout(timeout);
@@ -146,8 +146,7 @@ export function AccessRequestDialog({
               Request received.
             </h2>
             <p id="access-description">
-              Thank you for your interest in Subsecute Business. Our team will
-              contact you about access.
+              Our team will contact you about access.
             </p>
             <button type="button" className="b-button primary" onClick={close}>
               Back to Subsecute <ArrowRight size={18} aria-hidden="true" />
@@ -157,8 +156,7 @@ export function AccessRequestDialog({
           <>
             <h2 id="access-title">Request access.</h2>
             <p id="access-description" className={s.intro}>
-              Tell us about your business. We’ll get in touch to help you get
-              started.
+              Enter your company and contact details.
             </p>
             <form onSubmit={submit} aria-busy={status === "sending"}>
               <fieldset disabled={status === "sending"} className={s.fields}>

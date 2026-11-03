@@ -5,15 +5,15 @@ export function ExpenseControlsSummary() {
     <>
       <dl className="bc-expense-summary">
         <div>
-          <dt>Admins fund. Team members request.</dt>
+          <dt>Funding and approvals</dt>
           <dd>
-            Choose how much to load, or approve a request from the cardholder.
+            Admins fund cards and approve cardholder requests.
           </dd>
         </div>
         <div>
-          <dt>Freeze and unfreeze.</dt>
+          <dt>Stop and restart cards.</dt>
           <dd>
-            Admins and cardholders can freeze a card.
+            Admins and cardholders can stop a card. Only an admin can restart an admin-stopped card.
           </dd>
         </div>
       </dl>

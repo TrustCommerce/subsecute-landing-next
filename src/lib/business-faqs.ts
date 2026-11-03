@@ -6,35 +6,35 @@
 export const BUSINESS_FAQS = [
   [
     "Who receives the WhatsApp renewal reminders?",
-    "Every company admin and the subscription cardholder. If the card has no holder, only admins receive it. Other team members are not notified.",
+    "All company admins and the assigned cardholder. If no cardholder is assigned, only admins are notified.",
   ],
   [
     "How are subscription cards and expense cards different?",
-    "A subscription card is for one recurring tool, with its own funding amount and schedule. An expense card is for approved team purchases. Give it an owner and add the amount they need. Its funded balance is not a recurring monthly spending limit.",
+    "Subscription cards fund recurring tools on a schedule. Expense cards are assigned to team members and funded for company purchases.",
   ],
   [
     "What do I need before I can use a card?",
-    "Complete the required business and administrator checks, then create and fund the card. For an existing subscription, add the new card as the payment method with the software provider. Creating it in Subsecute does not change the provider’s billing details.",
+    "Complete company and director verification, then create and fund your card. Add the card as your payment method with the service provider.",
   ],
   [
     "Can I fund a card from my wallet or a saved card?",
-    "Yes. For manual funding, choose the company wallet or an eligible saved card and review the cost before confirming. Scheduled subscription funding uses the company’s naira wallet, so keep enough available for the next funding run. Funding adds dollars to the card; the merchant charges it separately. Merchant acceptance is not guaranteed.",
+    "Expense-card funding can use your company wallet or default saved card. Subscription top-ups and scheduled funding use the company wallet. Review the total before confirming.",
   ],
   [
     "Can I pause or cancel a subscription?",
-    "An Admin can pause, resume or cancel a subscription in Subsecute. Pausing is reversible, and applicable monthly card fees continue while it is paused. Cancellation closes the card permanently; it does not end your agreement with the software provider. Cancel with the provider too if you no longer want the service.",
+    "Admins can pause, resume or cancel subscriptions. Monthly card fees continue while paused. Cancellation permanently closes the card; cancel separately with the provider to end the service.",
   ],
   [
-    "Who can freeze an expense card?",
-    "The company Admin or the card’s assigned holder can freeze it. A holder can unfreeze a card they froze themselves; an Admin must lift an Admin freeze. Check the confirmed card status after requesting a change.",
+    "Who can stop an expense card?",
+    "Admins and assigned cardholders can stop a card. Cardholders can restart cards they stopped; only an admin can restart an admin-stopped card.",
   ],
   [
     "What does Subsecute Business cost?",
-    "There is no monthly membership fee. Each card costs US$1 to open and US$1 per month while it stays open. Wallet-funded card top-ups carry no Subsecute processing fee. Review the total for your chosen payment source before confirming.",
+    "There is no monthly membership fee. Card issuance, upkeep and funding fees are shown before you confirm. Eligible launch offers are reflected in your quote.",
   ],
   [
     "What can I send to my accountant?",
-    "Download a PDF company statement or a CSV export. Statements include company-wallet movements and identify saved-card debits separately. Funding records show the recorded naira cost, exchange rate and fees where available. A card top-up is not a merchant purchase, and a Subsecute statement is not the vendor’s invoice.",
+    "Download statements as PDF or CSV. Wallet movements and saved-card payments are listed separately. Funding records include recorded costs, exchange rates and fees where available.",
   ],
   [
     "Does Subsecute Business work for companies outside Nigeria?",
@@ -42,6 +42,6 @@ export const BUSINESS_FAQS = [
   ],
   [
     "Can I connect my accounting software?",
-    "Direct accounting integrations are not available. Download a CSV export to work with the records in a spreadsheet. Keep vendor invoices and receipts separately.",
+    "Direct accounting integrations are not available. Export records as CSV and attach vendor receipts to matching transactions in the workspace.",
   ],
 ] as const;

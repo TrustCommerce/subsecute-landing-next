@@ -56,7 +56,7 @@ try {
   assert.equal(await page.getByRole("tablist").count(), 1);
   assert.equal(await controls.getByRole("tablist").count(), 0);
   assert.equal(await controls.locator("aside button").count(), 0);
-  assert.match(await controls.locator("aside").innerText(), /Admin’s freeze/);
+  assert.match(await controls.locator("aside").innerText(), /admin-stopped card/);
   await controls.getByRole("button", { name: "Pause", exact: true }).click();
   assert.match(
     await controls.locator("#controls-panel").innerText(),
@@ -66,19 +66,19 @@ try {
   await page.waitForFunction(() =>
     document
       .querySelector("#controls-panel")
-      .textContent.includes("does not charge"),
+      .textContent.includes("does not fund"),
   );
   assert.match(
     await controls.locator("#controls-panel").innerText(),
-    /does not charge/i,
+    /does not fund/i,
   );
   await controls.getByRole("button", { name: "Cancel", exact: true }).click();
   await page.waitForFunction(() =>
-    document.querySelector("#controls-panel").textContent.includes("merchant"),
+    document.querySelector("#controls-panel").textContent.includes("provider"),
   );
   assert.match(
     await controls.locator("#controls-panel").innerText(),
-    /merchant/i,
+    /provider/i,
   );
   await controls
     .getByRole("group", { name: "Subscription controls", exact: true })
@@ -87,11 +87,11 @@ try {
   await page.waitForFunction(() =>
     document
       .querySelector("#controls-panel")
-      .textContent.includes("does not itself pay"),
+      .textContent.includes("merchant charges the card separately"),
   );
   assert.match(
     await controls.locator("#controls-panel").innerText(),
-    /does not itself pay/i,
+    /merchant charges the card separately/i,
   );
 
   const workspace = page.locator("#workspace-preview");

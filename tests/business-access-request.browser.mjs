@@ -13,7 +13,7 @@ try {
   let release;
   const bodies = [];
   // No test data reaches the real lead endpoint or triggers confirmation mail.
-  await page.route("**/v1/waitlist", async (route) => {
+  await page.route("**/v1/waitlist/company", async (route) => {
     bodies.push(route.request().postDataJSON());
     if (outcome === "network") return route.abort();
     if (outcome === "pending")
@@ -77,7 +77,7 @@ try {
     .getByRole("button", { name: "Request access", exact: true })
     .click();
   await page
-    .getByText("We couldn’t submit your request. Please try again shortly.", {
+    .getByText("Could not submit your request. Try again.", {
       exact: true,
     })
     .waitFor();
@@ -87,14 +87,11 @@ try {
   );
   assert.deepEqual(bodies[0], {
     email: "test@example.com",
-    metadata: {
-      source: "business-access",
-      name: "Test Person",
-      company: "Example Business",
-      role: "FINANCE",
-      phoneNumber: "+234 801 234 5678",
-      details: "Subscription cards for our team.",
-    },
+    name: "Test Person",
+    company_name: "Example Business",
+    role: "FINANCE",
+    phone: "+234 801 234 5678",
+    use_case: "Subscription cards for our team.",
   });
   for (const width of [320, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 844 });
@@ -115,7 +112,7 @@ try {
     .click();
   await page
     .getByText(
-      "We couldn’t confirm your request. Check your connection and try again.",
+      "Submission unconfirmed. Check your connection and try again.",
       { exact: true },
     )
     .waitFor();

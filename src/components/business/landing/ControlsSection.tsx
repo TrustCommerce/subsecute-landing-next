@@ -11,7 +11,7 @@ const controls = [
     label: "Pause",
     icon: Pause,
     heading: "Pause scheduled funding.",
-    body: "An Admin can pause an active subscription. Scheduled funding stops and its card is frozen. You can resume it later.",
+    body: "Pausing stops scheduled funding and new card purchases. You can resume later.",
     limit:
       "The monthly card fee continues while paused.",
   },
@@ -19,25 +19,25 @@ const controls = [
     label: "Resume",
     icon: Play,
     heading: "Resume a paused subscription.",
-    body: "An Admin can resume a paused subscription when the card is eligible to restart. Resuming by itself does not charge the company.",
+    body: "Resuming does not fund the card. Add money before use.",
     limit:
-      "Scheduled funding uses the company wallet. A closed card or a card under provider review cannot simply be restarted.",
+      "Closed cards and cards under review cannot be restarted.",
   },
   {
     label: "Cancel",
     icon: XCircle,
     heading: "Permanently close the card.",
-    body: "Cancellation stops future scheduled funding and starts permanent card closure. An Admin confirms before proceeding.",
+    body: "Cancellation stops scheduled funding and permanently closes the card.",
     limit:
-      "This cannot be undone. Cancel your plan with the merchant too: closing the card does not end that contract. Balance returns are processed separately.",
+      "Cancel separately with the provider to end the service. Refunds remain subject to closure fees and minimum transfer amounts.",
   },
   {
     label: "Add money",
     icon: Plus,
     heading: "Add funds to the card.",
-    body: "An Admin can add dollars to an eligible active subscription card. Choose the payment source and review the naira total before confirming.",
+    body: "Fund the subscription card from your company wallet. Review the naira total before confirming.",
     limit:
-      "Resume a paused subscription before adding money. Funding the card does not itself pay the merchant.",
+      "Resume paused subscriptions before funding. The merchant charges the card separately.",
   },
 ];
 
@@ -54,8 +54,7 @@ export function ControlsSection() {
       <div className="bc-controls-intro">
         <h2 id="controls-title">Pause, resume or cancel a company subscription.</h2>
         <p>
-          Pause scheduled funding, resume a paused subscription or close its
-          card. Admins manage each subscription from its own page.
+          Manage each subscription from its details page.
         </p>
       </div>
       <div className="bp-control-preview" {...tour.regionProps}>
