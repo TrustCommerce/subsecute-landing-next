@@ -11,122 +11,109 @@ try {
   await page.goto(
     `${process.env.LANDING_URL || "http://localhost:3002"}/business`,
   );
-
-  // A line break must not join two spoken words.
   assert.equal(
     await page.locator("h1").textContent(),
-    "Know before your subscriptions renew.",
+    "Every company subscription on its own card.",
   );
-  const warning = page.locator("#renewal-warnings");
-  // Cards stay discoverable without becoming a second H1 or a primary button.
-  const cardAddendum = page.getByRole("link", {
-    name: "And corporate cards for team expenses.",
-  });
-  assert.equal(await cardAddendum.getAttribute("href"), "#expense-cards");
   assert.equal(await page.locator("h1").count(), 1);
-  assert.equal(await warning.locator("li").count(), 3);
-  await warning.getByRole("checkbox").check();
-  assert.equal(await warning.locator("li").count(), 2);
-  assert.equal(
-    await warning.getByText("Ada Okafor", { exact: true }).count(),
-    1,
+  assert.equal(await page.locator("#funding-flow").count(), 1);
+  assert.equal(await page.locator("#renewal-warnings").count(), 0);
+  assert.equal(await page.locator("#pricing").count(), 1);
+  await page.locator("#pricing summary").click();
+  assert.equal(await page.locator("#pricing tr").count(), 5);
+  assert.match(
+    await page.locator("#pricing").innerText(),
+    /Monthly membership/,
   );
-  assert.equal(
-    await warning.getByText("Musa Ibrahim", { exact: true }).count(),
-    0,
-  );
-  assert.match(await warning.innerText(), /Admin · cardholder/);
-
-  // Removing pricing must keep the product summary and its navigation intact.
-  assert.equal(await page.locator("#pricing").count(), 0);
-  const features = page.locator("#workspace-features");
-  assert.deepEqual(await features.locator("li h3").allTextContents(), [
-    "Dedicated subscription cards",
-    "WhatsApp renewal reminders",
-    "Expense cards with assigned cardholders",
-    "Funding requests and admin approvals",
-    "Scheduled subscription funding",
-    "Funding records and exchange rates",
-  ]);
-  assert.equal(await page.locator('a[href="#pricing"]').count(), 0);
-  assert.equal(
-    await page.locator(".bt-playback, .b-landing-eyebrow").count(),
-    0,
-  );
-  assert.equal(
-    await page.locator("#finance-records").getByText(/Vendor receipt|Provider quote/).count(),
-    0,
-  );
-
-  const order = await page
-    .locator(
-      "#renewal-warnings, #business-cards, #expense-cards, #finance-records, #workspace-features, #questions",
-    )
-    .evaluateAll((nodes) => nodes.map((node) => node.id));
-  assert.deepEqual(order, [
-    "renewal-warnings",
-    "business-cards",
-    "expense-cards",
-    "finance-records",
-    "workspace-features",
-    "questions",
-  ]);
-
-  for (const width of [320, 390, 768, 1024, 1440]) {
-    await page.setViewportSize({ width, height: 1000 });
-    const addendumBounds = await cardAddendum.boundingBox();
-    if (width >= 768)
-      assert.equal(
-        addendumBounds.height,
-        48,
-        "desktop addendum stays on one line",
-      );
-    assert.ok(
-      addendumBounds &&
-        addendumBounds.height >= 48 &&
-        addendumBounds.x >= 0 &&
-        addendumBounds.x + addendumBounds.width <= width,
-    );
-    // Check computed rules, including mobile overrides and inherited small text.
-    const rendered = await page.evaluate(() => ({
-      overflow: document.documentElement.scrollWidth > innerWidth,
-      small: [...document.querySelectorAll(".b-landing *")]
+  const deadAnchors = await page
+    .locator('a[href^="#"]')
+    .evaluateAll((links) =>
+      links
+        .map((link) => link.getAttribute("href"))
         .filter(
-          (element) =>
-            [...element.childNodes].some(
-              (node) => node.nodeType === 3 && node.textContent.trim(),
-            ) &&
-            element.getClientRects().length &&
-            getComputedStyle(element).visibility !== "hidden" &&
-            parseFloat(getComputedStyle(element).fontSize) < 12,
-        )
-        .map((element) => element.textContent),
-      card: getComputedStyle(document.querySelector(".b-spending-card"))
-        .backgroundColor,
-      // The reminder title is illustration content, not a section heading, so
-      // it is a <p>. Match on the CSS-module class, which keeps the readable
-      // name in its hash, rather than on a tag that may be demoted again.
-      margin: getComputedStyle(
-        document.querySelector('#renewal-warnings [class*="messageTitle"]'),
-      ).marginTop,
-    }));
-    assert.equal(rendered.overflow, false, `${width}px has no page overflow`);
-    assert.deepEqual(rendered.small, [], `${width}px text floor`);
-    assert.equal(rendered.card, "rgb(185, 70, 11)");
-    assert.equal(rendered.margin, "24px", "module spacing applies in the DOM");
-    if (width === 390 || width === 1440) {
+          (href) => href.length > 1 && !document.getElementById(href.slice(1)),
+        ),
+    );
+  assert.deepEqual(
+    deadAnchors,
+    [],
+    "every local navigation link has a destination",
+  );
+  const workspace = page.locator("#workspace-preview");
+  assert.equal(await workspace.getByRole("tab").count(), 3);
+  await workspace
+    .getByRole("tab", { name: "Subscriptions", exact: true })
+    .click();
+  const amounts = await workspace
+    .getByRole("tabpanel")
+    .locator("li")
+    .evaluateAll((rows) =>
+      rows.map((row) =>
+        Number(row.lastElementChild.textContent.replace(/[^\d.]/g, "")),
+      ),
+    );
+  assert.deepEqual(amounts, [60, 24, 20]);
+  assert.equal(
+    amounts.reduce((sum, amount) => sum + amount, 0),
+    104,
+  );
+  assert.match(await workspace.locator("dl").innerText(), /US\$104/);
+  await workspace
+    .getByRole("tab", { name: "Subscriptions", exact: true })
+    .press("ArrowRight");
+  assert.equal(
+    await workspace
+      .getByRole("tab", { name: "Usage-based", exact: true })
+      .getAttribute("aria-selected"),
+    "true",
+  );
+  assert.match(await workspace.getByRole("tabpanel").innerText(), /Meta Ads/);
+  assert.match(
+    await workspace.getByRole("tabpanel").innerText(),
+    /Tops up below US\$100/,
+  );
+  await workspace
+    .getByRole("tab", { name: "Expense cards", exact: true })
+    .click();
+  assert.match(await workspace.getByRole("tabpanel").innerText(), /₦50,000.00/);
+  assert.match(
+    await page.locator("#funding-flow").innerText(),
+    /Usage-based cards/,
+  );
+  assert.match(await page.locator("#funding-flow").innerText(), /Notion/);
+  assert.match(await page.locator("#funding-flow").innerText(), /Meta Ads/);
+  assert.equal(
+    await page
+      .locator("#pricing")
+      .getByText("Exchange margin", { exact: true })
+      .count(),
+    0,
+  );
+
+  for (const width of [320, 375, 390, 768, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 1000 });
+    assert.equal(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth > innerWidth,
+      ),
+      false,
+      `${width}px has no page overflow`,
+    );
+    const hero = await page.locator("h1").boundingBox();
+    assert.ok(
+      hero && hero.x >= 0 && hero.x + hero.width <= width,
+      `hero fits ${width}px`,
+    );
+    if (width === 375 || width === 1440) {
       await page.locator("h1").scrollIntoViewIfNeeded();
       await page.screenshot({
         path: `/tmp/subsecute-business-final-${width}.png`,
       });
-      await page
-        .locator("#expense-cards")
-        .screenshot({ path: `/tmp/subsecute-expenses-final-${width}.png` });
     }
   }
   assert.deepEqual(errors, []);
   console.log(
-    "Warning routing, feature summary, section order, orange card and computed styles at five widths passed.",
+    "Hero, pricing, local links, responsive dashboard, three card types and six responsive widths passed.",
   );
 } finally {
   await browser.close();

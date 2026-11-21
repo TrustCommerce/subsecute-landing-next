@@ -17,30 +17,25 @@ import BusinessLanding from "@/components/business/BusinessLanding";
 export const dynamic = "force-dynamic";
 
 const DESCRIPTION =
-  "WhatsApp renewal reminders for every admin and cardholder. Dedicated dollar subscription cards, funded from naira, plus expense cards and company records.";
+  "Dollar and naira cards for every company subscription, with scheduled funding for fixed bills and threshold top-ups for usage bills from your company naira wallet.";
 const SHORT_DESCRIPTION =
-  "WhatsApp renewal reminders and dollar subscription cards for Nigerian businesses.";
+  "Dollar and naira subscription cards, scheduled funding and usage threshold top-ups from your company naira wallet.";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Subsecute Business | Subscription reminders and dollar cards",
+    absolute: "Every company subscription on its own card.",
   },
   description: DESCRIPTION,
   keywords:
     "company virtual dollar card Nigeria, business card for software subscriptions, pay for AWS from Nigeria, expense cards Nigeria, subscription management for Nigerian companies",
   metadataBase: new URL(BUSINESS_URL),
   alternates: { canonical: `${BUSINESS_URL}/` },
-  // Indexing is a deliberate second switch on top of the release flag, so the
-  // page can be live and shared for a while before crawlers are invited in.
-  // See docs/business-landing-release.md.
-  robots: businessIndexable(
-    process.env.BUSINESS_LANDING_ENABLED,
-    process.env.BUSINESS_SEARCH_INDEXING,
-  )
+  // The release flag also makes the public landing discoverable.
+  robots: businessIndexable(process.env.BUSINESS_LANDING_ENABLED)
     ? { index: true, follow: true }
     : { index: false, follow: false },
   openGraph: {
-    title: "Subsecute Business",
+    title: "Every company subscription on its own card.",
     description: SHORT_DESCRIPTION,
     url: `${BUSINESS_URL}/`,
     siteName: "Subsecute Business",
@@ -50,7 +45,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@subsecute_",
-    title: "Subsecute Business",
+    title: "Every company subscription on its own card.",
     description: SHORT_DESCRIPTION,
   },
   other: {

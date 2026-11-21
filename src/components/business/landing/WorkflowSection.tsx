@@ -15,11 +15,11 @@ export function WorkflowSection() {
       aria-labelledby="workflow-title"
     >
       <div className="b-landing-section-intro">
-        <h2 id="workflow-title">
-          Set up your business account. <br />
-          Issue your first card.
-        </h2>
-        <p>After our team arranges access, here’s how to set up.</p>
+        <h2 id="workflow-title">From wallet to working card.</h2>
+        <p>
+          Verify your company, fund the wallet and choose a dollar or naira
+          card.
+        </p>
       </div>
       <div className="bc-workflow-guide" {...tour.regionProps}>
         <ol className="bc-setup-list" aria-label="Setup steps">

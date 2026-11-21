@@ -1,5 +1,5 @@
 import { useProductTour } from "./useProductTour";
-import { ExpenseControlsSummary } from "./ExpenseControlsSummary";
+import { ExpenseFundingExample } from "./SpendExamples";
 import { Pause, Play, Plus, XCircle } from "@phosphor-icons/react";
 import { ToolLogo } from "../ui";
 import { CardControlPreview } from "./CardControlPreview";
@@ -12,16 +12,14 @@ const controls = [
     icon: Pause,
     heading: "Pause scheduled funding.",
     body: "Pausing stops scheduled funding and new card purchases. You can resume later.",
-    limit:
-      "The monthly card fee continues while paused.",
+    limit: "The monthly card fee continues while paused.",
   },
   {
     label: "Resume",
     icon: Play,
     heading: "Resume a paused subscription.",
     body: "Resuming does not fund the card. Add money before use.",
-    limit:
-      "Closed cards and cards under review cannot be restarted.",
+    limit: "Closed cards and cards under review cannot be restarted.",
   },
   {
     label: "Cancel",
@@ -52,9 +50,10 @@ export function ControlsSection() {
       aria-labelledby="controls-title"
     >
       <div className="bc-controls-intro">
-        <h2 id="controls-title">Pause, resume or cancel a company subscription.</h2>
+        <h2 id="controls-title">Keep control of company spending.</h2>
         <p>
-          Manage each subscription from its details page.
+          Pause, resume or cancel subscriptions, and approve team funding
+          requests.
         </p>
       </div>
       <div className="bp-control-preview" {...tour.regionProps}>
@@ -97,16 +96,13 @@ export function ControlsSection() {
             tabIndex={0}
           >
             <CardControlPreview action={control.label} />
-            <h3>{control.heading}</h3>
             <p>{control.body}</p>
-            <small>{control.limit}</small>
           </div>
           <aside
             className="bp-expense-controls"
-            aria-labelledby="expense-controls-title"
+            aria-label="Team funding requests"
           >
-            <h3 id="expense-controls-title">For expense cards</h3>
-            <ExpenseControlsSummary />
+            <ExpenseFundingExample />
           </aside>
         </div>
       </div>

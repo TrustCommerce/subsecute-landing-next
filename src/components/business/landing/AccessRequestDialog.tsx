@@ -57,9 +57,7 @@ export function AccessRequestDialog({
       digits.length < 10 ||
       digits.length > 15
     ) {
-      setError(
-        "Enter a phone number with 10–15 digits.",
-      );
+      setError("Enter a phone number with 10–15 digits.");
       form.querySelector<HTMLInputElement>('[name="phone"]')?.focus();
       return;
     }
@@ -78,10 +76,8 @@ export function AccessRequestDialog({
         body: JSON.stringify({
           name: value("name"),
           company_name: value("company"),
-          role: value("role"),
           email: value("email"),
           phone,
-          use_case: value("details"),
         }),
       });
       if (!response.ok) {
@@ -98,9 +94,7 @@ export function AccessRequestDialog({
       setStatus("success");
     } catch {
       setStatus("idle");
-      setError(
-        "Submission unconfirmed. Check your connection and try again.",
-      );
+      setError("Submission unconfirmed. Check your connection and try again.");
     } finally {
       clearTimeout(timeout);
       sending.current = false;
@@ -162,7 +156,7 @@ export function AccessRequestDialog({
               <fieldset disabled={status === "sending"} className={s.fields}>
                 <div className={s.row}>
                   <label>
-                    Your name
+                    Full name
                     <input
                       name="name"
                       autoComplete="name"
@@ -186,7 +180,7 @@ export function AccessRequestDialog({
                 </div>
                 <div className={s.row}>
                   <label>
-                    Email address
+                    Work email
                     <input
                       name="email"
                       type="email"
@@ -197,7 +191,7 @@ export function AccessRequestDialog({
                     />
                   </label>
                   <label>
-                    Phone number
+                    WhatsApp number
                     <input
                       name="phone"
                       type="tel"
@@ -208,36 +202,6 @@ export function AccessRequestDialog({
                     />
                   </label>
                 </div>
-                <label>
-                  Your role
-                  <select name="role" required defaultValue="">
-                    <option value="" disabled>
-                      Select your role
-                    </option>
-                    <option value="FOUNDER_OR_CEO">Founder / CEO</option>
-                    <option value="FINANCE">Finance / Accounting</option>
-                    <option value="OPERATIONS">Operations</option>
-                    <option value="ENGINEERING">Engineering / IT</option>
-                    <option value="PRODUCT">Product</option>
-                    <option value="SALES_OR_MARKETING">
-                      Sales / Marketing
-                    </option>
-                    <option value="PEOPLE_AND_ADMIN">
-                      People / Administration
-                    </option>
-                    <option value="OTHER">Other</option>
-                  </select>
-                </label>
-                <label>
-                  What would you like to use Subsecute for?{" "}
-                  <span className={s.optional}>Optional</span>
-                  <textarea
-                    name="details"
-                    rows={3}
-                    maxLength={2000}
-                    placeholder="Subscriptions, team expenses, or anything else we should know."
-                  />
-                </label>
               </fieldset>
               {error && (
                 <p className={s.error} role="alert">
@@ -248,7 +212,7 @@ export function AccessRequestDialog({
                 <p>
                   We’ll use these details to contact you about your request.{" "}
                   <a
-                    href="/privacy-policy.html"
+                    href="https://www.subsecute.com/privacy-policy.html"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

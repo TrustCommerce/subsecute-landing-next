@@ -1,32 +1,13 @@
 .section {
-  width: min(1240px, calc(100% - 64px));
-  margin: 32px auto 80px;
-  padding-top: 64px;
-  border-top: 1px solid var(--lp-line);
+  width: 100%;
+  margin: 40px 0;
   scroll-margin-top: 100px;
 }
-.heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 32px;
-}
-.heading h2 {
-  font-size: clamp(32px, 3.5vw, 48px);
-  letter-spacing: -0.045em;
-  line-height: 1.12;
-  font-weight: 500;
-}
-.section .heading p {
-  max-width: 700px;
-  margin-top: 20px;
-  font-size: 18px;
-  line-height: 1.55;
-  color: var(--lp-muted);
-}
 .legend {
-  display: grid;
-  gap: 10px;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px 24px;
   font-size: 13px;
   color: var(--lp-muted);
   padding-bottom: 4px;
@@ -51,11 +32,13 @@
   position: relative;
   isolation: isolate;
   display: grid;
-  grid-template-columns: 0.85fr 1fr 1.08fr 1.12fr;
+  grid-template-columns:
+    minmax(0, 0.9fr) minmax(0, 1fr) minmax(0, 1.18fr)
+    minmax(0, 1.05fr);
   column-gap: 48px;
-  row-gap: 100px;
+
   align-items: center;
-  padding: 64px 0 28px;
+  padding: 24px 0 0;
 }
 .connections {
   position: absolute;
@@ -103,7 +86,6 @@
   background: #fff;
   border: 1px solid #dddcd3;
   border-radius: 12px;
-  box-shadow: 0 5px 12px #20261d04;
 }
 .nodeIcon {
   display: inline-grid;
@@ -115,7 +97,7 @@
   color: #59624e;
   margin-bottom: 16px;
 }
-.section .payment h3 {
+.section .payment .nodeTitle {
   font-size: 17px;
   font-weight: 500;
   line-height: 1.3;
@@ -160,7 +142,7 @@
   padding: 24px 0 12px;
   color: #e5eed5;
 }
-.wallet h3 {
+.wallet .nodeTitle {
   font-size: 21px;
   font-weight: 500;
   letter-spacing: -0.5px;
@@ -188,22 +170,23 @@
   box-shadow: 0 0 0 4px #b8d79d14;
   animation: walletPulse 4.8s ease infinite;
 }
-.subscriptions {
+.groups {
   display: grid;
-  gap: 14px;
-  position: relative;
+  gap: 22px;
+  min-width: 0;
+}
+.cardGroup {
+  min-width: 0;
 }
 .branchTitle {
-  position: absolute;
-  top: -63px;
-  left: 0;
   display: grid;
-  gap: 2px;
-  white-space: nowrap;
+  gap: 3px;
+  margin-bottom: 9px;
 }
-.branchTitle > span {
+.section .branchTitle .nodeTitle {
   font-weight: 500;
   font-size: 15px;
+  line-height: 1.3;
 }
 .branchTitle small {
   color: var(--lp-muted);
@@ -211,12 +194,9 @@
 }
 .subscription {
   padding: 17px;
-  border-radius: 11px;
+  border-radius: 12px;
   border: 1px solid #d9ddcf;
   background: #fff;
-  box-shadow: 0 4px 10px #26332204;
-  animation: cardArrival 4.8s ease infinite;
-  animation-delay: var(--flow-delay);
 }
 .cardTop {
   display: flex;
@@ -234,7 +214,7 @@
 }
 .cardTop > span:last-child {
   font-size: 12px;
-  color: #717467;
+  color: #636957;
   margin-left: auto;
   letter-spacing: 0.06em;
 }
@@ -251,7 +231,7 @@
   color: #525a4a;
 }
 .cardBottom small {
-  color: #717467;
+  color: #636957;
   font-size: 12px;
 }
 .reminder {
@@ -259,7 +239,6 @@
   border: 1px solid #d1ddc9;
   border-radius: 12px;
   padding: 19px;
-  box-shadow: 0 8px 24px #27352806;
 }
 .reminderHeader {
   display: flex;
@@ -268,7 +247,7 @@
   color: #3c6348;
   font-size: 13px;
 }
-.section .reminder h3 {
+.section .reminder .nodeTitle {
   margin-top: 17px;
   font-size: 20px;
   line-height: 1.25;
@@ -296,12 +275,6 @@
 }
 .reminder li svg {
   animation: receiptPulse 4.8s ease infinite;
-}
-.reminder li:nth-child(2) svg {
-  animation-delay: 0.65s;
-}
-.reminder li:nth-child(3) svg {
-  animation-delay: 1.3s;
 }
 .recipients {
   display: flex;
@@ -339,90 +312,20 @@
   font-weight: 500;
   color: #35472f;
 }
-.expenseLabel {
-  grid-column: 2;
-  align-self: end;
-  padding-bottom: 6px;
-}
-.expenseLabel > svg {
-  color: #b84b1c;
-  margin-bottom: 10px;
-}
-.expenseLabel h3 {
-  font-size: 21px;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.4px;
-}
-.section .expenseLabel p {
-  margin-top: 10px;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--lp-muted);
-}
-.expenses {
-  grid-column: 3 / 5;
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-.expenses .branchTitle {
-  top: -84px;
-}
 .expense {
-  background: #c45422;
+  background: #b84b1c;
   color: #fff9f2;
-  border: 1px solid #b64b1e;
   border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 8px 20px #a944120a;
-  position: relative;
-  overflow: hidden;
+  padding: 17px;
 }
-.expense::after {
-  content: "";
-  width: 180px;
-  height: 180px;
-  border: 1px solid #ffffff12;
-  border-radius: 50%;
-  position: absolute;
-  right: -80px;
-  top: -80px;
-  pointer-events: none;
+.expense .cardTop > span:last-child,
+.expense .cardBottom > span,
+.expense .cardBottom small {
+  color: #fff2e8;
 }
-.expense:nth-child(3) {
-  background: #ae4319;
-}
-.expenseBrand {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.6px;
-}
-.section .expense h3 {
-  font-size: 16px;
-  font-weight: 400;
-  margin-top: 16px;
-}
-.expenseDigits {
-  font-size: 15px;
-  letter-spacing: 0.12em;
-  margin: 12px 0 22px;
-  color: #ffdec9;
-}
-.expenseDigits > span {
-  margin: 0 6px;
-}
-.expenseBottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  font-size: 12px;
-  letter-spacing: 0.05em;
-  color: #ffe5d2;
+.expense .cardBottom small {
+  font-size: 10px;
+  letter-spacing: 0.04em;
 }
 @keyframes flow {
   to {
@@ -436,19 +339,6 @@
   }
   45% {
     box-shadow: 0 0 0 8px #b8d79d00;
-  }
-}
-@keyframes cardArrival {
-  0%,
-  35%,
-  100% {
-    border-color: #d9ddcf;
-    transform: translateY(0);
-  }
-  52%,
-  65% {
-    border-color: #c38c69;
-    transform: translateY(-3px);
   }
 }
 @keyframes receiptPulse {
@@ -465,18 +355,21 @@
 @media (max-width: 1100px) and (min-width: 851px) {
   .stage {
     column-gap: 30px;
-    grid-template-columns: 0.9fr 1fr 1.1fr 1.15fr;
   }
   .payment,
   .wallet,
   .reminder,
-  .subscription {
+  .subscription,
+  .expense {
     padding: 14px;
   }
   .paymentOption {
     font-size: 12px;
   }
-  .cardBottom small {
+  .walletBrand {
+    font-size: 15px;
+  }
+  .walletBrand > svg {
     display: none;
   }
   .recipients {
@@ -485,37 +378,34 @@
 }
 @media (max-width: 850px) {
   .section {
-    width: calc(100% - 44px);
-    margin-bottom: 48px;
-    padding-top: 44px;
-  }
-  .heading {
-    display: block;
-  }
-  .section .heading p {
-    max-width: 700px;
-    font-size: 16px;
+    width: 100%;
+    margin: 40px 0;
   }
   .legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px 24px;
-    margin-top: 24px;
+    justify-content: center;
+    gap: 12px 18px;
+    font-size: 12px;
   }
   .stage {
-    max-width: 520px;
+    max-width: 400px;
     margin: 0 auto;
-    grid-template-columns: 1fr;
-    gap: 64px;
-    padding: 40px 36px 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    padding: 28px 30px 0;
   }
-  .payment {
+  .payment,
+  .wallet,
+  .groups,
+  .reminder {
     width: 100%;
     max-width: 280px;
+    min-width: 0;
     justify-self: center;
+  }
+  .payment {
     padding: 18px;
   }
-  .section .payment h3 {
+  .section .payment .nodeTitle {
     margin-bottom: 12px;
   }
   .nodeIcon {
@@ -523,9 +413,6 @@
     margin: 0 0 8px 8px;
   }
   .wallet {
-    width: 100%;
-    max-width: 280px;
-    justify-self: center;
     padding: 20px;
   }
   .naira {
@@ -536,50 +423,12 @@
     margin-top: 14px;
     padding-top: 12px;
   }
-  .subscriptions {
-    width: 100%;
-    max-width: 280px;
-    justify-self: center;
-    margin-top: 16px;
+  .groups {
+    gap: 24px;
   }
-  .subscription {
-    padding: 16px;
-  }
-  .reminder {
-    max-width: 280px;
-    width: 100%;
-    justify-self: center;
-  }
-  .expenseLabel {
-    grid-column: 1;
-    padding: 0 0 0 4px;
-    margin-top: 4px;
-  }
-  .expenseLabel h3 br {
-    display: none;
-  }
-  .expenseLabel h3 {
-    font-size: 22px;
-  }
-  .expenseLabel p br {
-    display: none;
-  }
-  .expenseLabel > svg {
-    display: none;
-  }
-  .expenses {
-    grid-column: 1;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-top: 12px;
-  }
-  .expenses .branchTitle {
-    top: -51px;
-  }
+  .subscription,
   .expense {
-    max-width: 280px;
-    width: 100%;
-    justify-self: center;
+    padding: 16px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -593,4 +442,8 @@
   .track {
     opacity: 0.65;
   }
+}
+
+.subscription + .subscription {
+  margin-top: 10px;
 }

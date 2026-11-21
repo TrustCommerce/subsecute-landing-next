@@ -1,0 +1,244 @@
+/* One gutter aligns the illustrations and copy across the landing. */
+.b-landing {
+  --landing-width: 1200px;
+  --landing-gutter: 32px;
+}
+.b-landing .bl-container,
+.b-landing .b-landing-nav,
+.b-landing .bc-workflow,
+.b-landing .bp-section,
+.b-landing .b-landing-faq,
+.b-landing .b-landing-final-cta,
+.b-landing .b-landing-footer {
+  width: min(var(--landing-width), calc(100% - 2 * var(--landing-gutter)));
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+.b-landing h1,
+.b-landing h2,
+.b-landing h3 {
+  text-wrap: balance;
+}
+.b-landing p {
+  text-wrap: pretty;
+}
+.b-landing :is(section, [id]) {
+  scroll-margin-top: 100px;
+}
+.b-landing .b-landing-tools {
+  border: 0;
+  padding-block: 48px;
+}
+.b-landing .b-landing-tools > div {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.b-landing .b-landing-tools > div > span {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+.bl-card-examples {
+  max-width: 760px;
+  margin: 56px auto 0;
+}
+.bl-card-examples h2 {
+  font-size: clamp(24px, 3vw, 36px);
+  margin-bottom: 24px;
+  text-align: center;
+}
+.bl-section-heading {
+  margin-bottom: 40px;
+}
+.bl-section-heading h2,
+.bl-pricing h2 {
+  font-size: clamp(30px, 3.5vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+.bl-section-heading > p {
+  margin-top: 16px;
+  font-size: 18px;
+  color: var(--lp-muted);
+  max-width: 64ch;
+}
+.b-landing .bl-workspace {
+  padding-block: 64px;
+}
+.b-landing .bc-controls {
+  padding: 72px
+    max(var(--landing-gutter), calc((100% - var(--landing-width)) / 2));
+}
+.b-landing .bc-controls-intro {
+  max-width: none;
+}
+.b-landing .bc-controls-intro h2 {
+  max-width: 22ch;
+}
+.b-landing .bc-control-details {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+}
+.b-landing .bp-expense-controls {
+  padding: 32px;
+  min-width: 0;
+}
+.b-landing .bp-expense-controls .b-spending-card {
+  width: 100%;
+  max-width: 350px;
+}
+.b-landing .bp-expense-controls .bl-funding-timeline {
+  color: var(--lp-paper);
+}
+.b-landing .bp-expense-controls .bl-funding-timeline li span {
+  color: inherit;
+}
+.b-landing .bc-workflow,
+.b-landing .bp-section,
+.b-landing .b-landing-faq {
+  padding-block: 72px;
+}
+.b-landing .bl-pricing {
+  padding: 0 0 24px;
+}
+.bl-pricing table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  font-size: 15px;
+}
+.bl-pricing th,
+.bl-pricing td {
+  border-bottom: 1px solid var(--lp-line);
+  padding: 20px 0;
+  text-align: left;
+  vertical-align: top;
+}
+.bl-pricing th {
+  width: 42%;
+  font-weight: 500;
+  padding-right: 24px;
+}
+.bl-pricing td {
+  color: var(--lp-muted);
+}
+.bl-pricing > p {
+  margin-top: 20px;
+  color: var(--lp-muted);
+}
+.b-landing .b-landing-faq-list a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.b-landing .b-landing-footer > div:first-child p {
+  max-width: 42ch;
+}
+.b-landing .b-landing-footer nav {
+  flex-wrap: wrap;
+}
+.b-landing .bp-finance {
+  align-items: center;
+}
+.b-landing .bf-file-list li > p,
+.b-landing .bp-document-footer {
+  display: none;
+}
+.b-landing .b-landing-final-description {
+  max-width: 64ch;
+}
+@media (max-width: 850px) {
+  .b-landing {
+    --landing-gutter: 24px;
+  }
+  .b-landing .bc-control-details {
+    grid-template-columns: 1fr;
+  }
+  .b-landing .bc-controls {
+    padding-block: 48px;
+  }
+  .b-landing .b-landing-tools > div {
+    justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .b-landing {
+    --landing-gutter: 20px;
+  }
+  .b-landing .b-landing-nav .b-brand {
+    font-size: 20px;
+  }
+  .b-landing .b-landing-nav-actions {
+    gap: 8px;
+  }
+  .b-landing .b-landing-nav-actions .b-button {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  .b-landing .b-landing-nav-actions .b-button svg {
+    display: none;
+  }
+  .bl-card-examples {
+    margin-top: 36px;
+  }
+  .b-landing .bl-subscription-ledger li {
+    gap: 10px;
+    padding: 18px 10px;
+  }
+  .b-landing .bl-subscription-ledger li > strong {
+    font-size: 12px;
+  }
+  .b-landing .bl-subscription-ledger strong {
+    font-size: 14px;
+  }
+  .b-landing .bl-subscription-ledger span {
+    font-size: 12px;
+  }
+  .b-landing .bc-workflow,
+  .b-landing .bp-section,
+  .b-landing .b-landing-faq {
+    padding-block: 48px;
+  }
+  .b-landing .bp-expense-controls {
+    padding: 16px;
+  }
+  .bl-pricing table {
+    font-size: 15px;
+  }
+}
+.b-landing .b-landing-tools {
+  display: block;
+}
+.b-landing .b-landing-tools > div {
+  width: 100%;
+  flex-direction: row;
+}
+.b-landing .bp-expense-controls .bl-funding-timeline li .bl-event-node {
+  color: var(--lp-ink);
+}
+.b-landing
+  .bp-expense-controls
+  .bl-funding-timeline
+  li[data-active="true"]
+  .bl-event-node {
+  color: #fff;
+}
+.b-landing .b-landing-faq details > p {
+  padding-right: 0;
+}
+@media (min-width: 1100px) {
+  .b-landing .b-landing-faq {
+    grid-template-columns: 0.65fr 1.35fr;
+    gap: 56px;
+  }
+}
+@media (max-width: 850px) {
+  .b-landing .bc-control-details .bp-control-explanation {
+    min-height: 0;
+    padding-bottom: 16px;
+  }
+}

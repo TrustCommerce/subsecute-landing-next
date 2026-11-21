@@ -13,26 +13,17 @@ export function LandingNavigation({ onRequest }: { onRequest: () => void }) {
           aria-label="Business navigation"
           className={menu ? "is-open" : ""}
         >
-          <a onClick={() => setMenu(false)} href="#business-cards">
-            Subscriptions
-          </a>
-          <a onClick={() => setMenu(false)} href="#how-it-works">
-            How it works
-          </a>
-          <a onClick={() => setMenu(false)} href="#workspace-features">
-            Features
-          </a>
-          <a onClick={() => setMenu(false)} href="#finance-records">
-            Records
-          </a>
-          <a onClick={() => setMenu(false)} href="#questions">
-            FAQs
-          </a>
+          {[
+            ["#how-it-works", "How it works"],
+            ["#pricing", "Pricing"],
+            ["#questions", "FAQs"],
+          ].map(([href, label]) => (
+            <a key={href} onClick={() => setMenu(false)} href={href}>
+              {label}
+            </a>
+          ))}
         </nav>
         <div className="b-landing-nav-actions">
-          <a className="b-landing-login" href="#card-controls">
-            Card controls <ArrowUpRight size={15} />
-          </a>
           <button
             className="b-button primary"
             type="button"
@@ -64,11 +55,14 @@ export function LandingFooter() {
     <footer className="b-landing-footer">
       <div>
         <Brand />
-        <p>Subscription reminders, dollar cards and team expenses.</p>
+        <p>Subsecute Business is a product of TrustCommerce Resources Ltd.</p>
       </div>
       <nav aria-label="Footer">
         <a href="#how-it-works">How it works</a>
-        <a href="#workspace-features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="mailto:support@subsecute.com">support@subsecute.com</a>
+        <a href="https://www.subsecute.com/privacy-policy.html">Privacy</a>
+        <a href="https://www.subsecute.com/terms-of-service.html">Terms</a>
         <a href="#finance-records">Payment records</a>
         <a href="https://www.subsecute.com/">
           Subsecute Personal <ArrowUpRight size={14} />
@@ -76,7 +70,7 @@ export function LandingFooter() {
       </nav>
       <div className="b-landing-footer-bottom">
         <span>© {new Date().getFullYear()} Subsecute</span>
-        <span>Built for businesses in Nigeria.</span>
+        <span>Cards are provided by our issuing partners.</span>
       </div>
     </footer>
   );

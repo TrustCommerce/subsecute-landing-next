@@ -1,214 +1,189 @@
-import { useProductTour } from "./useProductTour";
-import { TourTabs } from "./TourTabs";
 import Image from "next/image";
 import {
-  ArrowUpRight,
-  CreditCard,
-  FileText,
   SquaresFour,
+  Stack,
+  CreditCard,
   Wallet,
+  Receipt,
+  Users,
 } from "@phosphor-icons/react";
 import { ToolLogo } from "../ui";
-import styles from "./Opening.module.css";
+import { TourTabs } from "./TourTabs";
+import { useProductTour } from "./useProductTour";
+import styles from "./WorkspaceShowcase.module.css";
 
-const subscriptions = [
-  {
-    name: "Figma",
-    owner: "Design seats",
-    amount: "$60.00",
-    date: "26 Oct",
-    digits: "4412",
-  },
-  {
-    name: "Notion",
-    owner: "Company wiki",
-    amount: "$24.00",
-    date: "28 Oct",
-    digits: "8216",
-  },
-  {
-    name: "ChatGPT",
-    owner: "AI tools",
-    amount: "$20.00",
-    date: "30 Oct",
-    digits: "3042",
-  },
+const views = [
+  [
+    {
+      name: "Figma",
+      detail: "In 3 days · Monthly",
+      amount: "US$60.00",
+      logo: true,
+    },
+    {
+      name: "Notion",
+      detail: "In 5 days · Monthly",
+      amount: "US$24.00",
+      logo: true,
+    },
+    {
+      name: "ChatGPT",
+      detail: "In 7 days · Monthly",
+      amount: "US$20.00",
+      logo: true,
+    },
+  ],
+  [
+    {
+      name: "Meta Ads",
+      detail: "Tops up below US$100",
+      amount: "US$500.00",
+      logo: true,
+    },
+    {
+      name: "AWS",
+      detail: "Tops up below US$50",
+      amount: "US$200.00",
+      logo: true,
+    },
+  ],
+  [
+    {
+      name: "Ada Okafor",
+      detail: "Team travel · NGN",
+      amount: "₦50,000.00",
+      logo: false,
+    },
+    {
+      name: "Musa Ibrahim",
+      detail: "Project expenses · USD",
+      amount: "US$150.00",
+      logo: false,
+    },
+  ],
 ];
-const expenses = [
-  {
-    name: "AO",
-    owner: "Ada Okafor",
-    amount: "$150.00",
-    purpose: "Design resources",
-    digits: "2048",
-  },
-  {
-    name: "NI",
-    owner: "Nneka Ibrahim",
-    amount: "$80.00",
-    purpose: "Team learning",
-    digits: "3916",
-  },
+const navigation = [
+  { label: "Overview", Icon: SquaresFour },
+  { label: "Subscriptions", Icon: Stack },
+  { label: "Expense cards", Icon: CreditCard },
+  { label: "Spend", Icon: Receipt },
+  { label: "Wallet", Icon: Wallet },
+  { label: "People", Icon: Users },
 ];
 
 export function WorkspaceShowcase() {
-  const tour = useProductTour(2);
-  const view = tour.selected === 0 ? "subscriptions" : "expenses";
+  const tour = useProductTour(3, 6500);
   return (
-    <div
-      className={styles.showcase}
-      id="workspace-preview"
-      {...tour.regionProps}
-    >
-      <div className={styles.workspace}>
-        <aside className={styles.rail} aria-label="Example workspace sections">
-          <Image
-            src="/business-assets/logo.svg"
-            width={28}
-            height={32}
-            alt="Subsecute"
-          />
+    <div id="workspace-preview" className={styles.frame} {...tour.regionProps}>
+      <aside className={styles.sidebar} aria-hidden="true">
+        <Image src="/business-assets/logo.svg" width={26} height={30} alt="" />
+        <div className={styles.company}>
+          <span>F</span>
+          <strong>
+            Forma Studio<small>Business workspace</small>
+          </strong>
+        </div>
+        <div className={styles.navigation}>
+          {navigation.map(({ label, Icon }, index) => (
+            <span key={label} data-active={index === 0}>
+              <Icon size={18} />
+              {label}
+            </span>
+          ))}
+        </div>
+        <div className={styles.account}>
+          <span>AO</span>
+          <strong>
+            Ada Okafor<small>Workspace admin</small>
+          </strong>
+        </div>
+      </aside>
+      <div className={styles.main}>
+        <div className={styles.topbar}>
           <span>
-            <SquaresFour size={18} /> Overview
+            Business workspace <span aria-hidden="true">/</span> Overview
           </span>
-          <span className={styles.railActive}>
-            <CreditCard size={18} /> Company cards
-          </span>
-          <span>
-            <Wallet size={18} /> Wallet
-          </span>
-          <span>
-            <FileText size={18} /> Records
-          </span>
-          <small>
-            Forma Studio
-            <br />
-            Business account
-          </small>
-        </aside>
-        <div className={styles.workspaceBody}>
-          <div className={styles.workspaceTop}>
-            <span>Forma Studio</span>
-            <span className={styles.avatar}>AO</span>
-          </div>
-          <div className={styles.workspaceTitle}>
+          <span className={styles.avatar}>AO</span>
+        </div>
+        <div className={styles.content}>
+          <header className={styles.greeting}>
+            <span>This month</span>
+            <h3>
+              Good morning, Ada<span>.</span>
+            </h3>
+            <p>Your cards, renewals and requests.</p>
+          </header>
+          <dl className={styles.metrics}>
             <div>
-              <p>Company overview</p>
-            </div>
-            <span>October 2026</span>
-          </div>
-          <div className={styles.metrics}>
-            <div>
-              <span>Company wallet</span>
-              <strong>
+              <dt>Company wallet</dt>
+              <dd>
                 ₦250,000<span>.00</span>
-              </strong>
-              <small>Available for company funding</small>
+              </dd>
             </div>
             <div>
-              <span>Scheduled card funding</span>
-              <strong>
+              <dt>Scheduled funding</dt>
+              <dd>
                 US$104<span>.00</span>
-              </strong>
-              <small>3 subscriptions · next 14 days</small>
+              </dd>
             </div>
-            <a href="#expense-cards">
-              <span>Team requests</span>
-              <strong>
-                02 <ArrowUpRight size={22} />
-              </strong>
-              <small>Waiting for Admin review</small>
-            </a>
-          </div>
-          <div className={styles.workspaceBottom}>
-            <div className={styles.cardList}>
-              <TourTabs
-                id="workspace"
-                label="Company card types"
-                tour={tour}
-                tabs={[{ label: "Subscriptions" }, { label: "Expense cards" }]}
-              />
-              <div
-                className="bl-ledger-viewport"
-                id="workspace-panel"
-                role="tabpanel"
-                aria-labelledby={`workspace-tab-${tour.selected}`}
-                tabIndex={0}
-              >
-                <div className={styles.listLabels}>
-                  <span>
-                    {view === "subscriptions" ? "Subscription" : "Cardholder"}
-                  </span>
-                  <span>
-                    {view === "subscriptions" ? "Next funding" : "Purpose"}
-                  </span>
-                  <span>
-                    {view === "subscriptions" ? "Amount" : "Card balance"}
-                  </span>
-                </div>
-                <div
-                  className={`${styles.rows} bl-ledger`}
-                  key={`${view}-${tour.revision}`}
-                >
-                  {view === "subscriptions"
-                    ? subscriptions.map((item) => (
-                        <div className={`${styles.row} bt-row`} key={item.name}>
-                          <div>
-                            <ToolLogo name={item.name} />
-                            <span>
-                              <strong>{item.name}</strong>
-                              <small>
-                                Label: {item.owner} · •••• {item.digits}
-                              </small>
-                            </span>
-                          </div>
-                          <span>{item.date}</span>
-                          <strong>{item.amount}</strong>
-                        </div>
-                      ))
-                    : expenses.map((item) => (
-                        <div
-                          className={`${styles.row} bt-row`}
-                          key={item.digits}
-                        >
-                          <div>
-                            <span className={styles.avatar}>{item.name}</span>
-                            <span>
-                              <strong>{item.owner}</strong>
-                              <small>Active · •••• {item.digits}</small>
-                            </span>
-                          </div>
-                          <span>{item.purpose}</span>
-                          <strong>{item.amount}</strong>
-                        </div>
-                      ))}
-                </div>
-              </div>
+            <div>
+              <dt>Awaiting review</dt>
+              <dd>02</dd>
             </div>
-            <aside
-              className={`${styles.request} bt-swap`}
-              key={`request-${view}`}
+          </dl>
+          <div className={styles.cards}>
+            <TourTabs
+              id="workspace"
+              label="Company card types"
+              tour={tour}
+              tabs={[
+                { label: "Subscriptions" },
+                { label: "Usage-based" },
+                { label: "Expense cards" },
+              ]}
+            />
+            <div className={styles.columnLabels} aria-hidden="true">
+              <span>{tour.selected === 2 ? "Cardholder" : "Service"}</span>
+              <span>
+                {tour.selected === 0
+                  ? "Scheduled amount"
+                  : tour.selected === 1
+                    ? "Top-up amount"
+                    : "Card balance"}
+              </span>
+            </div>
+            <div
+              id="workspace-panel"
+              role="tabpanel"
+              aria-labelledby={`workspace-tab-${tour.selected}`}
+              tabIndex={0}
+              className={styles.panel}
             >
-              <span>REQUEST TO ADD MONEY</span>
-              <div className={styles.requestOwner}>
-                <span className={styles.avatar}>AO</span>
-                <strong>
-                  Ada Okafor<small>Expense card · •••• 2048</small>
-                </strong>
-              </div>
-              <p>Design assets for the launch</p>
-              <strong className={styles.requestAmount}>US$60.00</strong>
-              <span className={styles.waiting}>Waiting for approval</span>
-              <a href="#expense-cards">
-                See how requests work <ArrowUpRight size={16} />
-              </a>
-            </aside>
+              <ul key={tour.selected} className={styles.rows}>
+                {views[tour.selected].map((row) => (
+                  <li key={row.name}>
+                    {row.logo ? (
+                      <ToolLogo name={row.name} />
+                    ) : (
+                      <span className={styles.person}>
+                        {row.name
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
+                      </span>
+                    )}
+                    <div>
+                      <strong>{row.name}</strong>
+                      <small>{row.detail}</small>
+                    </div>
+                    <strong className={styles.amount}>{row.amount}</strong>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-      <p className={styles.showcaseCaption}>
-        One workspace for subscriptions, expense cards and company funding.
-      </p>
     </div>
   );
 }

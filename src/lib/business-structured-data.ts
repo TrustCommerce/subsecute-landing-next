@@ -1,3 +1,4 @@
+import { BUSINESS_PRICING } from "./business-pricing";
 import { BUSINESS_FAQS } from "./business-faqs";
 import { steps } from "@/components/business/landing/content";
 import { ORG_SCHEMA } from "./structured-data";
@@ -43,14 +44,14 @@ export const BUSINESS_SERVICE_SCHEMA = {
   url: `${BUSINESS_URL}/`,
   provider: { "@id": ORG_SCHEMA["@id"] },
   description:
-    "Dedicated dollar cards for each company software subscription, funded from a naira wallet before the renewal date, with WhatsApp reminders to every admin and the cardholder. Expense cards cover approved team purchases.",
-  category: "Virtual dollar card for business subscriptions",
+    "Dollar and naira cards funded from one company wallet. Fixed subscriptions fund on a schedule with WhatsApp renewal reminders; usage-based cards fund after a daily threshold check. Expense cards cover approved team purchases.",
+  category: "Virtual dollar and naira cards for business",
   areaServed: { "@type": "Country", name: "Nigeria" },
   currenciesAccepted: "NGN",
-  feesAndCommissionsSpecification: `${BUSINESS_URL}/#questions`,
+  feesAndCommissionsSpecification: `${BUSINESS_URL}/#pricing`,
   audience: {
     "@type": "BusinessAudience",
-    name: "Nigerian companies paying for software subscriptions in dollars",
+    name: "Nigerian companies paying for software and team expenses",
   },
   // An engine answering "what does Subsecute Business actually give you" can
   // read the product line off this rather than inferring it from prose.
@@ -64,7 +65,16 @@ export const BUSINESS_SERVICE_SCHEMA = {
           "@type": "Service",
           name: "Subscription card",
           description:
-            "One dollar card per recurring tool, with its own funding amount and schedule. Funded from the company naira wallet before the renewal date.",
+            "One dollar or naira card per recurring tool, with its own funding amount and schedule. Funded from the company naira wallet before the renewal date.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Usage-based card",
+          description:
+            "Cards for variable spend. A daily check tops up from the company naira wallet when the balance is at or below the chosen threshold.",
         },
       },
       {
@@ -82,26 +92,26 @@ export const BUSINESS_SERVICE_SCHEMA = {
     {
       "@type": "Offer",
       name: "Monthly membership",
-      price: 0,
+      price: BUSINESS_PRICING.membershipNgn,
       priceCurrency: "NGN",
       description: "No monthly membership fee.",
     },
     {
       "@type": "Offer",
-      name: "Card creation",
-      price: 1,
+      name: "Dollar card creation",
+      price: BUSINESS_PRICING.cardCreationUsd,
       priceCurrency: "USD",
       description: "Charged once when a card is opened.",
     },
     {
       "@type": "Offer",
-      name: "Card maintenance",
-      price: 1,
+      name: "Dollar card maintenance",
+      price: BUSINESS_PRICING.monthlyCardUsd,
       priceCurrency: "USD",
       description: "Charged each month while the card stays open.",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
-        price: 1,
+        price: BUSINESS_PRICING.monthlyCardUsd,
         priceCurrency: "USD",
         billingDuration: 1,
         billingIncrement: 1,
@@ -157,7 +167,7 @@ export const BUSINESS_WEBPAGE_SCHEMA = {
   url: `${BUSINESS_URL}/`,
   name: "Subsecute Business",
   description:
-    "WhatsApp renewal reminders for every admin and cardholder, dedicated dollar subscription cards funded from naira, and expense cards for approved team purchases.",
+    "Dollar and naira cards for fixed subscriptions, usage-based tools and team expenses, funded from one company wallet.",
   inLanguage: "en-NG",
   isPartOf: { "@id": `${BUSINESS_URL}/#website` },
   about: { "@id": `${BUSINESS_URL}/#service` },

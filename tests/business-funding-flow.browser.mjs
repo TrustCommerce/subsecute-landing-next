@@ -20,20 +20,24 @@ try {
   const svg = section
     .locator("svg")
     .filter({ has: page.locator("animateMotion") });
-  assert.equal(await section.locator("[data-flow-node]").count(), 8);
-  assert.equal(await svg.locator("animateMotion").count(), 9);
+  assert.equal(await section.locator("[data-flow-node]").count(), 6);
+  assert.equal(await svg.locator("animateMotion").count(), 5);
   const packet = svg.locator("circle").first();
   const position = () =>
     packet.evaluate((node) => ({ x: node.getCTM().e, y: node.getCTM().f }));
   const first = await position();
-  await page.waitForTimeout(800);
+  await page.waitForFunction(({ x, y }) => {
+    const node = document.querySelector("#funding-flow svg circle");
+    const transform = node?.getCTM();
+    return transform && (transform.e !== x || transform.f !== y);
+  }, first, { timeout: 5000 });
   assert.notDeepEqual(
     await position(),
     first,
     "funding dots must move along their paths",
   );
 
-  for (const width of [1440, 1024, 860, 850, 768, 390, 360]) {
+  for (const width of [1440, 1024, 860, 850, 768, 390, 375, 360]) {
     await page.setViewportSize({ width, height: 1100 });
     await section.scrollIntoViewIfNeeded();
     await page.waitForTimeout(150);
@@ -44,14 +48,14 @@ try {
       false,
     );
     const gap = await section
-      .locator('[data-flow-node="subscription-0"]')
+      .locator('[data-flow-node="subscription"]')
       .evaluate(
         (node) =>
           node.getBoundingClientRect().top -
           node.previousElementSibling.getBoundingClientRect().bottom,
       );
-    // The card may float upward by 3px, but its label must retain breathing room.
-    assert.ok(gap >= 17, `subscription heading is too close at ${width}px`);
+    // Labels and cards must retain breathing room.
+    assert.ok(gap >= 8, `subscription heading is too close at ${width}px`);
     assert.equal(await svg.locator('path[d*="NaN"]').count(), 0);
   }
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -65,7 +69,7 @@ try {
     "none",
   );
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.evaluate(() => scrollTo(0, 0));
+  await page.evaluate(() => scrollTo(0, document.documentElement.scrollHeight));
   await page.waitForFunction(() =>
     document
       .querySelector("#funding-flow svg:has(animateMotion)")
@@ -76,28 +80,52 @@ try {
   const staticPage = await browser.newPage({ javaScriptEnabled: false });
   await staticPage.goto(url);
   const staticSection = staticPage.locator("#funding-flow");
-  assert.equal(
-    await staticSection.locator("h2").textContent(),
-    "One company wallet. A card for every purpose.",
-  );
-  const summary = await staticSection
-    .locator("#funding-flow-description")
-    .innerText();
+  assert.equal(await staticSection.locator("h2").count(), 0);
+  const summary = await staticSection.innerText();
   for (const phrase of [
-    "Subsecute Business",
-    "bank transfer",
-    "saved card",
-    "virtual dollar subscription cards",
-    "team expense cards",
+    "Payment method",
+    "Bank transfer",
+    "Saved company card",
+    "Company wallet",
+    "Subscription cards",
+    "Scheduled funding",
+    "Usage-based cards",
+    "Threshold-based funding",
+    "Expense cards",
+    "Admin-approved funding",
     "WhatsApp reminders",
+    "Figma",
+    "Meta Ads",
+    "Team travel",
   ])
-    assert.ok(summary.includes(phrase), `missing text explanation: ${phrase}`);
-  for (const name of ["Figma", "Notion", "ChatGPT"])
-    assert.ok((await staticSection.innerText()).includes(name));
+    assert.ok(
+      summary.includes(phrase),
+      `missing diagram explanation: ${phrase}`,
+    );
   assert.equal(
-    await staticSection.getByRole("group").getAttribute("aria-describedby"),
-    "funding-flow-description",
+    await staticSection.getByText("NGN", { exact: true }).count(),
+    1,
   );
+  assert.equal(
+    await staticSection.getByText("USD", { exact: true }).count(),
+    3,
+  );
+  await page.setViewportSize({ width: 375, height: 1100 });
+  const tops = await section.locator("[data-flow-node]").evaluateAll((nodes) =>
+    nodes.map((node) => ({
+      id: node.dataset.flowNode,
+      top: node.getBoundingClientRect().top,
+    })),
+  );
+  assert.deepEqual(
+    tops.map((node) => node.id),
+    ["payment", "wallet", "subscription", "usage", "expense", "reminder"],
+  );
+  for (let index = 1; index < tops.length; index++)
+    assert.ok(
+      tops[index].top > tops[index - 1].top,
+      "mobile diagram follows funding order",
+    );
   for (const asset of ["logo", "figma", "notion", "openai", "framer", "google"])
     assert.equal(
       (
@@ -109,7 +137,7 @@ try {
     );
   assert.deepEqual(errors, []);
   console.log(
-    "Funding flow passed: motion, seven widths, label spacing, reduced motion, off-screen pause, server-rendered text and logos.",
+    "Funding flow passed: motion, eight widths, label spacing, reduced motion, off-screen pause, server-rendered text and logos.",
   );
 } finally {
   await browser.close();

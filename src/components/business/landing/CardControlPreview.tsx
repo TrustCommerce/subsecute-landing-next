@@ -19,8 +19,8 @@ const states: Record<
   },
   Resume: {
     before: "Paused",
-    after: "Active",
-    detail: "Scheduled funding resumed",
+    after: "Ready to fund",
+    detail: "Add money before use",
     icon: CheckCircle,
   },
   Cancel: {

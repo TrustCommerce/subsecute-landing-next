@@ -1,12 +1,12 @@
+import {
+  FUNDING_EXAMPLE as example,
+  BUSINESS_PRICING,
+  naira,
+  dollars,
+} from "@/lib/business-pricing";
 import { useProductTour } from "./useProductTour";
 import Image from "next/image";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  FileText,
-  Table,
-  Receipt,
-} from "@phosphor-icons/react";
+import { ArrowRight, FileText, Table, Receipt } from "@phosphor-icons/react";
 import "./ProductProof.css";
 import "./FinanceMotion.css";
 
@@ -37,31 +37,38 @@ const documents = [
 function FundingRecord() {
   return (
     <>
-      <div className="bp-document-overline">CARD FUNDING · 19 OCT 2026</div>
+      <div className="bp-document-overline">CARD FUNDING · THIS MONTH</div>
       <div className="bp-document-title">Figma</div>
       <p>Company wallet → card •••• 4412</p>
-      <p className="bp-document-amount">US$60.00</p>
-      <p>Added to the card, not a merchant purchase</p>
+      <p className="bp-document-amount">{dollars(example.cardAmountUsd)}</p>
+      <p>Standard fees, before any launch offer</p>
       <dl className="bp-facts">
         <div>
-          <dt>Rate paid</dt>
-          <dd>₦1,300 / US$1</dd>
+          <dt>Base exchange rate</dt>
+          <dd>{naira(example.baseRate)} / US$1</dd>
         </div>
         <div>
           <dt>Naira principal</dt>
-          <dd>₦74,400</dd>
+          <dd>{naira(example.principal)}</dd>
         </div>
         <div>
-          <dt>Exchange margin</dt>
-          <dd>₦3,600</dd>
+          <dt>Issuer funding charge</dt>
+          <dd>{naira(example.issuerFeeNgn)}</dd>
+        </div>
+        <div>
+          <dt>
+            Exchange margin ({naira(BUSINESS_PRICING.exchangeMarginPerUsd)}
+            /US$1)
+          </dt>
+          <dd>{naira(example.margin)}</dd>
         </div>
         <div>
           <dt>Funding fee</dt>
-          <dd>₦0</dd>
+          <dd>{naira(example.fundingFee)}</dd>
         </div>
         <div className="bp-total">
           <dt>Total wallet debit</dt>
-          <dd>₦78,000</dd>
+          <dd>{naira(example.total)}</dd>
         </div>
       </dl>
     </>
@@ -75,45 +82,49 @@ function SupportingDocument({ csv }: { csv: boolean }) {
         {csv ? "ACCOUNTING EXPORT · CSV" : "COMPANY STATEMENT · PDF"}
       </div>
       <div className="bp-document-title">
-        {csv ? "Funding transactions" : "October 2026"}
+        {csv ? "Funding transactions" : "This month"}
       </div>
       <p>
         {csv
-          ? "Open the export in a spreadsheet to review dates, amounts, exchange rates and fees."
-          : "Forma Studio · Company wallet movements"}
+          ? "Funding amounts, costs and references."
+          : "Forma Studio · Wallet statement"}
       </p>
       {csv ? (
         <dl className="bp-facts">
           <div>
             <dt>Date</dt>
-            <dd>19 Oct 2026</dd>
+            <dd>This month</dd>
           </div>
           <div>
             <dt>Card funding</dt>
-            <dd>US$60.00</dd>
+            <dd>{dollars(example.cardAmountUsd)}</dd>
           </div>
           <div>
-            <dt>Rate paid</dt>
-            <dd>₦1,300 / US$1</dd>
+            <dt>Base exchange rate</dt>
+            <dd>{naira(example.baseRate)} / US$1</dd>
           </div>
           <div>
             <dt>Total naira cost</dt>
-            <dd>₦78,000</dd>
+            <dd>{naira(example.total)}</dd>
+          </div>
+          <div>
+            <dt>Closing balance</dt>
+            <dd>{naira(example.closing)}</dd>
           </div>
         </dl>
       ) : (
         <dl className="bp-facts">
           <div>
             <dt>Opening balance</dt>
-            <dd>₦250,000</dd>
+            <dd>{naira(example.opening)}</dd>
           </div>
           <div>
-            <dt>19 Oct · Figma card funding</dt>
-            <dd>−₦78,000</dd>
+            <dt>Figma card funding</dt>
+            <dd>−{naira(example.total)}</dd>
           </div>
           <div className="bp-total">
             <dt>Closing balance</dt>
-            <dd>₦172,000</dd>
+            <dd>{naira(example.closing)}</dd>
           </div>
         </dl>
       )}
@@ -137,13 +148,13 @@ export function FinanceSection() {
     >
       <div className="bp-finance" {...tour.regionProps}>
         <div>
-          <h2 id="finance-title">Send the records to your accountant.</h2>
+          <h2 id="finance-title">Clear records for your accountant.</h2>
           <p>
-            Review the dollars funded, naira debited, exchange margin and fees
-            for each payment. Records retain the rate used at the time.
+            Download statements and CSV records with the costs recorded for each
+            payment.
           </p>
           <ul className="bf-file-list" aria-label="Example finance records">
-            {documents.map(({ name, format, Icon, detail }, index) => (
+            {documents.map(({ name, format, Icon }, index) => (
               <li key={name} data-active={selected === index}>
                 <button
                   type="button"
@@ -168,13 +179,9 @@ export function FinanceSection() {
                   </span>
                   <ArrowRight size={18} aria-hidden="true" />
                 </button>
-                <p>{detail}</p>
               </li>
             ))}
           </ul>
-          <a className="bp-link" href="#workspace-features">
-            See all features <ArrowUpRight size={17} />
-          </a>
         </div>
         <div
           className="bf-finance-demo"

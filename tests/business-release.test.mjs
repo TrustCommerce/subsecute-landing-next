@@ -98,16 +98,15 @@ test("the share image is reachable on both the business host and local preview",
     "deny",
   );
 });
-test("search indexing is a second switch on top of the release flag", () => {
-  assert.equal(indexable("true", "true"), true);
-  for (const [flag, index] of [
-    ["true", undefined],
-    ["true", "false"],
-    ["true", "1"],
-    ["false", "true"],
-    [undefined, "true"],
-  ])
-    assert.equal(indexable(flag, index), false);
+test("released pages are indexable regardless of the legacy search flag", () => {
+  assert.equal(indexable("true"), true);
+  for (const legacyFlag of [undefined, "", "false", "true", "1"])
+    assert.equal(indexable("true", legacyFlag), true);
+});
+test("indexing remains disabled until the landing is explicitly released", () => {
+  for (const flag of [undefined, "", "false", "TRUE", "1"])
+    for (const legacyFlag of [undefined, "false", "true"])
+      assert.equal(indexable(flag, legacyFlag), false);
 });
 test("no production preview path or lookalike-host bypass", () => {
   for (const host of [

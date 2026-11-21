@@ -51,27 +51,19 @@ try {
     .getByRole("button", { name: "Request access", exact: true })
     .click();
   assert.equal(bodies.length, 0);
-  await page.getByLabel("Your name", { exact: true }).fill("  Test Person  ");
+  await page.getByLabel("Full name", { exact: true }).fill("  Test Person  ");
   await page
     .getByLabel("Company name", { exact: true })
     .fill("Example Business");
-  await page
-    .getByLabel("Email address", { exact: true })
-    .fill("test@example.com");
-  await page.getByLabel("Phone number", { exact: true }).fill("123");
-  await page
-    .getByRole("combobox", { name: "Your role", exact: true })
-    .selectOption("FINANCE");
-  await page
-    .getByLabel(/What would you like/)
-    .fill("Subscription cards for our team.");
+  await page.getByLabel("Work email", { exact: true }).fill("test@example.com");
+  await page.getByLabel("WhatsApp number", { exact: true }).fill("123");
   await dialog
     .getByRole("button", { name: "Request access", exact: true })
     .click();
   await dialog.getByRole("alert").waitFor();
   assert.equal(bodies.length, 0);
   await page
-    .getByLabel("Phone number", { exact: true })
+    .getByLabel("WhatsApp number", { exact: true })
     .fill("+234 801 234 5678");
   await dialog
     .getByRole("button", { name: "Request access", exact: true })
@@ -89,11 +81,9 @@ try {
     email: "test@example.com",
     name: "Test Person",
     company_name: "Example Business",
-    role: "FINANCE",
     phone: "+234 801 234 5678",
-    use_case: "Subscription cards for our team.",
   });
-  for (const width of [320, 390, 768, 1440]) {
+  for (const width of [320, 375, 768, 1440]) {
     await page.setViewportSize({ width, height: 844 });
     const sizing = await dialog.evaluate((el) => ({
       width: el.getBoundingClientRect().width,
@@ -111,10 +101,9 @@ try {
     .getByRole("button", { name: "Request access", exact: true })
     .click();
   await page
-    .getByText(
-      "Submission unconfirmed. Check your connection and try again.",
-      { exact: true },
-    )
+    .getByText("Submission unconfirmed. Check your connection and try again.", {
+      exact: true,
+    })
     .waitFor();
   outcome = "pending";
   await dialog
@@ -134,7 +123,7 @@ try {
   assert.equal(await dialog.isVisible(), false);
   await triggers.first().click();
   assert.equal(
-    await page.getByLabel("Email address", { exact: true }).inputValue(),
+    await page.getByLabel("Work email", { exact: true }).inputValue(),
     "",
   );
   await page.getByRole("button", { name: "Close request form" }).click();

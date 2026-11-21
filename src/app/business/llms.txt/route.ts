@@ -1,3 +1,4 @@
+import { BUSINESS_PRICE_ROWS } from "@/lib/business-pricing";
 import { BUSINESS_URL } from "@/lib/business-structured-data";
 import { BUSINESS_FAQS } from "@/lib/business-faqs";
 import { businessIndexable } from "@/lib/business-release.mjs";
@@ -26,56 +27,22 @@ export function GET() {
 
   const body = `# Subsecute Business
 
-> Dedicated dollar cards for Nigerian companies paying for software
-> subscriptions, funded from a naira wallet before the renewal date, with
-> WhatsApp reminders sent to every company admin and the subscription's
-> cardholder before a charge lands.
+Every company subscription on its own card.
+Dollar and naira cards funded from one company naira wallet.
+Subscription cards fund fixed bills on a schedule. Usage-based cards top up below a balance threshold. Expense cards are assigned to team members and funded on admin approval.
+Admins and the cardholder receive WhatsApp reminders before renewals.
 
-Subsecute Business is operated by TrustCommerce Resources Ltd (RC 7131175)
-and serves companies in Nigeria. The consumer product is at ${SITE_URL}.
-
-## What it does
-
-- Issues one dollar card per software subscription, so a charge always
-  arrives with a name attached rather than an unrecognisable merchant code.
-- Funds each card from the company's naira wallet ahead of the renewal date,
-  rather than on the day.
-- Sends a WhatsApp reminder before a renewal to every company admin and to
-  the cardholder. An admin who also holds the card is messaged once. Nobody
-  else on the team is notified.
-- Issues expense cards for approved team purchases, each with an assigned
-  holder and a funded amount.
-- Lets an admin or the assigned holder freeze a card. A holder can lift a
-  freeze they applied themselves; an admin freeze needs an admin to lift it.
-- Produces a PDF company statement and a CSV export for an accountant.
-
-## What it does not do
-
-- It does not connect to accounting software. Records leave as CSV.
-- Cancelling a subscription in Subsecute closes the card. It does not end the
-  agreement with the software vendor, which has to be cancelled separately.
-- A card top-up is not a merchant purchase, and a Subsecute statement is not
-  the vendor's invoice.
-- Merchant acceptance of any individual card is not guaranteed.
-
-## Pricing
-
-- Monthly membership: none.
-- Opening a card: US$1, charged once.
-- Keeping a card open: US$1 per month, including while a subscription is
-  paused.
-- Funding a card from the company naira wallet: no Subsecute processing fee.
-  An exchange margin is included in the rate shown before confirmation.
+## Standard pricing
+${BUSINESS_PRICE_ROWS.map(([label, value]) => `- ${label}: ${value}`).join("\n")}
+Fees are shown before confirmation. Launch offers can reduce a quote.
 
 ## Questions and answers
-
 ${BUSINESS_FAQS.map(([q, a]) => `### ${q}\n\n${a}`).join("\n\n")}
 
 ## Links
-
-- Business landing page: ${BUSINESS_URL}/
-- Consumer product: ${SITE_URL}/
-- Consumer articles: ${SITE_URL}/blog
+- Business: ${BUSINESS_URL}/
+- Pricing: ${BUSINESS_URL}/#pricing
+- Personal: ${SITE_URL}/
 `;
 
   return new Response(body, {

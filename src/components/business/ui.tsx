@@ -43,6 +43,9 @@ export function ToolLogo({
     ChatGPT: "openai",
     Framer: "framer",
     "Google Workspace": "google",
+    "Meta Ads": "meta",
+    "Google Ads": "googleads",
+    AWS: "aws",
   };
   return (
     <span

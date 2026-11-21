@@ -10,13 +10,10 @@ import { businessIndexable } from "@/lib/business-release.mjs";
 export const dynamic = "force-dynamic";
 
 export function GET() {
-  const indexable = businessIndexable(
-    process.env.BUSINESS_LANDING_ENABLED,
-    process.env.BUSINESS_SEARCH_INDEXING,
-  );
+  const indexable = businessIndexable(process.env.BUSINESS_LANDING_ENABLED);
 
-  // Before indexing is approved the file still answers, but it closes the
-  // door. A 404 here would read as "no rules", which is an invitation.
+  // Defense in depth for an unreleased handler; the host router also denies it.
+  // Released pages invite every crawler and advertise the business sitemap.
   const body = indexable
     ? [
         "User-Agent: *",

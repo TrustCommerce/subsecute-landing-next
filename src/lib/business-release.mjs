@@ -18,12 +18,13 @@ export function localBusinessPreview(host, mode) {
 }
 
 /**
- * Search indexing is a second switch, independent of the release flag, so the
- * landing can be live for a while before it is handed to crawlers. Fails
- * closed exactly as businessReleased does.
+ * Released business pages are discoverable without a separate indexing flag.
+ * @param {string | undefined} flag
+ * @param {string | undefined} [_legacyIndexFlag] Ignored compatibility argument.
  */
-export function businessIndexable(flag, indexFlag) {
-  return businessReleased(flag) && indexFlag === "true";
+export function businessIndexable(flag, _legacyIndexFlag = undefined) {
+  void _legacyIndexFlag;
+  return businessReleased(flag);
 }
 
 /**

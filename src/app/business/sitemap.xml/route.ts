@@ -11,12 +11,7 @@ const PAGES: { path: string; changefreq: string; priority: string }[] = [
 ];
 
 export function GET() {
-  if (
-    !businessIndexable(
-      process.env.BUSINESS_LANDING_ENABLED,
-      process.env.BUSINESS_SEARCH_INDEXING,
-    )
-  )
+  if (!businessIndexable(process.env.BUSINESS_LANDING_ENABLED))
     return new Response("Not found", {
       status: 404,
       headers: { "Cache-Control": "private, no-store" },

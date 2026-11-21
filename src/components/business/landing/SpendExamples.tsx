@@ -3,9 +3,17 @@ import { useProductTour } from "./useProductTour";
 import { ToolLogo } from "../ui";
 
 const tools = [
-  { name: "ChatGPT", amount: "$20 / month" },
-  { name: "Notion", amount: "$24 / month" },
-  { name: "Figma", amount: "$60 / month" },
+  { name: "Figma", amount: "US$60 / month", detail: "Subscription card · USD" },
+  {
+    name: "Meta Ads",
+    amount: "US$500 / top-up",
+    detail: "Usage-based · tops up below US$100",
+  },
+  {
+    name: "Google Workspace",
+    amount: "₦30,000 / month",
+    detail: "Subscription card · NGN",
+  },
 ];
 const funding = [
   {
@@ -38,7 +46,7 @@ export function SubscriptionExample() {
             <ToolLogo name={tool.name} />
             <div>
               <strong>{tool.name}</strong>
-              <span>Dedicated subscription card</span>
+              <span>{tool.detail}</span>
             </div>
             <strong>{tool.amount}</strong>
           </li>

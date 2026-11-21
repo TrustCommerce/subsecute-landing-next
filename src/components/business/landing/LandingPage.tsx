@@ -2,17 +2,16 @@ import { useState } from "react";
 import { AccessRequestDialog } from "./AccessRequestDialog";
 import { LandingNavigation, LandingFooter } from "./Navigation";
 import { HeroSection, SupportedTools } from "./HeroSection";
-import { FundingFlow } from "./FundingFlow";
+import { WorkspaceShowcase } from "./WorkspaceShowcase";
 import { WorkflowSection } from "./WorkflowSection";
-import { EditorialSection, FinalCallToAction } from "./StorySections";
-import { FeaturesSection } from "./FeaturesSection";
+import { FinalCallToAction } from "./StorySections";
 import { FaqSection } from "./FaqSection";
-import { SpendingSection, ExpenseSection } from "./SpendingSection";
 import { ControlsSection } from "./ControlsSection";
 import { FinanceSection } from "./FinanceSection";
 import "../landing.css";
 import "./LiveExamples.css";
 import "./SectionPatterns.css";
+import "./LandingRefresh.css";
 
 export default function LandingPage() {
   const [requestOpen, setRequestOpen] = useState(false);
@@ -26,14 +25,22 @@ export default function LandingPage() {
       <main id="business-main">
         <HeroSection onRequest={requestAccess} />
         <SupportedTools />
-        <FundingFlow />
-        <SpendingSection />
+        <section
+          className="bl-workspace bl-container"
+          aria-labelledby="workspace-title"
+        >
+          <div className="bl-section-heading">
+            <h2 id="workspace-title">Every card, in one workspace.</h2>
+            <p>
+              Track scheduled renewals, usage-based funding and team expenses
+              together.
+            </p>
+          </div>
+          <WorkspaceShowcase />
+        </section>
         <WorkflowSection />
         <ControlsSection />
-        <ExpenseSection />
-        <EditorialSection />
         <FinanceSection />
-        <FeaturesSection />
         <FaqSection />
         <FinalCallToAction onRequest={requestAccess} />
       </main>

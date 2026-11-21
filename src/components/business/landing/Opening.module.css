@@ -613,3 +613,44 @@
     font-size: 12px;
   }
 }
+
+/* The funding diagram now carries the hero explanation. */
+.hero .heroCopy {
+  max-width: 1100px;
+  margin-bottom: 40px;
+}
+.hero .headline {
+  max-width: 850px;
+  font-size: clamp(38px, 5vw, 66px);
+}
+.hero .heroDescription {
+  max-width: 1000px;
+  font-size: 18px;
+  line-height: 1.55;
+}
+.hero .heroNote {
+  display: block;
+  margin: 14px auto 0;
+  font-size: 14px;
+  color: var(--lp-muted);
+}
+.showcase {
+  margin-top: 0;
+}
+@media (max-width: 600px) {
+  .hero .headline {
+    font-size: 38px;
+  }
+  .hero .heroDescription {
+    font-size: 16px;
+  }
+  .row {
+    grid-template-columns: minmax(0, 1fr) 100px;
+  }
+  .row > strong {
+    font-size: 13px;
+  }
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+}

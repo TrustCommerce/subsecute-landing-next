@@ -47,7 +47,7 @@ export function SetupArtwork({ active }: { active: number }) {
           <div className="bp-money-route">
             <span>Naira wallet</span>
             <ArrowRight size={20} />
-            <span>Dollar card</span>
+            <span>Dollar or naira card</span>
           </div>
           <div className="bp-setup-note">
             Keep sufficient funds for upcoming subscription renewals.
@@ -72,9 +72,14 @@ export function SetupArtwork({ active }: { active: number }) {
               <span>Expense card · Admin-funded</span>
             </div>
           </div>
-          <div className="bp-setup-note">
-            View activity for each card separately.
+          <div className="bp-card-choice">
+            <ToolLogo name="Meta Ads" />
+            <div>
+              <strong>Meta Ads</strong>
+              <span>Usage-based · threshold funding</span>
+            </div>
           </div>
+          <div className="bp-setup-note">Dollar and naira cards.</div>
         </>
       )}
       {active === 3 && (
