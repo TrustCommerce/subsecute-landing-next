@@ -150,7 +150,7 @@ export function AccessRequestDialog({
           <>
             <h2 id="access-title">Request access.</h2>
             <p id="access-description" className={s.intro}>
-              Enter your company and contact details.
+              We usually reply within 24 hours.
             </p>
             <form onSubmit={submit} aria-busy={status === "sending"}>
               <fieldset disabled={status === "sending"} className={s.fields}>

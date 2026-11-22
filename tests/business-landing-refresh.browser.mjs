@@ -133,7 +133,7 @@ try {
     .getByRole("button", { name: "Preview funding record", exact: true })
     .click();
   const debit = await recordValue("Total wallet debit");
-  assert.equal(debit, 90801.9);
+  assert.equal(debit, 84042);
   await finance
     .getByRole("button", { name: "Preview company statement", exact: true })
     .click();
@@ -141,7 +141,7 @@ try {
   const funding = await recordValue("Figma card funding");
   const closing = await recordValue("Closing balance");
   assert.equal(funding, -debit);
-  assert.equal(closing, 159198.1);
+  assert.equal(closing, 165958);
   assert.equal(
     Math.round((opening + funding) * 100),
     Math.round(closing * 100),

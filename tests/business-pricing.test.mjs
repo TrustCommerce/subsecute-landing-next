@@ -16,19 +16,15 @@ const {
 } = await import(
   `data:text/javascript;base64,${Buffer.from(js).toString("base64")}`
 );
-test("the standard wallet top-up keeps every charge and balance reconciled", () => {
+test("the advertised funding example matches pricing and reconciles its balance", () => {
   assert.equal(naira(example.principal), "₦81,600.00");
-  assert.equal(naira(example.issuerFeeNgn), "₦1,224.00");
-  assert.equal(naira(example.margin), "₦3,654.00");
-  assert.equal(naira(example.fundingFee), "₦4,323.90");
-  assert.equal(naira(example.total), "₦90,801.90");
-  assert.equal(naira(example.closing), "₦159,198.10");
+  assert.equal(naira(example.margin), "₦1,200.00");
+  assert.equal(naira(example.fundingFee), "₦1,242.00");
+  assert.equal(naira(example.total), "₦84,042.00");
+  assert.equal(naira(example.closing), "₦165,958.00");
   assert.equal(
     example.total,
-    example.principal +
-      example.issuerFeeNgn +
-      example.margin +
-      example.fundingFee,
+    example.principal + example.margin + example.fundingFee,
   );
   assert.equal(example.opening - example.total, example.closing);
 });

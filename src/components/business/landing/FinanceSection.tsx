@@ -41,7 +41,6 @@ function FundingRecord() {
       <div className="bp-document-title">Figma</div>
       <p>Company wallet → card •••• 4412</p>
       <p className="bp-document-amount">{dollars(example.cardAmountUsd)}</p>
-      <p>Standard fees, before any launch offer</p>
       <dl className="bp-facts">
         <div>
           <dt>Base exchange rate</dt>
@@ -52,10 +51,6 @@ function FundingRecord() {
           <dd>{naira(example.principal)}</dd>
         </div>
         <div>
-          <dt>Issuer funding charge</dt>
-          <dd>{naira(example.issuerFeeNgn)}</dd>
-        </div>
-        <div>
           <dt>
             Exchange margin ({naira(BUSINESS_PRICING.exchangeMarginPerUsd)}
             /US$1)
@@ -63,7 +58,7 @@ function FundingRecord() {
           <dd>{naira(example.margin)}</dd>
         </div>
         <div>
-          <dt>Funding fee</dt>
+          <dt>Card funding fee ({BUSINESS_PRICING.fundingPercent}%)</dt>
           <dd>{naira(example.fundingFee)}</dd>
         </div>
         <div className="bp-total">

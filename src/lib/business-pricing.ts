@@ -1,11 +1,10 @@
-// Standard tariff from the company funding path. Launch offers can reduce a quote.
+// Advertised landing terms. Keep the illustration and fee table on the same basis.
 export const BUSINESS_PRICING = {
   membershipNgn: 0,
   launchMonths: 3,
-  fundingPercent: 5,
+  fundingPercent: 1.5,
   fundingFlatNgn: 0,
-  exchangeMarginPerUsd: 60,
-  issuerFundingPercent: 1.5,
+  exchangeMarginPerUsd: 20,
   cardCreationUsd: 1,
   monthlyCardUsd: 1,
   nairaCreationNgn: 100,
@@ -18,14 +17,9 @@ const round = (amount: number) =>
   Math.round((amount + Number.EPSILON) * 100) / 100;
 const cardAmountUsd = 60;
 const baseRate = 1360;
-const issuerFeeUsd = round(
-  (cardAmountUsd * BUSINESS_PRICING.issuerFundingPercent) / 100,
-);
-const dollarsPurchased = cardAmountUsd + issuerFeeUsd;
 const principal = round(cardAmountUsd * baseRate);
-const issuerFeeNgn = round(issuerFeeUsd * baseRate);
-const margin = round(dollarsPurchased * BUSINESS_PRICING.exchangeMarginPerUsd);
-const subtotal = round(principal + issuerFeeNgn + margin);
+const margin = round(cardAmountUsd * BUSINESS_PRICING.exchangeMarginPerUsd);
+const subtotal = round(principal + margin);
 const fundingFee = round(
   (subtotal * BUSINESS_PRICING.fundingPercent) / 100 +
     BUSINESS_PRICING.fundingFlatNgn,
@@ -35,8 +29,6 @@ export const FUNDING_EXAMPLE = {
   cardAmountUsd,
   baseRate,
   principal,
-  issuerFeeUsd,
-  issuerFeeNgn,
   margin,
   fundingFee,
   total,
@@ -48,7 +40,7 @@ export const BUSINESS_PRICE_ROWS = [
   ["Monthly membership", `${naira(BUSINESS_PRICING.membershipNgn)} per month`],
   [
     "Card funding from the wallet",
-    `${BUSINESS_PRICING.issuerFundingPercent}% card funding fee`,
+    `${BUSINESS_PRICING.fundingPercent}% card funding fee`,
   ],
   [
     "Dollar card creation",
