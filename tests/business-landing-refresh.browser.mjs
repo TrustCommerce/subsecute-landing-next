@@ -27,6 +27,18 @@ try {
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto(`${origin}/business`, { waitUntil: "networkidle" });
   await page.evaluate(() => document.fonts.ready);
+  assert.equal(
+    await page
+      .locator(".bl-subscription-ledger .meta svg path")
+      .getAttribute("fill"),
+    "#0866ff",
+  );
+  assert.equal(
+    await page
+      .locator('link[rel="icon"][href="/business-assets/logo.svg?v=orange"]')
+      .count(),
+    1,
+  );
 
   for (const width of [375, 768, 1440]) {
     await page.setViewportSize({ width, height: 1000 });

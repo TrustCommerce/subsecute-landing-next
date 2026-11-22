@@ -48,7 +48,7 @@ export const BUSINESS_PRICE_ROWS = [
   ["Monthly membership", `${naira(BUSINESS_PRICING.membershipNgn)} per month`],
   [
     "Card funding from the wallet",
-    `${BUSINESS_PRICING.issuerFundingPercent}% dollar-card issuer fee; no Subsecute fee for the first ${BUSINESS_PRICING.launchMonths} months`,
+    `${BUSINESS_PRICING.issuerFundingPercent}% card funding fee`,
   ],
   [
     "Dollar card creation",

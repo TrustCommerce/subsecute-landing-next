@@ -32,10 +32,10 @@ test("the standard wallet top-up keeps every charge and balance reconciled", () 
   );
   assert.equal(example.opening - example.total, example.closing);
 });
-test("pricing names dollar issuer fees separately from Subsecute fees", () => {
+test("pricing uses the approved card funding label", () => {
   assert.match(
     rows.find(([label]) => label === "Card funding from the wallet")[1],
-    /1.5% dollar-card issuer fee; no Subsecute fee for the first 3 months/,
+    /1.5% card funding fee/,
   );
   assert.match(
     rows.find(([label]) => label === "Naira cards")[1],

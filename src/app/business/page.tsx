@@ -8,10 +8,7 @@ import {
   businessIndexable,
   localBusinessPreview,
 } from "@/lib/business-release.mjs";
-import {
-  BUSINESS_SCHEMAS,
-  BUSINESS_URL,
-} from "@/lib/business-structured-data";
+import { BUSINESS_SCHEMAS, BUSINESS_URL } from "@/lib/business-structured-data";
 import BusinessLanding from "@/components/business/BusinessLanding";
 
 export const dynamic = "force-dynamic";
@@ -26,6 +23,14 @@ export const metadata: Metadata = {
     absolute: "Every company subscription on its own card.",
   },
   description: DESCRIPTION,
+  icons: {
+    icon: {
+      url: "/business-assets/logo.svg?v=orange",
+      type: "image/svg+xml",
+      sizes: "any",
+    },
+    shortcut: "/business-assets/logo.svg?v=orange",
+  },
   keywords:
     "company virtual dollar card Nigeria, business card for software subscriptions, pay for AWS from Nigeria, expense cards Nigeria, subscription management for Nigerian companies",
   metadataBase: new URL(BUSINESS_URL),
@@ -62,7 +67,10 @@ export default async function BusinessPage() {
   const edgeMark = requestHeaders.get(BUSINESS_EDGE_HEADER);
   if (
     !businessReleased(process.env.BUSINESS_LANDING_ENABLED) ||
-    !(businessHost(host, edgeMark) || localBusinessPreview(host, process.env.NODE_ENV))
+    !(
+      businessHost(host, edgeMark) ||
+      localBusinessPreview(host, process.env.NODE_ENV)
+    )
   )
     notFound();
   return (
