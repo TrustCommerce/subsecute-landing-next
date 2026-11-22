@@ -51,6 +51,15 @@ export function AccessRequestDialog({
     const values = new FormData(form);
     const value = (key: string) => String(values.get(key) ?? "").trim();
     const phone = value("phone");
+    const role = value("role");
+    const industry = value("industry");
+    const cards = values.getAll("cards").map(String);
+    const useCase = [
+      industry && `Industry: ${industry}`,
+      cards.length > 0 && `Cards: ${cards.join(", ")}`,
+    ]
+      .filter(Boolean)
+      .join("\n");
     const digits = phone.replace(/\D/g, "");
     if (
       !/^\+?[\d ()-]+$/.test(phone) ||
@@ -78,6 +87,8 @@ export function AccessRequestDialog({
           company_name: value("company"),
           email: value("email"),
           phone,
+          ...(role ? { role } : {}),
+          ...(useCase ? { use_case: useCase } : {}),
         }),
       });
       if (!response.ok) {
@@ -202,6 +213,52 @@ export function AccessRequestDialog({
                     />
                   </label>
                 </div>
+                <div className={s.row}>
+                  <label>
+                    Your role <span className={s.optional}>Optional</span>
+                    <select name="role" defaultValue="">
+                      <option value="">Select your role</option>
+                      <option value="FOUNDER_OR_CEO">Founder / CEO</option>
+                      <option value="FINANCE">Finance / Accounting</option>
+                      <option value="OPERATIONS">Operations</option>
+                      <option value="ENGINEERING">Engineering / IT</option>
+                      <option value="PRODUCT">Product</option>
+                      <option value="SALES_OR_MARKETING">
+                        Sales / Marketing
+                      </option>
+                      <option value="PEOPLE_AND_ADMIN">
+                        People / Administration
+                      </option>
+                      <option value="OTHER">Other</option>
+                    </select>
+                  </label>
+                  <label>
+                    Industry <span className={s.optional}>Optional</span>
+                    <input
+                      name="industry"
+                      placeholder="e.g. Technology"
+                      maxLength={160}
+                    />
+                  </label>
+                </div>
+                <fieldset className={s.cardTypes}>
+                  <legend>
+                    What cards will you need?{" "}
+                    <span className={s.optional}>Optional</span>
+                  </legend>
+                  <div className={s.cardOptions}>
+                    {[
+                      "Subscription cards",
+                      "Usage-based cards",
+                      "Expense cards",
+                    ].map((card) => (
+                      <label key={card}>
+                        <input type="checkbox" name="cards" value={card} />
+                        <span>{card}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
               </fieldset>
               {error && (
                 <p className={s.error} role="alert">

@@ -17,8 +17,8 @@ export function HeroSection({ onRequest }: { onRequest: () => void }) {
         </h1>
         <p className={styles.heroDescription}>
           Scheduled funding for fixed subscriptions. Threshold funding for
-          usage-based tools like Meta Ads and AWS. Dollar and naira cards from
-          one company wallet.
+          usage-based tools like Meta Ads and AWS. Plus expense cards for your
+          team, in dollars or naira, from one company wallet.
         </p>
         <SignupEntry onRequest={onRequest} />
         <p className={styles.heroNote}>

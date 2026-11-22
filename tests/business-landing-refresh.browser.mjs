@@ -161,7 +161,7 @@ try {
     await dialog
       .locator('input:not([type="hidden"]), select, textarea')
       .count(),
-    4,
+    9,
   );
   for (const [label, value] of [
     ["Full name", "Acceptance Test"],
@@ -229,7 +229,7 @@ try {
   assert.doesNotMatch(robotMetadata, /noindex|nofollow/i);
   assert.deepEqual(errors, []);
   console.log(
-    "Landing refresh passed: three widths, workspace, records, four-field form, mobile navigation and crawler discovery. All mutation requests intercepted.",
+    "Landing refresh passed: three widths, workspace, records, request form, mobile navigation and crawler discovery. All mutation requests intercepted.",
   );
 } finally {
   await browser.close();

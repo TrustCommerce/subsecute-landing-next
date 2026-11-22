@@ -83,6 +83,11 @@ try {
     company_name: "Example Business",
     phone: "+234 801 234 5678",
   });
+  await dialog.getByLabel(/Your role/).selectOption("FINANCE");
+  await dialog.getByLabel(/Industry/).fill("Technology");
+  await dialog.getByLabel("Subscription cards", { exact: true }).check();
+  await dialog.getByLabel("Usage-based cards", { exact: true }).check();
+  await dialog.getByLabel("Expense cards", { exact: true }).check();
   for (const width of [320, 375, 768, 1440]) {
     await page.setViewportSize({ width, height: 844 });
     const sizing = await dialog.evaluate((el) => ({
@@ -93,7 +98,7 @@ try {
     assert.ok(
       sizing.width <= width && sizing.height <= 844 && !sizing.overflow,
     );
-    if (width === 390 || width === 1440)
+    if (width === 375 || width === 1440)
       await dialog.screenshot({ path: `/tmp/business-access-${width}.png` });
   }
   outcome = "network";
@@ -117,6 +122,12 @@ try {
   await page.keyboard.press("Escape");
   assert.equal(await dialog.isVisible(), true);
   assert.equal(bodies.length, 3);
+  assert.equal(bodies[2].role, "FINANCE");
+  assert.equal(
+    bodies[2].use_case,
+    "Industry: Technology\nCards: Subscription cards, Usage-based cards, Expense cards",
+  );
+  assert.ok(bodies[2].use_case.length <= 1000);
   release();
   await page.getByRole("heading", { name: "Request received." }).waitFor();
   await page.getByRole("button", { name: "Back to Subsecute" }).click();
